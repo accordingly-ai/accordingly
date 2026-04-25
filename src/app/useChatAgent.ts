@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
-import { executeTool, type FieldValue } from '../forms/tools';
+import { executeTool, type FieldValue, type ToolExecutionResult } from '../forms/tools';
+import type { DriveFile } from './drive/types';
+import { extractFile } from './drive/extractors';
 
 export interface ToolCall {
   id: string;
@@ -97,14 +99,69 @@ function toApiMessage(m: ChatMessage): Record<string, unknown> {
   return { role: m.role, content: m.content };
 }
 
+export interface DriveAgentContext {
+  files: DriveFile[];
+  getToken: () => Promise<string>;
+}
+
 export interface UseChatAgentOptions {
   formId: string;
   manifest: FormManifest;
   answers: ApplicationAnswers;
   applyUpdates: (updates: Record<string, FieldValue>) => void;
+  drive?: DriveAgentContext;
 }
 
-export function useChatAgent({ formId, manifest, answers, applyUpdates }: UseChatAgentOptions) {
+const DRIVE_TOOL_NAMES = new Set(['list_drive_files', 'read_drive_file']);
+
+async function executeDriveTool(
+  name: string,
+  args: Record<string, unknown>,
+  drive: DriveAgentContext,
+): Promise<ToolExecutionResult> {
+  if (name === 'list_drive_files') {
+    return {
+      result: {
+        files: drive.files.map((f) => ({ id: f.id, name: f.name, mimeType: f.mimeType })),
+      },
+    };
+  }
+  if (name === 'read_drive_file') {
+    const id = typeof args.id === 'string' ? args.id : '';
+    if (!id) return { result: { error: 'missing id' } };
+    const file = drive.files.find((f) => f.id === id);
+    if (!file) return { result: { error: `file not connected: ${id}` } };
+    try {
+      const token = await drive.getToken();
+      const { text, truncated } = await extractFile(file, token);
+      return {
+        result: {
+          name: file.name,
+          mimeType: file.mimeType,
+          text,
+          ...(truncated ? { truncated: true } : {}),
+        },
+      };
+    } catch (e) {
+      return {
+        result: {
+          name: file.name,
+          mimeType: file.mimeType,
+          error: e instanceof Error ? e.message : String(e),
+        },
+      };
+    }
+  }
+  return { result: { error: `unknown drive tool: ${name}` } };
+}
+
+export function useChatAgent({
+  formId,
+  manifest,
+  answers,
+  applyUpdates,
+  drive,
+}: UseChatAgentOptions) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [streaming, setStreaming] = useState(false);
@@ -115,6 +172,11 @@ export function useChatAgent({ formId, manifest, answers, applyUpdates }: UseCha
   useEffect(() => {
     answersRef.current = answers;
   }, [answers]);
+
+  const driveRef = useRef<DriveAgentContext | undefined>(drive);
+  useEffect(() => {
+    driveRef.current = drive;
+  }, [drive]);
 
   // Load persisted history on form change.
   useEffect(() => {
@@ -140,6 +202,7 @@ export function useChatAgent({ formId, manifest, answers, applyUpdates }: UseCha
         body: JSON.stringify({
           formId,
           messages: history.map(toApiMessage),
+          driveConnected: !!driveRef.current,
         }),
       });
       if (!res.ok || !res.body) {
@@ -227,12 +290,23 @@ export function useChatAgent({ formId, manifest, answers, applyUpdates }: UseCha
             } catch {
               parsedArgs = {};
             }
-            const { result, updates } = executeTool(
-              call.name,
-              parsedArgs,
-              manifest,
-              answersRef.current,
-            );
+            let execResult: ToolExecutionResult;
+            if (DRIVE_TOOL_NAMES.has(call.name)) {
+              const ctx = driveRef.current;
+              if (!ctx) {
+                execResult = { result: { error: 'drive not connected' } };
+              } else {
+                execResult = await executeDriveTool(call.name, parsedArgs, ctx);
+              }
+            } else {
+              execResult = executeTool(
+                call.name,
+                parsedArgs,
+                manifest,
+                answersRef.current,
+              );
+            }
+            const { result, updates } = execResult;
             if (updates) {
               for (const [k, v] of Object.entries(updates)) {
                 aggregateUpdates[k] = v;
