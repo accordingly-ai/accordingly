@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import type { ApplicationAnswers, FormFieldDef, FormManifest } from '../forms/types';
+import { ChatPanel } from './ChatPanel';
 
 interface PageMeta {
   /** scaled width in CSS px */
@@ -81,6 +82,7 @@ function FieldInput({
           padding: '0 2px',
           border: '1px solid #93c5fd',
           background: 'rgba(219, 234, 254, 0.45)',
+          color: '#0f172a',
           boxSizing: 'border-box',
         }}
       >
@@ -123,6 +125,7 @@ function FieldInput({
         padding: '0 2px',
         border: '1px solid #93c5fd',
         background: 'rgba(219, 234, 254, 0.35)',
+        color: '#0f172a',
         boxSizing: 'border-box',
       }}
     />
@@ -264,6 +267,10 @@ export function FormView() {
     setAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
+  const applyUpdates = useCallback((updates: Record<string, string | boolean | null>) => {
+    setAnswers((prev) => ({ ...prev, ...updates }));
+  }, []);
+
   const filledCount = useMemo(
     () =>
       Object.values(answers).filter((v) => v === true || (typeof v === 'string' && v.length > 0))
@@ -279,52 +286,63 @@ export function FormView() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-100">
-      <div className="sticky top-0 z-10 bg-neutral-950/90 backdrop-blur border-b border-neutral-800 px-6 py-3 flex items-center gap-4">
-        <Link to="/" className="text-blue-400 hover:underline text-sm">
-          ← Back
-        </Link>
-        <h1 className="text-lg font-semibold">{manifest.title}</h1>
-        <div className="text-xs text-neutral-400 ml-auto">
-          {filledCount}/{manifest.fields.length} fields filled · page{' '}
-          {renderedPages}/{pages.length || '…'}
+    <div className="min-h-screen bg-neutral-900 text-neutral-100 flex flex-col lg:flex-row">
+      <div className="flex-1 min-w-0 flex flex-col">
+        <div className="sticky top-0 z-10 bg-neutral-950/90 backdrop-blur border-b border-neutral-800 px-6 py-3 flex items-center gap-4">
+          <Link to="/" className="text-blue-400 hover:underline text-sm">
+            ← Back
+          </Link>
+          <h1 className="text-lg font-semibold">{manifest.title}</h1>
+          <div className="text-xs text-neutral-400 ml-auto">
+            {filledCount}/{manifest.fields.length} fields filled · page{' '}
+            {renderedPages}/{pages.length || '…'}
+          </div>
+        </div>
+
+        <div ref={containerRef} className="p-6 flex flex-col items-center gap-6">
+          {pages.map((meta, idx) => {
+            const pageFields = fieldsByPage.get(idx) ?? [];
+            return (
+              <div
+                key={idx}
+                className="relative shadow-lg ring-1 ring-neutral-800 bg-white"
+                style={{ width: `${meta.width}px`, height: `${meta.height}px` }}
+              >
+                <canvas
+                  ref={(el) => {
+                    if (el) canvasRefs.current.set(idx + 1, el);
+                    else canvasRefs.current.delete(idx + 1);
+                  }}
+                  className="absolute inset-0"
+                />
+                <div className="absolute inset-0">
+                  {pageFields.map((field, i) => (
+                    <FieldInput
+                      key={`${field.name}-${i}`}
+                      field={field}
+                      meta={meta}
+                      value={answers[field.name]}
+                      onChange={(v) => setAnswer(field.name, v)}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+          {pages.length === 0 && (
+            <div className="text-neutral-400 text-sm py-12">Loading PDF…</div>
+          )}
         </div>
       </div>
 
-      <div ref={containerRef} className="p-6 flex flex-col items-center gap-6">
-        {pages.map((meta, idx) => {
-          const pageFields = fieldsByPage.get(idx) ?? [];
-          return (
-            <div
-              key={idx}
-              className="relative shadow-lg ring-1 ring-neutral-800 bg-white"
-              style={{ width: `${meta.width}px`, height: `${meta.height}px` }}
-            >
-              <canvas
-                ref={(el) => {
-                  if (el) canvasRefs.current.set(idx + 1, el);
-                  else canvasRefs.current.delete(idx + 1);
-                }}
-                className="absolute inset-0"
-              />
-              <div className="absolute inset-0">
-                {pageFields.map((field, i) => (
-                  <FieldInput
-                    key={`${field.name}-${i}`}
-                    field={field}
-                    meta={meta}
-                    value={answers[field.name]}
-                    onChange={(v) => setAnswer(field.name, v)}
-                  />
-                ))}
-              </div>
-            </div>
-          );
-        })}
-        {pages.length === 0 && (
-          <div className="text-neutral-400 text-sm py-12">Loading PDF…</div>
-        )}
-      </div>
+      {id && (
+        <ChatPanel
+          formId={id}
+          manifest={manifest}
+          answers={answers}
+          applyUpdates={applyUpdates}
+        />
+      )}
     </div>
   );
 }
