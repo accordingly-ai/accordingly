@@ -3,9 +3,10 @@
   "title": "ACORD 125 — Commercial Insurance Application",
   "fields": [
     {
-      "name": "Check Box165",
+      "name": "address-es",
+      "pdfName": "Check Box165",
       "type": "checkbox",
-      "label": "Check Box165",
+      "label": "ADDRESS(ES):",
       "page": 0,
       "rect": [
         18.5457,
@@ -15,9 +16,10 @@
       ]
     },
     {
-      "name": "Check Box167",
+      "name": "individual-2",
+      "pdfName": "Check Box167",
       "type": "checkbox",
-      "label": "Check Box167",
+      "label": "INDIVIDUAL",
       "page": 0,
       "rect": [
         87.6124,
@@ -27,9 +29,10 @@
       ]
     },
     {
-      "name": "Check Box169",
+      "name": "subchapter-s",
+      "pdfName": "Check Box169",
       "type": "checkbox",
-      "label": "Check Box169",
+      "label": "SUBCHAPTER \"S\"",
       "page": 0,
       "rect": [
         159.877,
@@ -39,9 +42,10 @@
       ]
     },
     {
-      "name": "Check Box171",
+      "name": "subchapter-s-2",
+      "pdfName": "Check Box171",
       "type": "checkbox",
-      "label": "Check Box171",
+      "label": "SUBCHAPTER \"S\"",
       "page": 0,
       "rect": [
         231.501,
@@ -51,9 +55,10 @@
       ]
     },
     {
-      "name": "Check Box166",
+      "name": "individual",
+      "pdfName": "Check Box166",
       "type": "checkbox",
-      "label": "Check Box166",
+      "label": "INDIVIDUAL",
       "page": 0,
       "rect": [
         18.5457,
@@ -63,9 +68,10 @@
       ]
     },
     {
-      "name": "Check Box168",
+      "name": "partnership",
+      "pdfName": "Check Box168",
       "type": "checkbox",
-      "label": "Check Box168",
+      "label": "PARTNERSHIP",
       "page": 0,
       "rect": [
         87.6124,
@@ -75,9 +81,10 @@
       ]
     },
     {
-      "name": "Check Box170",
+      "name": "corporation",
+      "pdfName": "Check Box170",
       "type": "checkbox",
-      "label": "Check Box170",
+      "label": "CORPORATION",
       "page": 0,
       "rect": [
         159.877,
@@ -87,9 +94,10 @@
       ]
     },
     {
-      "name": "Text183",
+      "name": "no-of-members",
+      "pdfName": "Text183",
       "type": "text",
-      "label": "Text183",
+      "label": "NO. OF MEMBERS",
       "page": 0,
       "rect": [
         285.22,
@@ -99,9 +107,10 @@
       ]
     },
     {
-      "name": "date",
+      "name": "started",
+      "pdfName": "date",
       "type": "text",
-      "label": "date",
+      "label": "STARTED",
       "page": 0,
       "rect": [
         551.443,
@@ -111,9 +120,10 @@
       ]
     },
     {
-      "name": "acc record contact",
+      "name": "accounting-records-contact",
+      "pdfName": "acc record contact",
       "type": "text",
-      "label": "acc record contact",
+      "label": "ACCOUNTING RECORDS CONTACT:",
       "page": 0,
       "rect": [
         350.289,
@@ -123,9 +133,10 @@
       ]
     },
     {
-      "name": "Check Box1",
+      "name": "check-box1",
+      "pdfName": "Check Box1",
       "type": "checkbox",
-      "label": "Check Box1",
+      "label": "",
       "page": 0,
       "rect": [
         292.363,
@@ -135,9 +146,10 @@
       ]
     },
     {
-      "name": "Check Box3",
+      "name": "inside-2",
+      "pdfName": "Check Box3",
       "type": "checkbox",
-      "label": "Check Box3",
+      "label": "INSIDE",
       "page": 0,
       "rect": [
         339.054,
@@ -147,9 +159,10 @@
       ]
     },
     {
-      "name": "Check Box2",
+      "name": "inside",
+      "pdfName": "Check Box2",
       "type": "checkbox",
-      "label": "Check Box2",
+      "label": "INSIDE",
       "page": 0,
       "rect": [
         292.363,
@@ -159,9 +172,10 @@
       ]
     },
     {
-      "name": "Check Box4",
+      "name": "outside-2",
+      "pdfName": "Check Box4",
       "type": "checkbox",
-      "label": "Check Box4",
+      "label": "OUTSIDE",
       "page": 0,
       "rect": [
         338.617,
@@ -171,9 +185,10 @@
       ]
     },
     {
-      "name": "Check Box5",
+      "name": "outside-3",
+      "pdfName": "Check Box5",
       "type": "checkbox",
-      "label": "Check Box5",
+      "label": "OUTSIDE",
       "page": 0,
       "rect": [
         292.363,
@@ -183,9 +198,10 @@
       ]
     },
     {
-      "name": "Check Box7",
+      "name": "inside-4",
+      "pdfName": "Check Box7",
       "type": "checkbox",
-      "label": "Check Box7",
+      "label": "INSIDE",
       "page": 0,
       "rect": [
         339.49,
@@ -195,9 +211,10 @@
       ]
     },
     {
-      "name": "Check Box6",
+      "name": "inside-3",
+      "pdfName": "Check Box6",
       "type": "checkbox",
-      "label": "Check Box6",
+      "label": "INSIDE",
       "page": 0,
       "rect": [
         291.927,
@@ -207,9 +224,10 @@
       ]
     },
     {
-      "name": "Check Box8",
+      "name": "outside-4",
+      "pdfName": "Check Box8",
       "type": "checkbox",
-      "label": "Check Box8",
+      "label": "OUTSIDE",
       "page": 0,
       "rect": [
         339.49,
@@ -219,9 +237,10 @@
       ]
     },
     {
-      "name": "nature bus",
+      "name": "nature-of-business-description-of-operations-by-premise-s-use-10-words-or-more-to-describe",
+      "pdfName": "nature bus",
       "type": "text",
-      "label": "nature bus",
+      "label": "NATURE OF BUSINESS - DESCRIPTION OF OPERATIONS BY PREMISE(S) USE 10 WORDS OR MORE TO DESCRIBE:",
       "page": 0,
       "rect": [
         17.3147,
@@ -231,9 +250,10 @@
       ]
     },
     {
-      "name": "Check Box9",
+      "name": "check-box9",
+      "pdfName": "Check Box9",
       "type": "checkbox",
-      "label": "Check Box9",
+      "label": "",
       "page": 0,
       "rect": [
         281.454,
@@ -243,9 +263,10 @@
       ]
     },
     {
-      "name": "Check Box10",
+      "name": "check-box10",
+      "pdfName": "Check Box10",
       "type": "checkbox",
-      "label": "Check Box10",
+      "label": "",
       "page": 0,
       "rect": [
         295.854,
@@ -255,9 +276,10 @@
       ]
     },
     {
-      "name": "Check Box11",
+      "name": "indicted-for-or-convicted-of-any-degree-of-the-crime-of-fraud",
+      "pdfName": "Check Box11",
       "type": "checkbox",
-      "label": "Check Box11",
+      "label": "INDICTED FOR OR CONVICTED OF ANY DEGREE OF THE CRIME OF FRAUD,",
       "page": 0,
       "rect": [
         281.454,
@@ -267,9 +289,10 @@
       ]
     },
     {
-      "name": "Check Box12",
+      "name": "indicted-for-or-convicted-of-any-degree-of-the-crime-of-fraud-2",
+      "pdfName": "Check Box12",
       "type": "checkbox",
-      "label": "Check Box12",
+      "label": "INDICTED FOR OR CONVICTED OF ANY DEGREE OF THE CRIME OF FRAUD,",
       "page": 0,
       "rect": [
         295.636,
@@ -279,9 +302,10 @@
       ]
     },
     {
-      "name": "Check Box13",
+      "name": "with-this-or-any-other-property",
+      "pdfName": "Check Box13",
       "type": "checkbox",
-      "label": "Check Box13",
+      "label": "WITH THIS OR ANY OTHER PROPERTY?",
       "page": 0,
       "rect": [
         281.454,
@@ -291,9 +315,10 @@
       ]
     },
     {
-      "name": "Check Box14",
+      "name": "with-this-or-any-other-property-2",
+      "pdfName": "Check Box14",
       "type": "checkbox",
-      "label": "Check Box14",
+      "label": "WITH THIS OR ANY OTHER PROPERTY?",
       "page": 0,
       "rect": [
         295.854,
@@ -303,9 +328,10 @@
       ]
     },
     {
-      "name": "Check Box15",
+      "name": "in-ri-this-question-must-be-answered-by-any-applicant-for-property-insurance",
+      "pdfName": "Check Box15",
       "type": "checkbox",
-      "label": "Check Box15",
+      "label": "(In RI, this question must be answered by any applicant for property insurance.",
       "page": 0,
       "rect": [
         281.454,
@@ -315,9 +341,10 @@
       ]
     },
     {
-      "name": "Check Box16",
+      "name": "in-ri-this-question-must-be-answered-by-any-applicant-for-property-insurance-2",
+      "pdfName": "Check Box16",
       "type": "checkbox",
-      "label": "Check Box16",
+      "label": "(In RI, this question must be answered by any applicant for property insurance.",
       "page": 0,
       "rect": [
         295.854,
@@ -327,9 +354,10 @@
       ]
     },
     {
-      "name": "Check Box25",
+      "name": "failure",
+      "pdfName": "Check Box25",
       "type": "checkbox",
-      "label": "Check Box25",
+      "label": "Failure",
       "page": 0,
       "rect": [
         565.744,
@@ -339,9 +367,10 @@
       ]
     },
     {
-      "name": "Check Box26",
+      "name": "failure-2",
+      "pdfName": "Check Box26",
       "type": "checkbox",
-      "label": "Check Box26",
+      "label": "Failure",
       "page": 0,
       "rect": [
         580.362,
@@ -351,9 +380,10 @@
       ]
     },
     {
-      "name": "Check Box17",
+      "name": "sentence-of-up-to-one-year-of-imprisonment",
+      "pdfName": "Check Box17",
       "type": "checkbox",
-      "label": "Check Box17",
+      "label": "sentence of up to one year of imprisonment).",
       "page": 0,
       "rect": [
         281.454,
@@ -363,9 +393,10 @@
       ]
     },
     {
-      "name": "Check Box18",
+      "name": "sentence-of-up-to-one-year-of-imprisonment-2",
+      "pdfName": "Check Box18",
       "type": "checkbox",
-      "label": "Check Box18",
+      "label": "sentence of up to one year of imprisonment).",
       "page": 0,
       "rect": [
         296.181,
@@ -375,9 +406,10 @@
       ]
     },
     {
-      "name": "Check Box27",
+      "name": "to-disclose-the-existence-of-an-arson-conviction-is-a-misdemeanor-punishable-by-a",
+      "pdfName": "Check Box27",
       "type": "checkbox",
-      "label": "Check Box27",
+      "label": "to disclose the existence of an arson conviction is a misdemeanor punishable by a",
       "page": 0,
       "rect": [
         565.962,
@@ -387,9 +419,10 @@
       ]
     },
     {
-      "name": "Check Box28",
+      "name": "to-disclose-the-existence-of-an-arson-conviction-is-a-misdemeanor-punishable-by-a-2",
+      "pdfName": "Check Box28",
       "type": "checkbox",
-      "label": "Check Box28",
+      "label": "to disclose the existence of an arson conviction is a misdemeanor punishable by a",
       "page": 0,
       "rect": [
         580.362,
@@ -399,9 +432,10 @@
       ]
     },
     {
-      "name": "Text21",
+      "name": "9-3",
+      "pdfName": "Text21",
       "type": "text",
-      "label": "Text21",
+      "label": "9.",
       "page": 0,
       "rect": [
         288.163,
@@ -411,9 +445,10 @@
       ]
     },
     {
-      "name": "Check Box19",
+      "name": "9",
+      "pdfName": "Check Box19",
       "type": "checkbox",
-      "label": "Check Box19",
+      "label": "9.",
       "page": 0,
       "rect": [
         281.89,
@@ -423,9 +458,10 @@
       ]
     },
     {
-      "name": "Check Box20",
+      "name": "9-2",
+      "pdfName": "Check Box20",
       "type": "checkbox",
-      "label": "Check Box20",
+      "label": "9.",
       "page": 0,
       "rect": [
         296.072,
@@ -435,9 +471,10 @@
       ]
     },
     {
-      "name": "Check Box29",
+      "name": "any-bankruptcies-tax-or-credit-liens-against-the-applicant",
+      "pdfName": "Check Box29",
       "type": "checkbox",
-      "label": "Check Box29",
+      "label": "ANY BANKRUPTCIES, TAX OR CREDIT LIENS AGAINST THE APPLICANT",
       "page": 0,
       "rect": [
         565.962,
@@ -447,9 +484,10 @@
       ]
     },
     {
-      "name": "Check Box30",
+      "name": "any-bankruptcies-tax-or-credit-liens-against-the-applicant-2",
+      "pdfName": "Check Box30",
       "type": "checkbox",
-      "label": "Check Box30",
+      "label": "ANY BANKRUPTCIES, TAX OR CREDIT LIENS AGAINST THE APPLICANT",
       "page": 0,
       "rect": [
         580.581,
@@ -459,9 +497,10 @@
       ]
     },
     {
-      "name": "Check Box21",
+      "name": "any-policy-or-coverage-declined-cancelled-or-non-renewed-during",
+      "pdfName": "Check Box21",
       "type": "checkbox",
-      "label": "Check Box21",
+      "label": "ANY POLICY OR COVERAGE DECLINED, CANCELLED OR NON-RENEWED DURING",
       "page": 0,
       "rect": [
         281.454,
@@ -471,9 +510,10 @@
       ]
     },
     {
-      "name": "Check Box22",
+      "name": "11",
+      "pdfName": "Check Box22",
       "type": "checkbox",
-      "label": "Check Box22",
+      "label": "11.",
       "page": 0,
       "rect": [
         296.072,
@@ -483,9 +523,10 @@
       ]
     },
     {
-      "name": "Check Box31",
+      "name": "any-foreign-operations-foreign-products-distributed-in-usa-or-us",
+      "pdfName": "Check Box31",
       "type": "checkbox",
-      "label": "Check Box31",
+      "label": "ANY FOREIGN OPERATIONS, FOREIGN PRODUCTS DISTRIBUTED IN USA, OR US",
       "page": 0,
       "rect": [
         566.071,
@@ -495,9 +536,10 @@
       ]
     },
     {
-      "name": "Check Box32",
+      "name": "any-foreign-operations-foreign-products-distributed-in-usa-or-us-2",
+      "pdfName": "Check Box32",
       "type": "checkbox",
-      "label": "Check Box32",
+      "label": "ANY FOREIGN OPERATIONS, FOREIGN PRODUCTS DISTRIBUTED IN USA, OR US",
       "page": 0,
       "rect": [
         580.144,
@@ -507,9 +549,10 @@
       ]
     },
     {
-      "name": "Check Box23",
+      "name": "12",
+      "pdfName": "Check Box23",
       "type": "checkbox",
-      "label": "Check Box23",
+      "label": "12.",
       "page": 0,
       "rect": [
         281.657,
@@ -519,9 +562,10 @@
       ]
     },
     {
-      "name": "Check Box24",
+      "name": "12-2",
+      "pdfName": "Check Box24",
       "type": "checkbox",
-      "label": "Check Box24",
+      "label": "12.",
       "page": 0,
       "rect": [
         295.679,
@@ -531,9 +575,10 @@
       ]
     },
     {
-      "name": "Check Box33",
+      "name": "any-foreign-operations-foreign-products-distributed-in-usa-or-us-3",
+      "pdfName": "Check Box33",
       "type": "checkbox",
-      "label": "Check Box33",
+      "label": "ANY FOREIGN OPERATIONS, FOREIGN PRODUCTS DISTRIBUTED IN USA, OR US",
       "page": 0,
       "rect": [
         565.853,
@@ -543,9 +588,10 @@
       ]
     },
     {
-      "name": "Check Box34",
+      "name": "any-foreign-operations-foreign-products-distributed-in-usa-or-us-4",
+      "pdfName": "Check Box34",
       "type": "checkbox",
-      "label": "Check Box34",
+      "label": "ANY FOREIGN OPERATIONS, FOREIGN PRODUCTS DISTRIBUTED IN USA, OR US",
       "page": 0,
       "rect": [
         580.58,
@@ -555,9 +601,10 @@
       ]
     },
     {
-      "name": "Text54",
+      "name": "producer-s-signature",
+      "pdfName": "Text54",
       "type": "text",
-      "label": "Text54",
+      "label": "PRODUCER’S SIGNATURE",
       "page": 0,
       "rect": [
         295.452,
@@ -567,9 +614,10 @@
       ]
     },
     {
-      "name": "typeofloss2",
+      "name": "type-description-of-occurrence-or-claim-2",
+      "pdfName": "typeofloss2",
       "type": "text",
-      "label": "typeofloss2",
+      "label": "TYPE/DESCRIPTION OF OCCURRENCE OR CLAIM",
       "page": 1,
       "rect": [
         123.552,
@@ -579,9 +627,10 @@
       ]
     },
     {
-      "name": "todaysdate",
+      "name": "date-mm-dd-yyyy",
+      "pdfName": "todaysdate",
       "type": "text",
-      "label": "todaysdate",
+      "label": "DATE (MM/DD/YYYY)",
       "page": 0,
       "rect": [
         510.783,
@@ -591,9 +640,10 @@
       ]
     },
     {
-      "name": "todaysdate",
+      "name": "date-mm-dd-yyyy",
+      "pdfName": "todaysdate",
       "type": "text",
-      "label": "todaysdate",
+      "label": "DATE (MM/DD/YYYY)",
       "page": 2,
       "rect": [
         508.408,
@@ -603,9 +653,10 @@
       ]
     },
     {
-      "name": "todaysdate",
+      "name": "date-mm-dd-yyyy",
+      "pdfName": "todaysdate",
       "type": "text",
-      "label": "todaysdate",
+      "label": "DATE (MM/DD/YYYY)",
       "page": 4,
       "rect": [
         509.894,
@@ -615,9 +666,10 @@
       ]
     },
     {
-      "name": "applicantinfo",
+      "name": "property-section",
+      "pdfName": "applicantinfo",
       "type": "text",
-      "label": "applicantinfo",
+      "label": "PROPERTY SECTION",
       "page": 4,
       "rect": [
         292.894,
@@ -627,9 +679,10 @@
       ]
     },
     {
-      "name": "agentsname",
+      "name": "applicant-information-section",
+      "pdfName": "agentsname",
       "type": "text",
-      "label": "agentsname",
+      "label": "APPLICANT INFORMATION SECTION",
       "page": 0,
       "rect": [
         68.5663,
@@ -639,9 +692,10 @@
       ]
     },
     {
-      "name": "agentsname",
+      "name": "applicant-information-section",
+      "pdfName": "agentsname",
       "type": "text",
-      "label": "agentsname",
+      "label": "APPLICANT INFORMATION SECTION",
       "page": 2,
       "rect": [
         19.5425,
@@ -651,9 +705,10 @@
       ]
     },
     {
-      "name": "agentsname",
+      "name": "applicant-information-section",
+      "pdfName": "agentsname",
       "type": "text",
-      "label": "agentsname",
+      "label": "APPLICANT INFORMATION SECTION",
       "page": 4,
       "rect": [
         19.8247,
@@ -663,9 +718,10 @@
       ]
     },
     {
-      "name": "effectivedate",
+      "name": "effective-date-2",
+      "pdfName": "effectivedate",
       "type": "text",
-      "label": "effectivedate",
+      "label": "EFFECTIVE DATE",
       "page": 2,
       "rect": [
         248.728,
@@ -675,9 +731,10 @@
       ]
     },
     {
-      "name": "effectivedate",
+      "name": "effective-date-2",
+      "pdfName": "effectivedate",
       "type": "text",
-      "label": "effectivedate",
+      "label": "EFFECTIVE DATE",
       "page": 4,
       "rect": [
         248.768,
@@ -687,9 +744,10 @@
       ]
     },
     {
-      "name": "effectivedate",
+      "name": "effective-date-2",
+      "pdfName": "effectivedate",
       "type": "text",
-      "label": "effectivedate",
+      "label": "EFFECTIVE DATE",
       "page": 0,
       "rect": [
         217.765,
@@ -699,9 +757,10 @@
       ]
     },
     {
-      "name": "expirationdate",
+      "name": "expiration-date",
+      "pdfName": "expirationdate",
       "type": "text",
-      "label": "expirationdate",
+      "label": "EXPIRATION DATE",
       "page": 2,
       "rect": [
         311.565,
@@ -711,9 +770,10 @@
       ]
     },
     {
-      "name": "expirationdate",
+      "name": "expiration-date",
+      "pdfName": "expirationdate",
       "type": "text",
-      "label": "expirationdate",
+      "label": "EXPIRATION DATE",
       "page": 4,
       "rect": [
         314.637,
@@ -723,9 +783,10 @@
       ]
     },
     {
-      "name": "expirationdate",
+      "name": "expiration-date",
+      "pdfName": "expirationdate",
       "type": "text",
-      "label": "expirationdate",
+      "label": "EXPIRATION DATE",
       "page": 0,
       "rect": [
         298.345,
@@ -735,9 +796,10 @@
       ]
     },
     {
-      "name": "agentzipcode",
+      "name": "effective-date",
+      "pdfName": "agentzipcode",
       "type": "text",
-      "label": "agentzipcode",
+      "label": "EFFECTIVE DATE",
       "page": 2,
       "rect": [
         181.062,
@@ -747,9 +809,10 @@
       ]
     },
     {
-      "name": "agentzipcode",
+      "name": "effective-date",
+      "pdfName": "agentzipcode",
       "type": "text",
-      "label": "agentzipcode",
+      "label": "EFFECTIVE DATE",
       "page": 4,
       "rect": [
         99.1235,
@@ -759,9 +822,10 @@
       ]
     },
     {
-      "name": "agentzipcode",
+      "name": "effective-date",
+      "pdfName": "agentzipcode",
       "type": "text",
-      "label": "agentzipcode",
+      "label": "EFFECTIVE DATE",
       "page": 0,
       "rect": [
         177.142,
@@ -771,9 +835,10 @@
       ]
     },
     {
-      "name": "Text188",
+      "name": "remarks",
+      "pdfName": "Text188",
       "type": "text",
-      "label": "Text188",
+      "label": "REMARKS",
       "page": 2,
       "rect": [
         331.264,
@@ -783,9 +848,10 @@
       ]
     },
     {
-      "name": "Check Box92",
+      "name": "4-do-your-subcontractors-carry-coverages-or-limits",
+      "pdfName": "Check Box92",
       "type": "checkbox",
-      "label": "Check Box92",
+      "label": "4. DO YOUR SUBCONTRACTORS CARRY COVERAGES OR LIMITS",
       "page": 3,
       "rect": [
         281.413,
@@ -795,9 +861,10 @@
       ]
     },
     {
-      "name": "Check Box93",
+      "name": "4-do-your-subcontractors-carry-coverages-or-limits-2",
+      "pdfName": "Check Box93",
       "type": "checkbox",
-      "label": "Check Box93",
+      "label": "4. DO YOUR SUBCONTRACTORS CARRY COVERAGES OR LIMITS",
       "page": 3,
       "rect": [
         296.508,
@@ -807,9 +874,10 @@
       ]
     },
     {
-      "name": "Check Box98",
+      "name": "4-do-your-subcontractors-carry-coverages-or-limits-3",
+      "pdfName": "Check Box98",
       "type": "checkbox",
-      "label": "Check Box98",
+      "label": "4. DO YOUR SUBCONTRACTORS CARRY COVERAGES OR LIMITS",
       "page": 3,
       "rect": [
         562.471,
@@ -819,9 +887,10 @@
       ]
     },
     {
-      "name": "Check Box99",
+      "name": "4-do-your-subcontractors-carry-coverages-or-limits-4",
+      "pdfName": "Check Box99",
       "type": "checkbox",
-      "label": "Check Box99",
+      "label": "4. DO YOUR SUBCONTRACTORS CARRY COVERAGES OR LIMITS",
       "page": 3,
       "rect": [
         577.417,
@@ -831,9 +900,10 @@
       ]
     },
     {
-      "name": "Check Box94",
+      "name": "5-are-subcontractors-allowed-to-work-without-3",
+      "pdfName": "Check Box94",
       "type": "checkbox",
-      "label": "Check Box94",
+      "label": "5. ARE SUBCONTRACTORS ALLOWED TO WORK WITHOUT",
       "page": 3,
       "rect": [
         281.672,
@@ -843,9 +913,10 @@
       ]
     },
     {
-      "name": "Check Box95",
+      "name": "5-are-subcontractors-allowed-to-work-without-4",
+      "pdfName": "Check Box95",
       "type": "checkbox",
-      "label": "Check Box95",
+      "label": "5. ARE SUBCONTRACTORS ALLOWED TO WORK WITHOUT",
       "page": 3,
       "rect": [
         296.508,
@@ -855,9 +926,10 @@
       ]
     },
     {
-      "name": "Check Box100",
+      "name": "5-are-subcontractors-allowed-to-work-without",
+      "pdfName": "Check Box100",
       "type": "checkbox",
-      "label": "Check Box100",
+      "label": "5. ARE SUBCONTRACTORS ALLOWED TO WORK WITHOUT",
       "page": 3,
       "rect": [
         562.471,
@@ -867,9 +939,10 @@
       ]
     },
     {
-      "name": "Check Box101",
+      "name": "5-are-subcontractors-allowed-to-work-without-2",
+      "pdfName": "Check Box101",
       "type": "checkbox",
-      "label": "Check Box101",
+      "label": "5. ARE SUBCONTRACTORS ALLOWED TO WORK WITHOUT",
       "page": 3,
       "rect": [
         577.308,
@@ -879,9 +952,10 @@
       ]
     },
     {
-      "name": "Check Box96",
+      "name": "6-does-applicant-lease-equipment-to-others-with-or-3",
+      "pdfName": "Check Box96",
       "type": "checkbox",
-      "label": "Check Box96",
+      "label": "6. DOES APPLICANT LEASE EQUIPMENT TO OTHERS WITH OR",
       "page": 3,
       "rect": [
         282.297,
@@ -891,9 +965,10 @@
       ]
     },
     {
-      "name": "Check Box97",
+      "name": "6-does-applicant-lease-equipment-to-others-with-or-4",
+      "pdfName": "Check Box97",
       "type": "checkbox",
-      "label": "Check Box97",
+      "label": "6. DOES APPLICANT LEASE EQUIPMENT TO OTHERS WITH OR",
       "page": 3,
       "rect": [
         296.181,
@@ -903,9 +978,10 @@
       ]
     },
     {
-      "name": "Check Box102",
+      "name": "6-does-applicant-lease-equipment-to-others-with-or",
+      "pdfName": "Check Box102",
       "type": "checkbox",
-      "label": "Check Box102",
+      "label": "6. DOES APPLICANT LEASE EQUIPMENT TO OTHERS WITH OR",
       "page": 3,
       "rect": [
         562.471,
@@ -915,9 +991,10 @@
       ]
     },
     {
-      "name": "Check Box103",
+      "name": "6-does-applicant-lease-equipment-to-others-with-or-2",
+      "pdfName": "Check Box103",
       "type": "checkbox",
-      "label": "Check Box103",
+      "label": "6. DOES APPLICANT LEASE EQUIPMENT TO OTHERS WITH OR",
       "page": 3,
       "rect": [
         577.308,
@@ -927,9 +1004,10 @@
       ]
     },
     {
-      "name": "Text172",
+      "name": "no-5",
+      "pdfName": "Text172",
       "type": "text",
-      "label": "Text172",
+      "label": "NO",
       "page": 3,
       "rect": [
         354.287,
@@ -939,9 +1017,10 @@
       ]
     },
     {
-      "name": "Check Box104",
+      "name": "yes",
+      "pdfName": "Check Box104",
       "type": "checkbox",
-      "label": "Check Box104",
+      "label": "YES",
       "page": 3,
       "rect": [
         281.454,
@@ -951,9 +1030,10 @@
       ]
     },
     {
-      "name": "Check Box105",
+      "name": "no",
+      "pdfName": "Check Box105",
       "type": "checkbox",
-      "label": "Check Box105",
+      "label": "NO",
       "page": 3,
       "rect": [
         295.854,
@@ -963,9 +1043,10 @@
       ]
     },
     {
-      "name": "Check Box113",
+      "name": "9-vendors-coverage-required-2",
+      "pdfName": "Check Box113",
       "type": "checkbox",
-      "label": "Check Box113",
+      "label": "9. VENDORS COVERAGE REQUIRED?",
       "page": 3,
       "rect": [
         294.981,
@@ -975,9 +1056,10 @@
       ]
     },
     {
-      "name": "Check Box114",
+      "name": "yes-2",
+      "pdfName": "Check Box114",
       "type": "checkbox",
-      "label": "Check Box114",
+      "label": "YES",
       "page": 3,
       "rect": [
         562.69,
@@ -987,9 +1069,10 @@
       ]
     },
     {
-      "name": "Check Box115",
+      "name": "no-2",
+      "pdfName": "Check Box115",
       "type": "checkbox",
-      "label": "Check Box115",
+      "label": "NO",
       "page": 3,
       "rect": [
         576.871,
@@ -999,9 +1082,10 @@
       ]
     },
     {
-      "name": "Check Box116",
+      "name": "7-products-of-others-sold-or-re-packaged-under",
+      "pdfName": "Check Box116",
       "type": "checkbox",
-      "label": "Check Box116",
+      "label": "7. PRODUCTS OF OTHERS SOLD OR RE-PACKAGED UNDER",
       "page": 3,
       "rect": [
         562.166,
@@ -1011,9 +1095,10 @@
       ]
     },
     {
-      "name": "Check Box117",
+      "name": "7-products-of-others-sold-or-re-packaged-under-2",
+      "pdfName": "Check Box117",
       "type": "checkbox",
-      "label": "Check Box117",
+      "label": "7. PRODUCTS OF OTHERS SOLD OR RE-PACKAGED UNDER",
       "page": 3,
       "rect": [
         577.308,
@@ -1023,9 +1108,10 @@
       ]
     },
     {
-      "name": "Check Box118",
+      "name": "7-products-of-others-sold-or-re-packaged-under-3",
+      "pdfName": "Check Box118",
       "type": "checkbox",
-      "label": "Check Box118",
+      "label": "7. PRODUCTS OF OTHERS SOLD OR RE-PACKAGED UNDER",
       "page": 3,
       "rect": [
         562.471,
@@ -1035,9 +1121,10 @@
       ]
     },
     {
-      "name": "Check Box119",
+      "name": "7-products-of-others-sold-or-re-packaged-under-4",
+      "pdfName": "Check Box119",
       "type": "checkbox",
-      "label": "Check Box119",
+      "label": "7. PRODUCTS OF OTHERS SOLD OR RE-PACKAGED UNDER",
       "page": 3,
       "rect": [
         576.871,
@@ -1047,9 +1134,10 @@
       ]
     },
     {
-      "name": "Check Box120",
+      "name": "7-products-of-others-sold-or-re-packaged-under-5",
+      "pdfName": "Check Box120",
       "type": "checkbox",
-      "label": "Check Box120",
+      "label": "7. PRODUCTS OF OTHERS SOLD OR RE-PACKAGED UNDER",
       "page": 3,
       "rect": [
         562.471,
@@ -1059,9 +1147,10 @@
       ]
     },
     {
-      "name": "Check Box121",
+      "name": "7-products-of-others-sold-or-re-packaged-under-6",
+      "pdfName": "Check Box121",
       "type": "checkbox",
-      "label": "Check Box121",
+      "label": "7. PRODUCTS OF OTHERS SOLD OR RE-PACKAGED UNDER",
       "page": 3,
       "rect": [
         576.871,
@@ -1071,9 +1160,10 @@
       ]
     },
     {
-      "name": "Check Box122",
+      "name": "10-does-any-named-insured-sell-to-other-named-insureds",
+      "pdfName": "Check Box122",
       "type": "checkbox",
-      "label": "Check Box122",
+      "label": "10. DOES ANY NAMED INSURED SELL TO OTHER NAMED INSUREDS?",
       "page": 3,
       "rect": [
         562.471,
@@ -1083,9 +1173,10 @@
       ]
     },
     {
-      "name": "Check Box123",
+      "name": "10-does-any-named-insured-sell-to-other-named-insureds-2",
+      "pdfName": "Check Box123",
       "type": "checkbox",
-      "label": "Check Box123",
+      "label": "10. DOES ANY NAMED INSURED SELL TO OTHER NAMED INSUREDS?",
       "page": 3,
       "rect": [
         577.308,
@@ -1095,9 +1186,10 @@
       ]
     },
     {
-      "name": "Text166",
+      "name": "please-attach-literature-brochures-labels-warnings-etc",
+      "pdfName": "Text166",
       "type": "text",
-      "label": "Text166",
+      "label": "PLEASE ATTACH LITERATURE, BROCHURES, LABELS, WARNINGS, ETC",
       "page": 3,
       "rect": [
         16.7492,
@@ -1107,9 +1199,10 @@
       ]
     },
     {
-      "name": "Check Box124",
+      "name": "1-any-medical-facilities-provided-or-medical-professionals",
+      "pdfName": "Check Box124",
       "type": "checkbox",
-      "label": "Check Box124",
+      "label": "1. ANY MEDICAL FACILITIES PROVIDED OR MEDICAL PROFESSIONALS",
       "page": 3,
       "rect": [
         281.454,
@@ -1119,9 +1212,10 @@
       ]
     },
     {
-      "name": "Check Box125",
+      "name": "12-any-structural-alterations-contemplated",
+      "pdfName": "Check Box125",
       "type": "checkbox",
-      "label": "Check Box125",
+      "label": "12. ANY STRUCTURAL ALTERATIONS CONTEMPLATED?",
       "page": 3,
       "rect": [
         295.745,
@@ -1131,9 +1225,10 @@
       ]
     },
     {
-      "name": "Check Box127",
+      "name": "13-any-demolition-exposure-contemplated-2",
+      "pdfName": "Check Box127",
       "type": "checkbox",
-      "label": "Check Box127",
+      "label": "13. ANY DEMOLITION EXPOSURE CONTEMPLATED?",
       "page": 3,
       "rect": [
         281.89,
@@ -1143,9 +1238,10 @@
       ]
     },
     {
-      "name": "Check Box126",
+      "name": "13-any-demolition-exposure-contemplated",
+      "pdfName": "Check Box126",
       "type": "checkbox",
-      "label": "Check Box126",
+      "label": "13. ANY DEMOLITION EXPOSURE CONTEMPLATED?",
       "page": 3,
       "rect": [
         295.854,
@@ -1155,9 +1251,10 @@
       ]
     },
     {
-      "name": "Check Box128",
+      "name": "15-do-you-lease-employees-to-or-from-other-employers",
+      "pdfName": "Check Box128",
       "type": "checkbox",
-      "label": "Check Box128",
+      "label": "15. DO YOU LEASE EMPLOYEES TO OR FROM OTHER EMPLOYERS?",
       "page": 3,
       "rect": [
         281.454,
@@ -1167,9 +1264,10 @@
       ]
     },
     {
-      "name": "Check Box129",
+      "name": "15-do-you-lease-employees-to-or-from-other-employers-2",
+      "pdfName": "Check Box129",
       "type": "checkbox",
-      "label": "Check Box129",
+      "label": "15. DO YOU LEASE EMPLOYEES TO OR FROM OTHER EMPLOYERS?",
       "page": 3,
       "rect": [
         296.29,
@@ -1179,9 +1277,10 @@
       ]
     },
     {
-      "name": "Check Box130",
+      "name": "4-any-operations-sold-acquired-or-discontinued-in",
+      "pdfName": "Check Box130",
       "type": "checkbox",
-      "label": "Check Box130",
+      "label": "4. ANY OPERATIONS SOLD, ACQUIRED, OR DISCONTINUED IN",
       "page": 3,
       "rect": [
         281.409,
@@ -1191,9 +1290,10 @@
       ]
     },
     {
-      "name": "Check Box131",
+      "name": "or-subsidiaries",
+      "pdfName": "Check Box131",
       "type": "checkbox",
-      "label": "Check Box131",
+      "label": "OR SUBSIDIARIES?",
       "page": 3,
       "rect": [
         296.29,
@@ -1203,9 +1303,10 @@
       ]
     },
     {
-      "name": "Check Box132",
+      "name": "17-are-day-care-facilities-operated-or-controlled",
+      "pdfName": "Check Box132",
       "type": "checkbox",
-      "label": "Check Box132",
+      "label": "17. ARE DAY CARE FACILITIES OPERATED OR CONTROLLED?",
       "page": 3,
       "rect": [
         281.454,
@@ -1215,9 +1316,10 @@
       ]
     },
     {
-      "name": "Check Box133",
+      "name": "17-are-day-care-facilities-operated-or-controlled-2",
+      "pdfName": "Check Box133",
       "type": "checkbox",
-      "label": "Check Box133",
+      "label": "17. ARE DAY CARE FACILITIES OPERATED OR CONTROLLED?",
       "page": 3,
       "rect": [
         295.745,
@@ -1227,9 +1329,10 @@
       ]
     },
     {
-      "name": "Check Box134",
+      "name": "18-have-any-crimes-occurred-or-been-attempted-on",
+      "pdfName": "Check Box134",
       "type": "checkbox",
-      "label": "Check Box134",
+      "label": "18. HAVE ANY CRIMES OCCURRED OR BEEN ATTEMPTED ON",
       "page": 3,
       "rect": [
         281.868,
@@ -1239,9 +1342,10 @@
       ]
     },
     {
-      "name": "Check Box135",
+      "name": "18-have-any-crimes-occurred-or-been-attempted-on-2",
+      "pdfName": "Check Box135",
       "type": "checkbox",
-      "label": "Check Box135",
+      "label": "18. HAVE ANY CRIMES OCCURRED OR BEEN ATTEMPTED ON",
       "page": 3,
       "rect": [
         296.181,
@@ -1251,9 +1355,10 @@
       ]
     },
     {
-      "name": "Check Box136",
+      "name": "6-any-watercraft-docks-floats-owned-hired-or-leased",
+      "pdfName": "Check Box136",
       "type": "checkbox",
-      "label": "Check Box136",
+      "label": "6. ANY WATERCRAFT, DOCKS, FLOATS OWNED, HIRED OR LEASED?",
       "page": 3,
       "rect": [
         281.672,
@@ -1263,9 +1368,10 @@
       ]
     },
     {
-      "name": "Check Box137",
+      "name": "your-premises-within-the-last-three-years",
+      "pdfName": "Check Box137",
       "type": "checkbox",
-      "label": "Check Box137",
+      "label": "YOUR PREMISES WITHIN THE LAST THREE YEARS?",
       "page": 3,
       "rect": [
         296.29,
@@ -1275,9 +1381,10 @@
       ]
     },
     {
-      "name": "Check Box138",
+      "name": "19-is-there-a-formal-written-safety-and-security",
+      "pdfName": "Check Box138",
       "type": "checkbox",
-      "label": "Check Box138",
+      "label": "19. IS THERE A FORMAL, WRITTEN SAFETY AND SECURITY",
       "page": 3,
       "rect": [
         281.454,
@@ -1287,9 +1394,10 @@
       ]
     },
     {
-      "name": "Check Box139",
+      "name": "19-is-there-a-formal-written-safety-and-security-2",
+      "pdfName": "Check Box139",
       "type": "checkbox",
-      "label": "Check Box139",
+      "label": "19. IS THERE A FORMAL, WRITTEN SAFETY AND SECURITY",
       "page": 3,
       "rect": [
         295.854,
@@ -1299,9 +1407,10 @@
       ]
     },
     {
-      "name": "Check Box140",
+      "name": "policy-in-effect",
+      "pdfName": "Check Box140",
       "type": "checkbox",
-      "label": "Check Box140",
+      "label": "POLICY IN EFFECT?",
       "page": 3,
       "rect": [
         281.454,
@@ -1311,9 +1420,10 @@
       ]
     },
     {
-      "name": "Check Box141",
+      "name": "policy-in-effect-2",
+      "pdfName": "Check Box141",
       "type": "checkbox",
-      "label": "Check Box141",
+      "label": "POLICY IN EFFECT?",
       "page": 3,
       "rect": [
         295.854,
@@ -1323,9 +1433,10 @@
       ]
     },
     {
-      "name": "Check Box142",
+      "name": "20-does-the-businesses-promotional-literature-make",
+      "pdfName": "Check Box142",
       "type": "checkbox",
-      "label": "Check Box142",
+      "label": "20. DOES THE BUSINESSES’ PROMOTIONAL LITERATURE MAKE",
       "page": 3,
       "rect": [
         281.454,
@@ -1335,9 +1446,10 @@
       ]
     },
     {
-      "name": "Check Box143",
+      "name": "20-does-the-businesses-promotional-literature-make-2",
+      "pdfName": "Check Box143",
       "type": "checkbox",
-      "label": "Check Box143",
+      "label": "20. DOES THE BUSINESSES’ PROMOTIONAL LITERATURE MAKE",
       "page": 3,
       "rect": [
         295.854,
@@ -1347,9 +1459,10 @@
       ]
     },
     {
-      "name": "Check Box144",
+      "name": "any-representations-about-the-safety-or-security",
+      "pdfName": "Check Box144",
       "type": "checkbox",
-      "label": "Check Box144",
+      "label": "ANY REPRESENTATIONS ABOUT THE SAFETY OR SECURITY",
       "page": 3,
       "rect": [
         281.454,
@@ -1359,9 +1472,10 @@
       ]
     },
     {
-      "name": "Check Box145",
+      "name": "any-representations-about-the-safety-or-security-2",
+      "pdfName": "Check Box145",
       "type": "checkbox",
-      "label": "Check Box145",
+      "label": "ANY REPRESENTATIONS ABOUT THE SAFETY OR SECURITY",
       "page": 3,
       "rect": [
         295.854,
@@ -1371,9 +1485,10 @@
       ]
     },
     {
-      "name": "Check Box146",
+      "name": "yes-3",
+      "pdfName": "Check Box146",
       "type": "checkbox",
-      "label": "Check Box146",
+      "label": "YES",
       "page": 3,
       "rect": [
         562.471,
@@ -1383,9 +1498,10 @@
       ]
     },
     {
-      "name": "Check Box147",
+      "name": "no-3",
+      "pdfName": "Check Box147",
       "type": "checkbox",
-      "label": "Check Box147",
+      "label": "NO",
       "page": 3,
       "rect": [
         577.308,
@@ -1395,9 +1511,10 @@
       ]
     },
     {
-      "name": "Check Box148",
+      "name": "yes-4",
+      "pdfName": "Check Box148",
       "type": "checkbox",
-      "label": "Check Box148",
+      "label": "YES",
       "page": 3,
       "rect": [
         562.471,
@@ -1407,9 +1524,10 @@
       ]
     },
     {
-      "name": "Check Box149",
+      "name": "no-4",
+      "pdfName": "Check Box149",
       "type": "checkbox",
-      "label": "Check Box149",
+      "label": "NO",
       "page": 3,
       "rect": [
         577.308,
@@ -1419,9 +1537,10 @@
       ]
     },
     {
-      "name": "Check Box150",
+      "name": "14-has-applicant-been-active-in-or-is-currently-active-in",
+      "pdfName": "Check Box150",
       "type": "checkbox",
-      "label": "Check Box150",
+      "label": "14. HAS APPLICANT BEEN ACTIVE IN OR IS CURRENTLY ACTIVE IN",
       "page": 3,
       "rect": [
         562.471,
@@ -1431,9 +1550,10 @@
       ]
     },
     {
-      "name": "Check Box151",
+      "name": "14-has-applicant-been-active-in-or-is-currently-active-in-2",
+      "pdfName": "Check Box151",
       "type": "checkbox",
-      "label": "Check Box151",
+      "label": "14. HAS APPLICANT BEEN ACTIVE IN OR IS CURRENTLY ACTIVE IN",
       "page": 3,
       "rect": [
         577.308,
@@ -1443,9 +1563,10 @@
       ]
     },
     {
-      "name": "Check Box152",
+      "name": "15-do-you-lease-employees-to-or-from-other-employers-3",
+      "pdfName": "Check Box152",
       "type": "checkbox",
-      "label": "Check Box152",
+      "label": "15. DO YOU LEASE EMPLOYEES TO OR FROM OTHER EMPLOYERS?",
       "page": 3,
       "rect": [
         562.471,
@@ -1455,9 +1576,10 @@
       ]
     },
     {
-      "name": "Check Box153",
+      "name": "15-do-you-lease-employees-to-or-from-other-employers-4",
+      "pdfName": "Check Box153",
       "type": "checkbox",
-      "label": "Check Box153",
+      "label": "15. DO YOU LEASE EMPLOYEES TO OR FROM OTHER EMPLOYERS?",
       "page": 3,
       "rect": [
         576.871,
@@ -1467,9 +1589,10 @@
       ]
     },
     {
-      "name": "Check Box154",
+      "name": "16-is-there-a-labor-interchange-with-any-other-business",
+      "pdfName": "Check Box154",
       "type": "checkbox",
-      "label": "Check Box154",
+      "label": "16. IS THERE A LABOR INTERCHANGE WITH ANY OTHER BUSINESS",
       "page": 3,
       "rect": [
         562.471,
@@ -1479,9 +1602,10 @@
       ]
     },
     {
-      "name": "Check Box155",
+      "name": "16-is-there-a-labor-interchange-with-any-other-business-2",
+      "pdfName": "Check Box155",
       "type": "checkbox",
-      "label": "Check Box155",
+      "label": "16. IS THERE A LABOR INTERCHANGE WITH ANY OTHER BUSINESS",
       "page": 3,
       "rect": [
         577.308,
@@ -1491,9 +1615,10 @@
       ]
     },
     {
-      "name": "Check Box156",
+      "name": "16-is-there-a-labor-interchange-with-any-other-business-3",
+      "pdfName": "Check Box156",
       "type": "checkbox",
-      "label": "Check Box156",
+      "label": "16. IS THERE A LABOR INTERCHANGE WITH ANY OTHER BUSINESS",
       "page": 3,
       "rect": [
         562.471,
@@ -1503,9 +1628,10 @@
       ]
     },
     {
-      "name": "Check Box157",
+      "name": "16-is-there-a-labor-interchange-with-any-other-business-4",
+      "pdfName": "Check Box157",
       "type": "checkbox",
-      "label": "Check Box157",
+      "label": "16. IS THERE A LABOR INTERCHANGE WITH ANY OTHER BUSINESS",
       "page": 3,
       "rect": [
         577.308,
@@ -1515,9 +1641,10 @@
       ]
     },
     {
-      "name": "Check Box158",
+      "name": "18-have-any-crimes-occurred-or-been-attempted-on-3",
+      "pdfName": "Check Box158",
       "type": "checkbox",
-      "label": "Check Box158",
+      "label": "18. HAVE ANY CRIMES OCCURRED OR BEEN ATTEMPTED ON",
       "page": 3,
       "rect": [
         562.908,
@@ -1527,9 +1654,10 @@
       ]
     },
     {
-      "name": "Check Box160",
+      "name": "18-have-any-crimes-occurred-or-been-attempted-on-4",
+      "pdfName": "Check Box160",
       "type": "checkbox",
-      "label": "Check Box160",
+      "label": "18. HAVE ANY CRIMES OCCURRED OR BEEN ATTEMPTED ON",
       "page": 3,
       "rect": [
         577.308,
@@ -1539,9 +1667,10 @@
       ]
     },
     {
-      "name": "Check Box161",
+      "name": "19-is-there-a-formal-written-safety-and-security-3",
+      "pdfName": "Check Box161",
       "type": "checkbox",
-      "label": "Check Box161",
+      "label": "19. IS THERE A FORMAL, WRITTEN SAFETY AND SECURITY",
       "page": 3,
       "rect": [
         562.457,
@@ -1551,9 +1680,10 @@
       ]
     },
     {
-      "name": "Check Box162",
+      "name": "19-is-there-a-formal-written-safety-and-security-4",
+      "pdfName": "Check Box162",
       "type": "checkbox",
-      "label": "Check Box162",
+      "label": "19. IS THERE A FORMAL, WRITTEN SAFETY AND SECURITY",
       "page": 3,
       "rect": [
         576.871,
@@ -1563,9 +1693,10 @@
       ]
     },
     {
-      "name": "Check Box163",
+      "name": "any-representations-about-the-safety-or-security-3",
+      "pdfName": "Check Box163",
       "type": "checkbox",
-      "label": "Check Box163",
+      "label": "ANY REPRESENTATIONS ABOUT THE SAFETY OR SECURITY",
       "page": 3,
       "rect": [
         561.926,
@@ -1575,9 +1706,10 @@
       ]
     },
     {
-      "name": "Check Box164",
+      "name": "any-representations-about-the-safety-or-security-4",
+      "pdfName": "Check Box164",
       "type": "checkbox",
-      "label": "Check Box164",
+      "label": "ANY REPRESENTATIONS ABOUT THE SAFETY OR SECURITY",
       "page": 3,
       "rect": [
         577.074,
@@ -1587,9 +1719,10 @@
       ]
     },
     {
-      "name": "Text165",
+      "name": "11-sporting-or-social-events-sponsored",
+      "pdfName": "Text165",
       "type": "text",
-      "label": "Text165",
+      "label": "11. SPORTING OR SOCIAL EVENTS SPONSORED?",
       "page": 3,
       "rect": [
         55.4181,
@@ -1599,9 +1732,10 @@
       ]
     },
     {
-      "name": "Text55",
+      "name": "other-4",
+      "pdfName": "Text55",
       "type": "text",
-      "label": "Text55",
+      "label": "OTHER",
       "page": 2,
       "rect": [
         409.051,
@@ -1611,9 +1745,10 @@
       ]
     },
     {
-      "name": "Check Box73",
+      "name": "check-box73",
+      "pdfName": "Check Box73",
       "type": "checkbox",
-      "label": "Check Box73",
+      "label": "",
       "page": 4,
       "rect": [
         409.308,
@@ -1623,9 +1758,10 @@
       ]
     },
     {
-      "name": "Check Box60",
+      "name": "plumbing-yr-4",
+      "pdfName": "Check Box60",
       "type": "checkbox",
-      "label": "Check Box60",
+      "label": "PLUMBING, YR:",
       "page": 4,
       "rect": [
         124.094,
@@ -1635,9 +1771,10 @@
       ]
     },
     {
-      "name": "Check Box61",
+      "name": "plumbing-yr-5",
+      "pdfName": "Check Box61",
       "type": "checkbox",
-      "label": "Check Box61",
+      "label": "PLUMBING, YR:",
       "page": 4,
       "rect": [
         123.425,
@@ -1647,9 +1784,10 @@
       ]
     },
     {
-      "name": "Check Box56",
+      "name": "gagee",
+      "pdfName": "Check Box56",
       "type": "checkbox",
-      "label": "Check Box56",
+      "label": "GAGEE",
       "page": 4,
       "rect": [
         19.1852,
@@ -1659,9 +1797,10 @@
       ]
     },
     {
-      "name": "Text90",
+      "name": "text90",
+      "pdfName": "Text90",
       "type": "text",
-      "label": "Text90",
+      "label": "",
       "page": 2,
       "rect": [
         283.301,
@@ -1671,9 +1810,10 @@
       ]
     },
     {
-      "name": "Check Box106",
+      "name": "1-does-applicant-install-service-or-demonstrate-products",
+      "pdfName": "Check Box106",
       "type": "checkbox",
-      "label": "Check Box106",
+      "label": "1. DOES APPLICANT INSTALL, SERVICE OR DEMONSTRATE PRODUCTS?",
       "page": 3,
       "rect": [
         281.454,
@@ -1683,9 +1823,10 @@
       ]
     },
     {
-      "name": "Check Box107",
+      "name": "6-products-recalled-discontinued-changed",
+      "pdfName": "Check Box107",
       "type": "checkbox",
-      "label": "Check Box107",
+      "label": "6. PRODUCTS RECALLED, DISCONTINUED, CHANGED?",
       "page": 3,
       "rect": [
         295.854,
@@ -1695,9 +1836,10 @@
       ]
     },
     {
-      "name": "Check Box108",
+      "name": "applicant-label",
+      "pdfName": "Check Box108",
       "type": "checkbox",
-      "label": "Check Box108",
+      "label": "APPLICANT LABEL?",
       "page": 3,
       "rect": [
         281.454,
@@ -1707,9 +1849,10 @@
       ]
     },
     {
-      "name": "Check Box109",
+      "name": "applicant-label-2",
+      "pdfName": "Check Box109",
       "type": "checkbox",
-      "label": "Check Box109",
+      "label": "APPLICANT LABEL?",
       "page": 3,
       "rect": [
         296.378,
@@ -1719,9 +1862,10 @@
       ]
     },
     {
-      "name": "Check Box110",
+      "name": "8-products-under-label-of-others",
+      "pdfName": "Check Box110",
       "type": "checkbox",
-      "label": "Check Box110",
+      "label": "8. PRODUCTS UNDER LABEL OF OTHERS?",
       "page": 3,
       "rect": [
         281.89,
@@ -1731,9 +1875,10 @@
       ]
     },
     {
-      "name": "Check Box110",
+      "name": "8-products-under-label-of-others",
+      "pdfName": "Check Box110",
       "type": "checkbox",
-      "label": "Check Box110",
+      "label": "8. PRODUCTS UNDER LABEL OF OTHERS?",
       "page": 5,
       "rect": [
         123.491,
@@ -1743,9 +1888,10 @@
       ]
     },
     {
-      "name": "Check Box111",
+      "name": "8-products-under-label-of-others-2",
+      "pdfName": "Check Box111",
       "type": "checkbox",
-      "label": "Check Box111",
+      "label": "8. PRODUCTS UNDER LABEL OF OTHERS?",
       "page": 3,
       "rect": [
         295.854,
@@ -1755,9 +1901,10 @@
       ]
     },
     {
-      "name": "Check Box112",
+      "name": "9-vendors-coverage-required",
+      "pdfName": "Check Box112",
       "type": "checkbox",
-      "label": "Check Box112",
+      "label": "9. VENDORS COVERAGE REQUIRED?",
       "page": 3,
       "rect": [
         281.89,
@@ -1767,9 +1914,10 @@
       ]
     },
     {
-      "name": "Text152",
+      "name": "reference",
+      "pdfName": "Text152",
       "type": "text",
-      "label": "Text152",
+      "label": "REFERENCE #:",
       "page": 5,
       "rect": [
         247.854,
@@ -1779,9 +1927,10 @@
       ]
     },
     {
-      "name": "Check Box351",
+      "name": "indicate-sections-attached",
+      "pdfName": "Check Box351",
       "type": "checkbox",
-      "label": "Check Box351",
+      "label": "INDICATE SECTIONS ATTACHED",
       "page": 0,
       "rect": [
         244.931,
@@ -1791,9 +1940,10 @@
       ]
     },
     {
-      "name": "Check Box1591",
+      "name": "commercial",
+      "pdfName": "Check Box1591",
       "type": "checkbox",
-      "label": "Check Box1591",
+      "label": "COMMERCIAL",
       "page": 0,
       "rect": [
         360.042,
@@ -1803,9 +1953,10 @@
       ]
     },
     {
-      "name": "applicantinfo1",
+      "name": "name-first-named-insured-other-named-insureds",
+      "pdfName": "applicantinfo1",
       "type": "text",
-      "label": "applicantinfo1",
+      "label": "NAME (First Named Insured & Other Named Insureds)",
       "page": 0,
       "rect": [
         19.9557,
@@ -1815,9 +1966,10 @@
       ]
     },
     {
-      "name": "App City1",
+      "name": "city",
+      "pdfName": "App City1",
       "type": "text",
-      "label": "App City1",
+      "label": "City:",
       "page": 0,
       "rect": [
         390.246,
@@ -1827,9 +1979,10 @@
       ]
     },
     {
-      "name": "STREET MAILING1",
+      "name": "mailing-address-incl-zip-4-of-first-named-insured",
+      "pdfName": "STREET MAILING1",
       "type": "text",
-      "label": "STREET MAILING1",
+      "label": "MAILING ADDRESS INCL ZIP+4 (of First Named Insured)",
       "page": 0,
       "rect": [
         390.219,
@@ -1839,9 +1992,10 @@
       ]
     },
     {
-      "name": "App State1",
+      "name": "state",
+      "pdfName": "App State1",
       "type": "text",
-      "label": "App State1",
+      "label": "State:",
       "page": 0,
       "rect": [
         390.912,
@@ -1851,9 +2005,10 @@
       ]
     },
     {
-      "name": "ZIP 1",
+      "name": "zip-code",
+      "pdfName": "ZIP 1",
       "type": "text",
-      "label": "ZIP 1",
+      "label": "Zip Code:",
       "page": 0,
       "rect": [
         399.569,
@@ -1863,9 +2018,10 @@
       ]
     },
     {
-      "name": "fein1",
+      "name": "of-first-named-insured",
+      "pdfName": "fein1",
       "type": "text",
-      "label": "fein1",
+      "label": "(of First Named Insured):",
       "page": 0,
       "rect": [
         93.8988,
@@ -1875,9 +2031,10 @@
       ]
     },
     {
-      "name": "inspec contact1",
+      "name": "profit-org",
+      "pdfName": "inspec contact1",
       "type": "text",
-      "label": "inspec contact1",
+      "label": "PROFIT ORG",
       "page": 0,
       "rect": [
         91.235,
@@ -1887,9 +2044,10 @@
       ]
     },
     {
-      "name": "inspec phone1",
+      "name": "inspection-contact",
+      "pdfName": "inspec phone1",
       "type": "text",
-      "label": "inspec phone1",
+      "label": "INSPECTION CONTACT:",
       "page": 0,
       "rect": [
         64.597,
@@ -1899,9 +2057,10 @@
       ]
     },
     {
-      "name": "1Address 1",
+      "name": "premises-information",
+      "pdfName": "1Address 1",
       "type": "text",
-      "label": "1Address 1",
+      "label": "PREMISES INFORMATION",
       "page": 0,
       "rect": [
         77.2272,
@@ -1911,9 +2070,10 @@
       ]
     },
     {
-      "name": "1Address 2",
+      "name": "outside",
+      "pdfName": "1Address 2",
       "type": "text",
-      "label": "1Address 2",
+      "label": "OUTSIDE",
       "page": 0,
       "rect": [
         77.936,
@@ -1923,9 +2083,10 @@
       ]
     },
     {
-      "name": "1loc 1",
+      "name": "premises-information-3",
+      "pdfName": "1loc 1",
       "type": "text",
-      "label": "1loc 1",
+      "label": "PREMISES INFORMATION",
       "page": 0,
       "rect": [
         19.286,
@@ -1935,9 +2096,10 @@
       ]
     },
     {
-      "name": "1bld 1",
+      "name": "premises-information-2",
+      "pdfName": "1bld 1",
       "type": "text",
-      "label": "1bld 1",
+      "label": "PREMISES INFORMATION",
       "page": 0,
       "rect": [
         48.5613,
@@ -1947,9 +2109,10 @@
       ]
     },
     {
-      "name": "1Loc 2",
+      "name": "1loc-2",
+      "pdfName": "1Loc 2",
       "type": "text",
-      "label": "1Loc 2",
+      "label": "",
       "page": 0,
       "rect": [
         19.8824,
@@ -1959,9 +2122,10 @@
       ]
     },
     {
-      "name": "1BLD2",
+      "name": "1bld2",
+      "pdfName": "1BLD2",
       "type": "text",
-      "label": "1BLD2",
+      "label": "",
       "page": 0,
       "rect": [
         49.0064,
@@ -1971,9 +2135,10 @@
       ]
     },
     {
-      "name": "1year 1",
+      "name": "built",
+      "pdfName": "1year 1",
       "type": "text",
-      "label": "1year 1",
+      "label": "BUILT",
       "page": 0,
       "rect": [
         408.204,
@@ -1983,9 +2148,10 @@
       ]
     },
     {
-      "name": "1yr 2",
+      "name": "owner-2",
+      "pdfName": "1yr 2",
       "type": "text",
-      "label": "1yr 2",
+      "label": "OWNER",
       "page": 0,
       "rect": [
         407.863,
@@ -1995,9 +2161,10 @@
       ]
     },
     {
-      "name": "1# emp 1",
+      "name": "employees",
+      "pdfName": "1# emp 1",
       "type": "text",
-      "label": "1# emp 1",
+      "label": "EMPLOYEES",
       "page": 0,
       "rect": [
         437.475,
@@ -2007,9 +2174,10 @@
       ]
     },
     {
-      "name": "1# emp 2",
+      "name": "owner",
+      "pdfName": "1# emp 2",
       "type": "text",
-      "label": "1# emp 2",
+      "label": "OWNER",
       "page": 0,
       "rect": [
         437.549,
@@ -2019,9 +2187,10 @@
       ]
     },
     {
-      "name": "1ann rev 1",
+      "name": "revenues",
+      "pdfName": "1ann rev 1",
       "type": "text",
-      "label": "1ann rev 1",
+      "label": "REVENUES",
       "page": 0,
       "rect": [
         480.709,
@@ -2031,9 +2200,10 @@
       ]
     },
     {
-      "name": "1ann rev 2",
+      "name": "1ann-rev-2",
+      "pdfName": "1ann rev 2",
       "type": "text",
-      "label": "1ann rev 2",
+      "label": "",
       "page": 0,
       "rect": [
         480.451,
@@ -2043,9 +2213,10 @@
       ]
     },
     {
-      "name": "1% occ 1",
+      "name": "occupied",
+      "pdfName": "1% occ 1",
       "type": "text",
-      "label": "1% occ 1",
+      "label": "% OCCUPIED",
       "page": 0,
       "rect": [
         534.677,
@@ -2055,9 +2226,10 @@
       ]
     },
     {
-      "name": "1% occ 2",
+      "name": "1-occ-2",
+      "pdfName": "1% occ 2",
       "type": "text",
-      "label": "1% occ 2",
+      "label": "",
       "page": 0,
       "rect": [
         533.633,
@@ -2067,9 +2239,10 @@
       ]
     },
     {
-      "name": "1Signature36",
+      "name": "applicant-s-signature",
+      "pdfName": "1Signature36",
       "type": "signature",
-      "label": "1Signature36",
+      "label": "APPLICANT’S SIGNATURE",
       "page": 0,
       "rect": [
         18.5457,
@@ -2079,9 +2252,10 @@
       ]
     },
     {
-      "name": "1date for sign",
+      "name": "date",
+      "pdfName": "1date for sign",
       "type": "text",
-      "label": "1date for sign",
+      "label": "DATE",
       "page": 0,
       "rect": [
         221.708,
@@ -2091,9 +2265,10 @@
       ]
     },
     {
-      "name": "2propertycarrier",
+      "name": "category",
+      "pdfName": "2propertycarrier",
       "type": "text",
-      "label": "2propertycarrier",
+      "label": "CATEGORY",
       "page": 1,
       "rect": [
         126.514,
@@ -2103,9 +2278,10 @@
       ]
     },
     {
-      "name": "2policynumber",
+      "name": "policy-number",
+      "pdfName": "2policynumber",
       "type": "text",
-      "label": "2policynumber",
+      "label": "POLICY NUMBER",
       "page": 1,
       "rect": [
         126.504,
@@ -2115,9 +2291,10 @@
       ]
     },
     {
-      "name": "2prioreffectivedate",
+      "name": "made",
+      "pdfName": "2prioreffectivedate",
       "type": "text",
-      "label": "2prioreffectivedate",
+      "label": "MADE",
       "page": 1,
       "rect": [
         125.958,
@@ -2127,9 +2304,10 @@
       ]
     },
     {
-      "name": "2bldlimit",
+      "name": "general-aggregate",
+      "pdfName": "2bldlimit",
       "type": "text",
-      "label": "2bldlimit",
+      "label": "GENERAL AGGREGATE",
       "page": 1,
       "rect": [
         127.143,
@@ -2139,9 +2317,10 @@
       ]
     },
     {
-      "name": "2PREMIUM",
+      "name": "modification-factor",
+      "pdfName": "2PREMIUM",
       "type": "text",
-      "label": "2PREMIUM",
+      "label": "MODIFICATION FACTOR",
       "page": 1,
       "rect": [
         127.158,
@@ -2151,9 +2330,10 @@
       ]
     },
     {
-      "name": "1lossdate1",
+      "name": "occurrence",
+      "pdfName": "1lossdate1",
       "type": "text",
-      "label": "1lossdate1",
+      "label": "OCCURRENCE",
       "page": 1,
       "rect": [
         19.6284,
@@ -2163,9 +2343,10 @@
       ]
     },
     {
-      "name": "1lossdate2",
+      "name": "occurrence-2",
+      "pdfName": "1lossdate2",
       "type": "text",
-      "label": "1lossdate2",
+      "label": "OCCURRENCE",
       "page": 1,
       "rect": [
         19.6109,
@@ -2175,9 +2356,10 @@
       ]
     },
     {
-      "name": "1line1",
+      "name": "line",
+      "pdfName": "1line1",
       "type": "text",
-      "label": "1line1",
+      "label": "LINE",
       "page": 1,
       "rect": [
         80.2297,
@@ -2187,9 +2369,10 @@
       ]
     },
     {
-      "name": "1line2",
+      "name": "line-2",
+      "pdfName": "1line2",
       "type": "text",
-      "label": "1line2",
+      "label": "LINE",
       "page": 1,
       "rect": [
         80.8619,
@@ -2199,9 +2382,10 @@
       ]
     },
     {
-      "name": "1typeofloss1",
+      "name": "type-description-of-occurrence-or-claim",
+      "pdfName": "1typeofloss1",
       "type": "text",
-      "label": "1typeofloss1",
+      "label": "TYPE/DESCRIPTION OF OCCURRENCE OR CLAIM",
       "page": 1,
       "rect": [
         124.197,
@@ -2211,9 +2395,10 @@
       ]
     },
     {
-      "name": "3applicantinfo",
+      "name": "named",
+      "pdfName": "3applicantinfo",
       "type": "text",
-      "label": "3applicantinfo",
+      "label": "Named",
       "page": 2,
       "rect": [
         282.775,
@@ -2223,9 +2408,10 @@
       ]
     },
     {
-      "name": "agentstate",
+      "name": "state-2",
+      "pdfName": "agentstate",
       "type": "text",
-      "label": "agentstate",
+      "label": "STATE:",
       "page": 2,
       "rect": [
         143.594,
@@ -2235,9 +2421,10 @@
       ]
     },
     {
-      "name": "agentstate",
+      "name": "state-2",
+      "pdfName": "agentstate",
       "type": "text",
-      "label": "agentstate",
+      "label": "STATE:",
       "page": 0,
       "rect": [
         45.9505,
@@ -2247,9 +2434,10 @@
       ]
     },
     {
-      "name": "agentstate",
+      "name": "state-2",
+      "pdfName": "agentstate",
       "type": "text",
-      "label": "agentstate",
+      "label": "STATE:",
       "page": 4,
       "rect": [
         21.7432,
@@ -2259,9 +2447,10 @@
       ]
     },
     {
-      "name": "agentphone",
+      "name": "a-c-no-ext-2",
+      "pdfName": "agentphone",
       "type": "text",
-      "label": "agentphone",
+      "label": "(A/C, No, Ext):",
       "page": 4,
       "rect": [
         109.995,
@@ -2271,9 +2460,10 @@
       ]
     },
     {
-      "name": "agentphone",
+      "name": "a-c-no-ext-2",
+      "pdfName": "agentphone",
       "type": "text",
-      "label": "agentphone",
+      "label": "(A/C, No, Ext):",
       "page": 0,
       "rect": [
         63.9311,
@@ -2283,9 +2473,10 @@
       ]
     },
     {
-      "name": "agentphone",
+      "name": "a-c-no-ext-2",
+      "pdfName": "agentphone",
       "type": "text",
-      "label": "agentphone",
+      "label": "(A/C, No, Ext):",
       "page": 2,
       "rect": [
         109.995,
@@ -2295,9 +2486,10 @@
       ]
     },
     {
-      "name": "agentemail",
+      "name": "a-c-no",
+      "pdfName": "agentemail",
       "type": "text",
-      "label": "agentemail",
+      "label": "(A/C, No):",
       "page": 0,
       "rect": [
         63.9425,
@@ -2307,9 +2499,10 @@
       ]
     },
     {
-      "name": "agentfaxnumber",
+      "name": "a-c-no-ext",
+      "pdfName": "agentfaxnumber",
       "type": "text",
-      "label": "agentfaxnumber",
+      "label": "(A/C, No, Ext):",
       "page": 0,
       "rect": [
         64.582,
@@ -2319,9 +2512,10 @@
       ]
     },
     {
-      "name": "agentfaxnumber",
+      "name": "a-c-no-ext",
+      "pdfName": "agentfaxnumber",
       "type": "text",
-      "label": "agentfaxnumber",
+      "label": "(A/C, No, Ext):",
       "page": 2,
       "rect": [
         98.484,
@@ -2331,9 +2525,10 @@
       ]
     },
     {
-      "name": "agentfaxnumber",
+      "name": "a-c-no-ext",
+      "pdfName": "agentfaxnumber",
       "type": "text",
-      "label": "agentfaxnumber",
+      "label": "(A/C, No, Ext):",
       "page": 4,
       "rect": [
         100.403,
@@ -2343,9 +2538,10 @@
       ]
     },
     {
-      "name": "agentcity",
+      "name": "policies-or-program-requested",
+      "pdfName": "agentcity",
       "type": "text",
-      "label": "agentcity",
+      "label": "POLICIES OR PROGRAM REQUESTED",
       "page": 0,
       "rect": [
         45.9505,
@@ -2355,9 +2551,10 @@
       ]
     },
     {
-      "name": "agentcity",
+      "name": "policies-or-program-requested",
+      "pdfName": "agentcity",
       "type": "text",
-      "label": "agentcity",
+      "label": "POLICIES OR PROGRAM REQUESTED",
       "page": 2,
       "rect": [
         19.3544,
@@ -2367,9 +2564,10 @@
       ]
     },
     {
-      "name": "agentcity",
+      "name": "policies-or-program-requested",
+      "pdfName": "agentcity",
       "type": "text",
-      "label": "agentcity",
+      "label": "POLICIES OR PROGRAM REQUESTED",
       "page": 4,
       "rect": [
         20.4642,
@@ -2379,9 +2577,10 @@
       ]
     },
     {
-      "name": "Agentcode",
+      "name": "address",
+      "pdfName": "Agentcode",
       "type": "text",
-      "label": "Agentcode",
+      "label": "ADDRESS:",
       "page": 0,
       "rect": [
         43.2867,
@@ -2391,9 +2590,10 @@
       ]
     },
     {
-      "name": "Agentcode",
+      "name": "address",
+      "pdfName": "Agentcode",
       "type": "text",
-      "label": "Agentcode",
+      "label": "ADDRESS:",
       "page": 2,
       "rect": [
         45.5867,
@@ -2403,9 +2603,10 @@
       ]
     },
     {
-      "name": "3Check Box56",
+      "name": "coverages",
+      "pdfName": "3Check Box56",
       "type": "checkbox",
-      "label": "3Check Box56",
+      "label": "COVERAGES",
       "page": 2,
       "rect": [
         18.3425,
@@ -2415,9 +2616,10 @@
       ]
     },
     {
-      "name": "3Check Box57",
+      "name": "commercial-general-liability",
+      "pdfName": "3Check Box57",
       "type": "checkbox",
-      "label": "3Check Box57",
+      "label": "COMMERCIAL GENERAL LIABILITY",
       "page": 2,
       "rect": [
         19.2153,
@@ -2427,9 +2629,10 @@
       ]
     },
     {
-      "name": "3Check Box60",
+      "name": "commercial-general-liability-2",
+      "pdfName": "3Check Box60",
       "type": "checkbox",
-      "label": "3Check Box60",
+      "label": "COMMERCIAL GENERAL LIABILITY",
       "page": 2,
       "rect": [
         37.0914,
@@ -2439,9 +2642,10 @@
       ]
     },
     {
-      "name": "3Check Box61",
+      "name": "commercial-general-liability-3",
+      "pdfName": "3Check Box61",
       "type": "checkbox",
-      "label": "3Check Box61",
+      "label": "COMMERCIAL GENERAL LIABILITY",
       "page": 2,
       "rect": [
         122.785,
@@ -2451,9 +2655,10 @@
       ]
     },
     {
-      "name": "3Check Box58",
+      "name": "claims-made",
+      "pdfName": "3Check Box58",
       "type": "checkbox",
-      "label": "3Check Box58",
+      "label": "CLAIMS MADE",
       "page": 2,
       "rect": [
         18.9821,
@@ -2463,9 +2668,10 @@
       ]
     },
     {
-      "name": "3Check Box59",
+      "name": "owner-s-contractor-s-protective",
+      "pdfName": "3Check Box59",
       "type": "checkbox",
-      "label": "3Check Box59",
+      "label": "OWNER’S & CONTRACTOR’S PROTECTIVE",
       "page": 2,
       "rect": [
         19.1852,
@@ -2475,9 +2681,10 @@
       ]
     },
     {
-      "name": "3Check Box62",
+      "name": "deductibles",
+      "pdfName": "3Check Box62",
       "type": "checkbox",
-      "label": "3Check Box62",
+      "label": "DEDUCTIBLES",
       "page": 2,
       "rect": [
         18.5457,
@@ -2487,9 +2694,10 @@
       ]
     },
     {
-      "name": "3Check Box63",
+      "name": "property-damage",
+      "pdfName": "3Check Box63",
       "type": "checkbox",
-      "label": "3Check Box63",
+      "label": "PROPERTY DAMAGE",
       "page": 2,
       "rect": [
         18.5457,
@@ -2499,9 +2707,10 @@
       ]
     },
     {
-      "name": "3Check Box64",
+      "name": "bodily-injury",
+      "pdfName": "3Check Box64",
       "type": "checkbox",
-      "label": "3Check Box64",
+      "label": "BODILY INJURY",
       "page": 2,
       "rect": [
         19.1852,
@@ -2511,9 +2720,10 @@
       ]
     },
     {
-      "name": "3text67",
+      "name": "property-damage-2",
+      "pdfName": "3text67",
       "type": "text",
-      "label": "3text67",
+      "label": "PROPERTY DAMAGE",
       "page": 2,
       "rect": [
         124.877,
@@ -2523,9 +2733,10 @@
       ]
     },
     {
-      "name": "3Text68",
+      "name": "per",
+      "pdfName": "3Text68",
       "type": "text",
-      "label": "3Text68",
+      "label": "PER",
       "page": 2,
       "rect": [
         125.343,
@@ -2535,9 +2746,10 @@
       ]
     },
     {
-      "name": "3Text69",
+      "name": "claim",
+      "pdfName": "3Text69",
       "type": "text",
-      "label": "3Text69",
+      "label": "CLAIM",
       "page": 2,
       "rect": [
         125.343,
@@ -2547,9 +2759,10 @@
       ]
     },
     {
-      "name": "3Check Box65",
+      "name": "medical-expense-any-one-person",
+      "pdfName": "3Check Box65",
       "type": "checkbox",
-      "label": "3Check Box65",
+      "label": "MEDICAL EXPENSE (Any one person)",
       "page": 2,
       "rect": [
         180.341,
@@ -2559,9 +2772,10 @@
       ]
     },
     {
-      "name": "3Check Box66",
+      "name": "occurrence-3",
+      "pdfName": "3Check Box66",
       "type": "checkbox",
-      "label": "3Check Box66",
+      "label": "OCCURRENCE",
       "page": 2,
       "rect": [
         180.341,
@@ -2571,9 +2785,10 @@
       ]
     },
     {
-      "name": "3Text48",
+      "name": "3text48",
+      "pdfName": "3Text48",
       "type": "text",
-      "label": "3Text48",
+      "label": "",
       "page": 2,
       "rect": [
         408.645,
@@ -2583,9 +2798,10 @@
       ]
     },
     {
-      "name": "3Text49",
+      "name": "products-completed-operations-aggregate",
+      "pdfName": "3Text49",
       "type": "text",
-      "label": "3Text49",
+      "label": "PRODUCTS & COMPLETED OPERATIONS AGGREGATE",
       "page": 2,
       "rect": [
         408.615,
@@ -2595,9 +2811,10 @@
       ]
     },
     {
-      "name": "3Text50",
+      "name": "premises-operations",
+      "pdfName": "3Text50",
       "type": "text",
-      "label": "3Text50",
+      "label": "PREMISES/OPERATIONS",
       "page": 2,
       "rect": [
         408.645,
@@ -2607,9 +2824,10 @@
       ]
     },
     {
-      "name": "3Text51",
+      "name": "premises-operations-2",
+      "pdfName": "3Text51",
       "type": "text",
-      "label": "3Text51",
+      "label": "PREMISES/OPERATIONS",
       "page": 2,
       "rect": [
         408.848,
@@ -2619,9 +2837,10 @@
       ]
     },
     {
-      "name": "3Text52",
+      "name": "products",
+      "pdfName": "3Text52",
       "type": "text",
-      "label": "3Text52",
+      "label": "PRODUCTS",
       "page": 2,
       "rect": [
         408.66,
@@ -2631,9 +2850,10 @@
       ]
     },
     {
-      "name": "3Text53",
+      "name": "damage-to-rented-premises-each-occurrence",
+      "pdfName": "3Text53",
       "type": "text",
-      "label": "3Text53",
+      "label": "DAMAGE TO RENTED PREMISES (each occurrence)",
       "page": 2,
       "rect": [
         408.442,
@@ -2643,9 +2863,10 @@
       ]
     },
     {
-      "name": "3Text70",
+      "name": "other-coverages-restrictions-and-or-endorsements-for-hired-non-owned-auto-coverages-attach-the-applicable-state-business-auto-section-acord-137",
+      "pdfName": "3Text70",
       "type": "text",
-      "label": "3Text70",
+      "label": "OTHER COVERAGES, RESTRICTIONS AND/OR ENDORSEMENTS (For hired/non-owned auto coverages attach the applicable state Business Auto Section, ACORD 137)",
       "page": 2,
       "rect": [
         19.8247,
@@ -2655,9 +2876,10 @@
       ]
     },
     {
-      "name": "3Text71",
+      "name": "location",
+      "pdfName": "3Text71",
       "type": "text",
-      "label": "3Text71",
+      "label": "LOCATION",
       "page": 2,
       "rect": [
         19.1852,
@@ -2667,9 +2889,10 @@
       ]
     },
     {
-      "name": "3Text77",
+      "name": "3text77",
+      "pdfName": "3Text77",
       "type": "text",
-      "label": "3Text77",
+      "label": "",
       "page": 2,
       "rect": [
         19.8247,
@@ -2679,9 +2902,10 @@
       ]
     },
     {
-      "name": "3Text81",
+      "name": "3text81",
+      "pdfName": "3Text81",
       "type": "text",
-      "label": "3Text81",
+      "label": "",
       "page": 2,
       "rect": [
         19.8247,
@@ -2691,9 +2915,10 @@
       ]
     },
     {
-      "name": "3Text86",
+      "name": "3text86",
+      "pdfName": "3Text86",
       "type": "text",
-      "label": "3Text86",
+      "label": "",
       "page": 2,
       "rect": [
         19.8247,
@@ -2703,9 +2928,10 @@
       ]
     },
     {
-      "name": "3Text72",
+      "name": "classification",
+      "pdfName": "3Text72",
       "type": "text",
-      "label": "3Text72",
+      "label": "CLASSIFICATION",
       "page": 2,
       "rect": [
         59.4741,
@@ -2715,9 +2941,10 @@
       ]
     },
     {
-      "name": "3Text78",
+      "name": "3text78",
+      "pdfName": "3Text78",
       "type": "text",
-      "label": "3Text78",
+      "label": "",
       "page": 2,
       "rect": [
         59.4741,
@@ -2727,9 +2954,10 @@
       ]
     },
     {
-      "name": "3Text82",
+      "name": "3text82",
+      "pdfName": "3Text82",
       "type": "text",
-      "label": "3Text82",
+      "label": "",
       "page": 2,
       "rect": [
         60.1136,
@@ -2739,9 +2967,10 @@
       ]
     },
     {
-      "name": "3Text87",
+      "name": "3text87",
+      "pdfName": "3Text87",
       "type": "text",
-      "label": "3Text87",
+      "label": "",
       "page": 2,
       "rect": [
         60.7531,
@@ -2751,9 +2980,10 @@
       ]
     },
     {
-      "name": "3Text73",
+      "name": "code",
+      "pdfName": "3Text73",
       "type": "text",
-      "label": "3Text73",
+      "label": "CODE",
       "page": 2,
       "rect": [
         181.62,
@@ -2763,9 +2993,10 @@
       ]
     },
     {
-      "name": "3Text79",
+      "name": "3text79",
+      "pdfName": "3Text79",
       "type": "text",
-      "label": "3Text79",
+      "label": "",
       "page": 2,
       "rect": [
         182.259,
@@ -2775,9 +3006,10 @@
       ]
     },
     {
-      "name": "3Text83",
+      "name": "3text83",
+      "pdfName": "3Text83",
       "type": "text",
-      "label": "3Text83",
+      "label": "",
       "page": 2,
       "rect": [
         181.59,
@@ -2787,9 +3019,10 @@
       ]
     },
     {
-      "name": "3Text88",
+      "name": "3text88",
+      "pdfName": "3Text88",
       "type": "text",
-      "label": "3Text88",
+      "label": "",
       "page": 2,
       "rect": [
         181.62,
@@ -2799,9 +3032,10 @@
       ]
     },
     {
-      "name": "3Text74",
+      "name": "basis",
+      "pdfName": "3Text74",
       "type": "text",
-      "label": "3Text74",
+      "label": "BASIS",
       "page": 2,
       "rect": [
         232.141,
@@ -2811,9 +3045,10 @@
       ]
     },
     {
-      "name": "3Text80",
+      "name": "3text80",
+      "pdfName": "3Text80",
       "type": "text",
-      "label": "3Text80",
+      "label": "",
       "page": 2,
       "rect": [
         233.42,
@@ -2823,9 +3058,10 @@
       ]
     },
     {
-      "name": "3Text84",
+      "name": "3text84",
+      "pdfName": "3Text84",
       "type": "text",
-      "label": "3Text84",
+      "label": "",
       "page": 2,
       "rect": [
         232.78,
@@ -2835,9 +3071,10 @@
       ]
     },
     {
-      "name": "3Text89",
+      "name": "3text89",
+      "pdfName": "3Text89",
       "type": "text",
-      "label": "3Text89",
+      "label": "",
       "page": 2,
       "rect": [
         232.141,
@@ -2847,9 +3084,10 @@
       ]
     },
     {
-      "name": "3Text75",
+      "name": "exposure",
+      "pdfName": "3Text75",
       "type": "text",
-      "label": "3Text75",
+      "label": "EXPOSURE",
       "page": 2,
       "rect": [
         282.662,
@@ -2859,9 +3097,10 @@
       ]
     },
     {
-      "name": "3Text76",
+      "name": "prem-ops",
+      "pdfName": "3Text76",
       "type": "text",
-      "label": "3Text76",
+      "label": "PREM/OPS",
       "page": 2,
       "rect": [
         282.632,
@@ -2871,9 +3110,10 @@
       ]
     },
     {
-      "name": "3Text85",
+      "name": "3text85",
+      "pdfName": "3Text85",
       "type": "text",
-      "label": "3Text85",
+      "label": "",
       "page": 2,
       "rect": [
         283.941,
@@ -2883,9 +3123,10 @@
       ]
     },
     {
-      "name": "3Text184",
+      "name": "employee-benefits-liability",
+      "pdfName": "3Text184",
       "type": "text",
-      "label": "3Text184",
+      "label": "EMPLOYEE BENEFITS LIABILITY",
       "page": 2,
       "rect": [
         414.4,
@@ -2895,9 +3136,10 @@
       ]
     },
     {
-      "name": "3Text185",
+      "name": "2-number-of-employees",
+      "pdfName": "3Text185",
       "type": "text",
-      "label": "3Text185",
+      "label": "2. NUMBER OF EMPLOYEES:",
       "page": 2,
       "rect": [
         401.61,
@@ -2907,9 +3149,10 @@
       ]
     },
     {
-      "name": "3Text187",
+      "name": "3-number-of-employees-covered-by-employee-benefits-plans-2",
+      "pdfName": "3Text187",
       "type": "text",
-      "label": "3Text187",
+      "label": "3. NUMBER OF EMPLOYEES COVERED BY EMPLOYEE BENEFITS PLANS:",
       "page": 2,
       "rect": [
         385.622,
@@ -2919,9 +3162,10 @@
       ]
     },
     {
-      "name": "3Text186",
+      "name": "3-number-of-employees-covered-by-employee-benefits-plans",
+      "pdfName": "3Text186",
       "type": "text",
-      "label": "3Text186",
+      "label": "3. NUMBER OF EMPLOYEES COVERED BY EMPLOYEE BENEFITS PLANS:",
       "page": 2,
       "rect": [
         553.173,
@@ -2931,9 +3175,10 @@
       ]
     },
     {
-      "name": "4Text179",
+      "name": "contractors",
+      "pdfName": "4Text179",
       "type": "text",
-      "label": "4Text179",
+      "label": "CONTRACTORS:",
       "page": 3,
       "rect": [
         261.558,
@@ -2943,9 +3188,10 @@
       ]
     },
     {
-      "name": "4Text180",
+      "name": "subcontracted",
+      "pdfName": "4Text180",
       "type": "text",
-      "label": "4Text180",
+      "label": "SUBCONTRACTED:",
       "page": 3,
       "rect": [
         391.378,
@@ -2955,9 +3201,10 @@
       ]
     },
     {
-      "name": "4Text2",
+      "name": "contractors-2",
+      "pdfName": "4Text2",
       "type": "text",
-      "label": "4Text2",
+      "label": "CONTRACTORS:",
       "page": 3,
       "rect": [
         21.7432,
@@ -2967,9 +3214,10 @@
       ]
     },
     {
-      "name": "4Text167",
+      "name": "products-2",
+      "pdfName": "4Text167",
       "type": "text",
-      "label": "4Text167",
+      "label": "PRODUCTS",
       "page": 3,
       "rect": [
         20.4642,
@@ -2979,9 +3227,10 @@
       ]
     },
     {
-      "name": "4Text173",
+      "name": "products-3",
+      "pdfName": "4Text173",
       "type": "text",
-      "label": "4Text173",
+      "label": "PRODUCTS",
       "page": 3,
       "rect": [
         19.8247,
@@ -2991,9 +3240,10 @@
       ]
     },
     {
-      "name": "4Text176",
+      "name": "4text176",
+      "pdfName": "4Text176",
       "type": "text",
-      "label": "4Text176",
+      "label": "",
       "page": 3,
       "rect": [
         19.1852,
@@ -3003,9 +3253,10 @@
       ]
     },
     {
-      "name": "4Text168",
+      "name": "annual-gross-sales",
+      "pdfName": "4Text168",
       "type": "text",
-      "label": "4Text168",
+      "label": "ANNUAL GROSS SALES",
       "page": 3,
       "rect": [
         124.064,
@@ -3015,9 +3266,10 @@
       ]
     },
     {
-      "name": "4Text174",
+      "name": "annual-gross-sales-2",
+      "pdfName": "4Text174",
       "type": "text",
-      "label": "4Text174",
+      "label": "ANNUAL GROSS SALES",
       "page": 3,
       "rect": [
         124.064,
@@ -3027,9 +3279,10 @@
       ]
     },
     {
-      "name": "4Text177",
+      "name": "4text177",
+      "pdfName": "4Text177",
       "type": "text",
-      "label": "4Text177",
+      "label": "",
       "page": 3,
       "rect": [
         124.064,
@@ -3039,9 +3292,10 @@
       ]
     },
     {
-      "name": "4Text169",
+      "name": "of-units",
+      "pdfName": "4Text169",
       "type": "text",
-      "label": "4Text169",
+      "label": "# OF UNITS",
       "page": 3,
       "rect": [
         204.003,
@@ -3051,9 +3305,10 @@
       ]
     },
     {
-      "name": "4Text175",
+      "name": "of-units-2",
+      "pdfName": "4Text175",
       "type": "text",
-      "label": "4Text175",
+      "label": "# OF UNITS",
       "page": 3,
       "rect": [
         204.003,
@@ -3063,9 +3318,10 @@
       ]
     },
     {
-      "name": "4Text178",
+      "name": "4text178",
+      "pdfName": "4Text178",
       "type": "text",
-      "label": "4Text178",
+      "label": "",
       "page": 3,
       "rect": [
         204.642,
@@ -3075,9 +3331,10 @@
       ]
     },
     {
-      "name": "4Text170",
+      "name": "intended-use",
+      "pdfName": "4Text170",
       "type": "text",
-      "label": "4Text170",
+      "label": "INTENDED USE",
       "page": 3,
       "rect": [
         353.647,
@@ -3087,9 +3344,10 @@
       ]
     },
     {
-      "name": "4Text171",
+      "name": "intended-use-2",
+      "pdfName": "4Text171",
       "type": "text",
-      "label": "4Text171",
+      "label": "INTENDED USE",
       "page": 3,
       "rect": [
         353.647,
@@ -3099,9 +3357,10 @@
       ]
     },
     {
-      "name": "5Text14",
+      "name": "premises",
+      "pdfName": "5Text14",
       "type": "text",
-      "label": "5Text14",
+      "label": "PREMISES #:",
       "page": 4,
       "rect": [
         178.859,
@@ -3111,9 +3370,10 @@
       ]
     },
     {
-      "name": "5Text15",
+      "name": "building",
+      "pdfName": "5Text15",
       "type": "text",
-      "label": "5Text15",
+      "label": "BUILDING #:",
       "page": 4,
       "rect": [
         176.564,
@@ -3123,9 +3383,10 @@
       ]
     },
     {
-      "name": "5Text17",
+      "name": "street-address",
+      "pdfName": "5Text17",
       "type": "text",
-      "label": "5Text17",
+      "label": "STREET ADDRESS:",
       "page": 4,
       "rect": [
         268.939,
@@ -3135,9 +3396,10 @@
       ]
     },
     {
-      "name": "5Text18",
+      "name": "bldg-description",
+      "pdfName": "5Text18",
       "type": "text",
-      "label": "5Text18",
+      "label": "BLDG DESCRIPTION:",
       "page": 4,
       "rect": [
         275.627,
@@ -3147,9 +3409,10 @@
       ]
     },
     {
-      "name": "5Text55",
+      "name": "subject-of-insurance",
+      "pdfName": "5Text55",
       "type": "text",
-      "label": "5Text55",
+      "label": "SUBJECT OF INSURANCE",
       "page": 4,
       "rect": [
         17.9062,
@@ -3159,9 +3422,10 @@
       ]
     },
     {
-      "name": "5Text26",
+      "name": "amount",
+      "pdfName": "5Text26",
       "type": "text",
-      "label": "5Text26",
+      "label": "AMOUNT",
       "page": 4,
       "rect": [
         137.434,
@@ -3171,9 +3435,10 @@
       ]
     },
     {
-      "name": "5Text56",
+      "name": "subject-of-insurance-2",
+      "pdfName": "5Text56",
       "type": "text",
-      "label": "5Text56",
+      "label": "SUBJECT OF INSURANCE",
       "page": 4,
       "rect": [
         19.1852,
@@ -3183,9 +3448,10 @@
       ]
     },
     {
-      "name": "5Text57",
+      "name": "subject-of-insurance-3",
+      "pdfName": "5Text57",
       "type": "text",
-      "label": "5Text57",
+      "label": "SUBJECT OF INSURANCE",
       "page": 4,
       "rect": [
         18.5457,
@@ -3195,9 +3461,10 @@
       ]
     },
     {
-      "name": "5Text23",
+      "name": "5text23",
+      "pdfName": "5Text23",
       "type": "text",
-      "label": "5Text23",
+      "label": "",
       "page": 4,
       "rect": [
         19.2153,
@@ -3207,9 +3474,10 @@
       ]
     },
     {
-      "name": "5Text24",
+      "name": "5text24",
+      "pdfName": "5Text24",
       "type": "text",
-      "label": "5Text24",
+      "label": "",
       "page": 4,
       "rect": [
         19.5614,
@@ -3219,9 +3487,10 @@
       ]
     },
     {
-      "name": "5Text25",
+      "name": "5text25",
+      "pdfName": "5Text25",
       "type": "text",
-      "label": "5Text25",
+      "label": "",
       "page": 4,
       "rect": [
         19.5313,
@@ -3231,9 +3500,10 @@
       ]
     },
     {
-      "name": "5Text27",
+      "name": "amount-2",
+      "pdfName": "5Text27",
       "type": "text",
-      "label": "5Text27",
+      "label": "AMOUNT",
       "page": 4,
       "rect": [
         137.84,
@@ -3243,9 +3513,10 @@
       ]
     },
     {
-      "name": "5Text28",
+      "name": "amount-3",
+      "pdfName": "5Text28",
       "type": "text",
-      "label": "5Text28",
+      "label": "AMOUNT",
       "page": 4,
       "rect": [
         138.103,
@@ -3255,9 +3526,10 @@
       ]
     },
     {
-      "name": "5Text29",
+      "name": "5text29",
+      "pdfName": "5Text29",
       "type": "text",
-      "label": "5Text29",
+      "label": "",
       "page": 4,
       "rect": [
         137.9,
@@ -3267,9 +3539,10 @@
       ]
     },
     {
-      "name": "5Text30",
+      "name": "5text30",
+      "pdfName": "5Text30",
       "type": "text",
-      "label": "5Text30",
+      "label": "",
       "page": 4,
       "rect": [
         138.307,
@@ -3279,9 +3552,10 @@
       ]
     },
     {
-      "name": "5Text31",
+      "name": "5text31",
+      "pdfName": "5Text31",
       "type": "text",
-      "label": "5Text31",
+      "label": "",
       "page": 4,
       "rect": [
         138.307,
@@ -3291,9 +3565,10 @@
       ]
     },
     {
-      "name": "5Check Box62",
+      "name": "deductible-s",
+      "pdfName": "5Check Box62",
       "type": "checkbox",
-      "label": "5Check Box62",
+      "label": "DEDUCTIBLE(S)",
       "page": 4,
       "rect": [
         376.669,
@@ -3303,9 +3578,10 @@
       ]
     },
     {
-      "name": "5Check Box64",
+      "name": "deductible-s-3",
+      "pdfName": "5Check Box64",
       "type": "checkbox",
-      "label": "5Check Box64",
+      "label": "DEDUCTIBLE(S)",
       "page": 4,
       "rect": [
         376.145,
@@ -3315,9 +3591,10 @@
       ]
     },
     {
-      "name": "5Check Box66",
+      "name": "deductible-s-5",
+      "pdfName": "5Check Box66",
       "type": "checkbox",
-      "label": "5Check Box66",
+      "label": "DEDUCTIBLE(S)",
       "page": 4,
       "rect": [
         375.708,
@@ -3327,9 +3604,10 @@
       ]
     },
     {
-      "name": "5Check Box68",
+      "name": "5check-box68",
+      "pdfName": "5Check Box68",
       "type": "checkbox",
-      "label": "5Check Box68",
+      "label": "",
       "page": 4,
       "rect": [
         375.708,
@@ -3339,9 +3617,10 @@
       ]
     },
     {
-      "name": "5Check Box70",
+      "name": "5check-box70",
+      "pdfName": "5Check Box70",
       "type": "checkbox",
-      "label": "5Check Box70",
+      "label": "",
       "page": 4,
       "rect": [
         375.708,
@@ -3351,9 +3630,10 @@
       ]
     },
     {
-      "name": "5Check Box72",
+      "name": "5check-box72",
+      "pdfName": "5Check Box72",
       "type": "checkbox",
-      "label": "5Check Box72",
+      "label": "",
       "page": 4,
       "rect": [
         376.145,
@@ -3363,9 +3643,10 @@
       ]
     },
     {
-      "name": "5Check Box63",
+      "name": "deductible-s-2",
+      "pdfName": "5Check Box63",
       "type": "checkbox",
-      "label": "5Check Box63",
+      "label": "DEDUCTIBLE(S)",
       "page": 4,
       "rect": [
         408.435,
@@ -3375,9 +3656,10 @@
       ]
     },
     {
-      "name": "5Check Box65",
+      "name": "deductible-s-4",
+      "pdfName": "5Check Box65",
       "type": "checkbox",
-      "label": "5Check Box65",
+      "label": "DEDUCTIBLE(S)",
       "page": 4,
       "rect": [
         408.872,
@@ -3387,9 +3669,10 @@
       ]
     },
     {
-      "name": "5Check Box67",
+      "name": "deductible-s-6",
+      "pdfName": "5Check Box67",
       "type": "checkbox",
-      "label": "5Check Box67",
+      "label": "DEDUCTIBLE(S)",
       "page": 4,
       "rect": [
         408.435,
@@ -3399,9 +3682,10 @@
       ]
     },
     {
-      "name": "5Check Box69",
+      "name": "5check-box69",
+      "pdfName": "5Check Box69",
       "type": "checkbox",
-      "label": "5Check Box69",
+      "label": "",
       "page": 4,
       "rect": [
         407.999,
@@ -3411,9 +3695,10 @@
       ]
     },
     {
-      "name": "5Check Box71",
+      "name": "5check-box71",
+      "pdfName": "5Check Box71",
       "type": "checkbox",
-      "label": "5Check Box71",
+      "label": "",
       "page": 4,
       "rect": [
         407.563,
@@ -3423,9 +3708,10 @@
       ]
     },
     {
-      "name": "5Text32",
+      "name": "construction-type",
+      "pdfName": "5Text32",
       "type": "text",
-      "label": "5Text32",
+      "label": "CONSTRUCTION TYPE",
       "page": 4,
       "rect": [
         22.3827,
@@ -3435,9 +3721,10 @@
       ]
     },
     {
-      "name": "5Text33",
+      "name": "hydrant",
+      "pdfName": "5Text33",
       "type": "text",
-      "label": "5Text33",
+      "label": "HYDRANT",
       "page": 4,
       "rect": [
         146.357,
@@ -3447,9 +3734,10 @@
       ]
     },
     {
-      "name": "5Text34",
+      "name": "fire-district-code-number",
+      "pdfName": "5Text34",
       "type": "text",
-      "label": "5Text34",
+      "label": "FIRE DISTRICT/CODE NUMBER",
       "page": 4,
       "rect": [
         222.022,
@@ -3459,9 +3747,10 @@
       ]
     },
     {
-      "name": "5Text160",
+      "name": "fire-stat",
+      "pdfName": "5Text160",
       "type": "text",
-      "label": "5Text160",
+      "label": "FIRE STAT",
       "page": 4,
       "rect": [
         188.945,
@@ -3471,9 +3760,10 @@
       ]
     },
     {
-      "name": "5Text35",
+      "name": "prot-cl",
+      "pdfName": "5Text35",
       "type": "text",
-      "label": "5Text35",
+      "label": "PROT CL",
       "page": 4,
       "rect": [
         380.506,
@@ -3483,9 +3773,10 @@
       ]
     },
     {
-      "name": "5Text36",
+      "name": "stories",
+      "pdfName": "5Text36",
       "type": "text",
-      "label": "5Text36",
+      "label": "# STORIES",
       "page": 4,
       "rect": [
         416.319,
@@ -3495,9 +3786,10 @@
       ]
     },
     {
-      "name": "5Text37",
+      "name": "basm-ts",
+      "pdfName": "5Text37",
       "type": "text",
-      "label": "5Text37",
+      "label": "# BASM’TS",
       "page": 4,
       "rect": [
         452.131,
@@ -3507,9 +3799,10 @@
       ]
     },
     {
-      "name": "5Text38",
+      "name": "yr-built",
+      "pdfName": "5Text38",
       "type": "text",
-      "label": "5Text38",
+      "label": "YR BUILT",
       "page": 4,
       "rect": [
         489.862,
@@ -3519,9 +3812,10 @@
       ]
     },
     {
-      "name": "5Text39",
+      "name": "total-area",
+      "pdfName": "5Text39",
       "type": "text",
-      "label": "5Text39",
+      "label": "TOTAL AREA",
       "page": 4,
       "rect": [
         527.593,
@@ -3531,9 +3825,10 @@
       ]
     },
     {
-      "name": "5Check Box57",
+      "name": "building-improvements",
+      "pdfName": "5Check Box57",
       "type": "checkbox",
-      "label": "5Check Box57",
+      "label": "BUILDING IMPROVEMENTS",
       "page": 4,
       "rect": [
         19.1852,
@@ -3543,9 +3838,10 @@
       ]
     },
     {
-      "name": "5Check Box58",
+      "name": "wiring-yr",
+      "pdfName": "5Check Box58",
       "type": "checkbox",
-      "label": "5Check Box58",
+      "label": "WIRING, YR:",
       "page": 4,
       "rect": [
         19.1852,
@@ -3555,9 +3851,10 @@
       ]
     },
     {
-      "name": "5Check Box59",
+      "name": "roofing-yr",
+      "pdfName": "5Check Box59",
       "type": "checkbox",
-      "label": "5Check Box59",
+      "label": "ROOFING, YR:",
       "page": 4,
       "rect": [
         19.8247,
@@ -3567,9 +3864,10 @@
       ]
     },
     {
-      "name": "5Text74",
+      "name": "building-improvements-2",
+      "pdfName": "5Text74",
       "type": "text",
-      "label": "5Text74",
+      "label": "BUILDING IMPROVEMENTS",
       "page": 4,
       "rect": [
         72.7852,
@@ -3579,9 +3877,10 @@
       ]
     },
     {
-      "name": "5Text75",
+      "name": "roofing-yr-2",
+      "pdfName": "5Text75",
       "type": "text",
-      "label": "5Text75",
+      "label": "ROOFING, YR:",
       "page": 4,
       "rect": [
         78.0215,
@@ -3591,9 +3890,10 @@
       ]
     },
     {
-      "name": "5Text76",
+      "name": "plumbing-yr",
+      "pdfName": "5Text76",
       "type": "text",
-      "label": "5Text76",
+      "label": "PLUMBING, YR:",
       "page": 4,
       "rect": [
         183.796,
@@ -3603,9 +3903,10 @@
       ]
     },
     {
-      "name": "5Text77",
+      "name": "heating-yr",
+      "pdfName": "5Text77",
       "type": "text",
-      "label": "5Text77",
+      "label": "HEATING, YR:",
       "page": 4,
       "rect": [
         180.13,
@@ -3615,9 +3916,10 @@
       ]
     },
     {
-      "name": "5Text78",
+      "name": "other",
+      "pdfName": "5Text78",
       "type": "text",
-      "label": "5Text78",
+      "label": "OTHER:",
       "page": 4,
       "rect": [
         58.6471,
@@ -3627,9 +3929,10 @@
       ]
     },
     {
-      "name": "5Text40",
+      "name": "right-exposure-distance",
+      "pdfName": "5Text40",
       "type": "text",
-      "label": "5Text40",
+      "label": "RIGHT EXPOSURE & DISTANCE",
       "page": 4,
       "rect": [
         22.3827,
@@ -3639,9 +3942,10 @@
       ]
     },
     {
-      "name": "5Text44",
+      "name": "burglar-alarm-type",
+      "pdfName": "5Text44",
       "type": "text",
-      "label": "5Text44",
+      "label": "BURGLAR ALARM TYPE",
       "page": 4,
       "rect": [
         22.3827,
@@ -3651,9 +3955,10 @@
       ]
     },
     {
-      "name": "5Text41",
+      "name": "left-exposure-distance",
+      "pdfName": "5Text41",
       "type": "text",
-      "label": "5Text41",
+      "label": "LEFT EXPOSURE & DISTANCE",
       "page": 4,
       "rect": [
         166.911,
@@ -3663,9 +3968,10 @@
       ]
     },
     {
-      "name": "5Text42",
+      "name": "front-exposure-distance",
+      "pdfName": "5Text42",
       "type": "text",
-      "label": "5Text42",
+      "label": "FRONT EXPOSURE & DISTANCE",
       "page": 4,
       "rect": [
         309.164,
@@ -3675,9 +3981,10 @@
       ]
     },
     {
-      "name": "5Text43",
+      "name": "rear-exposure-distance",
+      "pdfName": "5Text43",
       "type": "text",
-      "label": "5Text43",
+      "label": "REAR EXPOSURE & DISTANCE",
       "page": 4,
       "rect": [
         452.771,
@@ -3687,9 +3994,10 @@
       ]
     },
     {
-      "name": "5Text45",
+      "name": "premises-fire-protection-sprinklers-standpipes-co2-chemical-systems",
+      "pdfName": "5Text45",
       "type": "text",
-      "label": "5Text45",
+      "label": "PREMISES FIRE PROTECTION (Sprinklers, Standpipes, CO2/Chemical Systems)",
       "page": 4,
       "rect": [
         20.1708,
@@ -3699,9 +4007,10 @@
       ]
     },
     {
-      "name": "5Text46",
+      "name": "sprnk",
+      "pdfName": "5Text46",
       "type": "text",
-      "label": "5Text46",
+      "label": "% SPRNK",
       "page": 4,
       "rect": [
         286.499,
@@ -3711,9 +4020,10 @@
       ]
     },
     {
-      "name": "5Text48",
+      "name": "name-and-address",
+      "pdfName": "5Text48",
       "type": "text",
-      "label": "5Text48",
+      "label": "NAME AND ADDRESS:",
       "page": 4,
       "rect": [
         76.7408,
@@ -3723,9 +4033,10 @@
       ]
     },
     {
-      "name": "5Text47",
+      "name": "rank",
+      "pdfName": "5Text47",
       "type": "text",
-      "label": "5Text47",
+      "label": "RANK:",
       "page": 4,
       "rect": [
         41.5679,
@@ -3735,9 +4046,10 @@
       ]
     },
     {
-      "name": "5Text52",
+      "name": "location-2",
+      "pdfName": "5Text52",
       "type": "text",
-      "label": "5Text52",
+      "label": "LOCATION:",
       "page": 4,
       "rect": [
         487.304,
@@ -3747,9 +4059,10 @@
       ]
     },
     {
-      "name": "5Text53",
+      "name": "building-2",
+      "pdfName": "5Text53",
       "type": "text",
-      "label": "5Text53",
+      "label": "BUILDING:",
       "page": 4,
       "rect": [
         558.289,
@@ -3759,9 +4072,10 @@
       ]
     },
     {
-      "name": "5Text51",
+      "name": "scheduled-item-number-2",
+      "pdfName": "5Text51",
       "type": "text",
-      "label": "5Text51",
+      "label": "SCHEDULED ITEM NUMBER:",
       "page": 4,
       "rect": [
         537.186,
@@ -3771,9 +4085,10 @@
       ]
     },
     {
-      "name": "5Text50",
+      "name": "scheduled-item-number",
+      "pdfName": "5Text50",
       "type": "text",
-      "label": "5Text50",
+      "label": "SCHEDULED ITEM NUMBER:",
       "page": 4,
       "rect": [
         479.63,
@@ -3783,9 +4098,10 @@
       ]
     },
     {
-      "name": "5Text49",
+      "name": "item-description",
+      "pdfName": "5Text49",
       "type": "text",
-      "label": "5Text49",
+      "label": "ITEM DESCRIPTION:",
       "page": 4,
       "rect": [
         139.412,
@@ -3795,9 +4111,10 @@
       ]
     },
     {
-      "name": "5Check Box54",
+      "name": "interest",
+      "pdfName": "5Check Box54",
       "type": "checkbox",
-      "label": "5Check Box54",
+      "label": "INTEREST",
       "page": 4,
       "rect": [
         19.1852,
@@ -3807,9 +4124,10 @@
       ]
     },
     {
-      "name": "5Check Box55",
+      "name": "payee",
+      "pdfName": "5Check Box55",
       "type": "checkbox",
-      "label": "5Check Box55",
+      "label": "PAYEE",
       "page": 4,
       "rect": [
         18.8743,
@@ -3819,9 +4137,10 @@
       ]
     },
     {
-      "name": "6Text113",
+      "name": "premises-2",
+      "pdfName": "6Text113",
       "type": "text",
-      "label": "6Text113",
+      "label": "PREMISES #:",
       "page": 5,
       "rect": [
         178.909,
@@ -3831,9 +4150,10 @@
       ]
     },
     {
-      "name": "6Text114",
+      "name": "building-3",
+      "pdfName": "6Text114",
       "type": "text",
-      "label": "6Text114",
+      "label": "BUILDING #:",
       "page": 5,
       "rect": [
         177.6,
@@ -3843,9 +4163,10 @@
       ]
     },
     {
-      "name": "6Text58",
+      "name": "subject-of-insurance-4",
+      "pdfName": "6Text58",
       "type": "text",
-      "label": "6Text58",
+      "label": "SUBJECT OF INSURANCE",
       "page": 5,
       "rect": [
         19.8247,
@@ -3855,9 +4176,10 @@
       ]
     },
     {
-      "name": "6Text116",
+      "name": "amount-4",
+      "pdfName": "6Text116",
       "type": "text",
-      "label": "6Text116",
+      "label": "AMOUNT",
       "page": 5,
       "rect": [
         138.327,
@@ -3867,9 +4189,10 @@
       ]
     },
     {
-      "name": "6Text59",
+      "name": "subject-of-insurance-5",
+      "pdfName": "6Text59",
       "type": "text",
-      "label": "6Text59",
+      "label": "SUBJECT OF INSURANCE",
       "page": 5,
       "rect": [
         19.8247,
@@ -3879,9 +4202,10 @@
       ]
     },
     {
-      "name": "6Text60",
+      "name": "subject-of-insurance-6",
+      "pdfName": "6Text60",
       "type": "text",
-      "label": "6Text60",
+      "label": "SUBJECT OF INSURANCE",
       "page": 5,
       "rect": [
         19.8247,
@@ -3891,9 +4215,10 @@
       ]
     },
     {
-      "name": "6Text124",
+      "name": "6text124",
+      "pdfName": "6Text124",
       "type": "text",
-      "label": "6Text124",
+      "label": "",
       "page": 5,
       "rect": [
         19.6363,
@@ -3903,9 +4228,10 @@
       ]
     },
     {
-      "name": "6Text125",
+      "name": "6text125",
+      "pdfName": "6Text125",
       "type": "text",
-      "label": "6Text125",
+      "label": "",
       "page": 5,
       "rect": [
         19.2,
@@ -3915,9 +4241,10 @@
       ]
     },
     {
-      "name": "6Text126",
+      "name": "6text126",
+      "pdfName": "6Text126",
       "type": "text",
-      "label": "6Text126",
+      "label": "",
       "page": 5,
       "rect": [
         19.2,
@@ -3927,9 +4254,10 @@
       ]
     },
     {
-      "name": "6Text117",
+      "name": "amount-5",
+      "pdfName": "6Text117",
       "type": "text",
-      "label": "6Text117",
+      "label": "AMOUNT",
       "page": 5,
       "rect": [
         138.327,
@@ -3939,9 +4267,10 @@
       ]
     },
     {
-      "name": "6Text118",
+      "name": "amount-6",
+      "pdfName": "6Text118",
       "type": "text",
-      "label": "6Text118",
+      "label": "AMOUNT",
       "page": 5,
       "rect": [
         138.327,
@@ -3951,9 +4280,10 @@
       ]
     },
     {
-      "name": "6Text119",
+      "name": "6text119",
+      "pdfName": "6Text119",
       "type": "text",
-      "label": "6Text119",
+      "label": "",
       "page": 5,
       "rect": [
         138.327,
@@ -3963,9 +4293,10 @@
       ]
     },
     {
-      "name": "6Text120",
+      "name": "6text120",
+      "pdfName": "6Text120",
       "type": "text",
-      "label": "6Text120",
+      "label": "",
       "page": 5,
       "rect": [
         137.891,
@@ -3975,9 +4306,10 @@
       ]
     },
     {
-      "name": "6Text121",
+      "name": "6text121",
+      "pdfName": "6Text121",
       "type": "text",
-      "label": "6Text121",
+      "label": "",
       "page": 5,
       "rect": [
         138.327,
@@ -3987,9 +4319,10 @@
       ]
     },
     {
-      "name": "6Text79",
+      "name": "deductible-s-7",
+      "pdfName": "6Text79",
       "type": "text",
-      "label": "6Text79",
+      "label": "DEDUCTIBLE(S)",
       "page": 5,
       "rect": [
         374.922,
@@ -3999,9 +4332,10 @@
       ]
     },
     {
-      "name": "6Text80",
+      "name": "deductible-s-8",
+      "pdfName": "6Text80",
       "type": "text",
-      "label": "6Text80",
+      "label": "DEDUCTIBLE(S)",
       "page": 5,
       "rect": [
         407.911,
@@ -4011,9 +4345,10 @@
       ]
     },
     {
-      "name": "6Text86",
+      "name": "deductible-s-11",
+      "pdfName": "6Text86",
       "type": "text",
-      "label": "6Text86",
+      "label": "DEDUCTIBLE(S)",
       "page": 5,
       "rect": [
         375.446,
@@ -4023,9 +4358,10 @@
       ]
     },
     {
-      "name": "6Text87",
+      "name": "deductible-s-12",
+      "pdfName": "6Text87",
       "type": "text",
-      "label": "6Text87",
+      "label": "DEDUCTIBLE(S)",
       "page": 5,
       "rect": [
         375.97,
@@ -4035,9 +4371,10 @@
       ]
     },
     {
-      "name": "6Text88",
+      "name": "6text88",
+      "pdfName": "6Text88",
       "type": "text",
-      "label": "6Text88",
+      "label": "",
       "page": 5,
       "rect": [
         375.97,
@@ -4047,9 +4384,10 @@
       ]
     },
     {
-      "name": "6Text89",
+      "name": "6text89",
+      "pdfName": "6Text89",
       "type": "text",
-      "label": "6Text89",
+      "label": "",
       "page": 5,
       "rect": [
         375.97,
@@ -4059,9 +4397,10 @@
       ]
     },
     {
-      "name": "6Text90",
+      "name": "6text90",
+      "pdfName": "6Text90",
       "type": "text",
-      "label": "6Text90",
+      "label": "",
       "page": 5,
       "rect": [
         375.446,
@@ -4071,9 +4410,10 @@
       ]
     },
     {
-      "name": "6Text85",
+      "name": "6text85",
+      "pdfName": "6Text85",
       "type": "text",
-      "label": "6Text85",
+      "label": "",
       "page": 5,
       "rect": [
         406.864,
@@ -4083,9 +4423,10 @@
       ]
     },
     {
-      "name": "6Text84",
+      "name": "6text84",
+      "pdfName": "6Text84",
       "type": "text",
-      "label": "6Text84",
+      "label": "",
       "page": 5,
       "rect": [
         407.911,
@@ -4095,9 +4436,10 @@
       ]
     },
     {
-      "name": "6Trxt",
+      "name": "6trxt",
+      "pdfName": "6Trxt",
       "type": "text",
-      "label": "6Trxt",
+      "label": "",
       "page": 5,
       "rect": [
         407.911,
@@ -4107,9 +4449,10 @@
       ]
     },
     {
-      "name": "6Text82",
+      "name": "deductible-s-10",
+      "pdfName": "6Text82",
       "type": "text",
-      "label": "6Text82",
+      "label": "DEDUCTIBLE(S)",
       "page": 5,
       "rect": [
         408.435,
@@ -4119,9 +4462,10 @@
       ]
     },
     {
-      "name": "6Text81",
+      "name": "deductible-s-9",
+      "pdfName": "6Text81",
       "type": "text",
-      "label": "6Text81",
+      "label": "DEDUCTIBLE(S)",
       "page": 5,
       "rect": [
         406.864,
@@ -4131,9 +4475,10 @@
       ]
     },
     {
-      "name": "6Text128",
+      "name": "bldg-description-2",
+      "pdfName": "6Text128",
       "type": "text",
-      "label": "6Text128",
+      "label": "BLDG DESCRIPTION:",
       "page": 5,
       "rect": [
         274.908,
@@ -4143,9 +4488,10 @@
       ]
     },
     {
-      "name": "6Text127",
+      "name": "street-address-2",
+      "pdfName": "6Text127",
       "type": "text",
-      "label": "6Text127",
+      "label": "STREET ADDRESS:",
       "page": 5,
       "rect": [
         271.418,
@@ -4155,9 +4501,10 @@
       ]
     },
     {
-      "name": "6Text129",
+      "name": "hydrant-2",
+      "pdfName": "6Text129",
       "type": "text",
-      "label": "6Text129",
+      "label": "HYDRANT",
       "page": 5,
       "rect": [
         19.2,
@@ -4167,9 +4514,10 @@
       ]
     },
     {
-      "name": "6Text130",
+      "name": "hydrant-3",
+      "pdfName": "6Text130",
       "type": "text",
-      "label": "6Text130",
+      "label": "HYDRANT",
       "page": 5,
       "rect": [
         147.054,
@@ -4179,9 +4527,10 @@
       ]
     },
     {
-      "name": "6Text131",
+      "name": "fire-stat-2",
+      "pdfName": "6Text131",
       "type": "text",
-      "label": "6Text131",
+      "label": "FIRE STAT",
       "page": 5,
       "rect": [
         189.818,
@@ -4191,9 +4540,10 @@
       ]
     },
     {
-      "name": "6Text132",
+      "name": "fire-district-code-number-2",
+      "pdfName": "6Text132",
       "type": "text",
-      "label": "6Text132",
+      "label": "FIRE DISTRICT/CODE NUMBER",
       "page": 5,
       "rect": [
         221.499,
@@ -4203,9 +4553,10 @@
       ]
     },
     {
-      "name": "6Text133",
+      "name": "prot-cl-2",
+      "pdfName": "6Text133",
       "type": "text",
-      "label": "6Text133",
+      "label": "PROT CL",
       "page": 5,
       "rect": [
         379.199,
@@ -4215,9 +4566,10 @@
       ]
     },
     {
-      "name": "6Text134",
+      "name": "stories-2",
+      "pdfName": "6Text134",
       "type": "text",
-      "label": "6Text134",
+      "label": "# STORIES",
       "page": 5,
       "rect": [
         417.163,
@@ -4227,9 +4579,10 @@
       ]
     },
     {
-      "name": "6Text135",
+      "name": "basm-ts-2",
+      "pdfName": "6Text135",
       "type": "text",
-      "label": "6Text135",
+      "label": "# BASM’TS",
       "page": 5,
       "rect": [
         452.508,
@@ -4239,9 +4592,10 @@
       ]
     },
     {
-      "name": "6Text136",
+      "name": "yr-built-2",
+      "pdfName": "6Text136",
       "type": "text",
-      "label": "6Text136",
+      "label": "YR BUILT",
       "page": 5,
       "rect": [
         487.244,
@@ -4251,9 +4605,10 @@
       ]
     },
     {
-      "name": "6Text137",
+      "name": "total-area-2",
+      "pdfName": "6Text137",
       "type": "text",
-      "label": "6Text137",
+      "label": "TOTAL AREA",
       "page": 5,
       "rect": [
         526.547,
@@ -4263,9 +4618,10 @@
       ]
     },
     {
-      "name": "6Text138",
+      "name": "roof-type",
+      "pdfName": "6Text138",
       "type": "text",
-      "label": "6Text138",
+      "label": "ROOF TYPE",
       "page": 5,
       "rect": [
         304.581,
@@ -4275,9 +4631,10 @@
       ]
     },
     {
-      "name": "6Text142",
+      "name": "plumbing-yr-3",
+      "pdfName": "6Text142",
       "type": "text",
-      "label": "6Text142",
+      "label": "PLUMBING, YR:",
       "page": 5,
       "rect": [
         184.581,
@@ -4287,9 +4644,10 @@
       ]
     },
     {
-      "name": "6Text143",
+      "name": "heating-yr-2",
+      "pdfName": "6Text143",
       "type": "text",
-      "label": "6Text143",
+      "label": "HEATING, YR:",
       "page": 5,
       "rect": [
         179.345,
@@ -4299,9 +4657,10 @@
       ]
     },
     {
-      "name": "6Text139",
+      "name": "wiring-yr-3",
+      "pdfName": "6Text139",
       "type": "text",
-      "label": "6Text139",
+      "label": "WIRING, YR:",
       "page": 5,
       "rect": [
         71.9998,
@@ -4311,9 +4670,10 @@
       ]
     },
     {
-      "name": "6Text140",
+      "name": "roofing-yr-4",
+      "pdfName": "6Text140",
       "type": "text",
-      "label": "6Text140",
+      "label": "ROOFING, YR:",
       "page": 5,
       "rect": [
         78.5453,
@@ -4323,9 +4683,10 @@
       ]
     },
     {
-      "name": "6Text141",
+      "name": "other-2",
+      "pdfName": "6Text141",
       "type": "text",
-      "label": "6Text141",
+      "label": "OTHER:",
       "page": 5,
       "rect": [
         60.218,
@@ -4335,9 +4696,10 @@
       ]
     },
     {
-      "name": "6Text144",
+      "name": "right-exposure-distance-2",
+      "pdfName": "6Text144",
       "type": "text",
-      "label": "6Text144",
+      "label": "RIGHT EXPOSURE & DISTANCE",
       "page": 5,
       "rect": [
         20.0727,
@@ -4347,9 +4709,10 @@
       ]
     },
     {
-      "name": "6Text145",
+      "name": "left-exposure-distance-2",
+      "pdfName": "6Text145",
       "type": "text",
-      "label": "6Text145",
+      "label": "LEFT EXPOSURE & DISTANCE",
       "page": 5,
       "rect": [
         163.636,
@@ -4359,9 +4722,10 @@
       ]
     },
     {
-      "name": "6Text146",
+      "name": "front-exposure-distance-2",
+      "pdfName": "6Text146",
       "type": "text",
-      "label": "6Text146",
+      "label": "FRONT EXPOSURE & DISTANCE",
       "page": 5,
       "rect": [
         307.636,
@@ -4371,9 +4735,10 @@
       ]
     },
     {
-      "name": "6Text147",
+      "name": "rear-exposure-distance-2",
+      "pdfName": "6Text147",
       "type": "text",
-      "label": "6Text147",
+      "label": "REAR EXPOSURE & DISTANCE",
       "page": 5,
       "rect": [
         452.508,
@@ -4383,9 +4748,10 @@
       ]
     },
     {
-      "name": "6Text148",
+      "name": "burglar-alarm-type-2",
+      "pdfName": "6Text148",
       "type": "text",
-      "label": "6Text148",
+      "label": "BURGLAR ALARM TYPE",
       "page": 5,
       "rect": [
         20.9454,
@@ -4395,9 +4761,10 @@
       ]
     },
     {
-      "name": "6Text149",
+      "name": "premises-fire-protection-sprinklers-standpipes-co2-chemical-systems-2",
+      "pdfName": "6Text149",
       "type": "text",
-      "label": "6Text149",
+      "label": "PREMISES FIRE PROTECTION (Sprinklers, Standpipes, CO2/Chemical Systems)",
       "page": 5,
       "rect": [
         20.9454,
@@ -4407,9 +4774,10 @@
       ]
     },
     {
-      "name": "6Text150",
+      "name": "sprnk-2",
+      "pdfName": "6Text150",
       "type": "text",
-      "label": "6Text150",
+      "label": "% SPRNK",
       "page": 5,
       "rect": [
         286.69,
@@ -4419,9 +4787,10 @@
       ]
     },
     {
-      "name": "6Text151",
+      "name": "name-and-address-2",
+      "pdfName": "6Text151",
       "type": "text",
-      "label": "6Text151",
+      "label": "NAME AND ADDRESS:",
       "page": 5,
       "rect": [
         76.7998,
@@ -4431,9 +4800,10 @@
       ]
     },
     {
-      "name": "6Text157",
+      "name": "other-3",
+      "pdfName": "6Text157",
       "type": "text",
-      "label": "6Text157",
+      "label": "OTHER:",
       "page": 5,
       "rect": [
         137.018,
@@ -4443,9 +4813,10 @@
       ]
     },
     {
-      "name": "6Text156",
+      "name": "scheduled-item-number-4",
+      "pdfName": "6Text156",
       "type": "text",
-      "label": "6Text156",
+      "label": "SCHEDULED ITEM NUMBER:",
       "page": 5,
       "rect": [
         477.005,
@@ -4455,9 +4826,10 @@
       ]
     },
     {
-      "name": "6Text155",
+      "name": "scheduled-item-number-3",
+      "pdfName": "6Text155",
       "type": "text",
-      "label": "6Text155",
+      "label": "SCHEDULED ITEM NUMBER:",
       "page": 5,
       "rect": [
         536.35,
@@ -4467,9 +4839,10 @@
       ]
     },
     {
-      "name": "6Text154",
+      "name": "building-4",
+      "pdfName": "6Text154",
       "type": "text",
-      "label": "6Text154",
+      "label": "BUILDING:",
       "page": 5,
       "rect": [
         557.235,
@@ -4479,9 +4852,10 @@
       ]
     },
     {
-      "name": "6Text153",
+      "name": "location-3",
+      "pdfName": "6Text153",
       "type": "text",
-      "label": "6Text153",
+      "label": "LOCATION:",
       "page": 5,
       "rect": [
         487.417,
@@ -4491,9 +4865,10 @@
       ]
     },
     {
-      "name": "6Check Box111",
+      "name": "interest-2",
+      "pdfName": "6Check Box111",
       "type": "checkbox",
-      "label": "6Check Box111",
+      "label": "INTEREST",
       "page": 5,
       "rect": [
         19.2,
@@ -4503,9 +4878,10 @@
       ]
     },
     {
-      "name": "6Check Box112",
+      "name": "payee-2",
+      "pdfName": "6Check Box112",
       "type": "checkbox",
-      "label": "6Check Box112",
+      "label": "PAYEE",
       "page": 5,
       "rect": [
         19.2,
@@ -4515,9 +4891,10 @@
       ]
     },
     {
-      "name": "6Check Box108",
+      "name": "roofing-yr-3",
+      "pdfName": "6Check Box108",
       "type": "checkbox",
-      "label": "6Check Box108",
+      "label": "ROOFING, YR:",
       "page": 5,
       "rect": [
         18.7636,
@@ -4527,9 +4904,10 @@
       ]
     },
     {
-      "name": "6Check Box107",
+      "name": "wiring-yr-2",
+      "pdfName": "6Check Box107",
       "type": "checkbox",
-      "label": "6Check Box107",
+      "label": "WIRING, YR:",
       "page": 5,
       "rect": [
         18.7636,
@@ -4539,9 +4917,10 @@
       ]
     },
     {
-      "name": "6Check Box106",
+      "name": "building-improvements-3",
+      "pdfName": "6Check Box106",
       "type": "checkbox",
-      "label": "6Check Box106",
+      "label": "BUILDING IMPROVEMENTS",
       "page": 5,
       "rect": [
         18.9968,
@@ -4551,9 +4930,10 @@
       ]
     },
     {
-      "name": "6Check Box109",
+      "name": "plumbing-yr-2",
+      "pdfName": "6Check Box109",
       "type": "checkbox",
-      "label": "6Check Box109",
+      "label": "PLUMBING, YR:",
       "page": 5,
       "rect": [
         122.182,
@@ -4563,9 +4943,10 @@
       ]
     },
     {
-      "name": "agentstreetaddress",
+      "name": "insured",
+      "pdfName": "agentstreetaddress",
       "type": "text",
-      "label": "agentstreetaddress",
+      "label": "Insured)",
       "page": 2,
       "rect": [
         19.8698,
@@ -4575,9 +4956,10 @@
       ]
     },
     {
-      "name": "agentstreetaddress",
+      "name": "insured",
+      "pdfName": "agentstreetaddress",
       "type": "text",
-      "label": "agentstreetaddress",
+      "label": "Insured)",
       "page": 0,
       "rect": [
         55.9397,
@@ -4587,9 +4969,10 @@
       ]
     },
     {
-      "name": "agentstreetaddress",
+      "name": "insured",
+      "pdfName": "agentstreetaddress",
       "type": "text",
-      "label": "agentstreetaddress",
+      "label": "Insured)",
       "page": 4,
       "rect": [
         19.8247,
