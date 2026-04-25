@@ -50,7 +50,7 @@ function FieldInput({
   onChange: (next: string | boolean | null) => void;
 }) {
   const style = fieldStyle(field, meta);
-  const title = `${field.name}${field.label && field.label !== field.name ? ` — ${field.label}` : ''}`;
+  const title = `${field.label} (${field.name})`;
 
   if (field.type === 'checkbox') {
     return (

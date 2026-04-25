@@ -3,9 +3,10 @@
   "title": "ACORD 126 — Commercial General Liability Section",
   "fields": [
     {
-      "name": "Form_EditionIdentifier_A",
+      "name": "form-edition-identifier",
+      "pdfName": "Form_EditionIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The edition identifier of the form including the form number and edition (the date is typically formatted YYYY/MM).",
       "page": 0,
       "rect": [
         0,
@@ -15,9 +16,10 @@
       ]
     },
     {
-      "name": "Producer_CustomerIdentifier_A",
+      "name": "producer-customer-identifier",
+      "pdfName": "Producer_CustomerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The customer's identification number assigned by the producer (e.g., agency or brokerage).",
       "page": 0,
       "rect": [
         414,
@@ -27,9 +29,10 @@
       ]
     },
     {
-      "name": "Producer_CustomerIdentifier_A",
+      "name": "producer-customer-identifier",
+      "pdfName": "Producer_CustomerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The customer's identification number assigned by the producer (e.g., agency or brokerage).",
       "page": 1,
       "rect": [
         414,
@@ -39,9 +42,10 @@
       ]
     },
     {
-      "name": "Producer_CustomerIdentifier_A",
+      "name": "producer-customer-identifier",
+      "pdfName": "Producer_CustomerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The customer's identification number assigned by the producer (e.g., agency or brokerage).",
       "page": 2,
       "rect": [
         414,
@@ -51,9 +55,10 @@
       ]
     },
     {
-      "name": "Producer_CustomerIdentifier_A",
+      "name": "producer-customer-identifier",
+      "pdfName": "Producer_CustomerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The customer's identification number assigned by the producer (e.g., agency or brokerage).",
       "page": 3,
       "rect": [
         414,
@@ -63,9 +68,10 @@
       ]
     },
     {
-      "name": "Form_CompletionDate_A",
+      "name": "form-completion-date",
+      "pdfName": "Form_CompletionDate_A",
       "type": "text",
-      "label": "A",
+      "label": "The date on which the form is completed.",
       "page": 0,
       "rect": [
         511,
@@ -76,9 +82,10 @@
       "maxLength": 10
     },
     {
-      "name": "Producer_FullName_A",
+      "name": "producer-full-name",
+      "pdfName": "Producer_FullName_A",
       "type": "text",
-      "label": "A",
+      "label": "The full name of the producer / agency.",
       "page": 0,
       "rect": [
         22,
@@ -88,9 +95,10 @@
       ]
     },
     {
-      "name": "Policy_PolicyNumberIdentifier_A",
+      "name": "policy-policy-number-identifier",
+      "pdfName": "Policy_PolicyNumberIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The identifier assigned by the insurer to the policy, or submission, being referenced exactly as it appears on the po…",
       "page": 0,
       "rect": [
         22,
@@ -100,9 +108,10 @@
       ]
     },
     {
-      "name": "Policy_EffectiveDate_A",
+      "name": "policy-effective-date",
+      "pdfName": "Policy_EffectiveDate_A",
       "type": "text",
-      "label": "A",
+      "label": "The effective date of the policy.",
       "page": 0,
       "rect": [
         252,
@@ -113,9 +122,10 @@
       "maxLength": 10
     },
     {
-      "name": "Insurer_FullName_A",
+      "name": "insurer-full-name",
+      "pdfName": "Insurer_FullName_A",
       "type": "text",
-      "label": "A",
+      "label": "The insurer's full legal company name(s) as found in the file copy of the policy.",
       "page": 0,
       "rect": [
         310,
@@ -125,9 +135,10 @@
       ]
     },
     {
-      "name": "Insurer_NAICCode_A",
+      "name": "insurer-naic-code",
+      "pdfName": "Insurer_NAICCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The identification code assigned to the insurer by the National Association of Insurance Commissioners (NAIC).",
       "page": 0,
       "rect": [
         544,
@@ -137,9 +148,10 @@
       ]
     },
     {
-      "name": "NamedInsured_FullName_A",
+      "name": "named-insured-full-name",
+      "pdfName": "NamedInsured_FullName_A",
       "type": "text",
-      "label": "A",
+      "label": "The named insured(s) as it / they will appear on the policy declarations page.",
       "page": 0,
       "rect": [
         310,
@@ -149,9 +161,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_CoverageIndicator_A",
+      "name": "general-liability-coverage-indicator",
+      "pdfName": "GeneralLiability_CoverageIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the claims made or occurrence option applies for the general liability policy.",
       "page": 0,
       "rect": [
         18,
@@ -161,9 +174,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_ClaimsMadeIndicator_A",
+      "name": "general-liability-claims-made-indicator",
+      "pdfName": "GeneralLiability_ClaimsMadeIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the \"claims made\" option applies on the general liability policy.",
       "page": 0,
       "rect": [
         32,
@@ -173,9 +187,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OccurrenceIndicator_A",
+      "name": "general-liability-occurrence-indicator",
+      "pdfName": "GeneralLiability_OccurrenceIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the general liability policy, occurrence basis applies.",
       "page": 0,
       "rect": [
         122,
@@ -185,9 +200,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OwnersAndContractorsProtectiveIndicator_A",
+      "name": "general-liability-owners-and-contractors-protective-indicator",
+      "pdfName": "GeneralLiability_OwnersAndContractorsProtectiveIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the owners and contractors protective option applies for the general liability policy.",
       "page": 0,
       "rect": [
         18,
@@ -197,9 +213,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherCoverageIndicator_A",
+      "name": "general-liability-other-coverage-indicator",
+      "pdfName": "GeneralLiability_OtherCoverageIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates other coverage not found on the form exists for the general liability policy.",
       "page": 0,
       "rect": [
         18,
@@ -209,9 +226,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherCoverageDescription_A",
+      "name": "general-liability-other-coverage-description",
+      "pdfName": "GeneralLiability_OtherCoverageDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of other coverage (not the limit) on the general liability policy.",
       "page": 0,
       "rect": [
         36,
@@ -221,9 +239,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_PropertyDamage_DeductibleIndicator_A",
+      "name": "general-liability-property-damage-deductible-indicator",
+      "pdfName": "GeneralLiability_PropertyDamage_DeductibleIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates if a property damage deductible is requested.",
       "page": 0,
       "rect": [
         18,
@@ -233,9 +252,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_PropertyDamage_DeductibleAmount_A",
+      "name": "general-liability-property-damage-deductible-amount",
+      "pdfName": "GeneralLiability_PropertyDamage_DeductibleAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter deductible: The deductible applicable to the Property Damage coverage.",
       "page": 0,
       "rect": [
         119,
@@ -245,9 +265,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_BodilyInjury_DeductibleIndicator_A",
+      "name": "general-liability-bodily-injury-deductible-indicator",
+      "pdfName": "GeneralLiability_BodilyInjury_DeductibleIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates if a bodily injury deductible is requested.",
       "page": 0,
       "rect": [
         18,
@@ -257,9 +278,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_BodilyInjury_DeductibleAmount_A",
+      "name": "general-liability-bodily-injury-deductible-amount",
+      "pdfName": "GeneralLiability_BodilyInjury_DeductibleAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter deductible: The deductible applicable to the Bodily Injury coverage.",
       "page": 0,
       "rect": [
         119,
@@ -269,9 +291,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherDeductibleIndicator_A",
+      "name": "general-liability-other-deductible-indicator",
+      "pdfName": "GeneralLiability_OtherDeductibleIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that a deductible is requested on the coverage other than Property Damage or Bodily Injury.",
       "page": 0,
       "rect": [
         18,
@@ -281,9 +304,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherDeductibleDescription_A",
+      "name": "general-liability-other-deductible-description",
+      "pdfName": "GeneralLiability_OtherDeductibleDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The type of deductible being requested other than property damage and bodily injury.",
       "page": 0,
       "rect": [
         40,
@@ -293,9 +317,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherDeductibleAmount_A",
+      "name": "general-liability-other-deductible-amount",
+      "pdfName": "GeneralLiability_OtherDeductibleAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter deductible: The deductible applicable to the Other Coverage.",
       "page": 0,
       "rect": [
         119,
@@ -305,9 +330,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_DeductiblePerClaimIndicator_A",
+      "name": "general-liability-deductible-per-claim-indicator",
+      "pdfName": "GeneralLiability_DeductiblePerClaimIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that a per claim deductible applies to individual claims even if the claims are all related to the same occ…",
       "page": 0,
       "rect": [
         173,
@@ -317,9 +343,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_DeductiblePerOccurrenceIndicator_A",
+      "name": "general-liability-deductible-per-occurrence-indicator",
+      "pdfName": "GeneralLiability_DeductiblePerOccurrenceIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that a per occurrence deductible applies once to each occurrence no matter how many individual claims resul…",
       "page": 0,
       "rect": [
         173,
@@ -329,9 +356,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_GeneralAggregate_LimitAmount_A",
+      "name": "general-liability-general-aggregate-limit-amount",
+      "pdfName": "GeneralLiability_GeneralAggregate_LimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, general aggregate limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -341,9 +369,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_GeneralAggregate_LimitAppliesPerPolicyIndicator_A",
+      "name": "general-liability-general-aggregate-limit-applies-per-policy-indicator",
+      "pdfName": "GeneralLiability_GeneralAggregate_LimitAppliesPerPolicyIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the general liability policy, general aggregate limit applies per policy.",
       "page": 0,
       "rect": [
         302,
@@ -353,9 +382,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_GeneralAggregate_LimitAppliesPerProjectIndicator_A",
+      "name": "general-liability-general-aggregate-limit-applies-per-project-indicator",
+      "pdfName": "GeneralLiability_GeneralAggregate_LimitAppliesPerProjectIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the general liability policy, general aggregate limit applies per project.",
       "page": 0,
       "rect": [
         302,
@@ -365,9 +395,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_GeneralAggregate_LimitAppliesPerLocationIndicator_A",
+      "name": "general-liability-general-aggregate-limit-applies-per-location-indicator",
+      "pdfName": "GeneralLiability_GeneralAggregate_LimitAppliesPerLocationIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the general liability policy, general aggregate limit applies per location.",
       "page": 0,
       "rect": [
         353,
@@ -377,9 +408,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_GeneralAggregate_LimitAppliesToOtherIndicator_A",
+      "name": "general-liability-general-aggregate-limit-applies-to-other-indicator",
+      "pdfName": "GeneralLiability_GeneralAggregate_LimitAppliesToOtherIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the general liability policy, general aggregate limit applies to option is other than those listed on the f…",
       "page": 0,
       "rect": [
         353,
@@ -389,9 +421,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_GeneralAggregate_LimitAppliesToCode_A",
+      "name": "general-liability-general-aggregate-limit-applies-to-code",
+      "pdfName": "GeneralLiability_GeneralAggregate_LimitAppliesToCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of the other option to which the general liability policy, general aggregate limit applies.",
       "page": 0,
       "rect": [
         400,
@@ -401,9 +434,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_ProductsAndCompletedOperations_AggregateLimitAmount_A",
+      "name": "general-liability-products-and-completed-operations-aggregate-limit-amount",
+      "pdfName": "GeneralLiability_ProductsAndCompletedOperations_AggregateLimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, products and completed operations aggregate limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -413,9 +447,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_PersonalAndAdvertisingInjury_LimitAmount_A",
+      "name": "general-liability-personal-and-advertising-injury-limit-amount",
+      "pdfName": "GeneralLiability_PersonalAndAdvertisingInjury_LimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, personal and advertising injury limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -425,9 +460,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_EachOccurrence_LimitAmount_A",
+      "name": "general-liability-each-occurrence-limit-amount",
+      "pdfName": "GeneralLiability_EachOccurrence_LimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, each occurrence limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -437,9 +473,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_FireDamageRentedPremises_EachOccurrenceLimitAmount_A",
+      "name": "general-liability-fire-damage-rented-premises-each-occurrence-limit-amount",
+      "pdfName": "GeneralLiability_FireDamageRentedPremises_EachOccurrenceLimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, damage to rented premises each occurrence limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -449,9 +486,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_MedicalExpense_EachPersonLimitAmount_A",
+      "name": "general-liability-medical-expense-each-person-limit-amount",
+      "pdfName": "GeneralLiability_MedicalExpense_EachPersonLimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, medical expense each person limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -461,9 +499,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_EmployeeBenefits_LimitAmount_A",
+      "name": "general-liability-employee-benefits-limit-amount",
+      "pdfName": "GeneralLiability_EmployeeBenefits_LimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability employee benefits limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -473,9 +512,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherCoverageLimitDescription_A",
+      "name": "general-liability-other-coverage-limit-description",
+      "pdfName": "GeneralLiability_OtherCoverageLimitDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of other coverage (not the limit) on the general liability policy.",
       "page": 0,
       "rect": [
         234,
@@ -485,9 +525,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherCoverageLimitAmount_A",
+      "name": "general-liability-other-coverage-limit-amount",
+      "pdfName": "GeneralLiability_OtherCoverageLimitAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter limit: The general liability, other coverage limit amount.",
       "page": 0,
       "rect": [
         410,
@@ -497,9 +538,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_PremisesOperations_PremiumAmount_A",
+      "name": "general-liability-premises-operations-premium-amount",
+      "pdfName": "GeneralLiability_PremisesOperations_PremiumAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The premium for premises/operations coverage.",
       "page": 0,
       "rect": [
         497,
@@ -509,9 +551,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Products_PremiumAmount_A",
+      "name": "general-liability-products-premium-amount",
+      "pdfName": "GeneralLiability_Products_PremiumAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The premium for products coverage.",
       "page": 0,
       "rect": [
         497,
@@ -521,9 +564,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_OtherCoveragePremiumAmount_A",
+      "name": "general-liability-other-coverage-premium-amount",
+      "pdfName": "GeneralLiability_OtherCoveragePremiumAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The premium for other general liability coverage.",
       "page": 0,
       "rect": [
         497,
@@ -533,9 +577,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_TotalPremiumAmount_A",
+      "name": "general-liability-line-of-business-total-premium-amount",
+      "pdfName": "GeneralLiabilityLineOfBusiness_TotalPremiumAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The total premium amount for the commercial general liability line of business.",
       "page": 0,
       "rect": [
         497,
@@ -545,9 +590,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_RemarkText_A",
+      "name": "general-liability-line-of-business-remark-text",
+      "pdfName": "GeneralLiabilityLineOfBusiness_RemarkText_A",
       "type": "text",
-      "label": "A",
+      "label": "The remarks associated with the general liability line of business.",
       "page": 0,
       "rect": [
         22,
@@ -557,9 +603,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableIndicator_A",
+      "name": "general-liability-uninsured-underinsured-motorists-coverage-available-indicator",
+      "pdfName": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates if uninsured/underinsured motorist coverage is to be provided under the policy.",
       "page": 0,
       "rect": [
         101,
@@ -569,9 +616,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableNoIndicator_A",
+      "name": "general-liability-uninsured-underinsured-motorists-coverage-available-no-indicator",
+      "pdfName": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableNoIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that uninsured/underinsured motorist coverage is not to be provided under the policy.",
       "page": 0,
       "rect": [
         137,
@@ -581,9 +629,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_MedicalPayments_CoverageAvailableIndicator_A",
+      "name": "general-liability-medical-payments-coverage-available-indicator",
+      "pdfName": "GeneralLiability_MedicalPayments_CoverageAvailableIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that medical payment coverage is to be provided under the policy.",
       "page": 0,
       "rect": [
         367,
@@ -593,9 +642,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_MedicalPayments_CoverageAvailableNoIndicator_A",
+      "name": "general-liability-medical-payments-coverage-available-no-indicator",
+      "pdfName": "GeneralLiability_MedicalPayments_CoverageAvailableNoIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that medical payment coverage is not to be provided under the policy.",
       "page": 0,
       "rect": [
         403,
@@ -605,9 +655,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_LocationProducerIdentifier_A",
+      "name": "general-liability-hazard-location-producer-identifier",
+      "pdfName": "GeneralLiability_Hazard_LocationProducerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The producer assigned identifier for the location number of the risk's location as it appears on the Applicant Inform…",
       "page": 0,
       "rect": [
         22,
@@ -617,9 +668,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_HazardProducerIdentifier_A",
+      "name": "general-liability-hazard-hazard-producer-identifier",
+      "pdfName": "GeneralLiability_Hazard_HazardProducerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "A unique (within location) number distinguishing this unit-at-risk from the others.",
       "page": 0,
       "rect": [
         58,
@@ -629,9 +681,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ClassCode_A",
+      "name": "general-liability-hazard-class-code",
+      "pdfName": "GeneralLiability_Hazard_ClassCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The general liability class code that corresponds to the classification description shown in the previous field.",
       "page": 0,
       "rect": [
         90,
@@ -641,9 +694,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremiumBasisCode_A",
+      "name": "general-liability-hazard-premium-basis-code",
+      "pdfName": "GeneralLiability_Hazard_PremiumBasisCode_A",
       "type": "text",
-      "label": "A",
+      "label": "An industry code designating the rating basis of the exposure amount.",
       "page": 0,
       "rect": [
         144,
@@ -653,9 +707,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_Exposure_A",
+      "name": "general-liability-hazard-exposure",
+      "pdfName": "GeneralLiability_Hazard_Exposure_A",
       "type": "text",
-      "label": "A",
+      "label": "The amount of the exposure used for this class code in calculating the premium.",
       "page": 0,
       "rect": [
         194,
@@ -665,9 +720,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_TerritoryCode_A",
+      "name": "general-liability-hazard-territory-code",
+      "pdfName": "GeneralLiability_Hazard_TerritoryCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The rating territory code based on location from the appropriate state exception page.",
       "page": 0,
       "rect": [
         295,
@@ -677,9 +733,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremisesOperationsRate_A",
+      "name": "general-liability-hazard-premises-operations-rate",
+      "pdfName": "GeneralLiability_Hazard_PremisesOperationsRate_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter rate: The separate Premises Operations manual rate applicable to the classification.",
       "page": 0,
       "rect": [
         331,
@@ -689,9 +746,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ProductsRate_A",
+      "name": "general-liability-hazard-products-rate",
+      "pdfName": "GeneralLiability_Hazard_ProductsRate_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter rate: The separate Products rate applicable to the classification.",
       "page": 0,
       "rect": [
         396,
@@ -701,9 +759,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_A",
+      "name": "general-liability-hazard-premises-operations-premium-amount",
+      "pdfName": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The premium associated with the premises operations coverage.",
       "page": 0,
       "rect": [
         464,
@@ -713,9 +772,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ProductsPremiumAmount_A",
+      "name": "general-liability-hazard-products-premium-amount",
+      "pdfName": "GeneralLiability_Hazard_ProductsPremiumAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The premium associated with the products coverage.",
       "page": 0,
       "rect": [
         529,
@@ -725,9 +785,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_Classification_A",
+      "name": "general-liability-hazard-classification",
+      "pdfName": "GeneralLiability_Hazard_Classification_A",
       "type": "text",
-      "label": "A",
+      "label": "The classification of the applicant's liability exposures by location, using the ISO Classification Table or other in…",
       "page": 0,
       "rect": [
         22,
@@ -737,9 +798,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_LocationProducerIdentifier_B",
+      "name": "general-liability-hazard-location-producer-identifier-2",
+      "pdfName": "GeneralLiability_Hazard_LocationProducerIdentifier_B",
       "type": "text",
-      "label": "B",
+      "label": "The producer assigned identifier for the location number of the risk's location as it appears on the Applicant Inform…",
       "page": 0,
       "rect": [
         22,
@@ -749,9 +811,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_HazardProducerIdentifier_B",
+      "name": "general-liability-hazard-hazard-producer-identifier-2",
+      "pdfName": "GeneralLiability_Hazard_HazardProducerIdentifier_B",
       "type": "text",
-      "label": "B",
+      "label": "A unique (within location) number distinguishing this unit-at-risk from the others.",
       "page": 0,
       "rect": [
         58,
@@ -761,9 +824,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ClassCode_B",
+      "name": "general-liability-hazard-class-code-2",
+      "pdfName": "GeneralLiability_Hazard_ClassCode_B",
       "type": "text",
-      "label": "B",
+      "label": "The general liability class code that corresponds to the classification description shown in the previous field.",
       "page": 0,
       "rect": [
         90,
@@ -773,9 +837,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremiumBasisCode_B",
+      "name": "general-liability-hazard-premium-basis-code-2",
+      "pdfName": "GeneralLiability_Hazard_PremiumBasisCode_B",
       "type": "text",
-      "label": "B",
+      "label": "An industry code designating the rating basis of the exposure amount.",
       "page": 0,
       "rect": [
         144,
@@ -785,9 +850,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_Exposure_B",
+      "name": "general-liability-hazard-exposure-2",
+      "pdfName": "GeneralLiability_Hazard_Exposure_B",
       "type": "text",
-      "label": "B",
+      "label": "The amount of the exposure used for this class code in calculating the premium.",
       "page": 0,
       "rect": [
         194,
@@ -797,9 +863,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_TerritoryCode_B",
+      "name": "general-liability-hazard-territory-code-2",
+      "pdfName": "GeneralLiability_Hazard_TerritoryCode_B",
       "type": "text",
-      "label": "B",
+      "label": "The rating territory code based on location from the appropriate state exception page.",
       "page": 0,
       "rect": [
         295,
@@ -809,9 +876,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremisesOperationsRate_B",
+      "name": "general-liability-hazard-premises-operations-rate-2",
+      "pdfName": "GeneralLiability_Hazard_PremisesOperationsRate_B",
       "type": "text",
-      "label": "B",
+      "label": "Enter rate: The separate Premises Operations manual rate applicable to the classification.",
       "page": 0,
       "rect": [
         331,
@@ -821,9 +889,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ProductsRate_B",
+      "name": "general-liability-hazard-products-rate-2",
+      "pdfName": "GeneralLiability_Hazard_ProductsRate_B",
       "type": "text",
-      "label": "B",
+      "label": "Enter rate: The separate Products rate applicable to the classification.",
       "page": 0,
       "rect": [
         396,
@@ -833,9 +902,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_B",
+      "name": "general-liability-hazard-premises-operations-premium-amount-2",
+      "pdfName": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_B",
       "type": "text",
-      "label": "B",
+      "label": "The premium associated with the premises operations coverage.",
       "page": 0,
       "rect": [
         464,
@@ -845,9 +915,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ProductsPremiumAmount_B",
+      "name": "general-liability-hazard-products-premium-amount-2",
+      "pdfName": "GeneralLiability_Hazard_ProductsPremiumAmount_B",
       "type": "text",
-      "label": "B",
+      "label": "The premium associated with the products coverage.",
       "page": 0,
       "rect": [
         529,
@@ -857,9 +928,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_Classification_B",
+      "name": "general-liability-hazard-classification-2",
+      "pdfName": "GeneralLiability_Hazard_Classification_B",
       "type": "text",
-      "label": "B",
+      "label": "The classification of the applicant's liability exposures by location, using the ISO Classification Table or other in…",
       "page": 0,
       "rect": [
         22,
@@ -869,9 +941,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_LocationProducerIdentifier_C",
+      "name": "general-liability-hazard-location-producer-identifier-3",
+      "pdfName": "GeneralLiability_Hazard_LocationProducerIdentifier_C",
       "type": "text",
-      "label": "C",
+      "label": "The producer assigned identifier for the location number of the risk's location as it appears on the Applicant Inform…",
       "page": 0,
       "rect": [
         22,
@@ -881,9 +954,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_HazardProducerIdentifier_C",
+      "name": "general-liability-hazard-hazard-producer-identifier-3",
+      "pdfName": "GeneralLiability_Hazard_HazardProducerIdentifier_C",
       "type": "text",
-      "label": "C",
+      "label": "A unique (within location) number distinguishing this unit-at-risk from the others.",
       "page": 0,
       "rect": [
         58,
@@ -893,9 +967,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ClassCode_C",
+      "name": "general-liability-hazard-class-code-3",
+      "pdfName": "GeneralLiability_Hazard_ClassCode_C",
       "type": "text",
-      "label": "C",
+      "label": "The general liability class code that corresponds to the classification description shown in the previous field.",
       "page": 0,
       "rect": [
         90,
@@ -905,9 +980,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremiumBasisCode_C",
+      "name": "general-liability-hazard-premium-basis-code-3",
+      "pdfName": "GeneralLiability_Hazard_PremiumBasisCode_C",
       "type": "text",
-      "label": "C",
+      "label": "An industry code designating the rating basis of the exposure amount.",
       "page": 0,
       "rect": [
         144,
@@ -917,9 +993,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_Exposure_C",
+      "name": "general-liability-hazard-exposure-3",
+      "pdfName": "GeneralLiability_Hazard_Exposure_C",
       "type": "text",
-      "label": "C",
+      "label": "The amount of the exposure used for this class code in calculating the premium.",
       "page": 0,
       "rect": [
         194,
@@ -929,9 +1006,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_TerritoryCode_C",
+      "name": "general-liability-hazard-territory-code-3",
+      "pdfName": "GeneralLiability_Hazard_TerritoryCode_C",
       "type": "text",
-      "label": "C",
+      "label": "The rating territory code based on location from the appropriate state exception page.",
       "page": 0,
       "rect": [
         295,
@@ -941,9 +1019,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremisesOperationsRate_C",
+      "name": "general-liability-hazard-premises-operations-rate-3",
+      "pdfName": "GeneralLiability_Hazard_PremisesOperationsRate_C",
       "type": "text",
-      "label": "C",
+      "label": "Enter rate: The separate Premises Operations manual rate applicable to the classification.",
       "page": 0,
       "rect": [
         331,
@@ -953,9 +1032,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ProductsRate_C",
+      "name": "general-liability-hazard-products-rate-3",
+      "pdfName": "GeneralLiability_Hazard_ProductsRate_C",
       "type": "text",
-      "label": "C",
+      "label": "Enter rate: The separate Products rate applicable to the classification.",
       "page": 0,
       "rect": [
         396,
@@ -965,9 +1045,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_C",
+      "name": "general-liability-hazard-premises-operations-premium-amount-3",
+      "pdfName": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_C",
       "type": "text",
-      "label": "C",
+      "label": "The premium associated with the premises operations coverage.",
       "page": 0,
       "rect": [
         464,
@@ -977,9 +1058,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_ProductsPremiumAmount_C",
+      "name": "general-liability-hazard-products-premium-amount-3",
+      "pdfName": "GeneralLiability_Hazard_ProductsPremiumAmount_C",
       "type": "text",
-      "label": "C",
+      "label": "The premium associated with the products coverage.",
       "page": 0,
       "rect": [
         529,
@@ -989,9 +1071,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Hazard_Classification_C",
+      "name": "general-liability-hazard-classification-3",
+      "pdfName": "GeneralLiability_Hazard_Classification_C",
       "type": "text",
-      "label": "C",
+      "label": "The classification of the applicant's liability exposures by location, using the ISO Classification Table or other in…",
       "page": 0,
       "rect": [
         22,
@@ -1001,9 +1084,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_ClaimsMade_ProposedRetroactiveDate_A",
+      "name": "general-liability-claims-made-proposed-retroactive-date",
+      "pdfName": "GeneralLiability_ClaimsMade_ProposedRetroactiveDate_A",
       "type": "text",
-      "label": "A",
+      "label": "The retroactive date you are requesting for the policy being applied for.",
       "page": 0,
       "rect": [
         155,
@@ -1014,9 +1098,10 @@
       "maxLength": 10
     },
     {
-      "name": "GeneralLiability_ClaimsMade_UninterruptedCoverageEntryDate_A",
+      "name": "general-liability-claims-made-uninterrupted-coverage-entry-date",
+      "pdfName": "GeneralLiability_ClaimsMade_UninterruptedCoverageEntryDate_A",
       "type": "text",
-      "label": "A",
+      "label": "The retroactive date shown on the applicant's first Claims Made policy.",
       "page": 0,
       "rect": [
         259,
@@ -1027,9 +1112,10 @@
       "maxLength": 10
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AAHCode_A",
+      "name": "general-liability-line-of-business-question-aah-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AAHCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 0,
       "rect": [
         576,
@@ -1040,9 +1126,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_AnyProductWorkAccidentLocationExcludedUninsuredPreviousCoverageExplanation_A",
+      "name": "general-liability-line-of-business-any-product-work-accident-location-excluded-uninsured-previous-coverage-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_AnyProductWorkAccidentLocationExcludedUninsuredPreviousCoverageExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any work, accident or location that has been excluded, uninsured or self-insured from any previous…",
       "page": 0,
       "rect": [
         22,
@@ -1052,9 +1139,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AAICode_A",
+      "name": "general-liability-line-of-business-question-aai-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AAICode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 0,
       "rect": [
         576,
@@ -1065,9 +1153,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_TailCoveragePurchasedPreviousPolicyExplanation_A",
+      "name": "general-liability-line-of-business-tail-coverage-purchased-previous-policy-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_TailCoveragePurchasedPreviousPolicyExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation if tail was coverage purchased under any previous policy.",
       "page": 0,
       "rect": [
         22,
@@ -1077,9 +1166,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_EmployeeBenefits_PerClaimDeductibleAmount_A",
+      "name": "general-liability-employee-benefits-per-claim-deductible-amount",
+      "pdfName": "GeneralLiability_EmployeeBenefits_PerClaimDeductibleAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter deductible: The deductible per claim applicable to Employee Benefits Liability coverage.",
       "page": 0,
       "rect": [
         137,
@@ -1089,9 +1179,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_EmployeeBenefits_EmployeeCount_A",
+      "name": "general-liability-employee-benefits-employee-count",
+      "pdfName": "GeneralLiability_EmployeeBenefits_EmployeeCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The total number of employees.",
       "page": 0,
       "rect": [
         137,
@@ -1101,9 +1192,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_EmployeeBenefits_EmployeeCoveredCount_A",
+      "name": "general-liability-employee-benefits-employee-covered-count",
+      "pdfName": "GeneralLiability_EmployeeBenefits_EmployeeCoveredCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The total number of employees covered by employee benefits plans.",
       "page": 0,
       "rect": [
         547,
@@ -1113,9 +1205,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_EmployeeBenefits_RetroactiveDate_A",
+      "name": "general-liability-employee-benefits-retroactive-date",
+      "pdfName": "GeneralLiability_EmployeeBenefits_RetroactiveDate_A",
       "type": "text",
-      "label": "A",
+      "label": "The retroactive date that is the earliest date for which an occurrence could \"trigger\" coverage under Employee Benefi…",
       "page": 0,
       "rect": [
         382,
@@ -1126,9 +1219,10 @@
       "maxLength": 10
     },
     {
-      "name": "Contractors_Question_AABCode_A",
+      "name": "contractors-question-aab-code",
+      "pdfName": "Contractors_Question_AABCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1139,9 +1233,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ApplicantDrawPlansForOthersExplanation_A",
+      "name": "general-liability-line-of-business-applicant-draw-plans-for-others-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ApplicantDrawPlansForOthersExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any plans, designs or specifications drawn for others.",
       "page": 1,
       "rect": [
         22,
@@ -1151,9 +1246,10 @@
       ]
     },
     {
-      "name": "Contractors_Question_AAICode_A",
+      "name": "contractors-question-aai-code",
+      "pdfName": "Contractors_Question_AAICode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1164,9 +1260,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_OperationsIncludeBlastingExplanation_A",
+      "name": "general-liability-line-of-business-operations-include-blasting-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_OperationsIncludeBlastingExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any operations that include blasting or utilize , store explosive material.",
       "page": 1,
       "rect": [
         22,
@@ -1176,9 +1273,10 @@
       ]
     },
     {
-      "name": "Contractors_Question_AACCode_A",
+      "name": "contractors-question-aac-code",
+      "pdfName": "Contractors_Question_AACCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1189,9 +1287,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_OperationsIncludeEvacuationExplanation_A",
+      "name": "general-liability-line-of-business-operations-include-evacuation-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_OperationsIncludeEvacuationExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any operations which include evacuation, tunneling, underground work or earth moving.",
       "page": 1,
       "rect": [
         22,
@@ -1201,9 +1300,10 @@
       ]
     },
     {
-      "name": "Contractors_Question_ABBCode_A",
+      "name": "contractors-question-abb-code",
+      "pdfName": "Contractors_Question_ABBCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1214,9 +1314,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_SubcontractorsCarryLowerLimitsExplanation_A",
+      "name": "general-liability-line-of-business-subcontractors-carry-lower-limits-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_SubcontractorsCarryLowerLimitsExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any of your subcontractors who carry coverages or limits less than yours.",
       "page": 1,
       "rect": [
         22,
@@ -1226,9 +1327,10 @@
       ]
     },
     {
-      "name": "Contractors_Question_AADCode_A",
+      "name": "contractors-question-aad-code",
+      "pdfName": "Contractors_Question_AADCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1239,9 +1341,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_SubcontractorsWorksWithoutCertificatesOfInsuranceExplanation_A",
+      "name": "general-liability-line-of-business-subcontractors-works-without-certificates-of-insurance-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_SubcontractorsWorksWithoutCertificatesOfInsuranceExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any subcontractors allowed to work without providing you with Certificates of Insurance.",
       "page": 1,
       "rect": [
         22,
@@ -1251,9 +1354,10 @@
       ]
     },
     {
-      "name": "Contractors_Question_AAECode_A",
+      "name": "contractors-question-aae-code",
+      "pdfName": "Contractors_Question_AAECode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1264,9 +1368,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ApplicantLeaseEquipmentToOthersExplanation_A",
+      "name": "general-liability-line-of-business-applicant-lease-equipment-to-others-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ApplicantLeaseEquipmentToOthersExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any applicant who leases equipment to others with or without operators.",
       "page": 1,
       "rect": [
         22,
@@ -1276,9 +1381,10 @@
       ]
     },
     {
-      "name": "Contractors_SubcontractorsPaidAmount_A",
+      "name": "contractors-subcontractors-paid-amount",
+      "pdfName": "Contractors_SubcontractorsPaidAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The total dollar amount for work that the contractor pays to subcontractors.",
       "page": 1,
       "rect": [
         263,
@@ -1288,9 +1394,10 @@
       ]
     },
     {
-      "name": "Contractors_WorkSubcontractedPercent_A",
+      "name": "contractors-work-subcontracted-percent",
+      "pdfName": "Contractors_WorkSubcontractedPercent_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter percentage: The percentage of the work described by the applicant as subcontracted out.",
       "page": 1,
       "rect": [
         392,
@@ -1300,9 +1407,10 @@
       ]
     },
     {
-      "name": "Contractors_FullTimeEmployeeCount_A",
+      "name": "contractors-full-time-employee-count",
+      "pdfName": "Contractors_FullTimeEmployeeCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The number of individuals employed full time by the applicant.",
       "page": 1,
       "rect": [
         468,
@@ -1312,9 +1420,10 @@
       ]
     },
     {
-      "name": "Contractors_PartTimeEmployeeCount_A",
+      "name": "contractors-part-time-employee-count",
+      "pdfName": "Contractors_PartTimeEmployeeCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The number of individuals employed part time by the applicant.",
       "page": 1,
       "rect": [
         554,
@@ -1324,9 +1433,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_TypeOfWorkSubcontractedDescription_A",
+      "name": "general-liability-line-of-business-type-of-work-subcontracted-description",
+      "pdfName": "GeneralLiabilityLineOfBusiness_TypeOfWorkSubcontractedDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "Describe the type of work and percentage subcontracted.",
       "page": 1,
       "rect": [
         22,
@@ -1336,9 +1446,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_ProductName_A",
+      "name": "product-and-completed-operations-product-name",
+      "pdfName": "ProductAndCompletedOperations_ProductName_A",
       "type": "text",
-      "label": "A",
+      "label": "The name used to identify the product manufactured or sold or service provided by the applicant.",
       "page": 1,
       "rect": [
         22,
@@ -1348,9 +1459,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_AnnualGrossSalesAmount_A",
+      "name": "product-and-completed-operations-annual-gross-sales-amount",
+      "pdfName": "ProductAndCompletedOperations_AnnualGrossSalesAmount_A",
       "type": "text",
-      "label": "A",
+      "label": "The whole dollar estimate of the annual sales receipts realized by this product or service.",
       "page": 1,
       "rect": [
         126,
@@ -1360,9 +1472,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_UnitCount_A",
+      "name": "product-and-completed-operations-unit-count",
+      "pdfName": "ProductAndCompletedOperations_UnitCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The number of units of this product manufactured and/or sold each year.",
       "page": 1,
       "rect": [
         205,
@@ -1372,9 +1485,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_InMarketMonthCount_A",
+      "name": "product-and-completed-operations-in-market-month-count",
+      "pdfName": "ProductAndCompletedOperations_InMarketMonthCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The number of months the product or service has been marketed to the public.",
       "page": 1,
       "rect": [
         284,
@@ -1384,9 +1498,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_ExpectedLifeMonthCount_A",
+      "name": "product-and-completed-operations-expected-life-month-count",
+      "pdfName": "ProductAndCompletedOperations_ExpectedLifeMonthCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The anticipated number of months of useful life of the product or service.",
       "page": 1,
       "rect": [
         320,
@@ -1396,9 +1511,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_IntendedUse_A",
+      "name": "product-and-completed-operations-intended-use",
+      "pdfName": "ProductAndCompletedOperations_IntendedUse_A",
       "type": "text",
-      "label": "A",
+      "label": "The intended use of the product.",
       "page": 1,
       "rect": [
         356,
@@ -1408,9 +1524,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_PrincipalComponents_A",
+      "name": "product-and-completed-operations-principal-components",
+      "pdfName": "ProductAndCompletedOperations_PrincipalComponents_A",
       "type": "text",
-      "label": "A",
+      "label": "The principal components of the product.",
       "page": 1,
       "rect": [
         479,
@@ -1420,9 +1537,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_ProductName_B",
+      "name": "product-and-completed-operations-product-name-2",
+      "pdfName": "ProductAndCompletedOperations_ProductName_B",
       "type": "text",
-      "label": "B",
+      "label": "The name used to identify the product manufactured or sold or service provided by the applicant.",
       "page": 1,
       "rect": [
         22,
@@ -1432,9 +1550,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_AnnualGrossSalesAmount_B",
+      "name": "product-and-completed-operations-annual-gross-sales-amount-2",
+      "pdfName": "ProductAndCompletedOperations_AnnualGrossSalesAmount_B",
       "type": "text",
-      "label": "B",
+      "label": "The whole dollar estimate of the annual sales receipts realized by this product or service.",
       "page": 1,
       "rect": [
         126,
@@ -1444,9 +1563,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_UnitCount_B",
+      "name": "product-and-completed-operations-unit-count-2",
+      "pdfName": "ProductAndCompletedOperations_UnitCount_B",
       "type": "text",
-      "label": "B",
+      "label": "The number of units of this product manufactured and/or sold each year.",
       "page": 1,
       "rect": [
         205,
@@ -1456,9 +1576,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_InMarketMonthCount_B",
+      "name": "product-and-completed-operations-in-market-month-count-2",
+      "pdfName": "ProductAndCompletedOperations_InMarketMonthCount_B",
       "type": "text",
-      "label": "B",
+      "label": "The number of months the product or service has been marketed to the public.",
       "page": 1,
       "rect": [
         284,
@@ -1468,9 +1589,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_ExpectedLifeMonthCount_B",
+      "name": "product-and-completed-operations-expected-life-month-count-2",
+      "pdfName": "ProductAndCompletedOperations_ExpectedLifeMonthCount_B",
       "type": "text",
-      "label": "B",
+      "label": "The anticipated number of months of useful life of the product or service.",
       "page": 1,
       "rect": [
         320,
@@ -1480,9 +1602,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_IntendedUse_B",
+      "name": "product-and-completed-operations-intended-use-2",
+      "pdfName": "ProductAndCompletedOperations_IntendedUse_B",
       "type": "text",
-      "label": "B",
+      "label": "The intended use of the product.",
       "page": 1,
       "rect": [
         356,
@@ -1492,9 +1615,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_PrincipalComponents_B",
+      "name": "product-and-completed-operations-principal-components-2",
+      "pdfName": "ProductAndCompletedOperations_PrincipalComponents_B",
       "type": "text",
-      "label": "B",
+      "label": "The principal components of the product.",
       "page": 1,
       "rect": [
         479,
@@ -1504,9 +1628,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_ProductName_C",
+      "name": "product-and-completed-operations-product-name-3",
+      "pdfName": "ProductAndCompletedOperations_ProductName_C",
       "type": "text",
-      "label": "C",
+      "label": "The name used to identify the product manufactured or sold or service provided by the applicant.",
       "page": 1,
       "rect": [
         22,
@@ -1516,9 +1641,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_AnnualGrossSalesAmount_C",
+      "name": "product-and-completed-operations-annual-gross-sales-amount-3",
+      "pdfName": "ProductAndCompletedOperations_AnnualGrossSalesAmount_C",
       "type": "text",
-      "label": "C",
+      "label": "The whole dollar estimate of the annual sales receipts realized by this product or service.",
       "page": 1,
       "rect": [
         126,
@@ -1528,9 +1654,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_UnitCount_C",
+      "name": "product-and-completed-operations-unit-count-3",
+      "pdfName": "ProductAndCompletedOperations_UnitCount_C",
       "type": "text",
-      "label": "C",
+      "label": "The number of units of this product manufactured and/or sold each year.",
       "page": 1,
       "rect": [
         205,
@@ -1540,9 +1667,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_InMarketMonthCount_C",
+      "name": "product-and-completed-operations-in-market-month-count-3",
+      "pdfName": "ProductAndCompletedOperations_InMarketMonthCount_C",
       "type": "text",
-      "label": "C",
+      "label": "The number of months the product or service has been marketed to the public.",
       "page": 1,
       "rect": [
         284,
@@ -1552,9 +1680,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_ExpectedLifeMonthCount_C",
+      "name": "product-and-completed-operations-expected-life-month-count-3",
+      "pdfName": "ProductAndCompletedOperations_ExpectedLifeMonthCount_C",
       "type": "text",
-      "label": "C",
+      "label": "The anticipated number of months of useful life of the product or service.",
       "page": 1,
       "rect": [
         320,
@@ -1564,9 +1693,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_IntendedUse_C",
+      "name": "product-and-completed-operations-intended-use-3",
+      "pdfName": "ProductAndCompletedOperations_IntendedUse_C",
       "type": "text",
-      "label": "C",
+      "label": "The intended use of the product.",
       "page": 1,
       "rect": [
         356,
@@ -1576,9 +1706,10 @@
       ]
     },
     {
-      "name": "ProductAndCompletedOperations_PrincipalComponents_C",
+      "name": "product-and-completed-operations-principal-components-3",
+      "pdfName": "ProductAndCompletedOperations_PrincipalComponents_C",
       "type": "text",
-      "label": "C",
+      "label": "The principal components of the product.",
       "page": 1,
       "rect": [
         479,
@@ -1588,9 +1719,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AAJCode_A",
+      "name": "general-liability-line-of-business-question-aaj-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AAJCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1601,9 +1733,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ApplicantInstallServiceProductsExplanation_A",
+      "name": "general-liability-line-of-business-applicant-install-service-products-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ApplicantInstallServiceProductsExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any installation, service or product demonstration applicant would perform.",
       "page": 1,
       "rect": [
         22,
@@ -1613,9 +1746,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABACode_A",
+      "name": "general-liability-line-of-business-question-aba-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABACode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1626,9 +1760,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABBCode_A",
+      "name": "general-liability-line-of-business-question-abb-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABBCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1639,9 +1774,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ResearchDevelopmentConductedNewProductsPlannedExplanation_A",
+      "name": "general-liability-line-of-business-research-development-conducted-new-products-planned-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ResearchDevelopmentConductedNewProductsPlannedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any research and development conducted on new products planned.",
       "page": 1,
       "rect": [
         22,
@@ -1651,9 +1787,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABCCode_A",
+      "name": "general-liability-line-of-business-question-abc-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABCCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1664,9 +1801,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_GuaranteesWarrantiesHoldHarmlessExplanation_A",
+      "name": "general-liability-line-of-business-guarantees-warranties-hold-harmless-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_GuaranteesWarrantiesHoldHarmlessExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any guarantees, warranties, hold harmless agreements.",
       "page": 1,
       "rect": [
         22,
@@ -1676,9 +1814,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABDCode_A",
+      "name": "general-liability-line-of-business-question-abd-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABDCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1689,9 +1828,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ProductsRelatedToAircraftIndustryExplanation_A",
+      "name": "general-liability-line-of-business-products-related-to-aircraft-industry-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ProductsRelatedToAircraftIndustryExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation products related to aircraft/space industry.",
       "page": 1,
       "rect": [
         22,
@@ -1701,9 +1841,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABECode_A",
+      "name": "general-liability-line-of-business-question-abe-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABECode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1714,9 +1855,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ProductsRecalledDiscontinuedExplanation_A",
+      "name": "general-liability-line-of-business-products-recalled-discontinued-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ProductsRecalledDiscontinuedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation products recalled, discontinued, changed.",
       "page": 1,
       "rect": [
         22,
@@ -1726,9 +1868,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABFCode_A",
+      "name": "general-liability-line-of-business-question-abf-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABFCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1739,9 +1882,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ProductsOfOthersSoldUnderApplicantLabelExplanation_A",
+      "name": "general-liability-line-of-business-products-of-others-sold-under-applicant-label-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ProductsOfOthersSoldUnderApplicantLabelExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of products of others sold or repackaged under applicant's label.",
       "page": 1,
       "rect": [
         22,
@@ -1751,9 +1895,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABGCode_A",
+      "name": "general-liability-line-of-business-question-abg-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABGCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1764,9 +1909,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ProductsUnderLabelOfOthersExplanation_A",
+      "name": "general-liability-line-of-business-products-under-label-of-others-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ProductsUnderLabelOfOthersExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of products under label of others.",
       "page": 1,
       "rect": [
         22,
@@ -1776,9 +1922,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABHCode_A",
+      "name": "general-liability-line-of-business-question-abh-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABHCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1789,9 +1936,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_VendorCoverageRequiredExplanation_A",
+      "name": "general-liability-line-of-business-vendor-coverage-required-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_VendorCoverageRequiredExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation any vendor's coverage required.",
       "page": 1,
       "rect": [
         22,
@@ -1801,9 +1949,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABICode_A",
+      "name": "general-liability-line-of-business-question-abi-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABICode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 1,
       "rect": [
         576,
@@ -1814,9 +1963,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_NamedInsuredSellToOtherNamedInsuredExplanation_R",
+      "name": "general-liability-line-of-business-named-insured-sell-to-other-named-insured-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_NamedInsuredSellToOtherNamedInsuredExplanation_R",
       "type": "text",
-      "label": "R",
+      "label": "An explanation of any named insured who sells to any other named insured.",
       "page": 1,
       "rect": [
         22,
@@ -1826,9 +1976,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Attachment_AdditionalInterestIndicator_A",
+      "name": "general-liability-line-of-business-attachment-additional-interest-indicator",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Attachment_AdditionalInterestIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates that further additional interests appear on the attached ACORD 45.",
       "page": 2,
       "rect": [
         245,
@@ -1838,9 +1989,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_AdditionalInsuredIndicator_A",
+      "name": "additional-interest-interest-additional-insured-indicator",
+      "pdfName": "AdditionalInterest_Interest_AdditionalInsuredIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest type is an additional insured.",
       "page": 2,
       "rect": [
         18,
@@ -1850,9 +2002,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_EmployeeAsLessorIndicator_A",
+      "name": "additional-interest-interest-employee-as-lessor-indicator",
+      "pdfName": "AdditionalInterest_Interest_EmployeeAsLessorIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest type is an employee as lessor.",
       "page": 2,
       "rect": [
         18,
@@ -1862,9 +2015,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_LendersLossPayableIndicator_A",
+      "name": "additional-interest-interest-lenders-loss-payable-indicator",
+      "pdfName": "AdditionalInterest_Interest_LendersLossPayableIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest type is a lender's loss payable.",
       "page": 2,
       "rect": [
         18,
@@ -1874,9 +2028,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_LienholderIndicator_A",
+      "name": "additional-interest-interest-lienholder-indicator",
+      "pdfName": "AdditionalInterest_Interest_LienholderIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest type is a lien holder.",
       "page": 2,
       "rect": [
         18,
@@ -1886,9 +2041,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_LossPayeeIndicator_A",
+      "name": "additional-interest-interest-loss-payee-indicator",
+      "pdfName": "AdditionalInterest_Interest_LossPayeeIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest type is a loss payee.",
       "page": 2,
       "rect": [
         18,
@@ -1898,9 +2054,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_MortgageeIndicator_A",
+      "name": "additional-interest-interest-mortgagee-indicator",
+      "pdfName": "AdditionalInterest_Interest_MortgageeIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest type is a mortgagee.",
       "page": 2,
       "rect": [
         18,
@@ -1910,9 +2067,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_OtherIndicator_A",
+      "name": "additional-interest-interest-other-indicator",
+      "pdfName": "AdditionalInterest_Interest_OtherIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the additional interest is other than those listed.",
       "page": 2,
       "rect": [
         18,
@@ -1922,9 +2080,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Interest_OtherDescription_A",
+      "name": "additional-interest-interest-other-description",
+      "pdfName": "AdditionalInterest_Interest_OtherDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of the other type of additional interest.",
       "page": 2,
       "rect": [
         36,
@@ -1934,9 +2093,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_InterestRank_A",
+      "name": "additional-interest-interest-rank",
+      "pdfName": "AdditionalInterest_InterestRank_A",
       "type": "text",
-      "label": "A",
+      "label": "The ranking of 'this' additional interest when multiple additional interests are associated with the same item.",
       "page": 2,
       "rect": [
         216,
@@ -1946,9 +2106,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_CertificateRequiredIndicator_A",
+      "name": "additional-interest-certificate-required-indicator",
+      "pdfName": "AdditionalInterest_CertificateRequiredIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates if the additional interest requires a Certificate of Insurance.",
       "page": 2,
       "rect": [
         277,
@@ -1958,9 +2119,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_FullName_A",
+      "name": "additional-interest-full-name",
+      "pdfName": "AdditionalInterest_FullName_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's full name.",
       "page": 2,
       "rect": [
         126,
@@ -1970,9 +2132,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_MailingAddress_LineOne_A",
+      "name": "additional-interest-mailing-address-line-one",
+      "pdfName": "AdditionalInterest_MailingAddress_LineOne_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's mailing address line one.",
       "page": 2,
       "rect": [
         126,
@@ -1982,9 +2145,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_MailingAddress_LineTwo_A",
+      "name": "additional-interest-mailing-address-line-two",
+      "pdfName": "AdditionalInterest_MailingAddress_LineTwo_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's mailing address line two.",
       "page": 2,
       "rect": [
         126,
@@ -1994,9 +2158,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_MailingAddress_CityName_A",
+      "name": "additional-interest-mailing-address-city-name",
+      "pdfName": "AdditionalInterest_MailingAddress_CityName_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's mailing address city name.",
       "page": 2,
       "rect": [
         126,
@@ -2006,9 +2171,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_MailingAddress_StateOrProvinceCode_A",
+      "name": "additional-interest-mailing-address-state-or-province-code",
+      "pdfName": "AdditionalInterest_MailingAddress_StateOrProvinceCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's mailing address state or province code.",
       "page": 2,
       "rect": [
         356,
@@ -2018,9 +2184,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_MailingAddress_PostalCode_A",
+      "name": "additional-interest-mailing-address-postal-code",
+      "pdfName": "AdditionalInterest_MailingAddress_PostalCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's mailing address postal code.",
       "page": 2,
       "rect": [
         374,
@@ -2030,9 +2197,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_MailingAddress_CountryCode_A",
+      "name": "additional-interest-mailing-address-country-code",
+      "pdfName": "AdditionalInterest_MailingAddress_CountryCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The additional interest's country code.",
       "page": 2,
       "rect": [
         421,
@@ -2042,9 +2210,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_AccountNumberIdentifier_A",
+      "name": "additional-interest-account-number-identifier",
+      "pdfName": "AdditionalInterest_AccountNumberIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The loan number, account number or other controlling number that the additional interest may have assigned the insured.",
       "page": 2,
       "rect": [
         198,
@@ -2054,9 +2223,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Item_LocationProducerIdentifier_A",
+      "name": "additional-interest-item-location-producer-identifier",
+      "pdfName": "AdditionalInterest_Item_LocationProducerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The producer assigned number of the location which has an additional interest.",
       "page": 2,
       "rect": [
         490,
@@ -2066,9 +2236,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Item_BuildingProducerIdentifier_A",
+      "name": "additional-interest-item-building-producer-identifier",
+      "pdfName": "AdditionalInterest_Item_BuildingProducerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The producer assigned number of the building which has an additional interest.",
       "page": 2,
       "rect": [
         558,
@@ -2078,9 +2249,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Item_ScheduledItemClassCode_A",
+      "name": "additional-interest-item-scheduled-item-class-code",
+      "pdfName": "AdditionalInterest_Item_ScheduledItemClassCode_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of the property class of the scheduled item (i.e. Jewelry, Furs, Contractors Equipment, etc.).",
       "page": 2,
       "rect": [
         482,
@@ -2090,9 +2262,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_Item_ScheduledItemProducerIdentifier_A",
+      "name": "additional-interest-item-scheduled-item-producer-identifier",
+      "pdfName": "AdditionalInterest_Item_ScheduledItemProducerIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The producer assigned number of the scheduled item which has an additional interest.",
       "page": 2,
       "rect": [
         547,
@@ -2102,9 +2275,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_ItemDescription_A",
+      "name": "additional-interest-item-description",
+      "pdfName": "AdditionalInterest_ItemDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of the item of interest if needed to further clarify.",
       "page": 2,
       "rect": [
         454,
@@ -2114,9 +2288,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ABJCode_A",
+      "name": "general-liability-line-of-business-question-abj-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ABJCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2127,9 +2302,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_AnyMedicalFacilitiesProvidedMedicalProfessionalsEmployedExplanation_A",
+      "name": "general-liability-line-of-business-any-medical-facilities-provided-medical-professionals-employed-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_AnyMedicalFacilitiesProvidedMedicalProfessionalsEmployedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any medical facilities provided or medical professionals employed or contracted.",
       "page": 2,
       "rect": [
         22,
@@ -2139,9 +2315,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACACode_A",
+      "name": "general-liability-line-of-business-question-aca-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACACode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2152,9 +2329,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_AnyExposureRadioactiveMaterialsExplanation_A",
+      "name": "general-liability-line-of-business-any-exposure-radioactive-materials-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_AnyExposureRadioactiveMaterialsExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any exposure to radioactive/nuclear materials",
       "page": 2,
       "rect": [
         22,
@@ -2164,9 +2342,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACJCode_A",
+      "name": "general-liability-line-of-business-question-acj-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACJCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2177,9 +2356,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_OperationsInvolveStoringDisposingTransportingHazardousMaterialExplanation_A",
+      "name": "general-liability-line-of-business-operations-involve-storing-disposing-transporting-hazardous-material-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_OperationsInvolveStoringDisposingTransportingHazardousMaterialExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation any operations that involve storing, treating, discharging, applying, disposing or transporting hazard…",
       "page": 2,
       "rect": [
         22,
@@ -2189,9 +2369,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACBCode_A",
+      "name": "general-liability-line-of-business-question-acb-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACBCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2202,9 +2383,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_AnyListedOperationsSoldAcquiredLastFiveYearsExplanation_A",
+      "name": "general-liability-line-of-business-any-listed-operations-sold-acquired-last-five-years-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_AnyListedOperationsSoldAcquiredLastFiveYearsExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any listed operations sold, acquired, or discontinued in the last five (5) years.",
       "page": 2,
       "rect": [
         22,
@@ -2214,9 +2396,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACCCode_A",
+      "name": "general-liability-line-of-business-question-acc-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACCCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2227,9 +2410,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_MachineryOrEquipmentLoanedRentedOthersExplanation_A",
+      "name": "general-liability-line-of-business-machinery-or-equipment-loaned-rented-others-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_MachineryOrEquipmentLoanedRentedOthersExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any machinery or equipment that is loaned or rented to others.",
       "page": 2,
       "rect": [
         40,
@@ -2239,9 +2423,10 @@
       ]
     },
     {
-      "name": "CommercialInlandMarineProperty_PropertySubClass_SmallToolsIndicator_A",
+      "name": "commercial-inland-marine-property-property-sub-class-small-tools-indicator",
+      "pdfName": "CommercialInlandMarineProperty_PropertySubClass_SmallToolsIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the subclass / grouping of property into which the item falls is small tools.",
       "page": 2,
       "rect": [
         331,
@@ -2251,9 +2436,10 @@
       ]
     },
     {
-      "name": "CommercialInlandMarineProperty_PropertySubClass_LargeEquipmentIndicator_A",
+      "name": "commercial-inland-marine-property-property-sub-class-large-equipment-indicator",
+      "pdfName": "CommercialInlandMarineProperty_PropertySubClass_LargeEquipmentIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the subclass / grouping of property into which the item falls is large equipment.",
       "page": 2,
       "rect": [
         396,
@@ -2263,9 +2449,10 @@
       ]
     },
     {
-      "name": "PropertyItem_ItemDetail_InstructionGivenCode_A",
+      "name": "property-item-item-detail-instruction-given-code",
+      "pdfName": "PropertyItem_ItemDetail_InstructionGivenCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         508,
@@ -2276,9 +2463,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_MachineryOrEquipmentLoanedRentedOthersExplanation_B",
+      "name": "general-liability-line-of-business-machinery-or-equipment-loaned-rented-others-explanation-2",
+      "pdfName": "GeneralLiabilityLineOfBusiness_MachineryOrEquipmentLoanedRentedOthersExplanation_B",
       "type": "text",
-      "label": "B",
+      "label": "An explanation of any machinery or equipment that is loaned or rented to others.",
       "page": 2,
       "rect": [
         40,
@@ -2288,9 +2476,10 @@
       ]
     },
     {
-      "name": "CommercialInlandMarineProperty_PropertySubClass_SmallToolsIndicator_B",
+      "name": "commercial-inland-marine-property-property-sub-class-small-tools-indicator-2",
+      "pdfName": "CommercialInlandMarineProperty_PropertySubClass_SmallToolsIndicator_B",
       "type": "checkbox",
-      "label": "B",
+      "label": "Indicates the subclass / grouping of property into which the item falls is small tools.",
       "page": 2,
       "rect": [
         331,
@@ -2300,9 +2489,10 @@
       ]
     },
     {
-      "name": "CommercialInlandMarineProperty_PropertySubClass_LargeEquipmentIndicator_B",
+      "name": "commercial-inland-marine-property-property-sub-class-large-equipment-indicator-2",
+      "pdfName": "CommercialInlandMarineProperty_PropertySubClass_LargeEquipmentIndicator_B",
       "type": "checkbox",
-      "label": "B",
+      "label": "Indicates the subclass / grouping of property into which the item falls is large equipment.",
       "page": 2,
       "rect": [
         396,
@@ -2312,9 +2502,10 @@
       ]
     },
     {
-      "name": "PropertyItem_ItemDetail_InstructionGivenCode_B",
+      "name": "property-item-item-detail-instruction-given-code-2",
+      "pdfName": "PropertyItem_ItemDetail_InstructionGivenCode_B",
       "type": "text",
-      "label": "B",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         508,
@@ -2325,9 +2516,10 @@
       "maxLength": 1
     },
     {
-      "name": "Contractors_Question_AAHCode_A",
+      "name": "contractors-question-aah-code",
+      "pdfName": "Contractors_Question_AAHCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2338,9 +2530,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_WatercraftDocksFloatsOwnedHiredLeasedExplanation_A",
+      "name": "general-liability-line-of-business-watercraft-docks-floats-owned-hired-leased-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_WatercraftDocksFloatsOwnedHiredLeasedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any watercraft, docks, floats owned, hired, or leased.",
       "page": 2,
       "rect": [
         22,
@@ -2350,9 +2543,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACDCode_A",
+      "name": "general-liability-line-of-business-question-acd-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACDCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2363,9 +2557,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_AnyParkingFacilitiesOwnedRentedExplanation_A",
+      "name": "general-liability-line-of-business-any-parking-facilities-owned-rented-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_AnyParkingFacilitiesOwnedRentedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any parking facilities owned/ rented.",
       "page": 2,
       "rect": [
         22,
@@ -2375,9 +2570,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_KAGCode_A",
+      "name": "general-liability-line-of-business-question-kag-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_KAGCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2388,9 +2584,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_FeeChargedForParkingExplanation_A",
+      "name": "general-liability-line-of-business-fee-charged-for-parking-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_FeeChargedForParkingExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any fee charged for parking.",
       "page": 2,
       "rect": [
         22,
@@ -2400,9 +2597,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACECode_A",
+      "name": "general-liability-line-of-business-question-ace-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACECode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2413,9 +2611,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_RecreationalFacilitiesProvidedExplanation_A",
+      "name": "general-liability-line-of-business-recreational-facilities-provided-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_RecreationalFacilitiesProvidedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any recreational facilities provided.",
       "page": 2,
       "rect": [
         22,
@@ -2425,9 +2624,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_KAACode_A",
+      "name": "general-liability-line-of-business-question-kaa-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_KAACode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2438,9 +2638,10 @@
       "maxLength": 1
     },
     {
-      "name": "BuildingOccupancy_ApartmentCount_A",
+      "name": "building-occupancy-apartment-count",
+      "pdfName": "BuildingOccupancy_ApartmentCount_A",
       "type": "text",
-      "label": "A",
+      "label": "The number of separate living units in structure.",
       "page": 2,
       "rect": [
         40,
@@ -2450,9 +2651,10 @@
       ]
     },
     {
-      "name": "BuildingOccupancy_ApartmentArea_A",
+      "name": "building-occupancy-apartment-area",
+      "pdfName": "BuildingOccupancy_ApartmentArea_A",
       "type": "text",
-      "label": "A",
+      "label": "The area, in square feet, of the building used as apartments.",
       "page": 2,
       "rect": [
         79,
@@ -2462,9 +2664,10 @@
       ]
     },
     {
-      "name": "GeneralLiability_Otherlodgingoperationsdescription_A",
+      "name": "general-liability-otherlodgingoperationsdescription",
+      "pdfName": "GeneralLiability_Otherlodgingoperationsdescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of other lodging operations.",
       "page": 2,
       "rect": [
         151,
@@ -2474,9 +2677,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_KAHCode_A",
+      "name": "general-liability-line-of-business-question-kah-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_KAHCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2487,9 +2691,10 @@
       "maxLength": 1
     },
     {
-      "name": "SwimmingPool_ApprovedFenceIndicator_A",
+      "name": "swimming-pool-approved-fence-indicator",
+      "pdfName": "SwimmingPool_ApprovedFenceIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the swimming pool is surrounded by a fence that is an approved height.",
       "page": 2,
       "rect": [
         36,
@@ -2499,9 +2704,10 @@
       ]
     },
     {
-      "name": "SwimmingPool_LimitedAccessIndicator_A",
+      "name": "swimming-pool-limited-access-indicator",
+      "pdfName": "SwimmingPool_LimitedAccessIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates there is limited access to the swimming pool.",
       "page": 2,
       "rect": [
         115,
@@ -2511,9 +2717,10 @@
       ]
     },
     {
-      "name": "SwimmingPool_DivingBoardIndicator_A",
+      "name": "swimming-pool-diving-board-indicator",
+      "pdfName": "SwimmingPool_DivingBoardIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the swimming pool has a diving board.",
       "page": 2,
       "rect": [
         191,
@@ -2523,9 +2730,10 @@
       ]
     },
     {
-      "name": "SwimmingPool_SlideIndicator_A",
+      "name": "swimming-pool-slide-indicator",
+      "pdfName": "SwimmingPool_SlideIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the swimming pool has a slide.",
       "page": 2,
       "rect": [
         259,
@@ -2535,9 +2743,10 @@
       ]
     },
     {
-      "name": "SwimmingPool_AboveGroundIndicator_A",
+      "name": "swimming-pool-above-ground-indicator",
+      "pdfName": "SwimmingPool_AboveGroundIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the swimming pool is above ground.",
       "page": 2,
       "rect": [
         302,
@@ -2547,9 +2756,10 @@
       ]
     },
     {
-      "name": "SwimmingPool_InGroundIndicator_A",
+      "name": "swimming-pool-in-ground-indicator",
+      "pdfName": "SwimmingPool_InGroundIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the swimming pool is in the ground.",
       "page": 2,
       "rect": [
         374,
@@ -2559,9 +2769,10 @@
       ]
     },
     {
-      "name": "SwimmingPool_LifeGuardIndicator_A",
+      "name": "swimming-pool-life-guard-indicator",
+      "pdfName": "SwimmingPool_LifeGuardIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates there is life guard for the swimming pool.",
       "page": 2,
       "rect": [
         436,
@@ -2571,9 +2782,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACFCode_A",
+      "name": "general-liability-line-of-business-question-acf-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACFCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2584,9 +2796,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_SportingOrSocialEventsSponsoredExplanation_A",
+      "name": "general-liability-line-of-business-sporting-or-social-events-sponsored-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_SportingOrSocialEventsSponsoredExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any social events sponsored.",
       "page": 2,
       "rect": [
         22,
@@ -2596,9 +2809,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_KABCode_A",
+      "name": "general-liability-line-of-business-question-kab-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_KABCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2609,9 +2823,10 @@
       "maxLength": 1
     },
     {
-      "name": "AthleticTeam_SportDescription_A",
+      "name": "athletic-team-sport-description",
+      "pdfName": "AthleticTeam_SportDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of the type of sport in which the sponsored athletic team is involved.",
       "page": 2,
       "rect": [
         40,
@@ -2621,9 +2836,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_ContactSportCode_A",
+      "name": "athletic-team-contact-sport-code",
+      "pdfName": "AthleticTeam_ContactSportCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         153,
@@ -2634,9 +2850,10 @@
       "maxLength": 1
     },
     {
-      "name": "AthleticTeam_AgeGroup_TwelveAndUnderIndicator_A",
+      "name": "athletic-team-age-group-twelve-and-under-indicator",
+      "pdfName": "AthleticTeam_AgeGroup_TwelveAndUnderIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the sport participants are 12 years old or under.",
       "page": 2,
       "rect": [
         180,
@@ -2646,9 +2863,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_AgeGroup_ThirteenThroughEighteenIndicator_A",
+      "name": "athletic-team-age-group-thirteen-through-eighteen-indicator",
+      "pdfName": "AthleticTeam_AgeGroup_ThirteenThroughEighteenIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the sport participants are 13 through 18 years old.",
       "page": 2,
       "rect": [
         241,
@@ -2658,9 +2876,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_AgeGroup_OverEighteenIndicator_A",
+      "name": "athletic-team-age-group-over-eighteen-indicator",
+      "pdfName": "AthleticTeam_AgeGroup_OverEighteenIndicator_A",
       "type": "checkbox",
-      "label": "A",
+      "label": "Indicates the sport participants are over 18 years old.",
       "page": 2,
       "rect": [
         241,
@@ -2670,9 +2889,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_SponsorshipExtentDescription_A",
+      "name": "athletic-team-sponsorship-extent-description",
+      "pdfName": "AthleticTeam_SponsorshipExtentDescription_A",
       "type": "text",
-      "label": "A",
+      "label": "The description of the extent of sponsorship the named insured provides for the athletic team.",
       "page": 2,
       "rect": [
         122,
@@ -2682,9 +2902,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_SportDescription_B",
+      "name": "athletic-team-sport-description-2",
+      "pdfName": "AthleticTeam_SportDescription_B",
       "type": "text",
-      "label": "B",
+      "label": "The description of the type of sport in which the sponsored athletic team is involved.",
       "page": 2,
       "rect": [
         302,
@@ -2694,9 +2915,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_ContactSportCode_B",
+      "name": "athletic-team-contact-sport-code-2",
+      "pdfName": "AthleticTeam_ContactSportCode_B",
       "type": "text",
-      "label": "B",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         416,
@@ -2707,9 +2929,10 @@
       "maxLength": 1
     },
     {
-      "name": "AthleticTeam_AgeGroup_TwelveAndUnderIndicator_B",
+      "name": "athletic-team-age-group-twelve-and-under-indicator-2",
+      "pdfName": "AthleticTeam_AgeGroup_TwelveAndUnderIndicator_B",
       "type": "checkbox",
-      "label": "B",
+      "label": "Indicates the sport participants are 12 years old or under.",
       "page": 2,
       "rect": [
         443,
@@ -2719,9 +2942,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_AgeGroup_ThirteenThroughEighteenIndicator_B",
+      "name": "athletic-team-age-group-thirteen-through-eighteen-indicator-2",
+      "pdfName": "AthleticTeam_AgeGroup_ThirteenThroughEighteenIndicator_B",
       "type": "checkbox",
-      "label": "B",
+      "label": "Indicates the sport participants are 13 through 18 years old.",
       "page": 2,
       "rect": [
         504,
@@ -2731,9 +2955,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_AgeGroup_OverEighteenIndicator_B",
+      "name": "athletic-team-age-group-over-eighteen-indicator-2",
+      "pdfName": "AthleticTeam_AgeGroup_OverEighteenIndicator_B",
       "type": "checkbox",
-      "label": "B",
+      "label": "Indicates the sport participants are over 18 years old.",
       "page": 2,
       "rect": [
         504,
@@ -2743,9 +2968,10 @@
       ]
     },
     {
-      "name": "AthleticTeam_SponsorshipExtentDescription_B",
+      "name": "athletic-team-sponsorship-extent-description-2",
+      "pdfName": "AthleticTeam_SponsorshipExtentDescription_B",
       "type": "text",
-      "label": "B",
+      "label": "The description of the extent of sponsorship the named insured provides for the athletic team.",
       "page": 2,
       "rect": [
         385,
@@ -2755,9 +2981,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACGCode_A",
+      "name": "general-liability-line-of-business-question-acg-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACGCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2768,9 +2995,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_StructuralAlterationsContemplatedExplanation_A",
+      "name": "general-liability-line-of-business-structural-alterations-contemplated-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_StructuralAlterationsContemplatedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any structural alterations contemplated.",
       "page": 2,
       "rect": [
         22,
@@ -2780,9 +3008,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_ACHCode_A",
+      "name": "general-liability-line-of-business-question-ach-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_ACHCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 2,
       "rect": [
         576,
@@ -2793,9 +3022,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_DemolitionExposureContemplatedExplanation_A",
+      "name": "general-liability-line-of-business-demolition-exposure-contemplated-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_DemolitionExposureContemplatedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any demolition exposure contemplated.",
       "page": 2,
       "rect": [
         22,
@@ -2805,9 +3035,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AABCode_A",
+      "name": "general-liability-line-of-business-question-aab-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AABCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -2818,9 +3049,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_ApplicantActiveJointVenturesExplanation_A",
+      "name": "general-liability-line-of-business-applicant-active-joint-ventures-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_ApplicantActiveJointVenturesExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any joint ventures in which the applicant may be currently active.",
       "page": 3,
       "rect": [
         22,
@@ -2830,9 +3062,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AACCode_A",
+      "name": "general-liability-line-of-business-question-aac-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AACCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -2843,9 +3076,10 @@
       "maxLength": 1
     },
     {
-      "name": "AdditionalInterest_FullName_B",
+      "name": "additional-interest-full-name-2",
+      "pdfName": "AdditionalInterest_FullName_B",
       "type": "text",
-      "label": "B",
+      "label": "The additional interest's full name.",
       "page": 3,
       "rect": [
         40,
@@ -2855,9 +3089,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_WorkersCompensationCarriedCode_A",
+      "name": "additional-interest-workers-compensation-carried-code",
+      "pdfName": "AdditionalInterest_WorkersCompensationCarriedCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         241,
@@ -2868,9 +3103,10 @@
       "maxLength": 1
     },
     {
-      "name": "AdditionalInterest_FullName_C",
+      "name": "additional-interest-full-name-3",
+      "pdfName": "AdditionalInterest_FullName_C",
       "type": "text",
-      "label": "C",
+      "label": "The additional interest's full name.",
       "page": 3,
       "rect": [
         40,
@@ -2880,9 +3116,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_WorkersCompensationCarriedCode_B",
+      "name": "additional-interest-workers-compensation-carried-code-2",
+      "pdfName": "AdditionalInterest_WorkersCompensationCarriedCode_B",
       "type": "text",
-      "label": "B",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         241,
@@ -2893,9 +3130,10 @@
       "maxLength": 1
     },
     {
-      "name": "AdditionalInterest_FullName_D",
+      "name": "additional-interest-full-name-4",
+      "pdfName": "AdditionalInterest_FullName_D",
       "type": "text",
-      "label": "D",
+      "label": "The additional interest's full name.",
       "page": 3,
       "rect": [
         302,
@@ -2905,9 +3143,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_WorkersCompensationCarriedCode_C",
+      "name": "additional-interest-workers-compensation-carried-code-3",
+      "pdfName": "AdditionalInterest_WorkersCompensationCarriedCode_C",
       "type": "text",
-      "label": "C",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         504,
@@ -2918,9 +3157,10 @@
       "maxLength": 1
     },
     {
-      "name": "AdditionalInterest_FullName_E",
+      "name": "additional-interest-full-name-5",
+      "pdfName": "AdditionalInterest_FullName_E",
       "type": "text",
-      "label": "E",
+      "label": "The additional interest's full name.",
       "page": 3,
       "rect": [
         302,
@@ -2930,9 +3170,10 @@
       ]
     },
     {
-      "name": "AdditionalInterest_WorkersCompensationCarriedCode_D",
+      "name": "additional-interest-workers-compensation-carried-code-4",
+      "pdfName": "AdditionalInterest_WorkersCompensationCarriedCode_D",
       "type": "text",
-      "label": "D",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         504,
@@ -2943,9 +3184,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AADCode_A",
+      "name": "general-liability-line-of-business-question-aad-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AADCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -2956,9 +3198,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_LabourInterchangeOtherBusinessSubsidiariesExplanation_A",
+      "name": "general-liability-line-of-business-labour-interchange-other-business-subsidiaries-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_LabourInterchangeOtherBusinessSubsidiariesExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any labor interchange with any other business or subsidiaries.",
       "page": 3,
       "rect": [
         22,
@@ -2968,9 +3211,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AAECode_A",
+      "name": "general-liability-line-of-business-question-aae-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AAECode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -2981,9 +3225,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_DayCareFacilitiesOperatedExplanation_A",
+      "name": "general-liability-line-of-business-day-care-facilities-operated-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_DayCareFacilitiesOperatedExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any daycare facilities operated or controlled.",
       "page": 3,
       "rect": [
         22,
@@ -2993,9 +3238,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AAFCode_A",
+      "name": "general-liability-line-of-business-question-aaf-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AAFCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -3006,9 +3252,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_CrimesOccurredOrAttemptedLastThreeYearsExplanation_A",
+      "name": "general-liability-line-of-business-crimes-occurred-or-attempted-last-three-years-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_CrimesOccurredOrAttemptedLastThreeYearsExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any crimes that occurred or been attempted on your premises within the last three (3) years",
       "page": 3,
       "rect": [
         22,
@@ -3018,9 +3265,10 @@
       ]
     },
     {
-      "name": "Contractors_Question_AAGCode_A",
+      "name": "contractors-question-aag-code",
+      "pdfName": "Contractors_Question_AAGCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -3031,9 +3279,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_FormalSafetySecurityPolicyInEffectExplanation_A",
+      "name": "general-liability-line-of-business-formal-safety-security-policy-in-effect-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_FormalSafetySecurityPolicyInEffectExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any formal, written safety and security policy in effect.",
       "page": 3,
       "rect": [
         22,
@@ -3043,9 +3292,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_Question_AAGCode_A",
+      "name": "general-liability-line-of-business-question-aag-code",
+      "pdfName": "GeneralLiabilityLineOfBusiness_Question_AAGCode_A",
       "type": "text",
-      "label": "A",
+      "label": "Enter Y for a “Yes” response.",
       "page": 3,
       "rect": [
         576,
@@ -3056,9 +3306,10 @@
       "maxLength": 1
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_BusinessPromotionalLiteratureSafetyRepresentationsExplanation_A",
+      "name": "general-liability-line-of-business-business-promotional-literature-safety-representations-explanation",
+      "pdfName": "GeneralLiabilityLineOfBusiness_BusinessPromotionalLiteratureSafetyRepresentationsExplanation_A",
       "type": "text",
-      "label": "A",
+      "label": "An explanation of any business promotional literature that makes any representations about the safety or security of…",
       "page": 3,
       "rect": [
         22,
@@ -3068,9 +3319,10 @@
       ]
     },
     {
-      "name": "GeneralLiabilityLineOfBusiness_RemarkText_B",
+      "name": "general-liability-line-of-business-remark-text-2",
+      "pdfName": "GeneralLiabilityLineOfBusiness_RemarkText_B",
       "type": "text",
-      "label": "B",
+      "label": "The remarks associated with the general liability line of business.",
       "page": 3,
       "rect": [
         22,
@@ -3080,9 +3332,10 @@
       ]
     },
     {
-      "name": "Producer_AuthorizedRepresentative_Signature_A",
+      "name": "producer-authorized-representative-signature",
+      "pdfName": "Producer_AuthorizedRepresentative_Signature_A",
       "type": "text",
-      "label": "A",
+      "label": "Accommodates the signature of the authorized representative (e.g., producer, agent, broker, etc.) of the company(ies)…",
       "page": 3,
       "rect": [
         22,
@@ -3092,9 +3345,10 @@
       ]
     },
     {
-      "name": "Producer_AuthorizedRepresentative_FullName_A",
+      "name": "producer-authorized-representative-full-name",
+      "pdfName": "Producer_AuthorizedRepresentative_FullName_A",
       "type": "text",
-      "label": "A",
+      "label": "The name of the authorized representative of the producer, agency and/or broker that signed the form.",
       "page": 3,
       "rect": [
         259,
@@ -3104,9 +3358,10 @@
       ]
     },
     {
-      "name": "Producer_StateLicenseIdentifier_A",
+      "name": "producer-state-license-identifier",
+      "pdfName": "Producer_StateLicenseIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The State License Number of the producer.",
       "page": 3,
       "rect": [
         497,
@@ -3116,9 +3371,10 @@
       ]
     },
     {
-      "name": "NamedInsured_Signature_A",
+      "name": "named-insured-signature",
+      "pdfName": "NamedInsured_Signature_A",
       "type": "text",
-      "label": "A",
+      "label": "Accommodates the signature of the applicant or named insured.",
       "page": 3,
       "rect": [
         22,
@@ -3128,9 +3384,10 @@
       ]
     },
     {
-      "name": "NamedInsured_SignatureDate_A",
+      "name": "named-insured-signature-date",
+      "pdfName": "NamedInsured_SignatureDate_A",
       "type": "text",
-      "label": "A",
+      "label": "The date the form was signed by the applicant or named insured.",
       "page": 3,
       "rect": [
         425,
@@ -3141,9 +3398,10 @@
       "maxLength": 10
     },
     {
-      "name": "Producer_NationalIdentifier_A",
+      "name": "producer-national-identifier",
+      "pdfName": "Producer_NationalIdentifier_A",
       "type": "text",
-      "label": "A",
+      "label": "The National Producer Number (NPN) as defined in the National Insurance Producer Registry (NIPR).",
       "page": 3,
       "rect": [
         497,

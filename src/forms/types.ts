@@ -1,7 +1,10 @@
 export type FormFieldType = 'text' | 'checkbox' | 'radio' | 'dropdown' | 'signature';
 
 export interface FormFieldDef {
+  /** kebab-case slug — canonical id used by the app + agent. */
   name: string;
+  /** raw AcroForm field name, preserved for round-tripping back into the PDF. */
+  pdfName: string;
   type: FormFieldType;
   label: string;
   page: number;
