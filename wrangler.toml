@@ -1,0 +1,18 @@
+name = "accordingly-coordinator"
+main = "src/index.ts"
+compatibility_date = "2024-11-27"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+[dev]
+port = 8000
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[vars]
+ENVIRONMENT = "development"
