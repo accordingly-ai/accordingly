@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import type {
   ApplicationAnswers,
   FormFieldDef,
@@ -7,6 +8,7 @@ import type {
   SessionState,
 } from '../forms/types';
 import { ChatPanel } from './ChatPanel';
+import { resolveFieldLabel } from './formLabels';
 
 export interface PageMeta {
   /** scaled width in CSS px */
@@ -32,15 +34,17 @@ export function loadLocalAnswers(formId: string): ApplicationAnswers {
   }
 }
 
-export function formatSavedAgo(savedAt: number | null, now: number): string {
-  if (savedAt === null) return '';
+export type SavedAgo = { key: string; count?: number } | null;
+
+export function formatSavedAgo(savedAt: number | null, now: number): SavedAgo {
+  if (savedAt === null) return null;
   const secs = Math.max(0, Math.round((now - savedAt) / 1000));
-  if (secs < 5) return 'saved just now';
-  if (secs < 60) return `saved ${secs}s ago`;
+  if (secs < 5) return { key: 'form.savedJustNow' };
+  if (secs < 60) return { key: 'form.savedSeconds', count: secs };
   const mins = Math.round(secs / 60);
-  if (mins < 60) return `saved ${mins}m ago`;
+  if (mins < 60) return { key: 'form.savedMinutes', count: mins };
   const hours = Math.round(mins / 60);
-  return `saved ${hours}h ago`;
+  return { key: 'form.savedHours', count: hours };
 }
 
 export function fieldStyle(field: FormFieldDef, meta: PageMeta): React.CSSProperties {
@@ -57,17 +61,21 @@ export function fieldStyle(field: FormFieldDef, meta: PageMeta): React.CSSProper
 
 function FieldInput({
   field,
+  formId,
   meta,
   value,
   onChange,
 }: {
   field: FormFieldDef;
+  formId: string;
   meta: PageMeta;
   value: string | boolean | null | undefined;
   onChange: (next: string | boolean | null) => void;
 }) {
+  const { t, i18n } = useTranslation();
   const style = fieldStyle(field, meta);
-  const title = `${field.label} (${field.name})`;
+  const localizedLabel = resolveFieldLabel(formId, field.name, field.label, i18n.resolvedLanguage);
+  const title = `${localizedLabel} (${field.name})`;
 
   if (field.type === 'checkbox') {
     return (
@@ -134,7 +142,7 @@ function FieldInput({
       value={typeof value === 'string' ? value : ''}
       maxLength={field.maxLength}
       onChange={(e) => onChange(e.target.value)}
-      placeholder={field.type === 'signature' ? '(signature)' : ''}
+      placeholder={field.type === 'signature' ? t('form.signaturePlaceholder') : ''}
       style={{
         ...style,
         fontSize: `${Math.max(10, meta.scale * 9)}px`,
@@ -149,6 +157,7 @@ function FieldInput({
 }
 
 export function FormView() {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [manifest, setManifest] = useState<FormManifest | null>(null);
   const [answers, setAnswers] = useState<ApplicationAnswers>({});
@@ -353,7 +362,7 @@ export function FormView() {
     return <div className="min-h-screen bg-neutral-950 text-red-400 p-8">{error}</div>;
   }
   if (!manifest) {
-    return <div className="min-h-screen bg-neutral-950 text-neutral-400 p-8">Loading…</div>;
+    return <div className="min-h-screen bg-neutral-950 text-neutral-400 p-8">{t('form.loading')}</div>;
   }
 
   return (
@@ -361,16 +370,31 @@ export function FormView() {
       <div className="flex-1 min-w-0 flex flex-col">
         <div className="sticky top-0 z-10 bg-neutral-950/90 backdrop-blur border-b border-neutral-800 px-6 py-3 flex items-center gap-4">
           <Link to="/" className="text-blue-400 hover:underline text-sm">
-            ← Back
+            {t('nav.back')}
           </Link>
           <h1 className="text-lg font-semibold">{manifest.title}</h1>
           <div className="text-xs text-neutral-400 ml-auto flex items-center gap-3">
             <span>
-              {filledCount}/{manifest.fields.length} fields filled · page{' '}
-              {renderedPages}/{pages.length || '…'}
+              {pages.length > 0
+                ? t('form.fieldsFilled', {
+                    filled: filledCount,
+                    total: manifest.fields.length,
+                    current: renderedPages,
+                    pages: pages.length,
+                  })
+                : t('form.fieldsFilledNoPages', {
+                    filled: filledCount,
+                    total: manifest.fields.length,
+                    current: renderedPages,
+                  })}
             </span>
             <span className="text-neutral-500" data-tick={savedTick}>
-              {saving ? 'saving…' : formatSavedAgo(savedAt, Date.now())}
+              {saving
+                ? t('form.saving')
+                : (() => {
+                    const ago = formatSavedAgo(savedAt, Date.now());
+                    return ago ? t(ago.key, { count: ago.count }) : '';
+                  })()}
             </span>
           </div>
         </div>
@@ -396,6 +420,7 @@ export function FormView() {
                     <FieldInput
                       key={`${field.name}-${i}`}
                       field={field}
+                      formId={manifest.id}
                       meta={meta}
                       value={answers[field.name]}
                       onChange={(v) => setAnswer(field.name, v)}
@@ -406,7 +431,7 @@ export function FormView() {
             );
           })}
           {pages.length === 0 && (
-            <div className="text-neutral-400 text-sm py-12">Loading PDF…</div>
+            <div className="text-neutral-400 text-sm py-12">{t('form.loadingPdf')}</div>
           )}
         </div>
       </div>

@@ -1,0 +1,51 @@
+{
+  "app": {
+    "title": "Accordingly",
+    "tagline": "Iterative form-filling agent for commercial insurance."
+  },
+  "home": {
+    "formsHeading": "Forms",
+    "fieldCount_one": "{{count}} field",
+    "fieldCount_other": "{{count}} fields"
+  },
+  "nav": {
+    "back": "← Back"
+  },
+  "form": {
+    "fieldsFilled": "{{filled}}/{{total}} fields filled · page {{current}}/{{pages}}",
+    "fieldsFilledNoPages": "{{filled}}/{{total}} fields filled · page {{current}}/…",
+    "saving": "saving…",
+    "savedJustNow": "saved just now",
+    "savedSeconds": "saved {{count}}s ago",
+    "savedMinutes": "saved {{count}}m ago",
+    "savedHours": "saved {{count}}h ago",
+    "loading": "Loading…",
+    "loadingPdf": "Loading PDF…",
+    "signaturePlaceholder": "(signature)"
+  },
+  "chat": {
+    "title": "Assistant",
+    "clear": "Clear",
+    "open": "Open",
+    "hide": "Hide",
+    "emptyPrompt": "Tell the agent about your business and it will start filling the form. Try:",
+    "emptyExample": "\"My company is Acme Coffee LLC, founded 2018, in Brooklyn NY.\"",
+    "typing": "assistant is typing…",
+    "placeholder": "Tell me about your business…",
+    "send": "Send",
+    "listening": "Listening…",
+    "stop": "Stop",
+    "stopPlayback": "Stop playback",
+    "voiceSettings": "Voice settings",
+    "voiceInput": "Voice input",
+    "voiceOutput": "Voice output",
+    "holdToTalk": "Hold to talk",
+    "releaseToSend": "Release to send"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "es": "Spanish",
+    "de": "German"
+  }
+}
