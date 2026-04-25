@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
-import type { ApplicationAnswers, FormFieldDef, FormManifest } from '../forms/types';
+import type {
+  ApplicationAnswers,
+  FormFieldDef,
+  FormManifest,
+  SessionState,
+} from '../forms/types';
 
 interface PageMeta {
   /** scaled width in CSS px */
@@ -17,13 +22,24 @@ function answersStorageKey(formId: string) {
   return `accordingly:answers:${formId}`;
 }
 
-function loadAnswers(formId: string): ApplicationAnswers {
+function loadLocalAnswers(formId: string): ApplicationAnswers {
   try {
     const raw = localStorage.getItem(answersStorageKey(formId));
     return raw ? (JSON.parse(raw) as ApplicationAnswers) : {};
   } catch {
     return {};
   }
+}
+
+function formatSavedAgo(savedAt: number | null, now: number): string {
+  if (savedAt === null) return '';
+  const secs = Math.max(0, Math.round((now - savedAt) / 1000));
+  if (secs < 5) return 'saved just now';
+  if (secs < 60) return `saved ${secs}s ago`;
+  const mins = Math.round(secs / 60);
+  if (mins < 60) return `saved ${mins}m ago`;
+  const hours = Math.round(mins / 60);
+  return `saved ${hours}h ago`;
 }
 
 function fieldStyle(field: FormFieldDef, meta: PageMeta): React.CSSProperties {
@@ -137,6 +153,9 @@ export function FormView() {
   const [pages, setPages] = useState<PageMeta[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [renderedPages, setRenderedPages] = useState(0);
+  const [savedAt, setSavedAt] = useState<number | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [savedTick, setSavedTick] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRefs = useRef<Map<number, HTMLCanvasElement>>(new Map());
 
@@ -160,15 +179,38 @@ export function FormView() {
     };
   }, [id]);
 
-  // Load answers from localStorage when form id changes.
+  // Hydrate answers: GET /api/session, fall back to local mirror so an
+  // in-flight session isn't lost on first deploy.
   useEffect(() => {
     if (!id) return;
-    setAnswers(loadAnswers(id));
-    setAnswersLoaded(true);
+    let cancelled = false;
+    setAnswersLoaded(false);
+    (async () => {
+      const local = loadLocalAnswers(id);
+      try {
+        const r = await fetch('/api/session', { credentials: 'same-origin' });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const state = (await r.json()) as SessionState;
+        if (cancelled) return;
+        const remote = state.drafts[id]?.answers;
+        if (remote && Object.keys(remote).length > 0) {
+          setAnswers(remote);
+          setSavedAt(state.drafts[id]?.updatedAt ?? null);
+        } else {
+          setAnswers(local);
+        }
+      } catch {
+        if (!cancelled) setAnswers(local);
+      } finally {
+        if (!cancelled) setAnswersLoaded(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [id]);
 
-  // Persist answers on every change, but only after the initial load has run
-  // (otherwise the empty initial state would clobber stored values on mount).
+  // Mirror to localStorage as offline backup + debounced PUT to server.
   useEffect(() => {
     if (!id || !answersLoaded) return;
     try {
@@ -176,7 +218,36 @@ export function FormView() {
     } catch {
       // storage full / unavailable — ignore
     }
+
+    const handle = setTimeout(async () => {
+      setSaving(true);
+      try {
+        const r = await fetch(`/api/session/forms/${encodeURIComponent(id)}`, {
+          method: 'PUT',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ answers }),
+        });
+        if (r.ok) {
+          const body = (await r.json()) as { updatedAt: number };
+          setSavedAt(body.updatedAt);
+        }
+      } catch {
+        // network error — local mirror still has the data
+      } finally {
+        setSaving(false);
+      }
+    }, 500);
+
+    return () => clearTimeout(handle);
   }, [id, answers, answersLoaded]);
+
+  // Tick once a second so the "saved Xs ago" label stays fresh.
+  useEffect(() => {
+    if (savedAt === null) return;
+    const handle = setInterval(() => setSavedTick((t) => t + 1), 1000);
+    return () => clearInterval(handle);
+  }, [savedAt]);
 
   // Load PDF, compute per-page scaled metadata, and render each page into its canvas.
   useEffect(() => {
@@ -285,9 +356,14 @@ export function FormView() {
           ← Back
         </Link>
         <h1 className="text-lg font-semibold">{manifest.title}</h1>
-        <div className="text-xs text-neutral-400 ml-auto">
-          {filledCount}/{manifest.fields.length} fields filled · page{' '}
-          {renderedPages}/{pages.length || '…'}
+        <div className="text-xs text-neutral-400 ml-auto flex items-center gap-3">
+          <span>
+            {filledCount}/{manifest.fields.length} fields filled · page{' '}
+            {renderedPages}/{pages.length || '…'}
+          </span>
+          <span className="text-neutral-500" data-tick={savedTick}>
+            {saving ? 'saving…' : formatSavedAgo(savedAt, Date.now())}
+          </span>
         </div>
       </div>
 

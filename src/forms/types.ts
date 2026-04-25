@@ -22,3 +22,16 @@ export interface FormManifest {
 }
 
 export type ApplicationAnswers = Record<string, string | boolean | null>;
+
+export interface FormDraft {
+  answers: ApplicationAnswers;
+  updatedAt: number;
+}
+
+export interface SessionState {
+  sessionId: string;
+  createdAt: number;
+  lastSeenAt: number;
+  isNew: boolean;
+  drafts: Record<string, FormDraft>;
+}

@@ -12,7 +12,9 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "forms:extract": "tsx scripts/extract-acord-fields.ts",
-    "fixtures:pdf": "tsx scripts/convert-fixture-md-to-pdf.ts"
+    "fixtures:pdf": "tsx scripts/convert-fixture-md-to-pdf.ts",
+    "db:migrate": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
