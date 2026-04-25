@@ -119,4 +119,45 @@ describe('toApiMessage', () => {
     expect(out).toEqual({ role: 'assistant', content: 'done' });
     expect('tool_calls' in out).toBe(false);
   });
+
+  it('folds user attachments into the content sent to the model', () => {
+    const m: ChatMessage = {
+      role: 'user',
+      content: 'What is the policy number?',
+      attachments: [
+        {
+          name: 'invoice.pdf',
+          mimeType: 'application/pdf',
+          text: 'Policy 12345',
+        },
+        {
+          name: 'note.txt',
+          mimeType: 'text/plain',
+          text: 'see attached',
+          truncated: true,
+        },
+      ],
+    };
+    expect(toApiMessage(m)).toEqual({
+      role: 'user',
+      content:
+        'What is the policy number?\n\n' +
+        '[Attachment: invoice.pdf (application/pdf)]\nPolicy 12345\n[/Attachment]\n\n' +
+        '[Attachment: note.txt (text/plain, truncated)]\nsee attached\n[/Attachment]',
+    });
+  });
+
+  it('serializes attachments alone when user content is empty', () => {
+    const m: ChatMessage = {
+      role: 'user',
+      content: '',
+      attachments: [
+        { name: 'a.md', mimeType: 'text/markdown', text: '# hello' },
+      ],
+    };
+    expect(toApiMessage(m)).toEqual({
+      role: 'user',
+      content: '[Attachment: a.md (text/markdown)]\n# hello\n[/Attachment]',
+    });
+  });
 });

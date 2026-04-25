@@ -10,9 +10,18 @@ export interface ToolCall {
   arguments: string;
 }
 
+export interface ChatAttachment {
+  name: string;
+  mimeType: string;
+  text: string;
+  truncated?: boolean;
+}
+
 export interface ChatMessage {
   role: 'user' | 'assistant' | 'tool';
   content: string;
+  /** user only */
+  attachments?: ChatAttachment[];
   /** assistant only */
   tool_calls?: ToolCall[];
   /** tool only */
@@ -95,6 +104,17 @@ export function toApiMessage(m: ChatMessage): Record<string, unknown> {
       tool_call_id: m.tool_call_id,
       content: m.content,
     };
+  }
+  if (m.role === 'user' && m.attachments?.length) {
+    const parts: string[] = [];
+    if (m.content) parts.push(m.content);
+    for (const att of m.attachments) {
+      const header = `[Attachment: ${att.name} (${att.mimeType}${
+        att.truncated ? ', truncated' : ''
+      })]`;
+      parts.push(`${header}\n${att.text}\n[/Attachment]`);
+    }
+    return { role: 'user', content: parts.join('\n\n') };
   }
   return { role: m.role, content: m.content };
 }
@@ -260,12 +280,18 @@ export function useChatAgent({
   );
 
   const sendMessage = useCallback(
-    async (text: string) => {
+    async (text: string, attachments?: ChatAttachment[]) => {
       const trimmed = text.trim();
-      if (!trimmed || streaming) return;
+      if (streaming) return;
+      if (!trimmed && !(attachments && attachments.length > 0)) return;
       setError(null);
 
-      const baseHistory: ChatMessage[] = [...messages, { role: 'user', content: trimmed }];
+      const userMessage: ChatMessage = {
+        role: 'user',
+        content: trimmed,
+        ...(attachments && attachments.length > 0 ? { attachments } : {}),
+      };
+      const baseHistory: ChatMessage[] = [...messages, userMessage];
       setMessages(baseHistory);
       setStreaming(true);
 
