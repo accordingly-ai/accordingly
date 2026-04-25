@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
 import type { FieldValue } from '../forms/tools';
 import { useChatAgent, type ChatAttachment, type ChatMessage } from './useChatAgent';
-import { extractDroppedFile } from './drive/extractors';
+import { extractDocument, extractDroppedFile } from './drive/extractors';
 import {
   transcribe,
   useMicRecorder,
@@ -62,9 +62,16 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   const [voiceError, setVoiceError] = useState<string | null>(null);
   const [pending, setPending] = useState<PendingAttachment[]>([]);
   const [dragDepth, setDragDepth] = useState(0);
+  const [scanning, setScanning] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
 
-  const { settings, setInput: setVoiceInput, setOutput: setVoiceOutput } = useVoiceSettings();
+  const {
+    settings,
+    setInput: setVoiceInput,
+    setOutput: setVoiceOutput,
+    setCamera: setVoiceCamera,
+  } = useVoiceSettings();
   const recorder = useMicRecorder();
   const tts = useTtsPlayer();
 
@@ -216,6 +223,28 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
     await recorder.start();
   };
 
+  const onCameraFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      setVoiceError(`Unsupported file type: ${file.type || 'unknown'}`);
+      return;
+    }
+    setVoiceError(null);
+    setScanning(true);
+    try {
+      const buf = await file.arrayBuffer();
+      const { text } = await extractDocument(buf, file.type, file.name);
+      const preamble = '[Scanned document]\n';
+      setInput((prev) => `${prev ? `${prev}\n\n` : ''}${preamble}${text}\n\n`);
+    } catch (err) {
+      setVoiceError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setScanning(false);
+    }
+  };
+
   const visible = messages.filter((m) => m.role !== 'tool' || true);
   const combinedError = error ?? recorder.error ?? voiceError;
 
@@ -248,23 +277,59 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           )}
           <button
             type="button"
+            onClick={() => setVoiceInput(!settings.input)}
+            aria-pressed={settings.input}
+            aria-label={t('chat.voiceInput')}
+            title={t('chat.voiceInput')}
+            className={
+              'w-7 h-7 rounded flex items-center justify-center text-sm ' +
+              (settings.input
+                ? 'bg-neutral-700 text-neutral-100'
+                : 'text-neutral-500 hover:text-neutral-300')
+            }
+          >
+            🎤
+          </button>
+          <button
+            type="button"
+            onClick={() => setVoiceOutput(!settings.output)}
+            aria-pressed={settings.output}
+            aria-label={t('chat.voiceOutput')}
+            title={t('chat.voiceOutput')}
+            className={
+              'w-7 h-7 rounded flex items-center justify-center text-sm ' +
+              (settings.output
+                ? 'bg-neutral-700 text-neutral-100'
+                : 'text-neutral-500 hover:text-neutral-300')
+            }
+          >
+            {settings.output ? '🔊' : '🔈'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setVoiceCamera(!settings.camera)}
+            aria-pressed={settings.camera}
+            aria-label={t('chat.camera')}
+            title={t('chat.camera')}
+            className={
+              'w-7 h-7 rounded flex items-center justify-center text-sm ' +
+              (settings.camera
+                ? 'bg-neutral-700 text-neutral-100'
+                : 'text-neutral-500 hover:text-neutral-300')
+            }
+          >
+            📷
+          </button>
+          <DriveButton drive={drive} />
+          <button
+            type="button"
             onClick={() => setSettingsOpen((v) => !v)}
-            className="text-neutral-400 hover:text-neutral-200 text-sm leading-none"
-            aria-label={t('chat.voiceSettings')}
-            title={t('chat.voiceSettings')}
+            aria-label={t('chat.settings')}
+            title={t('chat.settings')}
+            className="w-7 h-7 rounded flex items-center justify-center text-sm text-neutral-400 hover:text-neutral-200"
           >
             ⚙
           </button>
-          <DriveButton drive={drive} />
-          {messages.length > 0 && (
-            <button
-              type="button"
-              onClick={reset}
-              className="text-[11px] text-neutral-500 hover:text-neutral-300"
-            >
-              {t('chat.clear')}
-            </button>
-          )}
           <button
             type="button"
             onClick={() => setCollapsed((v) => !v)}
@@ -274,23 +339,15 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           </button>
         </div>
         {settingsOpen && (
-          <div className="absolute right-2 top-full mt-1 z-10 w-56 rounded-md border border-neutral-700 bg-neutral-900 shadow-lg p-2 text-sm text-neutral-200">
-            <label className="flex items-center gap-2 px-1 py-1 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={settings.input}
-                onChange={(e) => setVoiceInput(e.target.checked)}
-              />
-              <span>{t('chat.voiceInput')}</span>
-            </label>
-            <label className="flex items-center gap-2 px-1 py-1 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={settings.output}
-                onChange={(e) => setVoiceOutput(e.target.checked)}
-              />
-              <span>{t('chat.voiceOutput')}</span>
-            </label>
+          <div className="absolute right-2 top-full mt-1 z-10 w-48 rounded-md border border-neutral-700 bg-neutral-900 shadow-lg p-1 text-sm text-neutral-200">
+            <button
+              type="button"
+              onClick={() => { reset(); setSettingsOpen(false); }}
+              disabled={messages.length === 0}
+              className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-800 disabled:opacity-40 disabled:hover:bg-transparent"
+            >
+              {t('chat.reset')}
+            </button>
           </div>
         )}
       </div>
@@ -339,6 +396,33 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
             onSubmit={onSubmit}
             className="border-t border-neutral-800 p-2 flex gap-2 bg-neutral-900 items-end"
           >
+            {settings.camera && (
+              <>
+                <input
+                  ref={cameraInputRef}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  className="hidden"
+                  onChange={onCameraFile}
+                />
+                <button
+                  type="button"
+                  onClick={() => cameraInputRef.current?.click()}
+                  disabled={streaming || scanning}
+                  className={
+                    'shrink-0 self-end rounded text-white text-sm w-9 h-9 flex items-center justify-center ' +
+                    (scanning
+                      ? 'bg-neutral-600 animate-pulse'
+                      : 'bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500')
+                  }
+                  title={scanning ? t('chat.scanning') : t('chat.takePhoto')}
+                  aria-label={t('chat.takePhoto')}
+                >
+                  {scanning ? '…' : '📷'}
+                </button>
+              </>
+            )}
             {settings.input && (
               <button
                 type="button"

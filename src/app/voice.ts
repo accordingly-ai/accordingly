@@ -5,9 +5,10 @@ const VOICE_STORAGE_KEY = 'accordingly:voice';
 export interface VoiceSettings {
   input: boolean;
   output: boolean;
+  camera: boolean;
 }
 
-const DEFAULT_SETTINGS: VoiceSettings = { input: false, output: false };
+const DEFAULT_SETTINGS: VoiceSettings = { input: false, output: false, camera: false };
 
 function loadSettings(): VoiceSettings {
   try {
@@ -17,6 +18,7 @@ function loadSettings(): VoiceSettings {
     return {
       input: typeof parsed.input === 'boolean' ? parsed.input : false,
       output: typeof parsed.output === 'boolean' ? parsed.output : false,
+      camera: typeof parsed.camera === 'boolean' ? parsed.camera : false,
     };
   } catch {
     return DEFAULT_SETTINGS;
@@ -54,7 +56,15 @@ export function useVoiceSettings() {
     });
   }, []);
 
-  return { settings, setInput, setOutput };
+  const setCamera = useCallback((value: boolean) => {
+    setSettings((prev) => {
+      const next = { ...prev, camera: value };
+      persistSettings(next);
+      return next;
+    });
+  }, []);
+
+  return { settings, setInput, setOutput, setCamera };
 }
 
 interface MicRecorderState {
