@@ -83,8 +83,8 @@ GCP setup (one-time, outside code) — in your GCP project:
 6. While the consent screen is in "Testing", add yourself as a test user.
 
 These three `VITE_GOOGLE_*` values are public (the OAuth flow happens entirely
-in the browser); set them in `.env.local` for dev or as Wrangler `[vars]` for
-prod. See `.env.example`.
+in the browser); set them in `.env.local` for dev, committed `.env.production`
+for prod. See `.env.example`.
 
 ## Swarm tooling (`swarm/`)
 
