@@ -68,7 +68,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
   return bufferToBase64(buf);
 }
 
-async function maybeResizeImage(buf: ArrayBuffer, mimeType: string): Promise<{ data: string; mimeType: string }> {
+export async function maybeResizeImage(buf: ArrayBuffer, mimeType: string): Promise<{ data: string; mimeType: string }> {
   try {
     const blob = new Blob([buf], { type: mimeType });
     const bitmap = await createImageBitmap(blob);
@@ -103,19 +103,34 @@ async function maybeResizeImage(buf: ArrayBuffer, mimeType: string): Promise<{ d
   }
 }
 
-async function postExtract({
-  data,
-  mimeType,
-  filename,
-}: {
-  data: string;
-  mimeType: string;
-  filename: string;
-}): Promise<ExtractionResult> {
+export async function extractDocument(
+  buf: ArrayBuffer,
+  mimeType: string,
+  filename?: string,
+): Promise<ExtractionResult> {
+  const isPdf = mimeType === 'application/pdf';
+  const isImage = mimeType.startsWith('image/');
+  if (isPdf && buf.byteLength > MAX_PDF_BYTES) {
+    throw new Error(`PDF too large (${(buf.byteLength / 1e6).toFixed(1)} MB, max 32 MB)`);
+  }
+  if (isImage && buf.byteLength > MAX_IMAGE_BYTES) {
+    throw new Error(`Image too large (${(buf.byteLength / 1e6).toFixed(1)} MB, max 10 MB)`);
+  }
+
+  let data: string;
+  let outMime = mimeType;
+  if (isImage) {
+    const resized = await maybeResizeImage(buf, mimeType);
+    data = resized.data;
+    outMime = resized.mimeType;
+  } else {
+    data = bufferToBase64(buf);
+  }
+
   const res = await fetch('/api/extract-document', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ data, mimeType, filename }),
+    body: JSON.stringify({ data, mimeType: outMime, filename }),
   });
   if (!res.ok) {
     let detail = '';
@@ -129,33 +144,6 @@ async function postExtract({
   }
   const { text } = (await res.json()) as { text: string };
   return truncate(text ?? '');
-}
-
-export async function extractViaModel(
-  file: DriveFile,
-  token: string,
-): Promise<ExtractionResult> {
-  const buf = await downloadBytes(file.id, token);
-  const isPdf = file.mimeType === 'application/pdf';
-  const isImage = file.mimeType.startsWith('image/');
-  if (isPdf && buf.byteLength > MAX_PDF_BYTES) {
-    throw new Error(`PDF too large (${(buf.byteLength / 1e6).toFixed(1)} MB, max 32 MB)`);
-  }
-  if (isImage && buf.byteLength > MAX_IMAGE_BYTES) {
-    throw new Error(`Image too large (${(buf.byteLength / 1e6).toFixed(1)} MB, max 10 MB)`);
-  }
-
-  let data: string;
-  let mimeType = file.mimeType;
-  if (isImage) {
-    const resized = await maybeResizeImage(buf, file.mimeType);
-    data = resized.data;
-    mimeType = resized.mimeType;
-  } else {
-    data = bufferToBase64(buf);
-  }
-
-  return postExtract({ data, mimeType, filename: file.name });
 }
 
 const EXTENSION_MIME: Record<string, string> = {
@@ -210,34 +198,21 @@ export async function extractDroppedFile(file: File): Promise<DroppedExtraction>
     return { name: file.name, mimeType, text, truncated };
   }
 
-  if (isPdf) {
-    if (file.size > MAX_PDF_BYTES) {
-      throw new Error(`PDF too large (${(file.size / 1e6).toFixed(1)} MB, max 32 MB)`);
-    }
+  if (isPdf || isImage) {
     const buf = await file.arrayBuffer();
-    const { text, truncated } = await postExtract({
-      data: bufferToBase64(buf),
-      mimeType,
-      filename: file.name,
-    });
+    const { text, truncated } = await extractDocument(buf, mimeType, file.name);
     return { name: file.name, mimeType, text, truncated };
   }
 
-  if (isImage) {
-    if (file.size > MAX_IMAGE_BYTES) {
-      throw new Error(`Image too large (${(file.size / 1e6).toFixed(1)} MB, max 10 MB)`);
-    }
-    const buf = await file.arrayBuffer();
-    const resized = await maybeResizeImage(buf, mimeType);
-    const { text, truncated } = await postExtract({
-      data: resized.data,
-      mimeType: resized.mimeType,
-      filename: file.name,
-    });
-    return { name: file.name, mimeType: resized.mimeType, text, truncated };
-  }
-
   throw new Error(`Unsupported type: ${mimeType}`);
+}
+
+export async function extractViaModel(
+  file: DriveFile,
+  token: string,
+): Promise<ExtractionResult> {
+  const buf = await downloadBytes(file.id, token);
+  return extractDocument(buf, file.mimeType, file.name);
 }
 
 export async function extractFile(file: DriveFile, token: string): Promise<ExtractionResult> {
