@@ -2,6 +2,32 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Product
+
+Accordingly is an **iterative form-filling agent for commercial insurance**. A
+business owner uses it to incrementally fill and refine an insurance application
+across multiple sessions. The agent integrates with external data sources
+(business registries, prior policy data, the user's own documents) to pre-fill
+fields, ask focused follow-up questions, and surface what's still missing.
+
+### Supported forms
+
+The blank source PDFs live under `public/forms/pdfs/` (so Vite serves them at
+`/forms/pdfs/<id>.pdf` for the SPA to overlay):
+
+- `public/forms/pdfs/acord-125.pdf` — Commercial Insurance Application
+  (applicant, premises, prior coverage, nature of business).
+- `public/forms/pdfs/acord-126.pdf` — Commercial General Liability Section
+  (exposures, coverage selections, additional interests).
+
+For each PDF we commit a JSON field manifest at `src/forms/<id>.json` produced
+by `scripts/extract-acord-fields.ts`. Each manifest entry has:
+`{ name, type, label, page, rect: [x, y, w, h], options?, maxLength? }`. The
+SPA uses these manifests both as the input schema for an application and to
+overlay user answers on top of the rendered PDF page.
+
+To regenerate after editing the script or swapping in a new PDF: `pnpm forms:extract`.
+
 ## Commands
 
 Package manager is **pnpm**.
@@ -22,6 +48,7 @@ Single Cloudflare Worker that serves both the API and the SPA from one origin.
   - `[assets] directory = "./dist"` with `not_found_handling = "single-page-application"` so client routes resolve to `index.html`.
   - `run_worker_first = ["/api/*"]` ensures API requests hit the Worker before the static-assets handler.
 - API error shape: `{ error: { code, message } }` with appropriate status. Match this in new endpoints.
+- **Form data** lives in `src/forms/` (manifests + types, importable by both Worker and SPA). Re-extraction scripts live in `scripts/`.
 
 ## Swarm tooling (`swarm/`)
 

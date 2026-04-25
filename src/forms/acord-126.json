@@ -1,0 +1,3156 @@
+{
+  "id": "acord-126",
+  "title": "ACORD 126 — Commercial General Liability Section",
+  "fields": [
+    {
+      "name": "Form_EditionIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Producer_CustomerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        414,
+        756,
+        180,
+        12
+      ]
+    },
+    {
+      "name": "Producer_CustomerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        414,
+        756,
+        180,
+        12
+      ]
+    },
+    {
+      "name": "Producer_CustomerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        414,
+        756,
+        180,
+        12
+      ]
+    },
+    {
+      "name": "Producer_CustomerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        414,
+        756,
+        180,
+        12
+      ]
+    },
+    {
+      "name": "Form_CompletionDate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        511,
+        726,
+        79,
+        12
+      ],
+      "maxLength": 10
+    },
+    {
+      "name": "Producer_FullName_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        702,
+        280,
+        12
+      ]
+    },
+    {
+      "name": "Policy_PolicyNumberIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        678,
+        223,
+        12
+      ]
+    },
+    {
+      "name": "Policy_EffectiveDate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        252,
+        678,
+        50,
+        12
+      ],
+      "maxLength": 10
+    },
+    {
+      "name": "Insurer_FullName_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        310,
+        702,
+        226,
+        12
+      ]
+    },
+    {
+      "name": "Insurer_NAICCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        544,
+        702,
+        46,
+        12
+      ]
+    },
+    {
+      "name": "NamedInsured_FullName_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        310,
+        678,
+        280,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_CoverageIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        18,
+        624,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_ClaimsMadeIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        32,
+        612,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OccurrenceIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        122,
+        612,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OwnersAndContractorsProtectiveIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        18,
+        600,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherCoverageIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        18,
+        588,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherCoverageDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        36,
+        588,
+        191,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_PropertyDamage_DeductibleIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        18,
+        564,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_PropertyDamage_DeductibleAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        119,
+        564,
+        50,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_BodilyInjury_DeductibleIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        18,
+        552,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_BodilyInjury_DeductibleAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        119,
+        552,
+        50,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherDeductibleIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        18,
+        540,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherDeductibleDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        40,
+        540,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherDeductibleAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        119,
+        540,
+        50,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_DeductiblePerClaimIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        173,
+        552,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_DeductiblePerOccurrenceIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        173,
+        540,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_GeneralAggregate_LimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        624,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_GeneralAggregate_LimitAppliesPerPolicyIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        302,
+        612,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_GeneralAggregate_LimitAppliesPerProjectIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        302,
+        600,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_GeneralAggregate_LimitAppliesPerLocationIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        353,
+        612,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_GeneralAggregate_LimitAppliesToOtherIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        353,
+        600,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_GeneralAggregate_LimitAppliesToCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        400,
+        600,
+        90,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_ProductsAndCompletedOperations_AggregateLimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        588,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_PersonalAndAdvertisingInjury_LimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        576,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_EachOccurrence_LimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        564,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_FireDamageRentedPremises_EachOccurrenceLimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        552,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_MedicalExpense_EachPersonLimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        540,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_EmployeeBenefits_LimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        528,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherCoverageLimitDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        234,
+        516,
+        162,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherCoverageLimitAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        410,
+        516,
+        80,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_PremisesOperations_PremiumAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        497,
+        600,
+        93,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Products_PremiumAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        497,
+        576,
+        93,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_OtherCoveragePremiumAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        497,
+        552,
+        93,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_TotalPremiumAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        497,
+        528,
+        93,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_RemarkText_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        480,
+        568,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        101,
+        456,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableNoIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        137,
+        456,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_MedicalPayments_CoverageAvailableIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        367,
+        456,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_MedicalPayments_CoverageAvailableNoIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        403,
+        456,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_LocationProducerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        408,
+        28,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_HazardProducerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        58,
+        408,
+        25,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ClassCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        90,
+        408,
+        47,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremiumBasisCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        144,
+        408,
+        43,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_Exposure_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        194,
+        408,
+        94,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_TerritoryCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        295,
+        408,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremisesOperationsRate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        331,
+        408,
+        58,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ProductsRate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        396,
+        408,
+        61,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        464,
+        408,
+        58,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ProductsPremiumAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        529,
+        408,
+        61,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_Classification_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        372,
+        568,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_LocationProducerIdentifier_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        22,
+        336,
+        28,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_HazardProducerIdentifier_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        58,
+        336,
+        25,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ClassCode_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        90,
+        336,
+        47,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremiumBasisCode_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        144,
+        336,
+        43,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_Exposure_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        194,
+        336,
+        94,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_TerritoryCode_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        295,
+        336,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremisesOperationsRate_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        331,
+        336,
+        58,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ProductsRate_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        396,
+        336,
+        61,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        464,
+        336,
+        58,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ProductsPremiumAmount_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        529,
+        336,
+        61,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_Classification_B",
+      "type": "text",
+      "label": "B",
+      "page": 0,
+      "rect": [
+        22,
+        300,
+        568,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_LocationProducerIdentifier_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        22,
+        264,
+        28,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_HazardProducerIdentifier_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        58,
+        264,
+        25,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ClassCode_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        90,
+        264,
+        47,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremiumBasisCode_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        144,
+        264,
+        43,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_Exposure_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        194,
+        264,
+        94,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_TerritoryCode_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        295,
+        264,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremisesOperationsRate_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        331,
+        264,
+        58,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ProductsRate_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        396,
+        264,
+        61,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_PremisesOperationsPremiumAmount_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        464,
+        264,
+        58,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_ProductsPremiumAmount_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        529,
+        264,
+        61,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Hazard_Classification_C",
+      "type": "text",
+      "label": "C",
+      "page": 0,
+      "rect": [
+        22,
+        228,
+        568,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiability_ClaimsMade_ProposedRetroactiveDate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        155,
+        168,
+        68,
+        12
+      ],
+      "maxLength": 10
+    },
+    {
+      "name": "GeneralLiability_ClaimsMade_UninterruptedCoverageEntryDate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        259,
+        156,
+        69,
+        12
+      ],
+      "maxLength": 10
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AAHCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        576,
+        144,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_AnyProductWorkAccidentLocationExcludedUninsuredPreviousCoverageExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        120,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AAICode_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        576,
+        108,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_TailCoveragePurchasedPreviousPolicyExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        22,
+        84,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiability_EmployeeBenefits_PerClaimDeductibleAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        137,
+        60,
+        147,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_EmployeeBenefits_EmployeeCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        137,
+        48,
+        147,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_EmployeeBenefits_EmployeeCoveredCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        547,
+        60,
+        43,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_EmployeeBenefits_RetroactiveDate_A",
+      "type": "text",
+      "label": "A",
+      "page": 0,
+      "rect": [
+        382,
+        48,
+        208,
+        12
+      ],
+      "maxLength": 10
+    },
+    {
+      "name": "Contractors_Question_AABCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        726,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ApplicantDrawPlansForOthersExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        702,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_Question_AAICode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        690,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_OperationsIncludeBlastingExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        666,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_Question_AACCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        654,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_OperationsIncludeEvacuationExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        630,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_Question_ABBCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        618,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_SubcontractorsCarryLowerLimitsExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        594,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_Question_AADCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        582,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_SubcontractorsWorksWithoutCertificatesOfInsuranceExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        558,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_Question_AAECode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        546,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ApplicantLeaseEquipmentToOthersExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        522,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_SubcontractorsPaidAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        263,
+        510,
+        65,
+        12
+      ]
+    },
+    {
+      "name": "Contractors_WorkSubcontractedPercent_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        392,
+        510,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "Contractors_FullTimeEmployeeCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        468,
+        510,
+        40,
+        12
+      ]
+    },
+    {
+      "name": "Contractors_PartTimeEmployeeCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        554,
+        510,
+        36,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_TypeOfWorkSubcontractedDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        486,
+        568,
+        24
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_ProductName_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        444,
+        97,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_AnnualGrossSalesAmount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        126,
+        444,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_UnitCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        205,
+        444,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_InMarketMonthCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        284,
+        444,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_ExpectedLifeMonthCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        320,
+        444,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_IntendedUse_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        356,
+        444,
+        116,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_PrincipalComponents_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        479,
+        444,
+        111,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_ProductName_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        22,
+        420,
+        97,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_AnnualGrossSalesAmount_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        126,
+        420,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_UnitCount_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        205,
+        420,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_InMarketMonthCount_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        284,
+        420,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_ExpectedLifeMonthCount_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        320,
+        420,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_IntendedUse_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        356,
+        420,
+        116,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_PrincipalComponents_B",
+      "type": "text",
+      "label": "B",
+      "page": 1,
+      "rect": [
+        479,
+        420,
+        111,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_ProductName_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        22,
+        396,
+        97,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_AnnualGrossSalesAmount_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        126,
+        396,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_UnitCount_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        205,
+        396,
+        72,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_InMarketMonthCount_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        284,
+        396,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_ExpectedLifeMonthCount_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        320,
+        396,
+        29,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_IntendedUse_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        356,
+        396,
+        116,
+        12
+      ]
+    },
+    {
+      "name": "ProductAndCompletedOperations_PrincipalComponents_C",
+      "type": "text",
+      "label": "C",
+      "page": 1,
+      "rect": [
+        479,
+        396,
+        111,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AAJCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        366,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ApplicantInstallServiceProductsExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        342,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABACode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        330,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABBCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        318,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ResearchDevelopmentConductedNewProductsPlannedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        294,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABCCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        282,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_GuaranteesWarrantiesHoldHarmlessExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        258,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABDCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        246,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ProductsRelatedToAircraftIndustryExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        222,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABECode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        210,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ProductsRecalledDiscontinuedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        186,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABFCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        174,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ProductsOfOthersSoldUnderApplicantLabelExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        150,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABGCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        138,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ProductsUnderLabelOfOthersExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        114,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABHCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        102,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_VendorCoverageRequiredExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        22,
+        78,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABICode_A",
+      "type": "text",
+      "label": "A",
+      "page": 1,
+      "rect": [
+        576,
+        66,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_NamedInsuredSellToOtherNamedInsuredExplanation_R",
+      "type": "text",
+      "label": "R",
+      "page": 1,
+      "rect": [
+        22,
+        36,
+        547,
+        30
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Attachment_AdditionalInterestIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        245,
+        744,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_AdditionalInsuredIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        720,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_EmployeeAsLessorIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        708,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_LendersLossPayableIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        696,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_LienholderIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        684,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_LossPayeeIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        672,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_MortgageeIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        660,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_OtherIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        18,
+        648,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Interest_OtherDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        36,
+        648,
+        83,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_InterestRank_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        216,
+        732,
+        18,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_CertificateRequiredIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        277,
+        732,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_FullName_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        126,
+        708,
+        320,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_MailingAddress_LineOne_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        126,
+        696,
+        320,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_MailingAddress_LineTwo_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        126,
+        684,
+        320,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_MailingAddress_CityName_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        126,
+        672,
+        230,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_MailingAddress_StateOrProvinceCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        356,
+        672,
+        18,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_MailingAddress_PostalCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        374,
+        672,
+        47,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_MailingAddress_CountryCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        421,
+        672,
+        25,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_AccountNumberIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        198,
+        648,
+        83,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Item_LocationProducerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        490,
+        720,
+        28,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Item_BuildingProducerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        558,
+        720,
+        32,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Item_ScheduledItemClassCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        482,
+        708,
+        36,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_Item_ScheduledItemProducerIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        547,
+        708,
+        43,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_ItemDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        454,
+        684,
+        136,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ABJCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        612,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_AnyMedicalFacilitiesProvidedMedicalProfessionalsEmployedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        588,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACACode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        576,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_AnyExposureRadioactiveMaterialsExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        552,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACJCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        540,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_OperationsInvolveStoringDisposingTransportingHazardousMaterialExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        504,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACBCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        492,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_AnyListedOperationsSoldAcquiredLastFiveYearsExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        456,
+        547,
+        36
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACCCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        444,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_MachineryOrEquipmentLoanedRentedOthersExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        40,
+        420,
+        288,
+        12
+      ]
+    },
+    {
+      "name": "CommercialInlandMarineProperty_PropertySubClass_SmallToolsIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        331,
+        420,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "CommercialInlandMarineProperty_PropertySubClass_LargeEquipmentIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        396,
+        420,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "PropertyItem_ItemDetail_InstructionGivenCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        508,
+        420,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_MachineryOrEquipmentLoanedRentedOthersExplanation_B",
+      "type": "text",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        40,
+        408,
+        288,
+        12
+      ]
+    },
+    {
+      "name": "CommercialInlandMarineProperty_PropertySubClass_SmallToolsIndicator_B",
+      "type": "checkbox",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        331,
+        408,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "CommercialInlandMarineProperty_PropertySubClass_LargeEquipmentIndicator_B",
+      "type": "checkbox",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        396,
+        408,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "PropertyItem_ItemDetail_InstructionGivenCode_B",
+      "type": "text",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        508,
+        408,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "Contractors_Question_AAHCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        396,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_WatercraftDocksFloatsOwnedHiredLeasedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        372,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACDCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        360,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_AnyParkingFacilitiesOwnedRentedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        336,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_KAGCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        324,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_FeeChargedForParkingExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        300,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACECode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        288,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_RecreationalFacilitiesProvidedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        264,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_KAACode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        252,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "BuildingOccupancy_ApartmentCount_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        40,
+        228,
+        32,
+        12
+      ]
+    },
+    {
+      "name": "BuildingOccupancy_ApartmentArea_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        79,
+        228,
+        43,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiability_Otherlodgingoperationsdescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        151,
+        228,
+        400,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_KAHCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        216,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "SwimmingPool_ApprovedFenceIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        36,
+        204,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "SwimmingPool_LimitedAccessIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        115,
+        204,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "SwimmingPool_DivingBoardIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        191,
+        204,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "SwimmingPool_SlideIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        259,
+        204,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "SwimmingPool_AboveGroundIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        302,
+        204,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "SwimmingPool_InGroundIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        374,
+        204,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "SwimmingPool_LifeGuardIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        436,
+        204,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACFCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        192,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_SportingOrSocialEventsSponsoredExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        168,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_KABCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        156,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AthleticTeam_SportDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        40,
+        126,
+        97,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_ContactSportCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        153,
+        126,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AthleticTeam_AgeGroup_TwelveAndUnderIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        180,
+        126,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_AgeGroup_ThirteenThroughEighteenIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        241,
+        138,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_AgeGroup_OverEighteenIndicator_A",
+      "type": "checkbox",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        241,
+        126,
+        15,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_SponsorshipExtentDescription_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        122,
+        114,
+        166,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_SportDescription_B",
+      "type": "text",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        302,
+        126,
+        98,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_ContactSportCode_B",
+      "type": "text",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        416,
+        126,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AthleticTeam_AgeGroup_TwelveAndUnderIndicator_B",
+      "type": "checkbox",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        443,
+        126,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_AgeGroup_ThirteenThroughEighteenIndicator_B",
+      "type": "checkbox",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        504,
+        138,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_AgeGroup_OverEighteenIndicator_B",
+      "type": "checkbox",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        504,
+        126,
+        14,
+        12
+      ]
+    },
+    {
+      "name": "AthleticTeam_SponsorshipExtentDescription_B",
+      "type": "text",
+      "label": "B",
+      "page": 2,
+      "rect": [
+        385,
+        114,
+        166,
+        12
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACGCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        102,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_StructuralAlterationsContemplatedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        78,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_ACHCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        576,
+        66,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_DemolitionExposureContemplatedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 2,
+      "rect": [
+        22,
+        36,
+        547,
+        30
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AABCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        726,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_ApplicantActiveJointVenturesExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        702,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AACCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        690,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AdditionalInterest_FullName_B",
+      "type": "text",
+      "label": "B",
+      "page": 3,
+      "rect": [
+        40,
+        654,
+        162,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_WorkersCompensationCarriedCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        241,
+        654,
+        15,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AdditionalInterest_FullName_C",
+      "type": "text",
+      "label": "C",
+      "page": 3,
+      "rect": [
+        40,
+        642,
+        162,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_WorkersCompensationCarriedCode_B",
+      "type": "text",
+      "label": "B",
+      "page": 3,
+      "rect": [
+        241,
+        642,
+        15,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AdditionalInterest_FullName_D",
+      "type": "text",
+      "label": "D",
+      "page": 3,
+      "rect": [
+        302,
+        654,
+        162,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_WorkersCompensationCarriedCode_C",
+      "type": "text",
+      "label": "C",
+      "page": 3,
+      "rect": [
+        504,
+        654,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "AdditionalInterest_FullName_E",
+      "type": "text",
+      "label": "E",
+      "page": 3,
+      "rect": [
+        302,
+        642,
+        162,
+        12
+      ]
+    },
+    {
+      "name": "AdditionalInterest_WorkersCompensationCarriedCode_D",
+      "type": "text",
+      "label": "D",
+      "page": 3,
+      "rect": [
+        504,
+        642,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AADCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        630,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_LabourInterchangeOtherBusinessSubsidiariesExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        606,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AAECode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        594,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_DayCareFacilitiesOperatedExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        570,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AAFCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        558,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_CrimesOccurredOrAttemptedLastThreeYearsExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        534,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "Contractors_Question_AAGCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        522,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_FormalSafetySecurityPolicyInEffectExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        498,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_Question_AAGCode_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        576,
+        486,
+        14,
+        12
+      ],
+      "maxLength": 1
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_BusinessPromotionalLiteratureSafetyRepresentationsExplanation_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        462,
+        547,
+        24
+      ]
+    },
+    {
+      "name": "GeneralLiabilityLineOfBusiness_RemarkText_B",
+      "type": "text",
+      "label": "B",
+      "page": 3,
+      "rect": [
+        22,
+        432,
+        568,
+        18
+      ]
+    },
+    {
+      "name": "Producer_AuthorizedRepresentative_Signature_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        60,
+        230,
+        12
+      ]
+    },
+    {
+      "name": "Producer_AuthorizedRepresentative_FullName_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        259,
+        60,
+        231,
+        12
+      ]
+    },
+    {
+      "name": "Producer_StateLicenseIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        497,
+        60,
+        93,
+        12
+      ]
+    },
+    {
+      "name": "NamedInsured_Signature_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        22,
+        36,
+        396,
+        12
+      ]
+    },
+    {
+      "name": "NamedInsured_SignatureDate_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        425,
+        36,
+        65,
+        12
+      ],
+      "maxLength": 10
+    },
+    {
+      "name": "Producer_NationalIdentifier_A",
+      "type": "text",
+      "label": "A",
+      "page": 3,
+      "rect": [
+        497,
+        36,
+        93,
+        12
+      ]
+    }
+  ]
+}
