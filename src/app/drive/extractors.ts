@@ -103,6 +103,34 @@ async function maybeResizeImage(buf: ArrayBuffer, mimeType: string): Promise<{ d
   }
 }
 
+async function postExtract({
+  data,
+  mimeType,
+  filename,
+}: {
+  data: string;
+  mimeType: string;
+  filename: string;
+}): Promise<ExtractionResult> {
+  const res = await fetch('/api/extract-document', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ data, mimeType, filename }),
+  });
+  if (!res.ok) {
+    let detail = '';
+    try {
+      const j = (await res.json()) as { error?: { message?: string } };
+      detail = j.error?.message ?? '';
+    } catch {
+      detail = await res.text().catch(() => '');
+    }
+    throw new Error(detail || `extract-document failed (${res.status})`);
+  }
+  const { text } = (await res.json()) as { text: string };
+  return truncate(text ?? '');
+}
+
 export async function extractViaModel(
   file: DriveFile,
   token: string,
@@ -127,23 +155,89 @@ export async function extractViaModel(
     data = bufferToBase64(buf);
   }
 
-  const res = await fetch('/api/extract-document', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ data, mimeType, filename: file.name }),
-  });
-  if (!res.ok) {
-    let detail = '';
-    try {
-      const j = (await res.json()) as { error?: { message?: string } };
-      detail = j.error?.message ?? '';
-    } catch {
-      detail = await res.text().catch(() => '');
-    }
-    throw new Error(detail || `extract-document failed (${res.status})`);
+  return postExtract({ data, mimeType, filename: file.name });
+}
+
+const EXTENSION_MIME: Record<string, string> = {
+  md: 'text/markdown',
+  markdown: 'text/markdown',
+  txt: 'text/plain',
+  text: 'text/plain',
+  csv: 'text/csv',
+  json: 'application/json',
+  pdf: 'application/pdf',
+  png: 'image/png',
+  jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
+  gif: 'image/gif',
+  webp: 'image/webp',
+  bmp: 'image/bmp',
+  tif: 'image/tiff',
+  tiff: 'image/tiff',
+  heic: 'image/heic',
+  heif: 'image/heif',
+};
+
+export function mimeFromExtension(name: string): string | undefined {
+  const dot = name.lastIndexOf('.');
+  if (dot < 0 || dot === name.length - 1) return undefined;
+  const ext = name.slice(dot + 1).toLowerCase();
+  return EXTENSION_MIME[ext];
+}
+
+export interface DroppedExtraction extends ExtractionResult {
+  name: string;
+  mimeType: string;
+}
+
+export async function extractDroppedFile(file: File): Promise<DroppedExtraction> {
+  const mimeType = file.type || mimeFromExtension(file.name);
+  if (!mimeType) {
+    throw new Error(`Unsupported type: ${file.name}`);
   }
-  const { text } = (await res.json()) as { text: string };
-  return truncate(text ?? '');
+
+  const isText =
+    mimeType === 'text/plain' ||
+    mimeType === 'text/markdown' ||
+    mimeType === 'text/csv' ||
+    mimeType === 'application/json';
+  const isPdf = mimeType === 'application/pdf';
+  const isImage = mimeType.startsWith('image/');
+
+  if (isText) {
+    const raw = await file.text();
+    const { text, truncated } = truncate(raw);
+    return { name: file.name, mimeType, text, truncated };
+  }
+
+  if (isPdf) {
+    if (file.size > MAX_PDF_BYTES) {
+      throw new Error(`PDF too large (${(file.size / 1e6).toFixed(1)} MB, max 32 MB)`);
+    }
+    const buf = await file.arrayBuffer();
+    const { text, truncated } = await postExtract({
+      data: bufferToBase64(buf),
+      mimeType,
+      filename: file.name,
+    });
+    return { name: file.name, mimeType, text, truncated };
+  }
+
+  if (isImage) {
+    if (file.size > MAX_IMAGE_BYTES) {
+      throw new Error(`Image too large (${(file.size / 1e6).toFixed(1)} MB, max 10 MB)`);
+    }
+    const buf = await file.arrayBuffer();
+    const resized = await maybeResizeImage(buf, mimeType);
+    const { text, truncated } = await postExtract({
+      data: resized.data,
+      mimeType: resized.mimeType,
+      filename: file.name,
+    });
+    return { name: file.name, mimeType: resized.mimeType, text, truncated };
+  }
+
+  throw new Error(`Unsupported type: ${mimeType}`);
 }
 
 export async function extractFile(file: DriveFile, token: string): Promise<ExtractionResult> {

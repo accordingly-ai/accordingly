@@ -2,7 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
 import type { FieldValue } from '../forms/tools';
-import { useChatAgent, type ChatMessage } from './useChatAgent';
+import { useChatAgent, type ChatAttachment, type ChatMessage } from './useChatAgent';
+import { extractDroppedFile } from './drive/extractors';
 import {
   transcribe,
   useMicRecorder,
@@ -17,6 +18,25 @@ interface ChatPanelProps {
   manifest: FormManifest;
   answers: ApplicationAnswers;
   applyUpdates: (updates: Record<string, FieldValue>) => void;
+}
+
+type PendingAttachment =
+  | { id: string; name: string; mimeType: string; status: 'extracting' }
+  | {
+      id: string;
+      name: string;
+      mimeType: string;
+      status: 'ready';
+      text: string;
+      truncated?: boolean;
+    }
+  | { id: string; name: string; mimeType: string; status: 'error'; error: string };
+
+function nextAttachmentId(): string {
+  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
+    return crypto.randomUUID();
+  }
+  return `att-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
 export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanelProps) {
@@ -40,6 +60,8 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   const [collapsed, setCollapsed] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [voiceError, setVoiceError] = useState<string | null>(null);
+  const [pending, setPending] = useState<PendingAttachment[]>([]);
+  const [dragDepth, setDragDepth] = useState(0);
   const listRef = useRef<HTMLDivElement>(null);
 
   const { settings, setInput: setVoiceInput, setOutput: setVoiceOutput } = useVoiceSettings();
@@ -78,12 +100,102 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
     lastSpokenIndexRef.current = advanced;
   }, [messages, streaming, settings.output, tts]);
 
+  const hasExtracting = pending.some((p) => p.status === 'extracting');
+  const readyAttachments = pending.filter(
+    (p): p is Extract<PendingAttachment, { status: 'ready' }> => p.status === 'ready',
+  );
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || streaming) return;
+    if (streaming || hasExtracting) return;
+    if (!input.trim() && readyAttachments.length === 0) return;
     const text = input;
+    const attachments: ChatAttachment[] = readyAttachments.map((p) => ({
+      name: p.name,
+      mimeType: p.mimeType,
+      text: p.text,
+      ...(p.truncated ? { truncated: true } : {}),
+    }));
     setInput('');
-    await sendMessage(text);
+    setPending([]);
+    if (attachments.length > 0) {
+      await sendMessage(text, attachments);
+    } else {
+      await sendMessage(text);
+    }
+  };
+
+  const handleFiles = (files: FileList | File[]) => {
+    const list = Array.from(files);
+    if (list.length === 0) return;
+    const entries: PendingAttachment[] = list.map((file) => ({
+      id: nextAttachmentId(),
+      name: file.name,
+      mimeType: file.type || 'application/octet-stream',
+      status: 'extracting' as const,
+    }));
+    setPending((prev) => [...prev, ...entries]);
+    list.forEach((file, i) => {
+      const id = entries[i].id;
+      void extractDroppedFile(file).then(
+        (result) => {
+          setPending((prev) =>
+            prev.map((p) =>
+              p.id === id
+                ? {
+                    id,
+                    name: result.name,
+                    mimeType: result.mimeType,
+                    status: 'ready',
+                    text: result.text,
+                    ...(result.truncated ? { truncated: true } : {}),
+                  }
+                : p,
+            ),
+          );
+        },
+        (err) => {
+          setPending((prev) =>
+            prev.map((p) =>
+              p.id === id
+                ? {
+                    id,
+                    name: file.name,
+                    mimeType: file.type || 'application/octet-stream',
+                    status: 'error',
+                    error: err instanceof Error ? err.message : String(err),
+                  }
+                : p,
+            ),
+          );
+        },
+      );
+    });
+  };
+
+  const onDragEnter = (e: React.DragEvent) => {
+    if (!Array.from(e.dataTransfer.types).includes('Files')) return;
+    e.preventDefault();
+    setDragDepth((d) => d + 1);
+  };
+  const onDragLeave = (e: React.DragEvent) => {
+    if (!Array.from(e.dataTransfer.types).includes('Files')) return;
+    e.preventDefault();
+    setDragDepth((d) => Math.max(0, d - 1));
+  };
+  const onDragOver = (e: React.DragEvent) => {
+    if (!Array.from(e.dataTransfer.types).includes('Files')) return;
+    e.preventDefault();
+  };
+  const onDrop = (e: React.DragEvent) => {
+    if (!Array.from(e.dataTransfer.types).includes('Files')) return;
+    e.preventDefault();
+    setDragDepth(0);
+    handleFiles(e.dataTransfer.files);
+  };
+
+  const removePending = (id: string) => {
+    setPending((prev) => prev.filter((p) => p.id !== id));
   };
 
   const stopRecordingAndSend = async () => {
@@ -110,11 +222,15 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   return (
     <aside
       className={
-        'flex flex-col border-l border-neutral-800 bg-neutral-950 ' +
+        'relative flex flex-col border-l border-neutral-800 bg-neutral-950 ' +
         'lg:w-[380px] lg:shrink-0 lg:h-screen lg:sticky lg:top-0 ' +
         (collapsed ? 'h-12 ' : 'h-[60vh] ') +
         'w-full'
       }
+      onDragEnter={onDragEnter}
+      onDragLeave={onDragLeave}
+      onDragOver={onDragOver}
+      onDrop={onDrop}
     >
       <div className="flex items-center gap-2 px-4 py-2 border-b border-neutral-800 bg-neutral-900 relative">
         <span className="text-sm font-medium text-neutral-200">{t('chat.title')}</span>
@@ -179,6 +295,14 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
         )}
       </div>
 
+      {!collapsed && dragDepth > 0 && (
+        <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center bg-blue-500/10 border-2 border-dashed border-blue-400 rounded">
+          <div className="text-sm text-blue-200 font-medium">
+            {t('chat.dropToAttach')}
+          </div>
+        </div>
+      )}
+
       {!collapsed && (
         <>
           <div ref={listRef} className="flex-1 overflow-y-auto px-3 py-3 space-y-3">
@@ -202,6 +326,14 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
               </div>
             )}
           </div>
+
+          {pending.length > 0 && (
+            <div className="border-t border-neutral-800 px-2 py-1.5 bg-neutral-900 flex flex-wrap gap-1.5">
+              {pending.map((p) => (
+                <PendingChip key={p.id} entry={p} onRemove={() => removePending(p.id)} />
+              ))}
+            </div>
+          )}
 
           <form
             onSubmit={onSubmit}
@@ -250,7 +382,12 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
             />
             <button
               type="submit"
-              disabled={streaming || recorder.recording || !input.trim()}
+              disabled={
+                streaming ||
+                recorder.recording ||
+                hasExtracting ||
+                (!input.trim() && readyAttachments.length === 0)
+              }
               className="shrink-0 self-end rounded bg-blue-600 hover:bg-blue-500 disabled:bg-neutral-700 disabled:text-neutral-500 text-white text-sm px-3 py-1.5"
             >
               {t('chat.send')}
@@ -264,10 +401,31 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
 
 function MessageBubble({ message }: { message: ChatMessage }) {
   if (message.role === 'user') {
+    const attachments = message.attachments ?? [];
     return (
       <div className="flex justify-end">
-        <div className="max-w-[85%] rounded-lg bg-blue-600 text-white text-sm px-3 py-2 whitespace-pre-wrap break-words">
-          {message.content}
+        <div className="max-w-[85%] flex flex-col items-end gap-1">
+          {attachments.length > 0 && (
+            <div className="flex flex-col items-end gap-1">
+              {attachments.map((a, i) => (
+                <div
+                  key={i}
+                  className="text-[11px] rounded bg-blue-700/60 text-blue-50 border border-blue-500/40 px-2 py-0.5"
+                >
+                  📎 {a.name}{' '}
+                  <span className="text-blue-200/80">· {a.mimeType}</span>
+                  {a.truncated && (
+                    <span className="text-blue-200/80"> (truncated)</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+          {message.content && (
+            <div className="rounded-lg bg-blue-600 text-white text-sm px-3 py-2 whitespace-pre-wrap break-words">
+              {message.content}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -314,6 +472,48 @@ function ToolCallChip({ name, args }: { name: string; args: string }) {
     <div className="text-[11px] text-neutral-400 font-mono">
       → {name}
       {summary && <span className="text-neutral-500"> ({summary})</span>}
+    </div>
+  );
+}
+
+function PendingChip({
+  entry,
+  onRemove,
+}: {
+  entry: PendingAttachment;
+  onRemove: () => void;
+}) {
+  let detail: React.ReactNode = null;
+  let cls = 'border-neutral-700 bg-neutral-800 text-neutral-200';
+  if (entry.status === 'extracting') {
+    detail = <span className="text-neutral-400 italic">extracting…</span>;
+  } else if (entry.status === 'ready') {
+    cls = 'border-emerald-700/60 bg-emerald-900/30 text-emerald-100';
+    detail = (
+      <span className="text-emerald-200/80">
+        {entry.text.length.toLocaleString()} chars
+        {entry.truncated ? ' (truncated)' : ''}
+      </span>
+    );
+  } else {
+    cls = 'border-red-700/60 bg-red-900/30 text-red-100';
+    detail = <span className="text-red-200/90">{entry.error}</span>;
+  }
+  return (
+    <div
+      className={`text-[11px] rounded border px-2 py-0.5 flex items-center gap-1.5 ${cls}`}
+    >
+      <span>📎 {entry.name}</span>
+      <span className="opacity-60">·</span>
+      {detail}
+      <button
+        type="button"
+        onClick={onRemove}
+        className="ml-1 text-neutral-400 hover:text-white leading-none"
+        aria-label="Remove attachment"
+      >
+        ×
+      </button>
     </div>
   );
 }

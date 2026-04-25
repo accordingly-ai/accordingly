@@ -40,7 +40,8 @@
     "voiceInput": "Voice input",
     "voiceOutput": "Voice output",
     "holdToTalk": "Hold to talk",
-    "releaseToSend": "Release to send"
+    "releaseToSend": "Release to send",
+    "dropToAttach": "Drop files to attach"
   },
   "language": {
     "label": "Language",

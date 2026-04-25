@@ -40,7 +40,8 @@
     "voiceInput": "Spracheingabe",
     "voiceOutput": "Sprachausgabe",
     "holdToTalk": "Zum Sprechen gedrückt halten",
-    "releaseToSend": "Loslassen zum Senden"
+    "releaseToSend": "Loslassen zum Senden",
+    "dropToAttach": "Dateien zum Anhängen ablegen"
   },
   "language": {
     "label": "Sprache",
