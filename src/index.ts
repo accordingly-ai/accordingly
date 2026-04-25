@@ -98,6 +98,8 @@ router.delete('/api/session/forms/:formId', async (request, env) => {
 });
 
 router.post('/api/chat', async (request, env) => handleChat(request, env));
+router.post('/api/transcribe', async (request, env) => handleTranscribe(request, env));
+router.post('/api/speak', async (request, env) => handleSpeak(request, env));
 
 router.post('/api/extract-document', async (request, env) =>
   handleExtractDocument(request, env),
@@ -234,6 +236,150 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
       'content-type': 'text/event-stream; charset=utf-8',
       'cache-control': 'no-cache, no-transform',
       connection: 'keep-alive',
+    },
+  });
+}
+
+const MAX_TRANSCRIBE_BYTES = 10 * 1024 * 1024;
+
+async function handleTranscribe(request: Request, env: Env): Promise<Response> {
+  if (!env.OPENAI_API_KEY) {
+    return Response.json(
+      { error: { code: 'misconfigured', message: 'OPENAI_API_KEY is not set' } },
+      { status: 500 },
+    );
+  }
+
+  const contentLength = Number(request.headers.get('content-length') ?? '0');
+  if (contentLength && contentLength > MAX_TRANSCRIBE_BYTES) {
+    return Response.json(
+      { error: { code: 'payload_too_large', message: 'Audio exceeds 10 MB limit' } },
+      { status: 413 },
+    );
+  }
+
+  let form: FormData;
+  try {
+    form = await request.formData();
+  } catch {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Expected multipart/form-data' } },
+      { status: 400 },
+    );
+  }
+
+  const file = form.get('file');
+  if (!file || typeof file === 'string' || !(file instanceof Blob)) {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Missing file field' } },
+      { status: 400 },
+    );
+  }
+  if (file.size > MAX_TRANSCRIBE_BYTES) {
+    return Response.json(
+      { error: { code: 'payload_too_large', message: 'Audio exceeds 10 MB limit' } },
+      { status: 413 },
+    );
+  }
+
+  const filename =
+    typeof (file as { name?: unknown }).name === 'string' && (file as { name: string }).name
+      ? (file as { name: string }).name
+      : 'audio.webm';
+  const upstreamForm = new FormData();
+  upstreamForm.append('file', file, filename);
+  upstreamForm.append('model', 'whisper-1');
+
+  const upstream = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+    method: 'POST',
+    headers: { authorization: `Bearer ${env.OPENAI_API_KEY}` },
+    body: upstreamForm,
+  });
+
+  if (!upstream.ok) {
+    const text = await upstream.text().catch(() => '');
+    return Response.json(
+      {
+        error: {
+          code: 'upstream_error',
+          message: `OpenAI transcription failed (${upstream.status}): ${text.slice(0, 500)}`,
+        },
+      },
+      { status: 502 },
+    );
+  }
+
+  const data = (await upstream.json().catch(() => null)) as { text?: string } | null;
+  if (!data || typeof data.text !== 'string') {
+    return Response.json(
+      { error: { code: 'upstream_error', message: 'OpenAI transcription returned unexpected payload' } },
+      { status: 502 },
+    );
+  }
+  return Response.json({ text: data.text });
+}
+
+const MAX_TTS_INPUT = 4000;
+
+async function handleSpeak(request: Request, env: Env): Promise<Response> {
+  if (!env.OPENAI_API_KEY) {
+    return Response.json(
+      { error: { code: 'misconfigured', message: 'OPENAI_API_KEY is not set' } },
+      { status: 500 },
+    );
+  }
+
+  let body: { text?: unknown; voice?: unknown };
+  try {
+    body = (await request.json()) as { text?: unknown; voice?: unknown };
+  } catch {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Invalid JSON body' } },
+      { status: 400 },
+    );
+  }
+
+  const text = typeof body.text === 'string' ? body.text.slice(0, MAX_TTS_INPUT) : '';
+  if (!text) {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Missing text' } },
+      { status: 400 },
+    );
+  }
+  const voice = typeof body.voice === 'string' && body.voice ? body.voice : 'alloy';
+
+  const upstream = await fetch('https://api.openai.com/v1/audio/speech', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: 'tts-1',
+      input: text,
+      voice,
+      response_format: 'mp3',
+    }),
+  });
+
+  if (!upstream.ok || !upstream.body) {
+    const detail = await upstream.text().catch(() => '');
+    return Response.json(
+      {
+        error: {
+          code: 'upstream_error',
+          message: `OpenAI TTS failed (${upstream.status}): ${detail.slice(0, 500)}`,
+        },
+      },
+      { status: 502 },
+    );
+  }
+
+  return new Response(upstream.body, {
+    status: 200,
+    headers: {
+      'content-type': 'audio/mpeg',
+      'cache-control': 'no-store',
     },
   });
 }
