@@ -1,0 +1,51 @@
+{
+  "app": {
+    "title": "Accordingly",
+    "tagline": "Iterativer Agent zum Ausfüllen gewerblicher Versicherungsformulare."
+  },
+  "home": {
+    "formsHeading": "Formulare",
+    "fieldCount_one": "{{count}} Feld",
+    "fieldCount_other": "{{count}} Felder"
+  },
+  "nav": {
+    "back": "← Zurück"
+  },
+  "form": {
+    "fieldsFilled": "{{filled}}/{{total}} Felder ausgefüllt · Seite {{current}}/{{pages}}",
+    "fieldsFilledNoPages": "{{filled}}/{{total}} Felder ausgefüllt · Seite {{current}}/…",
+    "saving": "speichert…",
+    "savedJustNow": "gerade gespeichert",
+    "savedSeconds": "vor {{count}} s gespeichert",
+    "savedMinutes": "vor {{count}} Min. gespeichert",
+    "savedHours": "vor {{count}} Std. gespeichert",
+    "loading": "Lädt…",
+    "loadingPdf": "PDF wird geladen…",
+    "signaturePlaceholder": "(Unterschrift)"
+  },
+  "chat": {
+    "title": "Assistent",
+    "clear": "Löschen",
+    "open": "Öffnen",
+    "hide": "Ausblenden",
+    "emptyPrompt": "Erzähl dem Agenten von deinem Unternehmen und er beginnt, das Formular auszufüllen. Beispiel:",
+    "emptyExample": "\"Mein Unternehmen ist Acme Coffee LLC, gegründet 2018, in Brooklyn NY.\"",
+    "typing": "Assistent schreibt…",
+    "placeholder": "Erzähl mir von deinem Unternehmen…",
+    "send": "Senden",
+    "listening": "Höre zu…",
+    "stop": "Stopp",
+    "stopPlayback": "Wiedergabe stoppen",
+    "voiceSettings": "Spracheinstellungen",
+    "voiceInput": "Spracheingabe",
+    "voiceOutput": "Sprachausgabe",
+    "holdToTalk": "Zum Sprechen gedrückt halten",
+    "releaseToSend": "Loslassen zum Senden"
+  },
+  "language": {
+    "label": "Sprache",
+    "en": "Englisch",
+    "es": "Spanisch",
+    "de": "Deutsch"
+  }
+}

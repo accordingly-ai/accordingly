@@ -5,29 +5,29 @@ import { fieldStyle, formatSavedAgo, loadLocalAnswers, type PageMeta } from './F
 describe('formatSavedAgo', () => {
   const now = 1_700_000_000_000;
 
-  it('returns empty string when nothing has been saved', () => {
-    expect(formatSavedAgo(null, now)).toBe('');
+  it('returns null when nothing has been saved', () => {
+    expect(formatSavedAgo(null, now)).toBeNull();
   });
 
-  it('returns "saved just now" within 5 seconds', () => {
-    expect(formatSavedAgo(now - 1_000, now)).toBe('saved just now');
-    expect(formatSavedAgo(now - 4_400, now)).toBe('saved just now');
+  it('returns the just-now key within 5 seconds', () => {
+    expect(formatSavedAgo(now - 1_000, now)).toEqual({ key: 'form.savedJustNow' });
+    expect(formatSavedAgo(now - 4_400, now)).toEqual({ key: 'form.savedJustNow' });
   });
 
   it('reports seconds for sub-minute deltas', () => {
-    expect(formatSavedAgo(now - 30_000, now)).toBe('saved 30s ago');
+    expect(formatSavedAgo(now - 30_000, now)).toEqual({ key: 'form.savedSeconds', count: 30 });
   });
 
   it('reports minutes for sub-hour deltas', () => {
-    expect(formatSavedAgo(now - 5 * 60_000, now)).toBe('saved 5m ago');
+    expect(formatSavedAgo(now - 5 * 60_000, now)).toEqual({ key: 'form.savedMinutes', count: 5 });
   });
 
   it('reports hours for hour-plus deltas', () => {
-    expect(formatSavedAgo(now - 3 * 60 * 60_000, now)).toBe('saved 3h ago');
+    expect(formatSavedAgo(now - 3 * 60 * 60_000, now)).toEqual({ key: 'form.savedHours', count: 3 });
   });
 
-  it('clamps negative deltas (clock skew) to 0s', () => {
-    expect(formatSavedAgo(now + 1_000, now)).toBe('saved just now');
+  it('clamps negative deltas (clock skew) to the just-now key', () => {
+    expect(formatSavedAgo(now + 1_000, now)).toEqual({ key: 'form.savedJustNow' });
   });
 });
 
