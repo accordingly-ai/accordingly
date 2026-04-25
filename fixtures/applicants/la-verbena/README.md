@@ -1,0 +1,77 @@
+# Fixture: Taquería La Verbena
+
+Fake applicant for end-to-end testing of the ACORD form-filling agent. The
+documents in this directory are meant to mirror what a real small-business
+owner might keep in a Google Drive folder — a mix of formation paperwork,
+permits, lease, prior-policy dec page, and basic financials. Together they
+should give the agent enough raw material to pre-fill an ACORD 125 (and
+most of the ACORD 126) without any direct interview questions.
+
+> All names, addresses, FEINs, license numbers, policy numbers, and
+> financial figures are **fabricated**. Any resemblance to a real
+> business is coincidental.
+
+## Quick facts
+
+| Field            | Value                                                  |
+| ---------------- | ------------------------------------------------------ |
+| Legal name       | Taquería La Verbena LLC                                |
+| DBA              | La Verbena                                             |
+| Entity type      | Single-member LLC (taxed as sole proprietorship)       |
+| FEIN             | 87-4329106                                             |
+| CA SOS file #    | 202351410842                                           |
+| NAICS / SIC      | 722513 / 5812                                          |
+| Premises         | 3128 Mission Street, San Francisco, CA 94110-4521      |
+| Phone / email    | (415) 555-0142 / hello@laverbena-sf.com                |
+| Owner            | María Elena Vargas                                     |
+| Business started | 2022-04-18                                             |
+| Annual revenue   | ~$682,000 (TTM)                                        |
+| Headcount        | 6 FT + 2 PT                                            |
+| Prior carrier    | Pacific Hospitality Mutual Insurance Co.               |
+
+## ACORD 125 coverage checklist
+
+Each section of the ACORD 125 has at least one source document. The agent
+should be able to populate the listed fields by reading the linked file(s).
+
+| ACORD 125 section            | Source file(s)                                                                  |
+| ---------------------------- | ------------------------------------------------------------------------------- |
+| Applicant Identity           | `llc-articles.md`, `business-license.md`, `business-profile.md`                 |
+| Premises (mailing & located) | `lease.md`, `business-license.md`, `business-profile.md`                        |
+| Nature of Business           | `business-profile.md`                                                           |
+| Operations description       | `business-profile.md`                                                           |
+| Workforce / payroll          | `financials/payroll-summary-2025-q1.csv`, `business-profile.md`                 |
+| Revenue / financials         | `financials/pnl-2025-ytd.csv`, `financials/balance-sheet-2025-03-31.csv`        |
+| Prior coverage & loss runs   | `prior-insurance-dec-page.md`                                                   |
+| Construction / building      | `business-profile.md`, `lease.md`                                               |
+| Lessor as additional insured | `lease.md`                                                                      |
+
+## Files
+
+- `README.md` — this file.
+- `business-profile.md` — owner-written narrative covering history,
+  concept, operations, staffing, suppliers, hours, square-footage,
+  construction.
+- `llc-articles.md` — California LLC-1 Articles of Organization summary.
+- `business-license.md` — SF business registration, health permit,
+  seller's permit.
+- `lease.md` — commercial lease memo (key terms only).
+- `prior-insurance-dec-page.md` — current carrier dec page + prior-term
+  loss summary.
+- `financials/pnl-2025-ytd.csv` — monthly P&L for Q1 2025 with YTD totals.
+- `financials/balance-sheet-2025-03-31.csv` — balance sheet at 2025-03-31.
+- `financials/payroll-summary-2025-q1.csv` — per-employee Q1 payroll.
+
+## Anchors / consistency
+
+- "Today" for the fixture is **2025-04-25**. The applicant is shopping a
+  renewal: prior policy expires **2026-05-01** (currently active).
+- One prior loss on **2023-11-08** (grease-fire smoke damage, $7,420
+  paid). It falls under the *prior-prior* policy term
+  (2023-05-01 → 2024-05-01) — see the dec page for the full chain.
+- Current premises lease started 2024-05-01. The business was founded in
+  2022 at a different address (a small commissary kitchen on 24th St);
+  this is the second location. Profile calls this out so the gap between
+  business start and lease start is not a contradiction.
+- All documents share the same FEIN (87-4329106), legal name, DBA,
+  premises (3128 Mission), phone, and owner (María Elena Vargas).

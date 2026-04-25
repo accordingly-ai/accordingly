@@ -1,0 +1,10 @@
+Name,Role,Status,Hire Date,Hourly Rate,Q1 Hours,Q1 Gross Wages
+Carlos Mendoza,General Manager,FT,2022-05-02,30.00,520,15600
+Roberto Salazar,Cook,FT,2022-06-14,25.00,520,13000
+Diego Ramirez,Cook,FT,2023-08-21,23.00,520,11960
+Javier Hernandez,Prep Cook,FT,2024-01-15,20.00,520,10400
+Sofia Torres,Counter,FT,2022-08-03,19.00,520,9880
+Lucia Perez,Counter,FT,2024-09-09,19.00,480,9120
+Ana Castro,Counter,PT,2023-11-27,19.00,156,2964
+Marco Delgado,Counter,PT,2025-02-10,19.00,65,1235
+TOTALS,,,,,3301,74159
