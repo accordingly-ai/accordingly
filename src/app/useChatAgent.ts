@@ -48,12 +48,12 @@ interface OpenAIStreamChunk {
   choices?: { delta?: OpenAIDelta; finish_reason?: string | null }[];
 }
 
-interface AssistantAccumulator {
+export interface AssistantAccumulator {
   content: string;
   toolCalls: Map<number, ToolCall>;
 }
 
-function applyDelta(acc: AssistantAccumulator, delta: OpenAIDelta) {
+export function applyDelta(acc: AssistantAccumulator, delta: OpenAIDelta) {
   if (delta.content) acc.content += delta.content;
   if (delta.tool_calls) {
     for (const tc of delta.tool_calls) {
@@ -66,7 +66,7 @@ function applyDelta(acc: AssistantAccumulator, delta: OpenAIDelta) {
   }
 }
 
-function accumulatorToMessage(acc: AssistantAccumulator): ChatMessage {
+export function accumulatorToMessage(acc: AssistantAccumulator): ChatMessage {
   const toolCalls = [...acc.toolCalls.entries()]
     .sort(([a], [b]) => a - b)
     .map(([, v]) => v);
@@ -77,7 +77,7 @@ function accumulatorToMessage(acc: AssistantAccumulator): ChatMessage {
   };
 }
 
-function toApiMessage(m: ChatMessage): Record<string, unknown> {
+export function toApiMessage(m: ChatMessage): Record<string, unknown> {
   if (m.role === 'assistant') {
     const out: Record<string, unknown> = { role: 'assistant', content: m.content || '' };
     if (m.tool_calls?.length) {

@@ -69,7 +69,7 @@ const FORM_TITLES: Record<string, string> = {
   'acord-126': 'ACORD 126 — Commercial General Liability Section',
 };
 
-function classify(field: unknown): FieldType {
+export function classify(field: unknown): FieldType {
   if (field instanceof PDFTextField) return 'text';
   if (field instanceof PDFCheckBox) return 'checkbox';
   if (field instanceof PDFRadioGroup) return 'radio';
@@ -91,12 +91,12 @@ function collapseDashes(s: string): string {
   return s.replace(/-+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-function slugifyText(s: string): string {
+export function slugifyText(s: string): string {
   return collapseDashes(s.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
 }
 
 /** Path A: slug from raw AcroForm name like `Producer_FullName_A`. */
-function slugFromRawName(name: string): string {
+export function slugFromRawName(name: string): string {
   // Insert breaks at CamelCase boundaries before lowercasing.
   let s = name
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
@@ -466,7 +466,12 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Only run when invoked directly (not when imported by tests).
+const isDirectRun =
+  process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
