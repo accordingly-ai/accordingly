@@ -8,7 +8,7 @@ import type {
 } from '../forms/types';
 import { ChatPanel } from './ChatPanel';
 
-interface PageMeta {
+export interface PageMeta {
   /** scaled width in CSS px */
   width: number;
   /** scaled height in CSS px */
@@ -23,7 +23,7 @@ function answersStorageKey(formId: string) {
   return `accordingly:answers:${formId}`;
 }
 
-function loadLocalAnswers(formId: string): ApplicationAnswers {
+export function loadLocalAnswers(formId: string): ApplicationAnswers {
   try {
     const raw = localStorage.getItem(answersStorageKey(formId));
     return raw ? (JSON.parse(raw) as ApplicationAnswers) : {};
@@ -32,7 +32,7 @@ function loadLocalAnswers(formId: string): ApplicationAnswers {
   }
 }
 
-function formatSavedAgo(savedAt: number | null, now: number): string {
+export function formatSavedAgo(savedAt: number | null, now: number): string {
   if (savedAt === null) return '';
   const secs = Math.max(0, Math.round((now - savedAt) / 1000));
   if (secs < 5) return 'saved just now';
@@ -43,7 +43,7 @@ function formatSavedAgo(savedAt: number | null, now: number): string {
   return `saved ${hours}h ago`;
 }
 
-function fieldStyle(field: FormFieldDef, meta: PageMeta): React.CSSProperties {
+export function fieldStyle(field: FormFieldDef, meta: PageMeta): React.CSSProperties {
   const [x, y, w, h] = field.rect;
   const s = meta.scale;
   return {
