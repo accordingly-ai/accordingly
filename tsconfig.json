@@ -13,8 +13,8 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["@cloudflare/workers-types", "vite/client"]
+    "types": ["@cloudflare/workers-types", "vite/client", "node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "scripts/**/*"],
   "exclude": ["node_modules", "dist", ".wrangler"]
 }
