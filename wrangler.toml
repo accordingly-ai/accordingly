@@ -20,3 +20,9 @@ run_worker_first = ["/api/*"]
 
 [vars]
 ENVIRONMENT = "development"
+
+[[d1_databases]]
+binding       = "DB"
+database_name = "accordingly"
+database_id   = "deb07094-176a-466f-ac35-5d4c9594f686"
+migrations_dir = "migrations"

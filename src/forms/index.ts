@@ -7,4 +7,11 @@ export const forms: Record<string, FormManifest> = {
   'acord-126': acord126 as FormManifest,
 };
 
-export type { FormManifest, FormFieldDef, FormFieldType, ApplicationAnswers } from './types';
+export type {
+  FormManifest,
+  FormFieldDef,
+  FormFieldType,
+  ApplicationAnswers,
+  FormDraft,
+  SessionState,
+} from './types';
