@@ -1,0 +1,206 @@
+import { useEffect, useRef, useState } from 'react';
+import type { ApplicationAnswers, FormManifest } from '../forms/types';
+import type { FieldValue } from '../forms/tools';
+import { useChatAgent, type ChatMessage } from './useChatAgent';
+
+interface ChatPanelProps {
+  formId: string;
+  manifest: FormManifest;
+  answers: ApplicationAnswers;
+  applyUpdates: (updates: Record<string, FieldValue>) => void;
+}
+
+export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanelProps) {
+  const { messages, sendMessage, streaming, error, reset } = useChatAgent({
+    formId,
+    manifest,
+    answers,
+    applyUpdates,
+  });
+  const [input, setInput] = useState('');
+  const [collapsed, setCollapsed] = useState(false);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollTop = listRef.current.scrollHeight;
+    }
+  }, [messages, streaming]);
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || streaming) return;
+    const text = input;
+    setInput('');
+    await sendMessage(text);
+  };
+
+  const visible = messages.filter((m) => m.role !== 'tool' || true);
+
+  return (
+    <aside
+      className={
+        'flex flex-col border-l border-neutral-800 bg-neutral-950 ' +
+        'lg:w-[380px] lg:shrink-0 lg:h-screen lg:sticky lg:top-0 ' +
+        (collapsed ? 'h-12 ' : 'h-[60vh] ') +
+        'w-full'
+      }
+    >
+      <div className="flex items-center gap-2 px-4 py-2 border-b border-neutral-800 bg-neutral-900">
+        <span className="text-sm font-medium text-neutral-200">Assistant</span>
+        <span className="text-[11px] text-neutral-500">{manifest.id}</span>
+        <div className="ml-auto flex items-center gap-2">
+          {messages.length > 0 && (
+            <button
+              type="button"
+              onClick={reset}
+              className="text-[11px] text-neutral-500 hover:text-neutral-300"
+            >
+              Clear
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => setCollapsed((v) => !v)}
+            className="lg:hidden text-[11px] text-neutral-400 hover:text-neutral-200"
+          >
+            {collapsed ? 'Open' : 'Hide'}
+          </button>
+        </div>
+      </div>
+
+      {!collapsed && (
+        <>
+          <div ref={listRef} className="flex-1 overflow-y-auto px-3 py-3 space-y-3">
+            {visible.length === 0 && (
+              <div className="text-xs text-neutral-500 leading-relaxed">
+                Tell the agent about your business and it will start filling the form. Try:
+                <div className="mt-2 italic text-neutral-400">
+                  "My company is Acme Coffee LLC, founded 2018, in Brooklyn NY."
+                </div>
+              </div>
+            )}
+            {visible.map((m, i) => (
+              <MessageBubble key={i} message={m} />
+            ))}
+            {streaming && (
+              <div className="text-[11px] text-neutral-500 italic">assistant is typing…</div>
+            )}
+            {error && (
+              <div className="text-[12px] text-red-400 border border-red-900/60 bg-red-950/40 rounded p-2">
+                {error}
+              </div>
+            )}
+          </div>
+
+          <form
+            onSubmit={onSubmit}
+            className="border-t border-neutral-800 p-2 flex gap-2 bg-neutral-900"
+          >
+            <textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  void onSubmit(e as unknown as React.FormEvent);
+                }
+              }}
+              rows={2}
+              placeholder="Tell me about your business…"
+              className="flex-1 resize-none rounded bg-neutral-800 text-neutral-100 placeholder:text-neutral-500 text-sm px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              disabled={streaming}
+            />
+            <button
+              type="submit"
+              disabled={streaming || !input.trim()}
+              className="shrink-0 self-end rounded bg-blue-600 hover:bg-blue-500 disabled:bg-neutral-700 disabled:text-neutral-500 text-white text-sm px-3 py-1.5"
+            >
+              Send
+            </button>
+          </form>
+        </>
+      )}
+    </aside>
+  );
+}
+
+function MessageBubble({ message }: { message: ChatMessage }) {
+  if (message.role === 'user') {
+    return (
+      <div className="flex justify-end">
+        <div className="max-w-[85%] rounded-lg bg-blue-600 text-white text-sm px-3 py-2 whitespace-pre-wrap break-words">
+          {message.content}
+        </div>
+      </div>
+    );
+  }
+
+  if (message.role === 'tool') {
+    return (
+      <ToolResultChip name={message.name ?? 'tool'} content={message.content} />
+    );
+  }
+
+  // assistant
+  const hasContent = message.content && message.content.length > 0;
+  const calls = message.tool_calls ?? [];
+  return (
+    <div className="space-y-1">
+      {hasContent && (
+        <div className="max-w-[90%] rounded-lg bg-neutral-800 text-neutral-100 text-sm px-3 py-2 whitespace-pre-wrap break-words">
+          {message.content}
+        </div>
+      )}
+      {calls.map((c) => (
+        <ToolCallChip key={c.id} name={c.name} args={c.arguments} />
+      ))}
+    </div>
+  );
+}
+
+function ToolCallChip({ name, args }: { name: string; args: string }) {
+  let summary = args;
+  try {
+    const parsed = JSON.parse(args || '{}') as Record<string, unknown>;
+    if (name === 'set_fields' && Array.isArray(parsed.updates)) {
+      summary = `${parsed.updates.length} field(s)`;
+    } else if (name === 'get_fields' && Array.isArray(parsed.names)) {
+      summary = (parsed.names as unknown[]).join(', ');
+    } else if (name === 'list_unfilled_fields') {
+      summary = '';
+    }
+  } catch {
+    // keep raw
+  }
+  return (
+    <div className="text-[11px] text-neutral-400 font-mono">
+      → {name}
+      {summary && <span className="text-neutral-500"> ({summary})</span>}
+    </div>
+  );
+}
+
+function ToolResultChip({ name, content }: { name: string; content: string }) {
+  let summary = '';
+  try {
+    const parsed = JSON.parse(content) as Record<string, unknown>;
+    if (name === 'set_fields') {
+      const applied = Array.isArray(parsed.applied) ? parsed.applied.length : 0;
+      const errors = Array.isArray(parsed.errors) ? parsed.errors.length : 0;
+      summary = `applied ${applied}${errors ? `, ${errors} error(s)` : ''}`;
+    } else if (name === 'list_unfilled_fields') {
+      summary = `${parsed.count ?? '?'} unfilled`;
+    } else if (name === 'get_fields') {
+      const values = (parsed.values ?? {}) as Record<string, unknown>;
+      summary = `${Object.keys(values).length} value(s)`;
+    }
+  } catch {
+    summary = content.slice(0, 80);
+  }
+  return (
+    <div className="text-[11px] text-neutral-500 font-mono pl-3 border-l border-neutral-800">
+      ← {name} {summary}
+    </div>
+  );
+}
