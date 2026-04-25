@@ -176,31 +176,7 @@ EOF
     done < "$dir/.worktreeinclude"
   fi
 
-  # Bootstrap agent settings from the default template
-  if [[ -f "$dir/.claude/settings.default.json" ]]; then
-    cp "$dir/.claude/settings.default.json" "$dir/.claude/settings.json"
-  fi
-
   pnpm install --frozen-lockfile || true
-
-  # Override Claude's auto-memory directory to the agent's own swarm/memory pool.
-  # All worktrees share one git common dir, so Claude Code would otherwise map every
-  # session to the same project key and write memories to the coordinator's directory.
-  # autoMemoryDirectory in settings.local.json overrides that per-session.
-  AGENT_MEMORY="$dir/swarm/memory"
-  python3 -c "
-import json, sys
-path = '$dir/.claude/settings.local.json'
-try:
-    with open(path) as f:
-        s = json.load(f)
-except (FileNotFoundError, json.JSONDecodeError):
-    s = {}
-s['autoMemoryDirectory'] = '$AGENT_MEMORY'
-with open(path, 'w') as f:
-    json.dump(s, f, indent=2)
-    f.write('\n')
-"
 
   # Write breadcrumb so the agent can re-orient after context clears
   echo "$QUEUE/in-progress/$task" > .current-task

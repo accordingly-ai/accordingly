@@ -56,10 +56,7 @@ fm_field() {
 }
 fm_body() { awk 'body; /^---$/{body=1}' "$1"; }
 
-# Per-worktree setup: copy .worktreeinclude files, bootstrap Claude settings,
-# pin autoMemoryDirectory so each worktree gets its own pool (all worktrees
-# share one git common dir, which would otherwise collapse memories into a
-# single project key). Safe to call repeatedly.
+# Per-worktree setup: copy .worktreeinclude files. Safe to call repeatedly.
 apply_worktree_setup() {
   if [[ -f "$dir/.worktreeinclude" ]]; then
     while IFS= read -r pattern; do
@@ -72,24 +69,6 @@ apply_worktree_setup() {
       done
     done < "$dir/.worktreeinclude"
   fi
-
-  if [[ -f "$dir/.claude/settings.default.json" && ! -f "$dir/.claude/settings.json" ]]; then
-    cp "$dir/.claude/settings.default.json" "$dir/.claude/settings.json"
-  fi
-
-  python3 - "$dir/.claude/settings.local.json" "$dir/swarm/memory" <<'PY'
-import json, sys
-path, mem = sys.argv[1], sys.argv[2]
-try:
-    with open(path) as f:
-        s = json.load(f)
-except (FileNotFoundError, json.JSONDecodeError):
-    s = {}
-s['autoMemoryDirectory'] = mem
-with open(path, 'w') as f:
-    json.dump(s, f, indent=2)
-    f.write('\n')
-PY
 }
 
 # Full reset: mirrors runner.sh's per-task worktree rebuild. Stash node_modules
