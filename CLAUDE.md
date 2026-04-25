@@ -50,6 +50,42 @@ Single Cloudflare Worker that serves both the API and the SPA from one origin.
 - API error shape: `{ error: { code, message } }` with appropriate status. Match this in new endpoints.
 - **Form data** lives in `src/forms/` (manifests + types, importable by both Worker and SPA). Re-extraction scripts live in `scripts/`.
 
+## External integrations
+
+### Google Drive
+
+The agent can pull from the user's own documents to pre-fill fields. We use
+the `drive.file` scope via the **Google Picker** — the app only ever sees
+files the user explicitly selects, no full-Drive access, no sensitive-scope
+consent screen, no Google verification required.
+
+- **Auth flow:** browser-only PKCE via Google Identity Services
+  (`src/app/drive/useDrive.ts`). The Worker never sees a Drive token.
+- **File handling:** Google Docs/Sheets export to text/csv; plain text/markdown
+  download as bytes; PDFs and images are sent to OpenAI through the Worker
+  (`POST /api/extract-document`) so `OPENAI_API_KEY` stays server-side and
+  scanned PDFs get OCR.
+- **Agent surface:** when the user has connected Drive, `list_drive_files` and
+  `read_drive_file` are appended to the model's tool list (executed
+  client-side in `useChatAgent.ts` since the Drive token lives in the browser).
+
+GCP setup (one-time, outside code) — in your GCP project:
+1. Enable **Google Drive API** and **Google Picker API**.
+2. **OAuth consent screen** — External user type (unless on Workspace);
+   add the `.../auth/drive.file` scope. `drive.file` is non-sensitive, so no
+   app verification is needed.
+3. Create an **OAuth Web Client ID** with `http://localhost:8000` as an
+   authorized JS origin → `VITE_GOOGLE_CLIENT_ID`.
+4. Create an **API key** (restrict to Picker API + HTTP referrers in prod) →
+   `VITE_GOOGLE_API_KEY`.
+5. Copy the **project number** (numeric, top of GCP dashboard) →
+   `VITE_GOOGLE_PICKER_APP_ID`.
+6. While the consent screen is in "Testing", add yourself as a test user.
+
+These three `VITE_GOOGLE_*` values are public (the OAuth flow happens entirely
+in the browser); set them in `.env.local` for dev or as Wrangler `[vars]` for
+prod. See `.env.example`.
+
 ## Swarm tooling (`swarm/`)
 
 This repo contains multi-agent orchestration scripts (`runner.sh`, `dispatcher.sh`, `session.sh`, etc.) and a file-based task queue at `swarm/queue/{pending,in-progress,staging,done}/`. Shared agent memory lives at `swarm/memory/` and is loaded automatically by Claude Code's memory system — **do not write to `swarm/memory/` directly**; `/ship` handles that with user approval. See `swarm/agent-instructions.md` and `swarm/session-instructions.md` for the full agent protocol.

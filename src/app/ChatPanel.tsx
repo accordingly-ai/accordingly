@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
 import type { FieldValue } from '../forms/tools';
 import { useChatAgent, type ChatMessage } from './useChatAgent';
@@ -8,6 +8,8 @@ import {
   useTtsPlayer,
   useVoiceSettings,
 } from './voice';
+import { useDrive } from './drive/useDrive';
+import { DriveButton } from './drive/DriveButton';
 
 interface ChatPanelProps {
   formId: string;
@@ -17,11 +19,20 @@ interface ChatPanelProps {
 }
 
 export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanelProps) {
+  const drive = useDrive();
+  const driveCtx = useMemo(
+    () =>
+      drive.connected && drive.files.length > 0
+        ? { files: drive.files, getToken: drive.getToken }
+        : undefined,
+    [drive.connected, drive.files, drive.getToken],
+  );
   const { messages, sendMessage, streaming, error, reset } = useChatAgent({
     formId,
     manifest,
     answers,
     applyUpdates,
+    drive: driveCtx,
   });
   const [input, setInput] = useState('');
   const [collapsed, setCollapsed] = useState(false);
@@ -126,6 +137,7 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           >
             ⚙
           </button>
+          <DriveButton drive={drive} />
           {messages.length > 0 && (
             <button
               type="button"

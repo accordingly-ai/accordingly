@@ -1,6 +1,7 @@
 import { Router, type IRequest } from 'itty-router';
 import { forms } from './forms';
 import { FORM_TOOLS } from './forms/tools';
+import { DRIVE_TOOLS } from './forms/drive-tools';
 import type { ApplicationAnswers, FormManifest, SessionState } from './forms/types';
 import {
   deleteDraft,
@@ -100,6 +101,10 @@ router.post('/api/chat', async (request, env) => handleChat(request, env));
 router.post('/api/transcribe', async (request, env) => handleTranscribe(request, env));
 router.post('/api/speak', async (request, env) => handleSpeak(request, env));
 
+router.post('/api/extract-document', async (request, env) =>
+  handleExtractDocument(request, env),
+);
+
 router.all('/api/*', () =>
   Response.json({ error: { code: 'not_found', message: 'Unknown route' } }, { status: 404 })
 );
@@ -113,9 +118,10 @@ export default {
 interface ChatRequestBody {
   formId?: string;
   messages?: unknown[];
+  driveConnected?: boolean;
 }
 
-function buildSystemPrompt(manifest: FormManifest): string {
+function buildSystemPrompt(manifest: FormManifest, driveConnected: boolean): string {
   const compact = manifest.fields
     .reduce<{ name: string; type: string; label: string; options?: string[] }[]>((acc, f) => {
       if (acc.find((x) => x.name === f.name)) return acc;
@@ -139,6 +145,11 @@ function buildSystemPrompt(manifest: FormManifest): string {
     `- Use list_unfilled_fields to see what's still missing; use get_fields to inspect current values.`,
     `- Before overwriting a field that already has a non-empty value, confirm with the user.`,
     `- Be concise. Don't dump field lists at the user — summarize.`,
+    ...(driveConnected
+      ? [
+          `- The user has connected Google Drive files. Use list_drive_files to see them and read_drive_file to read their contents. Prefer reading connected files over asking the user for information that's likely in them (prior policies, leases, IDs, business records).`,
+        ]
+      : []),
     ``,
     `Form fields (JSON):`,
     JSON.stringify(compact),
@@ -163,7 +174,7 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
     );
   }
 
-  const { formId, messages } = body;
+  const { formId, messages, driveConnected } = body;
   if (!formId || typeof formId !== 'string') {
     return Response.json(
       { error: { code: 'bad_request', message: 'Missing formId' } },
@@ -185,9 +196,11 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
   }
 
   const fullMessages = [
-    { role: 'system', content: buildSystemPrompt(manifest) },
+    { role: 'system', content: buildSystemPrompt(manifest, Boolean(driveConnected)) },
     ...messages,
   ];
+
+  const tools = driveConnected ? [...FORM_TOOLS, ...DRIVE_TOOLS] : FORM_TOOLS;
 
   const upstream = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -198,7 +211,7 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
     body: JSON.stringify({
       model: 'gpt-5.4',
       stream: true,
-      tools: FORM_TOOLS,
+      tools,
       tool_choice: 'auto',
       messages: fullMessages,
     }),
@@ -369,4 +382,97 @@ async function handleSpeak(request: Request, env: Env): Promise<Response> {
       'cache-control': 'no-store',
     },
   });
+}
+
+interface ExtractRequestBody {
+  data?: string;
+  mimeType?: string;
+  filename?: string;
+}
+
+const EXTRACT_PROMPT =
+  'Extract all text and structured data from this document. Preserve labels and values verbatim. Return only the extracted content — no commentary, headings, or formatting beyond what reflects the source.';
+
+async function handleExtractDocument(request: Request, env: Env): Promise<Response> {
+  if (!env.OPENAI_API_KEY) {
+    return Response.json(
+      { error: { code: 'misconfigured', message: 'OPENAI_API_KEY is not set' } },
+      { status: 500 },
+    );
+  }
+
+  let body: ExtractRequestBody;
+  try {
+    body = (await request.json()) as ExtractRequestBody;
+  } catch {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Invalid JSON body' } },
+      { status: 400 },
+    );
+  }
+
+  const { data, mimeType, filename } = body;
+  if (!data || typeof data !== 'string') {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Missing data (base64)' } },
+      { status: 400 },
+    );
+  }
+  if (!mimeType || typeof mimeType !== 'string') {
+    return Response.json(
+      { error: { code: 'bad_request', message: 'Missing mimeType' } },
+      { status: 400 },
+    );
+  }
+
+  const isPdf = mimeType === 'application/pdf';
+  const isImage = mimeType.startsWith('image/');
+  if (!isPdf && !isImage) {
+    return Response.json(
+      { error: { code: 'bad_request', message: `Unsupported mimeType: ${mimeType}` } },
+      { status: 400 },
+    );
+  }
+
+  const dataUrl = `data:${mimeType};base64,${data}`;
+  const userContent: unknown[] = [{ type: 'text', text: EXTRACT_PROMPT }];
+  if (isPdf) {
+    userContent.push({
+      type: 'file',
+      file: { filename: filename || 'document.pdf', file_data: dataUrl },
+    });
+  } else {
+    userContent.push({ type: 'image_url', image_url: { url: dataUrl } });
+  }
+
+  const upstream = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: 'gpt-5.4',
+      messages: [{ role: 'user', content: userContent }],
+    }),
+  });
+
+  if (!upstream.ok) {
+    const text = await upstream.text().catch(() => '');
+    return Response.json(
+      {
+        error: {
+          code: 'upstream_error',
+          message: `OpenAI extract failed (${upstream.status}): ${text.slice(0, 500)}`,
+        },
+      },
+      { status: 502 },
+    );
+  }
+
+  const json = (await upstream.json()) as {
+    choices?: { message?: { content?: string } }[];
+  };
+  const text = json.choices?.[0]?.message?.content ?? '';
+  return Response.json({ text });
 }

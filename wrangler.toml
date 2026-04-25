@@ -20,6 +20,9 @@ run_worker_first = ["/api/*"]
 
 [vars]
 ENVIRONMENT = "development"
+# Google Drive integration — VITE_GOOGLE_* are read by Vite at build time
+# (set in .env.local for dev, or via your CI build env for prod). They're
+# public values so they ship in the bundle; documented in CLAUDE.md.
 
 [[d1_databases]]
 binding       = "DB"
