@@ -373,7 +373,7 @@ export function FormView() {
 
   return (
     <div className="h-full bg-neutral-900 text-neutral-100 flex flex-col lg:flex-row">
-      <div className="flex-1 min-w-0 flex flex-col">
+      <div className="flex-1 min-w-0 min-h-0 flex flex-col overflow-y-auto">
         <div className="sticky top-0 z-10 bg-neutral-950/90 backdrop-blur border-b border-neutral-800 px-6 py-3 pl-16 lg:pl-6 flex items-center gap-4">
           <h1 className="text-lg font-semibold">{manifest.title}</h1>
           <div className="text-xs text-neutral-400 ml-auto flex items-center gap-3">

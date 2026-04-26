@@ -284,7 +284,7 @@ export function ChatPanel({
     <aside
       className={
         'relative flex flex-col border-l border-neutral-800 bg-neutral-950 ' +
-        'lg:w-[380px] lg:shrink-0 lg:h-screen lg:sticky lg:top-0 ' +
+        'lg:w-[380px] lg:shrink-0 lg:h-full ' +
         (collapsed ? 'h-12 ' : 'h-[60vh] ') +
         'w-full'
       }
