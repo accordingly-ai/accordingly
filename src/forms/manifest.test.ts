@@ -1,9 +1,12 @@
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { forms } from './index';
 import type { FormFieldType, FormManifest } from './types';
 
 const ALLOWED_TYPES: FormFieldType[] = ['text', 'checkbox', 'radio', 'dropdown', 'signature'];
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+const GENERIC_SLUG_RE = /^(check-box|text|\d+(text|loc|bld|ann))\d*$/i;
 
 const cases: [string, FormManifest][] = Object.entries(forms);
 
@@ -28,21 +31,47 @@ describe.each(cases)('manifest %s', (id, manifest) => {
     }
   });
 
-  it('field names map 1:1 with pdfName (one logical field per slug)', () => {
-    // The manifest emits one entry per widget, so the same `name` can appear
-    // many times — once per radio option, or once per page for a multi-page
-    // text field. What must NOT happen is two unrelated pdf fields colliding
-    // on the same slug.
+  it('no field has an empty label', () => {
+    const empties = manifest.fields
+      .filter((f) => !f.label || f.label.trim().length === 0)
+      .map((f) => `${f.name} (pdfName=${f.pdfName})`);
+    expect(empties, `fields with empty labels: ${empties.join(', ')}`).toEqual([]);
+  });
+
+  it('no slug matches generic pdf-default patterns', () => {
+    const generic = manifest.fields
+      .filter((f) => GENERIC_SLUG_RE.test(f.name))
+      .map((f) => `${f.name} (pdfName=${f.pdfName})`);
+    expect(generic, `generic slugs remain: ${generic.join(', ')}`).toEqual([]);
+  });
+
+  it('a slug never maps to two unrelated pdfNames at the same widget index', () => {
+    // The manifest emits one entry per widget. The same slug may appear many
+    // times — once per radio option, or once per page for a multi-page text
+    // field, or as a synthetic radio Y/N pair (one slug, two pdfNames). What
+    // must NOT happen is a slug colliding across rawNames where the entries
+    // do not form a coherent radio pair.
     const slugToPdfNames = new Map<string, Set<string>>();
+    const slugToTypes = new Map<string, Set<string>>();
     for (const f of manifest.fields) {
       const set = slugToPdfNames.get(f.name) ?? new Set<string>();
       set.add(f.pdfName);
       slugToPdfNames.set(f.name, set);
+      const types = slugToTypes.get(f.name) ?? new Set<string>();
+      types.add(f.type);
+      slugToTypes.set(f.name, types);
     }
-    const collisions = [...slugToPdfNames.entries()]
-      .filter(([, s]) => s.size > 1)
-      .map(([k, s]) => `${k} -> ${[...s].join(', ')}`);
-    expect(collisions, `slug collisions: ${collisions.join(' | ')}`).toEqual([]);
+    for (const [slug, pdfNames] of slugToPdfNames) {
+      if (pdfNames.size > 1) {
+        // Multiple pdfNames are only acceptable if every entry under this slug
+        // is part of a radio (synthetic Y/N pair).
+        const types = slugToTypes.get(slug) ?? new Set();
+        expect(
+          [...types],
+          `slug "${slug}" maps to multiple pdfNames [${[...pdfNames].join(', ')}] but is not a radio`,
+        ).toEqual(['radio']);
+      }
+    }
   });
 
   it('options present iff type is dropdown or radio', () => {
@@ -64,5 +93,74 @@ describe.each(cases)('manifest %s', (id, manifest) => {
       expect(Number.isInteger(f.page)).toBe(true);
       expect(f.page).toBeGreaterThanOrEqual(0);
     }
+  });
+
+  it('radio fields have exactly one widget per declared option', () => {
+    const radioGroups = new Map<string, { options: string[]; entries: typeof manifest.fields }>();
+    for (const f of manifest.fields) {
+      if (f.type !== 'radio') continue;
+      const g = radioGroups.get(f.name) ?? { options: f.options ?? [], entries: [] };
+      g.entries.push(f);
+      radioGroups.set(f.name, g);
+    }
+    for (const [name, g] of radioGroups) {
+      expect(g.options.length, `radio "${name}" has no options`).toBeGreaterThan(0);
+      const seenOptions = new Set(g.entries.map((e) => e.option).filter(Boolean));
+      expect(
+        [...seenOptions].sort(),
+        `radio "${name}" widget options [${[...seenOptions].join(', ')}] != declared options [${g.options.join(', ')}]`,
+      ).toEqual([...g.options].sort());
+    }
+  });
+
+  it('checkbox widgets on the same row never share a base slug with -1/-2 suffix instead of yes/no', () => {
+    // Catches the pre-fix bug: two checkboxes on the same row sharing a base
+    // slug because heuristic labels collided. After the fix they should be a
+    // single radio with `option: yes`/`no`.
+    const offenders: string[] = [];
+    const byPage = new Map<number, typeof manifest.fields>();
+    for (const f of manifest.fields) {
+      if (f.type !== 'checkbox') continue;
+      const arr = byPage.get(f.page) ?? [];
+      arr.push(f);
+      byPage.set(f.page, arr);
+    }
+    for (const list of byPage.values()) {
+      for (let i = 0; i < list.length; i++) {
+        for (let j = i + 1; j < list.length; j++) {
+          const a = list[i];
+          const b = list[j];
+          const cyA = a.rect[1] + a.rect[3] / 2;
+          const cyB = b.rect[1] + b.rect[3] / 2;
+          if (Math.abs(cyA - cyB) > 3) continue;
+          const baseA = a.name.replace(/-\d+$/, '');
+          const baseB = b.name.replace(/-\d+$/, '');
+          const suffixA = a.name.match(/-(\d+)$/)?.[1];
+          const suffixB = b.name.match(/-(\d+)$/)?.[1];
+          if (baseA === baseB && suffixA && suffixB && suffixA !== suffixB) {
+            offenders.push(`${a.name} <-> ${b.name} on page ${a.page}`);
+          }
+        }
+      }
+    }
+    expect(offenders, `checkbox row pairs with -N suffixes: ${offenders.join(' | ')}`).toEqual([]);
+  });
+});
+
+describe('locale files', () => {
+  const localeDir = join(import.meta.dirname, 'locales');
+  if (!existsSync(localeDir)) return;
+  const files = readdirSync(localeDir).filter((f) => f.endsWith('.json'));
+
+  it.each(files)('%s keys are a subset of manifest slugs', (file) => {
+    const m = file.match(/^(.+?)\.([a-z]{2})\.json$/);
+    if (!m) return;
+    const [, formId] = m;
+    const manifest = forms[formId];
+    if (!manifest) return;
+    const validSlugs = new Set(manifest.fields.map((f) => f.name));
+    const locale = JSON.parse(readFileSync(join(localeDir, file), 'utf8')) as Record<string, string>;
+    const stale = Object.keys(locale).filter((k) => !validSlugs.has(k));
+    expect(stale, `stale locale keys in ${file}: ${stale.join(', ')}`).toEqual([]);
   });
 });

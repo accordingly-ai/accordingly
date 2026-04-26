@@ -1,1 +1,81 @@
-{}
+{
+  "Agentcode": { "name": "agency-code", "label": "AGENCY CODE" },
+
+  "agentsname": {
+    "byPage": {
+      "0": { "name": "agency-name", "label": "AGENCY NAME" },
+      "2": { "name": "agency-name-2", "label": "AGENCY NAME" },
+      "4": { "name": "agency-name-3", "label": "AGENCY NAME" }
+    }
+  },
+  "agentstreetaddress": {
+    "byPage": {
+      "0": { "name": "agency-street-address", "label": "AGENCY STREET ADDRESS" },
+      "2": { "name": "agency-street-address-2", "label": "AGENCY STREET ADDRESS" },
+      "4": { "name": "agency-street-address-3", "label": "AGENCY STREET ADDRESS" }
+    }
+  },
+  "agentcity": {
+    "byPage": {
+      "0": { "name": "agency-city", "label": "AGENCY CITY" },
+      "2": { "name": "agency-city-2", "label": "AGENCY CITY" },
+      "4": { "name": "agency-city-3", "label": "AGENCY CITY" }
+    }
+  },
+  "agentstate": {
+    "byPage": {
+      "0": { "name": "agency-state", "label": "AGENCY STATE" },
+      "2": { "name": "agency-state-2", "label": "AGENCY STATE" },
+      "4": { "name": "agency-state-3", "label": "AGENCY STATE" }
+    }
+  },
+  "agentzipcode": {
+    "byPage": {
+      "0": { "name": "agency-zip", "label": "AGENCY ZIP" },
+      "2": { "name": "agency-zip-2", "label": "AGENCY ZIP" },
+      "4": { "name": "agency-zip-3", "label": "AGENCY ZIP" }
+    }
+  },
+  "agentphone": {
+    "byPage": {
+      "0": { "name": "agency-phone", "label": "AGENCY PHONE (A/C, No, Ext)" },
+      "2": { "name": "agency-phone-2", "label": "AGENCY PHONE (A/C, No, Ext)" },
+      "4": { "name": "agency-phone-3", "label": "AGENCY PHONE (A/C, No, Ext)" }
+    }
+  },
+  "agentfaxnumber": {
+    "byPage": {
+      "0": { "name": "agency-fax", "label": "AGENCY FAX (A/C, No, Ext)" },
+      "2": { "name": "agency-fax-2", "label": "AGENCY FAX (A/C, No, Ext)" },
+      "4": { "name": "agency-fax-3", "label": "AGENCY FAX (A/C, No, Ext)" }
+    }
+  },
+  "agentemail": { "name": "agency-email", "label": "AGENCY E-MAIL (A/C, No)" },
+  "todaysdate": {
+    "byPage": {
+      "0": { "name": "todays-date", "label": "DATE (MM/DD/YYYY)" },
+      "2": { "name": "todays-date-2", "label": "DATE (MM/DD/YYYY)" },
+      "4": { "name": "todays-date-3", "label": "DATE (MM/DD/YYYY)" }
+    }
+  },
+  "effectivedate": {
+    "byPage": {
+      "0": { "name": "effective-date", "label": "EFFECTIVE DATE" },
+      "2": { "name": "effective-date-2", "label": "EFFECTIVE DATE" },
+      "4": { "name": "effective-date-3", "label": "EFFECTIVE DATE" }
+    }
+  },
+  "expirationdate": {
+    "byPage": {
+      "0": { "name": "expiration-date", "label": "EXPIRATION DATE" },
+      "2": { "name": "expiration-date-2", "label": "EXPIRATION DATE" },
+      "4": { "name": "expiration-date-3", "label": "EXPIRATION DATE" }
+    }
+  },
+
+  "Text90": { "name": "schedule-of-hazards-exposure", "label": "SCHEDULE OF HAZARDS — EXPOSURE" },
+  "3Text86": { "name": "schedule-of-hazards-location", "label": "SCHEDULE OF HAZARDS — LOCATION #" },
+  "3Text87": { "name": "schedule-of-hazards-classification", "label": "SCHEDULE OF HAZARDS — CLASSIFICATION" },
+  "3Text88": { "name": "schedule-of-hazards-class-code", "label": "SCHEDULE OF HAZARDS — CLASS CODE" },
+  "3Text89": { "name": "schedule-of-hazards-premium-basis", "label": "SCHEDULE OF HAZARDS — PREMIUM BASIS" }
+}
