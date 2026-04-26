@@ -56,7 +56,7 @@ describe('ChatPanel', () => {
       <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
     );
     expect(
-      screen.getByText(/Hi! I'll help you fill out this insurance application/),
+      screen.getByText(/Hi! I'll help you fill out this application for your client/),
     ).toBeInTheDocument();
   });
 
@@ -65,7 +65,7 @@ describe('ChatPanel', () => {
     render(
       <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
     );
-    const textarea = screen.getByPlaceholderText('Tell me about your business…') as HTMLTextAreaElement;
+    const textarea = screen.getByPlaceholderText('Tell me about your client…') as HTMLTextAreaElement;
     await user.type(textarea, 'I run a coffee shop');
     await user.click(screen.getByRole('button', { name: 'Send' }));
     expect(hookState.sendMessage).toHaveBeenCalledWith('I run a coffee shop');
