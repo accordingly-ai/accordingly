@@ -21,6 +21,8 @@ interface ChatPanelProps {
   manifest: FormManifest;
   answers: ApplicationAnswers;
   applyUpdates: (updates: Record<string, FieldValue>) => void;
+  resetForm: () => void;
+  hasAnswers: boolean;
 }
 
 type PendingAttachment =
@@ -42,7 +44,14 @@ function nextAttachmentId(): string {
   return `att-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanelProps) {
+export function ChatPanel({
+  formId,
+  manifest,
+  answers,
+  applyUpdates,
+  resetForm,
+  hasAnswers,
+}: ChatPanelProps) {
   const { t } = useTranslation();
   const drive = useDrive();
   const driveCtx = useMemo(
@@ -426,8 +435,8 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           <div className="absolute right-2 top-full mt-1 z-10 w-48 rounded-md border border-neutral-700 bg-neutral-900 shadow-lg p-1 text-sm text-neutral-200">
             <button
               type="button"
-              onClick={() => { reset(); setSettingsOpen(false); }}
-              disabled={messages.length === 0}
+              onClick={() => { reset(); resetForm(); setSettingsOpen(false); }}
+              disabled={messages.length === 0 && !hasAnswers}
               className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-800 disabled:opacity-40 disabled:hover:bg-transparent"
             >
               {t('chat.reset')}

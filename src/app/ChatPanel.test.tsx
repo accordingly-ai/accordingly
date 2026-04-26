@@ -53,7 +53,14 @@ afterEach(() => {
 describe('ChatPanel', () => {
   it('renders the empty-state hint when no messages are present', () => {
     render(
-      <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{}}
+        applyUpdates={() => {}}
+        resetForm={() => {}}
+        hasAnswers={false}
+      />,
     );
     expect(
       screen.getByText(/Hi! I'll help you fill out this application for your client/),
@@ -63,7 +70,14 @@ describe('ChatPanel', () => {
   it('sends a typed message and clears the input on submit', async () => {
     const user = userEvent.setup();
     render(
-      <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{}}
+        applyUpdates={() => {}}
+        resetForm={() => {}}
+        hasAnswers={false}
+      />,
     );
     const textarea = screen.getByPlaceholderText('Tell me about your client…') as HTMLTextAreaElement;
     await user.type(textarea, 'I run a coffee shop');
@@ -75,7 +89,14 @@ describe('ChatPanel', () => {
   it('disables Send while streaming', () => {
     hookState.streaming = true;
     render(
-      <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{}}
+        applyUpdates={() => {}}
+        resetForm={() => {}}
+        hasAnswers={false}
+      />,
     );
     expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled();
     expect(screen.getByText('assistant is typing…')).toBeInTheDocument();
@@ -87,7 +108,14 @@ describe('ChatPanel', () => {
       { role: 'assistant', content: 'hi back!' },
     ];
     render(
-      <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{}}
+        applyUpdates={() => {}}
+        resetForm={() => {}}
+        hasAnswers={false}
+      />,
     );
     expect(screen.getByText('hello there')).toBeInTheDocument();
     expect(screen.getByText('hi back!')).toBeInTheDocument();
@@ -95,14 +123,55 @@ describe('ChatPanel', () => {
 
   it('shows error banner and lets the user reset via the settings popover', async () => {
     const user = userEvent.setup();
+    const resetForm = vi.fn();
     hookState.messages = [{ role: 'user', content: 'go' }];
     hookState.error = 'OpenAI exploded';
     render(
-      <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{}}
+        applyUpdates={() => {}}
+        resetForm={resetForm}
+        hasAnswers={false}
+      />,
     );
     expect(screen.getByText('OpenAI exploded')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Settings' }));
     await user.click(screen.getByRole('button', { name: 'Reset conversation' }));
     expect(hookState.reset).toHaveBeenCalledTimes(1);
+    expect(resetForm).toHaveBeenCalledTimes(1);
+  });
+
+  it('enables Reset when only the form has answers', async () => {
+    const user = userEvent.setup();
+    render(
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{ foo: 'bar' }}
+        applyUpdates={() => {}}
+        resetForm={() => {}}
+        hasAnswers={true}
+      />,
+    );
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    expect(screen.getByRole('button', { name: 'Reset conversation' })).toBeEnabled();
+  });
+
+  it('disables Reset when both chat and form are empty', async () => {
+    const user = userEvent.setup();
+    render(
+      <ChatPanel
+        formId="acord-125"
+        manifest={manifest}
+        answers={{}}
+        applyUpdates={() => {}}
+        resetForm={() => {}}
+        hasAnswers={false}
+      />,
+    );
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    expect(screen.getByRole('button', { name: 'Reset conversation' })).toBeDisabled();
   });
 });

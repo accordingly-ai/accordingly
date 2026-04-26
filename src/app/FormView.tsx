@@ -351,6 +351,12 @@ export function FormView() {
     setAnswers((prev) => ({ ...prev, ...updates }));
   }, []);
 
+  const resetForm = useCallback(() => {
+    setAnswers({});
+  }, []);
+
+  const hasAnswers = Object.keys(answers).length > 0;
+
   const filledCount = useMemo(
     () =>
       Object.values(answers).filter((v) => v === true || (typeof v === 'string' && v.length > 0))
@@ -439,6 +445,8 @@ export function FormView() {
           manifest={manifest}
           answers={answers}
           applyUpdates={applyUpdates}
+          resetForm={resetForm}
+          hasAnswers={hasAnswers}
         />
       )}
     </div>
