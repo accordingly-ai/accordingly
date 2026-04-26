@@ -111,7 +111,15 @@ router.all('/api/*', () =>
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    return router.fetch(request, env, ctx);
+    const res = (await router.fetch(request, env, ctx)) as Response;
+    try {
+      res.headers.set('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+      return res;
+    } catch {
+      const cloned = new Response(res.body, res);
+      cloned.headers.set('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+      return cloned;
+    }
   },
 };
 
