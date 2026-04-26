@@ -8,13 +8,14 @@
  * Two label-extraction paths, picked by detecting whether the source PDF
  * has tooltip metadata:
  *   Path A — TU tooltips present (e.g. ACORD 126): slug from raw name,
- *            label from TU.
+ *            label from TU. One logical group per AcroForm field.
  *   Path B — no TU tooltips (e.g. ACORD 125): label is the nearest printed
  *            text run to each widget rect (spatial heuristic), slug derived
- *            from the chosen label.
+ *            from the chosen label. Adjacent Y/N checkbox pairs collapse
+ *            into a single radio field with `yes`/`no` options.
  *
- * Per-form overrides at `scripts/overrides/<formId>.json` replace heuristic
- * output for specific raw PDF names.
+ * Per-form overrides at `scripts/overrides/<formId>.json` rename or relabel
+ * specific widgets. See `OverrideFile` for the supported shapes.
  */
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, basename, join } from 'node:path';
@@ -57,12 +58,6 @@ interface Manifest {
   title: string;
   fields: FieldEntry[];
 }
-
-interface OverrideEntry {
-  name?: string;
-  label?: string;
-}
-type Overrides = Record<string, OverrideEntry>;
 
 const FORM_TITLES: Record<string, string> = {
   'acord-125': 'ACORD 125 — Commercial Insurance Application',
@@ -193,13 +188,31 @@ interface Widget {
   page: number;
 }
 
-function bestLabelFor(widget: Widget, items: TextItem[]): string | null {
+/**
+ * Find the printed text most likely to be the visible label for `widget`.
+ *
+ * The narrow window (above-15pt / left-80pt / inside) wins when it returns a
+ * hit; only when nothing matches do we fall back to wider modes (above-60pt,
+ * left-140pt, below-18pt). Existing good labels never regress.
+ */
+export function bestLabelFor(widget: Widget, items: TextItem[]): string | null {
+  const narrow = findLabel(widget, items, /* widen */ false);
+  if (narrow !== null) return narrow;
+  return findLabel(widget, items, /* widen */ true);
+}
+
+function findLabel(widget: Widget, items: TextItem[], widen: boolean): string | null {
   const [wx, wy, ww, wh] = widget.rect;
   const wTop = wy + wh;
   const wRight = wx + ww;
   const wCenterY = wy + wh / 2;
 
+  const aboveMax = widen ? 60 : 30;
+  const leftMax = widen ? 140 : 80;
+
   let best: { score: number; str: string } | null = null;
+  // Track short text runs in reading order for the "two-short-runs" fallback.
+  const shortRuns: { x: number; y: number; str: string; dist: number }[] = [];
 
   for (const item of items) {
     if (!isUsefulText(item.str)) continue;
@@ -210,11 +223,8 @@ function bestLabelFor(widget: Widget, items: TextItem[]): string | null {
     const tCenterY = item.y + item.height / 2;
 
     // Mode 1: text directly above the widget, in the same column-ish.
-    // The text's baseline (or top) should sit a short distance above the
-    // widget's top edge.
     const aboveGap = tBaseline - wTop;
-    if (aboveGap >= -2 && aboveGap <= 30) {
-      // Horizontal overlap or near-overlap with the widget column.
+    if (aboveGap >= -2 && aboveGap <= aboveMax) {
       const horizGap = Math.max(0, wx - tRight, tLeft - wRight);
       if (horizGap <= 60) {
         const score = aboveGap * 2 + horizGap * 0.7;
@@ -224,14 +234,15 @@ function bestLabelFor(widget: Widget, items: TextItem[]): string | null {
 
     // Mode 2: text immediately to the left on the same baseline.
     const leftGap = wx - tRight;
-    if (leftGap >= -2 && leftGap <= 80) {
+    if (leftGap >= -2 && leftGap <= leftMax) {
       const verticalMiss = Math.abs(tCenterY - wCenterY);
-      // Allow text that overlaps the widget vertically (big margin) or sits
-      // on the same baseline within the widget height.
       if (verticalMiss <= Math.max(8, wh)) {
         // A small penalty over "above" mode so above wins ties.
         const score = leftGap * 1 + verticalMiss * 1.2 + 4;
         if (!best || score < best.score) best = { score, str: item.str };
+        if (widen && item.str.trim().length < 4) {
+          shortRuns.push({ x: tLeft, y: tBaseline, str: item.str, dist: leftGap + verticalMiss });
+        }
       }
     }
 
@@ -241,46 +252,267 @@ function bestLabelFor(widget: Widget, items: TextItem[]): string | null {
       const score = 12; // last resort
       if (!best || score < best.score) best = { score, str: item.str };
     }
+
+    // Mode 4 (widen-only): text directly below the widget. Useful for sub-row
+    // labels printed under the input.
+    if (widen) {
+      const belowGap = wy - tTop;
+      if (belowGap >= -2 && belowGap <= 18) {
+        const horizGap = Math.max(0, wx - tRight, tLeft - wRight);
+        if (horizGap <= 60) {
+          const score = belowGap * 2 + horizGap * 0.7 + 6;
+          if (!best || score < best.score) best = { score, str: item.str };
+        }
+      }
+    }
   }
 
-  return best ? best.str.trim() : null;
+  if (best) return best.str.trim();
+
+  // Fallback: if no single run won and we're widening, stitch the closest two
+  // short runs together in reading order.
+  if (widen && shortRuns.length >= 2) {
+    shortRuns.sort((a, b) => a.dist - b.dist);
+    const top = shortRuns.slice(0, 2).sort((a, b) => a.x - b.x);
+    return top.map((r) => r.str.trim()).join(' ').trim() || null;
+  }
+
+  return null;
 }
 
-// --- Override loading ----------------------------------------------------
+// --- Override schema -----------------------------------------------------
 
-function loadOverrides(formId: string): Overrides {
+interface OverrideEntry {
+  name?: string;
+  label?: string;
+}
+
+interface OverrideFile {
+  [rawName: string]:
+    | OverrideEntry
+    | { widgets: OverrideEntry[] }
+    | { byPage: Record<string, OverrideEntry> };
+}
+
+interface RawField {
+  rawName: string;
+  type: FieldType;
+  options?: string[];
+  maxLength?: number;
+  tu: string | null;
+  widgets: { rect: [number, number, number, number]; page: number; option?: string }[];
+}
+
+interface NormalizedOverrides {
+  // keyed by `${rawName}#${widgetIdx}`
+  byKey: Map<string, OverrideEntry>;
+  // raw set of rawNames whose override declares per-widget shape (so we know
+  // to split the rawField into multiple groups during application).
+  splitRawNames: Set<string>;
+}
+
+export function loadOverrides(formId: string): OverrideFile {
   const path = join(OVERRIDES_DIR, `${formId}.json`);
   if (!existsSync(path)) return {};
   try {
-    return JSON.parse(readFileSync(path, 'utf8')) as Overrides;
+    return JSON.parse(readFileSync(path, 'utf8')) as OverrideFile;
   } catch (e) {
     throw new Error(`Failed to parse overrides at ${path}: ${(e as Error).message}`);
   }
 }
 
-// --- Slug uniqueness -----------------------------------------------------
+export function normalizeOverrides(file: OverrideFile, rawFields: RawField[]): NormalizedOverrides {
+  const byRawName = new Map<string, RawField>();
+  for (const rf of rawFields) byRawName.set(rf.rawName, rf);
 
-function uniquifySlugs(input: Map<string, { slug: string; label: string }>): Map<
-  string,
-  { slug: string; label: string }
-> {
-  // Group rawNames by proposed slug.
-  const bySlug = new Map<string, string[]>();
-  for (const [raw, { slug }] of input) {
-    const arr = bySlug.get(slug) ?? [];
-    arr.push(raw);
-    bySlug.set(slug, arr);
+  const byKey = new Map<string, OverrideEntry>();
+  const splitRawNames = new Set<string>();
+
+  for (const [rawName, raw] of Object.entries(file)) {
+    if (!raw || typeof raw !== 'object') continue;
+    const rf = byRawName.get(rawName);
+    const hasWidgets = 'widgets' in raw && Array.isArray((raw as { widgets?: unknown }).widgets);
+    const hasByPage = 'byPage' in raw && typeof (raw as { byPage?: unknown }).byPage === 'object';
+    const hasLegacyKeys = 'name' in raw || 'label' in raw;
+    const hasLegacy = !hasWidgets && !hasByPage && hasLegacyKeys;
+
+    if (hasWidgets && hasByPage) {
+      throw new Error(`Override for ${rawName}: cannot mix widgets[] and byPage`);
+    }
+    if (hasLegacyKeys && (hasWidgets || hasByPage)) {
+      throw new Error(`Override for ${rawName}: cannot mix legacy name/label with widgets/byPage`);
+    }
+
+    if (hasWidgets) {
+      const arr = (raw as { widgets: OverrideEntry[] }).widgets;
+      if (!rf) continue;
+      if (arr.length !== rf.widgets.length) {
+        throw new Error(
+          `Override for ${rawName}: widgets[] length ${arr.length} ≠ actual widget count ${rf.widgets.length}`,
+        );
+      }
+      arr.forEach((entry, i) => {
+        if (entry) byKey.set(`${rawName}#${i}`, entry);
+      });
+      splitRawNames.add(rawName);
+      continue;
+    }
+
+    if (hasByPage) {
+      const map = (raw as { byPage: Record<string, OverrideEntry> }).byPage;
+      if (!rf) continue;
+      for (const [pageStr, entry] of Object.entries(map)) {
+        const page = Number(pageStr);
+        const widgetIdx = rf.widgets.findIndex((w) => w.page === page);
+        if (widgetIdx === -1) {
+          throw new Error(`Override for ${rawName}: byPage["${pageStr}"] has no matching widget`);
+        }
+        if (entry) byKey.set(`${rawName}#${widgetIdx}`, entry);
+      }
+      splitRawNames.add(rawName);
+      continue;
+    }
+
+    if (hasLegacy) {
+      const entry = raw as OverrideEntry;
+      if (!rf) {
+        // Still allow legacy overrides for unknown rawNames (no-op below).
+        continue;
+      }
+      for (let i = 0; i < rf.widgets.length; i++) {
+        byKey.set(`${rawName}#${i}`, entry);
+      }
+      // legacy doesn't split — same slug for all widgets.
+    }
   }
-  const out = new Map<string, { slug: string; label: string }>();
-  for (const [slug, raws] of bySlug) {
-    raws.sort();
-    raws.forEach((raw, i) => {
-      const final = i === 0 ? slug : `${slug}-${i + 1}`;
-      const orig = input.get(raw)!;
-      out.set(raw, { slug: final, label: orig.label });
+
+  return { byKey, splitRawNames };
+}
+
+// --- Y/N pair detection --------------------------------------------------
+
+interface PairCandidate {
+  rawName: string;
+  widgetIdx: number;
+  page: number;
+  rect: [number, number, number, number];
+  label: string;
+}
+
+interface DetectedPair {
+  yes: PairCandidate;
+  no: PairCandidate;
+  slug: string;
+  label: string;
+}
+
+/**
+ * Detect Y/N checkbox pairs from a flat list of candidates (Path B only).
+ *
+ * Algorithm:
+ *  - Group by page; within each page sort by (y desc, x asc).
+ *  - Walk row-bands (|cyA−cyB| ≤ 3). Within a row, scan left-to-right.
+ *  - Two adjacent widgets form a pair when their horizontal edge gap ≤ 22 pt
+ *    (allowing tiny overlaps) AND they share a non-empty heuristic label.
+ *  - Leftmost = yes, rightmost = no. The shared label seeds the slug.
+ */
+export function pairYesNo(candidates: PairCandidate[]): DetectedPair[] {
+  const byPage = new Map<number, PairCandidate[]>();
+  for (const c of candidates) {
+    const arr = byPage.get(c.page) ?? [];
+    arr.push(c);
+    byPage.set(c.page, arr);
+  }
+
+  const pairs: DetectedPair[] = [];
+  for (const list of byPage.values()) {
+    // Sort by y desc (PDF coords), then x asc.
+    list.sort((a, b) => {
+      const ay = a.rect[1] + a.rect[3] / 2;
+      const by = b.rect[1] + b.rect[3] / 2;
+      if (Math.abs(ay - by) > 3) return by - ay;
+      return a.rect[0] - b.rect[0];
+    });
+
+    let i = 0;
+    while (i < list.length) {
+      const row: PairCandidate[] = [list[i]];
+      const cyAnchor = list[i].rect[1] + list[i].rect[3] / 2;
+      let j = i + 1;
+      while (j < list.length) {
+        const cy = list[j].rect[1] + list[j].rect[3] / 2;
+        if (Math.abs(cy - cyAnchor) <= 3) {
+          row.push(list[j]);
+          j++;
+        } else break;
+      }
+      // Within row, walk left-to-right looking for adjacent pairs.
+      row.sort((a, b) => a.rect[0] - b.rect[0]);
+      let k = 0;
+      while (k < row.length - 1) {
+        const left = row[k];
+        const right = row[k + 1];
+        const leftRight = left.rect[0] + left.rect[2];
+        const gap = right.rect[0] - leftRight;
+        const sameLabel =
+          left.label.length > 0 && left.label === right.label;
+        if (gap >= -2 && gap <= 22 && sameLabel) {
+          pairs.push({
+            yes: left,
+            no: right,
+            slug: slugifyText(left.label),
+            label: left.label,
+          });
+          k += 2;
+        } else {
+          k += 1;
+        }
+      }
+      i = j;
+    }
+  }
+  return pairs;
+}
+
+// --- Logical groups & slug uniqueness ------------------------------------
+
+interface WidgetRef {
+  rawName: string;
+  widgetIdx: number;
+  page: number;
+  rect: [number, number, number, number];
+  option?: string;
+}
+
+interface LogicalGroup {
+  slug: string;
+  label: string;
+  type: FieldType;
+  options?: string[];
+  maxLength?: number;
+  widgets: WidgetRef[];
+}
+
+function uniquifyGroups(groups: LogicalGroup[]): void {
+  const bySlug = new Map<string, LogicalGroup[]>();
+  for (const g of groups) {
+    const arr = bySlug.get(g.slug) ?? [];
+    arr.push(g);
+    bySlug.set(g.slug, arr);
+  }
+  for (const [, arr] of bySlug) {
+    if (arr.length <= 1) continue;
+    // Stable order: by first widget's rawName then widgetIdx.
+    arr.sort((a, b) => {
+      const aw = a.widgets[0];
+      const bw = b.widgets[0];
+      if (aw.rawName !== bw.rawName) return aw.rawName.localeCompare(bw.rawName);
+      return aw.widgetIdx - bw.widgetIdx;
+    });
+    arr.forEach((g, i) => {
+      if (i > 0) g.slug = `${g.slug}-${i + 1}`;
     });
   }
-  return out;
 }
 
 // --- Main extraction -----------------------------------------------------
@@ -298,16 +530,6 @@ async function extract(pdfPath: string): Promise<Manifest> {
     throw new Error(
       `${id}.pdf has no AcroForm fields — verify the source PDF is a fillable form, not a flattened scan.`,
     );
-  }
-
-  // Pre-compute widget→page mappings, rects, raw names, types per field.
-  interface RawField {
-    rawName: string;
-    type: FieldType;
-    options?: string[];
-    maxLength?: number;
-    tu: string | null;
-    widgets: { rect: [number, number, number, number]; page: number; option?: string }[];
   }
 
   const rawFields: RawField[] = [];
@@ -360,83 +582,206 @@ async function extract(pdfPath: string): Promise<Manifest> {
     rawFields.push({ rawName, type, options, maxLength, tu, widgets: widgetEntries });
   }
 
-  // Build rawName → { slug, label } map. Path A vs Path B by tooltip presence.
-  const proposed = new Map<string, { slug: string; label: string }>();
+  // ---- Build initial logical groups ------------------------------------
+  const groups: LogicalGroup[] = [];
 
   if (anyTU) {
-    // Path A.
+    // Path A: one group per rawField, slug from raw name, label from TU.
     for (const rf of rawFields) {
-      if (proposed.has(rf.rawName)) continue;
       const slug = slugFromRawName(rf.rawName) || slugifyText(rf.rawName);
       const label = rf.tu ? cleanTU(rf.tu) : '';
-      proposed.set(rf.rawName, { slug, label });
+      groups.push({
+        slug,
+        label,
+        type: rf.type,
+        options: rf.options,
+        maxLength: rf.maxLength,
+        widgets: rf.widgets.map((w, i) => ({
+          rawName: rf.rawName,
+          widgetIdx: i,
+          page: w.page,
+          rect: w.rect,
+          ...(w.option !== undefined ? { option: w.option } : {}),
+        })),
+      });
     }
   } else {
-    // Path B — spatial label extraction.
+    // Path B: per-widget label, then collapse Y/N pairs into synthetic radios.
     const pdfjs = await loadPdfjs();
     const pageText = await extractPageText(pdfjs, bytes, pages.length);
 
-    // Collect candidate labels per rawName by inspecting each widget.
-    const labelsByRaw = new Map<string, string[]>();
+    // Per-widget heuristic label.
+    const widgetLabels = new Map<string, string>(); // `${rawName}#${i}` → label
     for (const rf of rawFields) {
-      for (const w of rf.widgets) {
+      for (let i = 0; i < rf.widgets.length; i++) {
+        const w = rf.widgets[i];
         if (w.page < 0 || w.page >= pageText.length) continue;
         if (w.rect[2] <= 0 || w.rect[3] <= 0) continue;
         const label = bestLabelFor(w, pageText[w.page]);
-        if (label) {
-          const arr = labelsByRaw.get(rf.rawName) ?? [];
-          arr.push(label);
-          labelsByRaw.set(rf.rawName, arr);
-        }
+        if (label) widgetLabels.set(`${rf.rawName}#${i}`, label);
       }
     }
 
+    // Detect Y/N pairs across all checkbox widgets.
+    const pairCandidates: PairCandidate[] = [];
+    const widgetIsCheckbox = new Map<string, boolean>();
     for (const rf of rawFields) {
-      if (proposed.has(rf.rawName)) continue;
-      const candidates = labelsByRaw.get(rf.rawName) ?? [];
-      // Majority vote.
+      if (rf.type !== 'checkbox') continue;
+      for (let i = 0; i < rf.widgets.length; i++) {
+        const key = `${rf.rawName}#${i}`;
+        widgetIsCheckbox.set(key, true);
+        pairCandidates.push({
+          rawName: rf.rawName,
+          widgetIdx: i,
+          page: rf.widgets[i].page,
+          rect: rf.widgets[i].rect,
+          label: widgetLabels.get(key) ?? '',
+        });
+      }
+    }
+    const pairs = pairYesNo(pairCandidates);
+    const pairedWidgetKeys = new Set<string>();
+    for (const p of pairs) {
+      pairedWidgetKeys.add(`${p.yes.rawName}#${p.yes.widgetIdx}`);
+      pairedWidgetKeys.add(`${p.no.rawName}#${p.no.widgetIdx}`);
+    }
+
+    // Emit synthetic radio groups for each detected pair.
+    for (const p of pairs) {
+      groups.push({
+        slug: p.slug,
+        label: p.label,
+        type: 'radio',
+        options: ['yes', 'no'],
+        widgets: [
+          {
+            rawName: p.yes.rawName,
+            widgetIdx: p.yes.widgetIdx,
+            page: p.yes.page,
+            rect: p.yes.rect,
+            option: 'yes',
+          },
+          {
+            rawName: p.no.rawName,
+            widgetIdx: p.no.widgetIdx,
+            page: p.no.page,
+            rect: p.no.rect,
+            option: 'no',
+          },
+        ],
+      });
+    }
+
+    // For non-paired widgets, emit one group per rawField, but group widgets
+    // by majority-voted label (matches today's Path B behaviour).
+    for (const rf of rawFields) {
+      const remainingWidgets = rf.widgets
+        .map((w, i) => ({ w, i }))
+        .filter(({ i }) => !pairedWidgetKeys.has(`${rf.rawName}#${i}`));
+      if (remainingWidgets.length === 0) continue;
+      const counts = new Map<string, number>();
+      for (const { i } of remainingWidgets) {
+        const lab = widgetLabels.get(`${rf.rawName}#${i}`) ?? '';
+        if (lab) counts.set(lab, (counts.get(lab) ?? 0) + 1);
+      }
       let label = '';
-      if (candidates.length > 0) {
-        const counts = new Map<string, number>();
-        for (const c of candidates) counts.set(c, (counts.get(c) ?? 0) + 1);
+      if (counts.size > 0) {
         label = [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0];
       }
       const slugBase = label ? slugifyText(label) : '';
       const slug = slugBase || slugifyText(rf.rawName);
-      proposed.set(rf.rawName, { slug, label });
+      groups.push({
+        slug,
+        label,
+        type: rf.type,
+        options: rf.options,
+        maxLength: rf.maxLength,
+        widgets: remainingWidgets.map(({ w, i }) => ({
+          rawName: rf.rawName,
+          widgetIdx: i,
+          page: w.page,
+          rect: w.rect,
+          ...(w.option !== undefined ? { option: w.option } : {}),
+        })),
+      });
     }
   }
 
-  // Apply uniqueness across all rawNames.
-  const resolved = uniquifySlugs(proposed);
+  // ---- Apply overrides --------------------------------------------------
+  const overrideFile = loadOverrides(id);
+  const overrides = normalizeOverrides(overrideFile, rawFields);
 
-  // Apply overrides last.
-  const overrides = loadOverrides(id);
-  for (const [raw, ov] of Object.entries(overrides)) {
-    const cur = resolved.get(raw);
-    if (!cur) continue;
-    resolved.set(raw, {
-      slug: ov.name ?? cur.slug,
-      label: ov.label ?? cur.label,
-    });
+  const finalGroups: LogicalGroup[] = [];
+  for (const g of groups) {
+    // Identify override mode for this group's rawName(s).
+    // A synthetic radio group spans two rawNames; we apply per-widget overrides
+    // for either rawName independently if present.
+    const hasSplitMember = g.widgets.some((w) => overrides.splitRawNames.has(w.rawName));
+
+    if (!hasSplitMember) {
+      // Legacy override: applies uniformly. Pick from any widget's key.
+      const w0 = g.widgets[0];
+      const ov = overrides.byKey.get(`${w0.rawName}#${w0.widgetIdx}`);
+      if (ov) {
+        g.slug = ov.name ?? g.slug;
+        g.label = ov.label ?? g.label;
+      }
+      finalGroups.push(g);
+      continue;
+    }
+
+    // Split group: one new logical group per (slug, label) combination.
+    const subgroups = new Map<string, LogicalGroup>();
+    for (const w of g.widgets) {
+      const ov = overrides.byKey.get(`${w.rawName}#${w.widgetIdx}`);
+      const slug = ov?.name ?? g.slug;
+      const label = ov?.label ?? g.label;
+      const key = `${slug}\x00${label}`;
+      let sub = subgroups.get(key);
+      if (!sub) {
+        sub = {
+          slug,
+          label,
+          type: g.type,
+          options: g.options,
+          maxLength: g.maxLength,
+          widgets: [],
+        };
+        subgroups.set(key, sub);
+      }
+      sub.widgets.push(w);
+    }
+    for (const sub of subgroups.values()) finalGroups.push(sub);
   }
 
-  // Emit one entry per widget.
+  // ---- Uniquify slugs ---------------------------------------------------
+  uniquifyGroups(finalGroups);
+
+  // ---- Diagnostics: warn on residual generic slugs / empty labels -------
+  const GENERIC_SLUG_RE = /^(check-box|text|\d+(text|loc|bld|ann|%))/i;
+  for (const g of finalGroups) {
+    if (!g.label) {
+      console.warn(`[${id}] empty label for slug "${g.slug}" (widgets: ${g.widgets.map((w) => `${w.rawName}#${w.widgetIdx}`).join(', ')})`);
+    }
+    if (GENERIC_SLUG_RE.test(g.slug)) {
+      console.warn(`[${id}] generic slug "${g.slug}" (widgets: ${g.widgets.map((w) => `${w.rawName}#${w.widgetIdx}`).join(', ')})`);
+    }
+  }
+
+  // ---- Emit one entry per widget ----------------------------------------
   const entries: FieldEntry[] = [];
-  for (const rf of rawFields) {
-    const r = resolved.get(rf.rawName);
-    if (!r) continue;
-    for (const w of rf.widgets) {
+  for (const g of finalGroups) {
+    for (const w of g.widgets) {
       entries.push({
-        name: r.slug,
-        pdfName: rf.rawName,
-        type: rf.type,
-        label: r.label,
+        name: g.slug,
+        pdfName: w.rawName,
+        type: g.type,
+        label: g.label,
         page: w.page,
         rect: w.rect,
-        ...(rf.options ? { options: rf.options } : {}),
+        ...(g.options ? { options: g.options } : {}),
         ...(w.option !== undefined ? { option: w.option } : {}),
-        ...(rf.maxLength !== undefined ? { maxLength: rf.maxLength } : {}),
+        ...(g.maxLength !== undefined ? { maxLength: g.maxLength } : {}),
       });
     }
   }
