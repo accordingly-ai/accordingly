@@ -49,11 +49,12 @@ export function ChatPanel({
   hasAnswers,
 }: ChatPanelProps) {
   const { t } = useTranslation();
-  const { messages, sendMessage, streaming, error, reset } = useChatAgent({
+  const { messages, sendMessage, streaming, error, reset, isPristine } = useChatAgent({
     formId,
     manifest,
     answers,
     applyUpdates,
+    welcomeText: t('chat.welcome'),
   });
   const [input, setInput] = useState('');
   const [collapsed, setCollapsed] = useState(false);
@@ -374,7 +375,7 @@ export function ChatPanel({
             <button
               type="button"
               onClick={() => { reset(); resetForm(); setSettingsOpen(false); }}
-              disabled={messages.length === 0 && !hasAnswers}
+              disabled={isPristine && !hasAnswers}
               className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-800 disabled:opacity-40 disabled:hover:bg-transparent"
             >
               {t('chat.reset')}
@@ -394,11 +395,6 @@ export function ChatPanel({
       {!collapsed && (
         <>
           <div ref={listRef} className="flex-1 overflow-y-auto px-3 py-3 space-y-3">
-            {visible.length === 0 && (
-              <div className="text-xs text-neutral-500 leading-relaxed">
-                {t('chat.welcome')}
-              </div>
-            )}
             {visible.map((m, i) => (
               <MessageBubble key={i} message={m} />
             ))}

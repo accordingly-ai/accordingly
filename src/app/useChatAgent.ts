@@ -130,6 +130,7 @@ export interface UseChatAgentOptions {
   answers: ApplicationAnswers;
   applyUpdates: (updates: Record<string, FieldValue>) => void;
   drive?: DriveAgentContext;
+  welcomeText?: string;
 }
 
 const DRIVE_TOOL_NAMES = new Set(['list_drive_files', 'read_drive_file']);
@@ -181,9 +182,14 @@ export function useChatAgent({
   answers,
   applyUpdates,
   drive,
+  welcomeText,
 }: UseChatAgentOptions) {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [loaded, setLoaded] = useState(false);
+  const seedFor = (text: string | undefined): ChatMessage[] =>
+    text ? [{ role: 'assistant', content: text }] : [];
+  const [messages, setMessages] = useState<ChatMessage[]>(() => {
+    const persisted = loadMessages(formId);
+    return persisted.length === 0 ? seedFor(welcomeText) : persisted;
+  });
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -198,21 +204,24 @@ export function useChatAgent({
     driveRef.current = drive;
   }, [drive]);
 
-  // Load persisted history on form change.
+  // Reload persisted history when form changes (skip the first run; useState
+  // initializer already loaded for the initial formId).
+  const initialFormIdRef = useRef(formId);
   useEffect(() => {
-    setMessages(loadMessages(formId));
-    setLoaded(true);
+    if (initialFormIdRef.current === formId) return;
+    const persisted = loadMessages(formId);
+    setMessages(persisted.length === 0 ? seedFor(welcomeText) : persisted);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formId]);
 
-  // Persist on change (after initial load).
+  // Persist on change.
   useEffect(() => {
-    if (!loaded) return;
     try {
       localStorage.setItem(chatStorageKey(formId), JSON.stringify(messages));
     } catch {
       // ignore quota errors
     }
-  }, [formId, messages, loaded]);
+  }, [formId, messages]);
 
   const runRound = useCallback(
     async (history: ChatMessage[]): Promise<ChatMessage> => {
@@ -368,9 +377,17 @@ export function useChatAgent({
   );
 
   const reset = useCallback(() => {
-    setMessages([]);
+    setMessages(
+      welcomeText ? [{ role: 'assistant', content: welcomeText }] : [],
+    );
     setError(null);
-  }, []);
+  }, [welcomeText]);
 
-  return { messages, sendMessage, streaming, error, reset, loaded };
+  const isPristine = welcomeText
+    ? messages.length === 1 &&
+      messages[0].role === 'assistant' &&
+      messages[0].content === welcomeText
+    : messages.length === 0;
+
+  return { messages, sendMessage, streaming, error, reset, loaded: true, isPristine };
 }

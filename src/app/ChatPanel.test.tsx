@@ -12,6 +12,7 @@ interface MockHookState {
   sendMessage: ReturnType<typeof vi.fn>;
   reset: ReturnType<typeof vi.fn>;
   loaded: boolean;
+  isPristine: boolean;
 }
 
 const hookState: MockHookState = {
@@ -21,6 +22,7 @@ const hookState: MockHookState = {
   sendMessage: vi.fn(),
   reset: vi.fn(),
   loaded: true,
+  isPristine: true,
 };
 
 vi.mock('./useChatAgent', async () => {
@@ -44,6 +46,7 @@ beforeEach(() => {
   hookState.sendMessage = vi.fn();
   hookState.reset = vi.fn();
   hookState.loaded = true;
+  hookState.isPristine = true;
 });
 
 afterEach(() => {
@@ -51,7 +54,14 @@ afterEach(() => {
 });
 
 describe('ChatPanel', () => {
-  it('renders the empty-state hint when no messages are present', () => {
+  it('renders the seeded welcome message as an assistant bubble', () => {
+    hookState.messages = [
+      {
+        role: 'assistant',
+        content:
+          "Hi! I'll help you fill out this application for your client. Tell me what you know.",
+      },
+    ];
     render(
       <ChatPanel
         formId="acord-125"
@@ -125,6 +135,7 @@ describe('ChatPanel', () => {
     const user = userEvent.setup();
     const resetForm = vi.fn();
     hookState.messages = [{ role: 'user', content: 'go' }];
+    hookState.isPristine = false;
     hookState.error = 'OpenAI exploded';
     render(
       <ChatPanel
