@@ -3,6 +3,78 @@
   "title": "ACORD 126 — Commercial General Liability Section",
   "fields": [
     {
+      "name": "wisconsin-um-uim-coverage-available",
+      "pdfName": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableIndicator_A",
+      "type": "radio",
+      "label": "UM / UIM COVERAGE (Wisconsin non-owned-only auto)",
+      "page": 0,
+      "rect": [
+        101,
+        456,
+        14,
+        12
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "wisconsin-um-uim-coverage-available",
+      "pdfName": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableNoIndicator_A",
+      "type": "radio",
+      "label": "UM / UIM COVERAGE (Wisconsin non-owned-only auto)",
+      "page": 0,
+      "rect": [
+        137,
+        456,
+        14,
+        12
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
+      "name": "wisconsin-medical-payments-coverage-available",
+      "pdfName": "GeneralLiability_MedicalPayments_CoverageAvailableIndicator_A",
+      "type": "radio",
+      "label": "MEDICAL PAYMENTS COVERAGE (Wisconsin non-owned-only auto)",
+      "page": 0,
+      "rect": [
+        367,
+        456,
+        15,
+        12
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "wisconsin-medical-payments-coverage-available",
+      "pdfName": "GeneralLiability_MedicalPayments_CoverageAvailableNoIndicator_A",
+      "type": "radio",
+      "label": "MEDICAL PAYMENTS COVERAGE (Wisconsin non-owned-only auto)",
+      "page": 0,
+      "rect": [
+        403,
+        456,
+        15,
+        12
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
       "name": "form-edition-identifier",
       "pdfName": "Form_EditionIdentifier_A",
       "type": "text",
@@ -600,58 +672,6 @@
         480,
         568,
         24
-      ]
-    },
-    {
-      "name": "general-liability-uninsured-underinsured-motorists-coverage-available-indicator",
-      "pdfName": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableIndicator_A",
-      "type": "checkbox",
-      "label": "Indicates if uninsured/underinsured motorist coverage is to be provided under the policy.",
-      "page": 0,
-      "rect": [
-        101,
-        456,
-        14,
-        12
-      ]
-    },
-    {
-      "name": "general-liability-uninsured-underinsured-motorists-coverage-available-no-indicator",
-      "pdfName": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableNoIndicator_A",
-      "type": "checkbox",
-      "label": "Indicates that uninsured/underinsured motorist coverage is not to be provided under the policy.",
-      "page": 0,
-      "rect": [
-        137,
-        456,
-        14,
-        12
-      ]
-    },
-    {
-      "name": "general-liability-medical-payments-coverage-available-indicator",
-      "pdfName": "GeneralLiability_MedicalPayments_CoverageAvailableIndicator_A",
-      "type": "checkbox",
-      "label": "Indicates that medical payment coverage is to be provided under the policy.",
-      "page": 0,
-      "rect": [
-        367,
-        456,
-        15,
-        12
-      ]
-    },
-    {
-      "name": "general-liability-medical-payments-coverage-available-no-indicator",
-      "pdfName": "GeneralLiability_MedicalPayments_CoverageAvailableNoIndicator_A",
-      "type": "checkbox",
-      "label": "Indicates that medical payment coverage is not to be provided under the policy.",
-      "page": 0,
-      "rect": [
-        403,
-        456,
-        15,
-        12
       ]
     },
     {

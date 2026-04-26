@@ -1,1 +1,16 @@
-{}
+{
+  "_pairs": [
+    {
+      "yes": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableIndicator_A",
+      "no": "GeneralLiability_UninsuredUnderinsuredMotorists_CoverageAvailableNoIndicator_A",
+      "name": "wisconsin-um-uim-coverage-available",
+      "label": "UM / UIM COVERAGE (Wisconsin non-owned-only auto)"
+    },
+    {
+      "yes": "GeneralLiability_MedicalPayments_CoverageAvailableIndicator_A",
+      "no": "GeneralLiability_MedicalPayments_CoverageAvailableNoIndicator_A",
+      "name": "wisconsin-medical-payments-coverage-available",
+      "label": "MEDICAL PAYMENTS COVERAGE (Wisconsin non-owned-only auto)"
+    }
+  ]
+}
