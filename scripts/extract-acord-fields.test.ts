@@ -8,6 +8,7 @@ import {
   PDFTextField,
 } from 'pdf-lib';
 import {
+  applyPairOverrides,
   bestLabelFor,
   classify,
   normalizeOverrides,
@@ -251,6 +252,83 @@ describe('normalizeOverrides', () => {
         rawFields,
       ),
     ).toThrow();
+  });
+});
+
+describe('_pairs override (applyPairOverrides)', () => {
+  type RawField = Parameters<typeof applyPairOverrides>[1][number];
+  const checkboxField = (rawName: string, count = 1): RawField => ({
+    rawName,
+    type: 'checkbox',
+    tu: null,
+    widgets: Array.from({ length: count }, (_, i) => ({
+      rect: [100 + i, 200, 12, 11] as [number, number, number, number],
+      page: 0,
+    })),
+  });
+
+  it('emits a single radio group with yes/no widgets and the declared name/label', () => {
+    const rawFields: RawField[] = [checkboxField('Y'), checkboxField('N')];
+    const { groups, claimed } = applyPairOverrides(
+      [{ yes: 'Y', no: 'N', name: 'my-q', label: 'MY QUESTION?' }],
+      rawFields,
+    );
+    expect(groups).toHaveLength(1);
+    expect(groups[0]).toMatchObject({
+      slug: 'my-q',
+      label: 'MY QUESTION?',
+      type: 'radio',
+      options: ['yes', 'no'],
+    });
+    expect(groups[0].widgets).toHaveLength(2);
+    expect(groups[0].widgets[0]).toMatchObject({ rawName: 'Y', widgetIdx: 0, option: 'yes' });
+    expect(groups[0].widgets[1]).toMatchObject({ rawName: 'N', widgetIdx: 0, option: 'no' });
+    expect([...claimed].sort()).toEqual(['N#0', 'Y#0']);
+  });
+
+  it('respects yesIdx/noIdx for rawNames with multiple widgets', () => {
+    const rawFields: RawField[] = [checkboxField('Y', 2), checkboxField('N', 3)];
+    const { groups, claimed } = applyPairOverrides(
+      [{ yes: 'Y', no: 'N', yesIdx: 1, noIdx: 2, name: 'q', label: 'Q' }],
+      rawFields,
+    );
+    expect(groups[0].widgets[0]).toMatchObject({ rawName: 'Y', widgetIdx: 1 });
+    expect(groups[0].widgets[1]).toMatchObject({ rawName: 'N', widgetIdx: 2 });
+    expect(claimed.has('Y#1')).toBe(true);
+    expect(claimed.has('N#2')).toBe(true);
+  });
+
+  it('returns empty result when _pairs is undefined or empty', () => {
+    expect(applyPairOverrides(undefined, [])).toEqual({ groups: [], claimed: new Set() });
+    expect(applyPairOverrides([], [])).toEqual({ groups: [], claimed: new Set() });
+  });
+
+  it('throws when a rawName is missing', () => {
+    expect(() =>
+      applyPairOverrides(
+        [{ yes: 'Y', no: 'N', name: 'q', label: 'Q' }],
+        [checkboxField('Y')],
+      ),
+    ).toThrow(/"N".*not found/);
+  });
+
+  it('throws when widgetIdx is out of range', () => {
+    expect(() =>
+      applyPairOverrides(
+        [{ yes: 'Y', no: 'N', yesIdx: 5, name: 'q', label: 'Q' }],
+        [checkboxField('Y'), checkboxField('N')],
+      ),
+    ).toThrow(/no widget at index 5/);
+  });
+
+  it('throws when the field is not a checkbox', () => {
+    const rawFields: RawField[] = [
+      { ...checkboxField('Y'), type: 'text' as const },
+      checkboxField('N'),
+    ];
+    expect(() =>
+      applyPairOverrides([{ yes: 'Y', no: 'N', name: 'q', label: 'Q' }], rawFields),
+    ).toThrow(/expected checkbox/);
   });
 });
 

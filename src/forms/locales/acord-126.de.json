@@ -133,8 +133,6 @@
   "general-liability-line-of-business-vendor-coverage-required-explanation": "Erläuterung der erforderlichen Vertriebspartner-Deckung.",
   "general-liability-line-of-business-watercraft-docks-floats-owned-hired-leased-explanation": "Erläuterung eigener, gemieteter oder geleaster Wasserfahrzeuge, Docks oder Flöße.",
   "general-liability-medical-expense-each-person-limit-amount": "Geben Sie das Limit für Heilkosten je Person der Haftpflicht ein.",
-  "general-liability-medical-payments-coverage-available-indicator": "Gibt an, dass die Heilkostendeckung im Rahmen der Police gewährt wird.",
-  "general-liability-medical-payments-coverage-available-no-indicator": "Gibt an, dass die Heilkostendeckung nicht im Rahmen der Police gewährt wird.",
   "general-liability-occurrence-indicator": "Gibt an, dass die Haftpflichtpolice nach dem Schadenereignisprinzip gilt.",
   "general-liability-other-coverage-limit-amount": "Geben Sie das Limit der sonstigen Haftpflichtdeckung ein.",
   "general-liability-other-coverage-premium-amount": "Prämie für sonstige Haftpflichtdeckung.",
@@ -173,5 +171,7 @@
   "swimming-pool-in-ground-indicator": "Gibt an, dass das Schwimmbecken eingelassen ist.",
   "swimming-pool-life-guard-indicator": "Gibt an, dass für das Schwimmbecken ein Rettungsschwimmer vorhanden ist.",
   "swimming-pool-limited-access-indicator": "Gibt an, dass der Zugang zum Schwimmbecken eingeschränkt ist.",
-  "swimming-pool-slide-indicator": "Gibt an, dass das Schwimmbecken über eine Rutsche verfügt."
+  "swimming-pool-slide-indicator": "Gibt an, dass das Schwimmbecken über eine Rutsche verfügt.",
+  "wisconsin-medical-payments-coverage-available": "HEILKOSTENDECKUNG (nicht-eigene Kraftfahrzeuge in Wisconsin)",
+  "wisconsin-um-uim-coverage-available": "UM/UIM-DECKUNG (nicht-eigene Kraftfahrzeuge in Wisconsin)"
 }

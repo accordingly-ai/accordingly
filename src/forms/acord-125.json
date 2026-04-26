@@ -3,6 +3,186 @@
   "title": "ACORD 125 — Commercial Insurance Application",
   "fields": [
     {
+      "name": "prior-coverage-declined",
+      "pdfName": "Check Box21",
+      "type": "radio",
+      "label": "ANY POLICY OR COVERAGE DECLINED, CANCELLED OR NON-RENEWED DURING THE PRIOR 3 YEARS? (NOT APPLICABLE IN MO)",
+      "page": 0,
+      "rect": [
+        281.454,
+        156.874,
+        12.653999999999996,
+        10.691000000000003
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "prior-coverage-declined",
+      "pdfName": "Check Box22",
+      "type": "radio",
+      "label": "ANY POLICY OR COVERAGE DECLINED, CANCELLED OR NON-RENEWED DURING THE PRIOR 3 YEARS? (NOT APPLICABLE IN MO)",
+      "page": 0,
+      "rect": [
+        296.072,
+        156.656,
+        12.87299999999999,
+        10.908999999999992
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
+      "name": "medical-facilities-or-professionals",
+      "pdfName": "Check Box124",
+      "type": "radio",
+      "label": "ANY MEDICAL FACILITIES PROVIDED OR MEDICAL PROFESSIONALS EMPLOYED OR CONTRACTED?",
+      "page": 3,
+      "rect": [
+        281.454,
+        252.874,
+        13.091000000000008,
+        11.126999999999981
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "medical-facilities-or-professionals",
+      "pdfName": "Check Box125",
+      "type": "radio",
+      "label": "ANY MEDICAL FACILITIES PROVIDED OR MEDICAL PROFESSIONALS EMPLOYED OR CONTRACTED?",
+      "page": 3,
+      "rect": [
+        295.745,
+        252.874,
+        13.091000000000008,
+        10.691000000000003
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
+      "name": "operations-sold-acquired-or-discontinued",
+      "pdfName": "Check Box130",
+      "type": "radio",
+      "label": "ANY OPERATIONS SOLD, ACQUIRED, OR DISCONTINUED IN LAST 5 YEARS?",
+      "page": 3,
+      "rect": [
+        281.409,
+        181.042,
+        13.136000000000024,
+        12.705000000000013
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "operations-sold-acquired-or-discontinued",
+      "pdfName": "Check Box131",
+      "type": "radio",
+      "label": "ANY OPERATIONS SOLD, ACQUIRED, OR DISCONTINUED IN LAST 5 YEARS?",
+      "page": 3,
+      "rect": [
+        296.29,
+        181.137,
+        12.217999999999961,
+        12.173000000000002
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
+      "name": "parking-facilities-owned-rented",
+      "pdfName": "Check Box136",
+      "type": "radio",
+      "label": "ANY PARKING FACILITIES OWNED/RENTED?",
+      "page": 3,
+      "rect": [
+        281.672,
+        144.874,
+        12.435999999999979,
+        10.037000000000006
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "parking-facilities-owned-rented",
+      "pdfName": "Check Box137",
+      "type": "radio",
+      "label": "ANY PARKING FACILITIES OWNED/RENTED?",
+      "page": 3,
+      "rect": [
+        296.29,
+        144.438,
+        12.217999999999961,
+        10.90900000000002
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
+      "name": "foreign-products-sold-distributed",
+      "pdfName": "Check Box106",
+      "type": "radio",
+      "label": "FOREIGN PRODUCTS SOLD, DISTRIBUTED, USED AS COMPONENTS?",
+      "page": 3,
+      "rect": [
+        281.454,
+        480.873,
+        12.653999999999996,
+        10.037000000000035
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "yes"
+    },
+    {
+      "name": "foreign-products-sold-distributed",
+      "pdfName": "Check Box107",
+      "type": "radio",
+      "label": "FOREIGN PRODUCTS SOLD, DISTRIBUTED, USED AS COMPONENTS?",
+      "page": 3,
+      "rect": [
+        295.854,
+        480.873,
+        12.653999999999996,
+        10.037000000000035
+      ],
+      "options": [
+        "yes",
+        "no"
+      ],
+      "option": "no"
+    },
+    {
       "name": "bribery-arson-or-any-other-arson-related-crime-in-connection",
       "pdfName": "Check Box9",
       "type": "radio",
@@ -1955,32 +2135,6 @@
       ]
     },
     {
-      "name": "any-policy-or-coverage-declined-cancelled-or-non-renewed-during",
-      "pdfName": "Check Box21",
-      "type": "checkbox",
-      "label": "ANY POLICY OR COVERAGE DECLINED, CANCELLED OR NON-RENEWED DURING",
-      "page": 0,
-      "rect": [
-        281.454,
-        156.874,
-        12.653999999999996,
-        10.691000000000003
-      ]
-    },
-    {
-      "name": "11",
-      "pdfName": "Check Box22",
-      "type": "checkbox",
-      "label": "11.",
-      "page": 0,
-      "rect": [
-        296.072,
-        156.656,
-        12.87299999999999,
-        10.908999999999992
-      ]
-    },
-    {
       "name": "producer-s-signature",
       "pdfName": "Text54",
       "type": "text",
@@ -2306,84 +2460,6 @@
       ]
     },
     {
-      "name": "1-any-medical-facilities-provided-or-medical-professionals",
-      "pdfName": "Check Box124",
-      "type": "checkbox",
-      "label": "1. ANY MEDICAL FACILITIES PROVIDED OR MEDICAL PROFESSIONALS",
-      "page": 3,
-      "rect": [
-        281.454,
-        252.874,
-        13.091000000000008,
-        11.126999999999981
-      ]
-    },
-    {
-      "name": "12-any-structural-alterations-contemplated",
-      "pdfName": "Check Box125",
-      "type": "checkbox",
-      "label": "12. ANY STRUCTURAL ALTERATIONS CONTEMPLATED?",
-      "page": 3,
-      "rect": [
-        295.745,
-        252.874,
-        13.091000000000008,
-        10.691000000000003
-      ]
-    },
-    {
-      "name": "4-any-operations-sold-acquired-or-discontinued-in",
-      "pdfName": "Check Box130",
-      "type": "checkbox",
-      "label": "4. ANY OPERATIONS SOLD, ACQUIRED, OR DISCONTINUED IN",
-      "page": 3,
-      "rect": [
-        281.409,
-        181.042,
-        13.136000000000024,
-        12.705000000000013
-      ]
-    },
-    {
-      "name": "or-subsidiaries",
-      "pdfName": "Check Box131",
-      "type": "checkbox",
-      "label": "OR SUBSIDIARIES?",
-      "page": 3,
-      "rect": [
-        296.29,
-        181.137,
-        12.217999999999961,
-        12.173000000000002
-      ]
-    },
-    {
-      "name": "6-any-watercraft-docks-floats-owned-hired-or-leased",
-      "pdfName": "Check Box136",
-      "type": "checkbox",
-      "label": "6. ANY WATERCRAFT, DOCKS, FLOATS OWNED, HIRED OR LEASED?",
-      "page": 3,
-      "rect": [
-        281.672,
-        144.874,
-        12.435999999999979,
-        10.037000000000006
-      ]
-    },
-    {
-      "name": "your-premises-within-the-last-three-years",
-      "pdfName": "Check Box137",
-      "type": "checkbox",
-      "label": "YOUR PREMISES WITHIN THE LAST THREE YEARS?",
-      "page": 3,
-      "rect": [
-        296.29,
-        144.438,
-        12.217999999999961,
-        10.90900000000002
-      ]
-    },
-    {
       "name": "yes-3",
       "pdfName": "Check Box146",
       "type": "checkbox",
@@ -2511,32 +2587,6 @@
         320.044,
         82.49700000000001,
         20.464
-      ]
-    },
-    {
-      "name": "1-does-applicant-install-service-or-demonstrate-products",
-      "pdfName": "Check Box106",
-      "type": "checkbox",
-      "label": "1. DOES APPLICANT INSTALL, SERVICE OR DEMONSTRATE PRODUCTS?",
-      "page": 3,
-      "rect": [
-        281.454,
-        480.873,
-        12.653999999999996,
-        10.037000000000035
-      ]
-    },
-    {
-      "name": "6-products-recalled-discontinued-changed",
-      "pdfName": "Check Box107",
-      "type": "checkbox",
-      "label": "6. PRODUCTS RECALLED, DISCONTINUED, CHANGED?",
-      "page": 3,
-      "rect": [
-        295.854,
-        480.873,
-        12.653999999999996,
-        10.037000000000035
       ]
     },
     {

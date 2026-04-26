@@ -1,4 +1,37 @@
 {
+  "_pairs": [
+    {
+      "yes": "Check Box21",
+      "no": "Check Box22",
+      "name": "prior-coverage-declined",
+      "label": "ANY POLICY OR COVERAGE DECLINED, CANCELLED OR NON-RENEWED DURING THE PRIOR 3 YEARS? (NOT APPLICABLE IN MO)"
+    },
+    {
+      "yes": "Check Box124",
+      "no": "Check Box125",
+      "name": "medical-facilities-or-professionals",
+      "label": "ANY MEDICAL FACILITIES PROVIDED OR MEDICAL PROFESSIONALS EMPLOYED OR CONTRACTED?"
+    },
+    {
+      "yes": "Check Box130",
+      "no": "Check Box131",
+      "name": "operations-sold-acquired-or-discontinued",
+      "label": "ANY OPERATIONS SOLD, ACQUIRED, OR DISCONTINUED IN LAST 5 YEARS?"
+    },
+    {
+      "yes": "Check Box136",
+      "no": "Check Box137",
+      "name": "parking-facilities-owned-rented",
+      "label": "ANY PARKING FACILITIES OWNED/RENTED?"
+    },
+    {
+      "yes": "Check Box106",
+      "no": "Check Box107",
+      "name": "foreign-products-sold-distributed",
+      "label": "FOREIGN PRODUCTS SOLD, DISTRIBUTED, USED AS COMPONENTS?"
+    }
+  ],
+
   "Agentcode": { "name": "agency-code", "label": "AGENCY CODE" },
 
   "agentsname": {

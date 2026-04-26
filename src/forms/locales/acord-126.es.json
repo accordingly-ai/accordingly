@@ -133,8 +133,6 @@
   "general-liability-line-of-business-vendor-coverage-required-explanation": "Explicación de cualquier cobertura de proveedor requerida.",
   "general-liability-line-of-business-watercraft-docks-floats-owned-hired-leased-explanation": "Explicación de embarcaciones, muelles o flotadores propios, alquilados o arrendados.",
   "general-liability-medical-expense-each-person-limit-amount": "Ingrese el límite por persona de gastos médicos de responsabilidad general.",
-  "general-liability-medical-payments-coverage-available-indicator": "Indica que la cobertura de pagos médicos se proporcionará bajo la póliza.",
-  "general-liability-medical-payments-coverage-available-no-indicator": "Indica que la cobertura de pagos médicos no se proporcionará bajo la póliza.",
   "general-liability-occurrence-indicator": "Indica que la póliza de responsabilidad general aplica sobre base de ocurrencia.",
   "general-liability-other-coverage-limit-amount": "Ingrese el límite de otra cobertura de responsabilidad general.",
   "general-liability-other-coverage-premium-amount": "Prima de otra cobertura de responsabilidad general.",
@@ -173,5 +171,7 @@
   "swimming-pool-in-ground-indicator": "Indica que la piscina es subterránea.",
   "swimming-pool-life-guard-indicator": "Indica que hay socorrista en la piscina.",
   "swimming-pool-limited-access-indicator": "Indica que el acceso a la piscina es limitado.",
-  "swimming-pool-slide-indicator": "Indica que la piscina tiene tobogán."
+  "swimming-pool-slide-indicator": "Indica que la piscina tiene tobogán.",
+  "wisconsin-medical-payments-coverage-available": "COBERTURA DE PAGOS MÉDICOS (auto no propio en Wisconsin)",
+  "wisconsin-um-uim-coverage-available": "COBERTURA UM/UIM (auto no propio en Wisconsin)"
 }

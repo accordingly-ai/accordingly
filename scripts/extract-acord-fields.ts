@@ -287,11 +287,23 @@ interface OverrideEntry {
   label?: string;
 }
 
+interface PairOverride {
+  yes: string;
+  no: string;
+  yesIdx?: number;
+  noIdx?: number;
+  name: string;
+  label: string;
+}
+
 interface OverrideFile {
+  _pairs?: PairOverride[];
   [rawName: string]:
+    | PairOverride[]
     | OverrideEntry
     | { widgets: OverrideEntry[] }
-    | { byPage: Record<string, OverrideEntry> };
+    | { byPage: Record<string, OverrideEntry> }
+    | undefined;
 }
 
 interface RawField {
@@ -329,6 +341,7 @@ export function normalizeOverrides(file: OverrideFile, rawFields: RawField[]): N
   const splitRawNames = new Set<string>();
 
   for (const [rawName, raw] of Object.entries(file)) {
+    if (rawName === '_pairs') continue;
     if (!raw || typeof raw !== 'object') continue;
     const rf = byRawName.get(rawName);
     const hasWidgets = 'widgets' in raw && Array.isArray((raw as { widgets?: unknown }).widgets);
@@ -387,6 +400,104 @@ export function normalizeOverrides(file: OverrideFile, rawFields: RawField[]): N
   }
 
   return { byKey, splitRawNames };
+}
+
+// --- Declared Y/N pair overrides ----------------------------------------
+
+interface PairClaim {
+  decl: PairOverride;
+  yesIdx: number;
+  noIdx: number;
+}
+
+/**
+ * Validate `_pairs` declarations against the discovered rawFields and return
+ * one synthetic radio group per declaration plus the set of widget keys
+ * (`${rawName}#${idx}`) the declarations claim. Throws on any mismatch.
+ */
+export function applyPairOverrides(
+  pairs: PairOverride[] | undefined,
+  rawFields: RawField[],
+): { groups: LogicalGroup[]; claimed: Set<string> } {
+  const groups: LogicalGroup[] = [];
+  const claimed = new Set<string>();
+  if (!pairs || pairs.length === 0) return { groups, claimed };
+
+  const byRawName = new Map<string, RawField>();
+  for (const rf of rawFields) byRawName.set(rf.rawName, rf);
+
+  const validated: PairClaim[] = [];
+  for (const p of pairs) {
+    if (!p || typeof p !== 'object') {
+      throw new Error(`_pairs: entry is not an object`);
+    }
+    if (typeof p.yes !== 'string' || typeof p.no !== 'string') {
+      throw new Error(`_pairs: entry missing yes/no rawName`);
+    }
+    if (typeof p.name !== 'string' || typeof p.label !== 'string') {
+      throw new Error(`_pairs[${p.yes}/${p.no}]: missing name/label`);
+    }
+    const yesIdx = p.yesIdx ?? 0;
+    const noIdx = p.noIdx ?? 0;
+    const yesField = byRawName.get(p.yes);
+    if (!yesField) {
+      throw new Error(`_pairs: rawName "${p.yes}" (yes) not found in form`);
+    }
+    const noField = byRawName.get(p.no);
+    if (!noField) {
+      throw new Error(`_pairs: rawName "${p.no}" (no) not found in form`);
+    }
+    if (!yesField.widgets[yesIdx]) {
+      throw new Error(
+        `_pairs: rawName "${p.yes}" has no widget at index ${yesIdx} (count=${yesField.widgets.length})`,
+      );
+    }
+    if (!noField.widgets[noIdx]) {
+      throw new Error(
+        `_pairs: rawName "${p.no}" has no widget at index ${noIdx} (count=${noField.widgets.length})`,
+      );
+    }
+    if (yesField.type !== 'checkbox') {
+      throw new Error(`_pairs: rawName "${p.yes}" is type "${yesField.type}", expected checkbox`);
+    }
+    if (noField.type !== 'checkbox') {
+      throw new Error(`_pairs: rawName "${p.no}" is type "${noField.type}", expected checkbox`);
+    }
+    validated.push({ decl: p, yesIdx, noIdx });
+  }
+
+  for (const { decl, yesIdx, noIdx } of validated) {
+    const yesField = byRawName.get(decl.yes)!;
+    const noField = byRawName.get(decl.no)!;
+    const yesW = yesField.widgets[yesIdx];
+    const noW = noField.widgets[noIdx];
+    claimed.add(`${decl.yes}#${yesIdx}`);
+    claimed.add(`${decl.no}#${noIdx}`);
+    groups.push({
+      slug: decl.name,
+      label: decl.label,
+      type: 'radio',
+      options: ['yes', 'no'],
+      widgets: [
+        {
+          rawName: decl.yes,
+          widgetIdx: yesIdx,
+          page: yesW.page,
+          rect: yesW.rect,
+          option: 'yes',
+        },
+        {
+          rawName: decl.no,
+          widgetIdx: noIdx,
+          page: noW.page,
+          rect: noW.rect,
+          option: 'no',
+        },
+      ],
+    });
+  }
+
+  return { groups, claimed };
 }
 
 // --- Y/N pair detection --------------------------------------------------
@@ -585,9 +696,23 @@ async function extract(pdfPath: string): Promise<Manifest> {
   // ---- Build initial logical groups ------------------------------------
   const groups: LogicalGroup[] = [];
 
+  // Apply explicit `_pairs` declarations from the override file. These run
+  // before both Path A and Path B so the same mechanism works for either,
+  // and the claimed widgets are removed from downstream processing.
+  const overrideFile = loadOverrides(id);
+  const { groups: pairGroups, claimed: claimedWidgets } = applyPairOverrides(
+    overrideFile._pairs,
+    rawFields,
+  );
+  groups.push(...pairGroups);
+
   if (anyTU) {
     // Path A: one group per rawField, slug from raw name, label from TU.
     for (const rf of rawFields) {
+      const remaining = rf.widgets
+        .map((w, i) => ({ w, i }))
+        .filter(({ i }) => !claimedWidgets.has(`${rf.rawName}#${i}`));
+      if (remaining.length === 0) continue;
       const slug = slugFromRawName(rf.rawName) || slugifyText(rf.rawName);
       const label = rf.tu ? cleanTU(rf.tu) : '';
       groups.push({
@@ -596,7 +721,7 @@ async function extract(pdfPath: string): Promise<Manifest> {
         type: rf.type,
         options: rf.options,
         maxLength: rf.maxLength,
-        widgets: rf.widgets.map((w, i) => ({
+        widgets: remaining.map(({ w, i }) => ({
           rawName: rf.rawName,
           widgetIdx: i,
           page: w.page,
@@ -622,7 +747,8 @@ async function extract(pdfPath: string): Promise<Manifest> {
       }
     }
 
-    // Detect Y/N pairs across all checkbox widgets.
+    // Detect Y/N pairs across all checkbox widgets, skipping any already
+    // claimed by an explicit `_pairs` override.
     const pairCandidates: PairCandidate[] = [];
     const widgetIsCheckbox = new Map<string, boolean>();
     for (const rf of rawFields) {
@@ -630,6 +756,7 @@ async function extract(pdfPath: string): Promise<Manifest> {
       for (let i = 0; i < rf.widgets.length; i++) {
         const key = `${rf.rawName}#${i}`;
         widgetIsCheckbox.set(key, true);
+        if (claimedWidgets.has(key)) continue;
         pairCandidates.push({
           rawName: rf.rawName,
           widgetIdx: i,
@@ -677,7 +804,11 @@ async function extract(pdfPath: string): Promise<Manifest> {
     for (const rf of rawFields) {
       const remainingWidgets = rf.widgets
         .map((w, i) => ({ w, i }))
-        .filter(({ i }) => !pairedWidgetKeys.has(`${rf.rawName}#${i}`));
+        .filter(
+          ({ i }) =>
+            !pairedWidgetKeys.has(`${rf.rawName}#${i}`) &&
+            !claimedWidgets.has(`${rf.rawName}#${i}`),
+        );
       if (remainingWidgets.length === 0) continue;
       const counts = new Map<string, number>();
       for (const { i } of remainingWidgets) {
@@ -708,7 +839,6 @@ async function extract(pdfPath: string): Promise<Manifest> {
   }
 
   // ---- Apply overrides --------------------------------------------------
-  const overrideFile = loadOverrides(id);
   const overrides = normalizeOverrides(overrideFile, rawFields);
 
   const finalGroups: LogicalGroup[] = [];
