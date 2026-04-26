@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface CameraCaptureModalProps {
   onCapture: (file: File) => void;
@@ -9,7 +8,6 @@ interface CameraCaptureModalProps {
 type FacingMode = 'environment' | 'user';
 
 export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalProps) {
-  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -59,7 +57,7 @@ export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalPro
       } catch (err) {
         if (cancelled) return;
         const message = err instanceof Error ? err.message : String(err);
-        setError(message || t('chat.cameraError'));
+        setError(message || "Couldn't start the camera");
       }
     }
 
@@ -72,7 +70,7 @@ export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalPro
         streamRef.current = null;
       }
     };
-  }, [facingMode, t]);
+  }, [facingMode]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -130,14 +128,14 @@ export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalPro
         <div className="relative flex items-center justify-center bg-black aspect-video">
           {error ? (
             <div className="flex flex-col items-center gap-3 p-6 text-center">
-              <div className="text-sm text-red-300">{t('chat.cameraError')}</div>
+              <div className="text-sm text-red-300">Couldn't start the camera</div>
               <div className="text-[11px] text-neutral-400 break-words max-w-md">{error}</div>
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 className="mt-2 rounded bg-neutral-700 hover:bg-neutral-600 text-neutral-100 text-sm px-3 py-1.5"
               >
-                {t('chat.cameraFallback')}
+                Choose a file instead
               </button>
               <input
                 ref={fileInputRef}
@@ -164,7 +162,7 @@ export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalPro
             onClick={onClose}
             className="rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-100 text-sm px-3 py-1.5"
           >
-            {t('chat.cameraClose')}
+            Close
           </button>
           <div className="flex items-center gap-2">
             {hasMultipleCameras && !error && (
@@ -172,8 +170,8 @@ export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalPro
                 type="button"
                 onClick={handleSwitch}
                 className="rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-100 text-sm px-3 py-1.5"
-                title={t('chat.cameraSwitch')}
-                aria-label={t('chat.cameraSwitch')}
+                title="Switch camera"
+                aria-label="Switch camera"
               >
                 ⇆
               </button>
@@ -185,7 +183,7 @@ export function CameraCaptureModal({ onCapture, onClose }: CameraCaptureModalPro
                 disabled={!ready}
                 className="rounded bg-blue-600 hover:bg-blue-500 disabled:bg-neutral-700 disabled:text-neutral-500 text-white text-sm px-4 py-1.5"
               >
-                {t('chat.cameraCapture')}
+                Capture
               </button>
             )}
           </div>
