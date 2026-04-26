@@ -44,6 +44,7 @@
     "voiceOutput": "Salida de voz",
     "holdToTalk": "Mantén pulsado para hablar",
     "releaseToSend": "Suelta para enviar",
+    "pttHint": "o mantén ⌘/Ctrl+Espacio",
     "dropToAttach": "Suelta archivos para adjuntar"
   },
   "language": {
