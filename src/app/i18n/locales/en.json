@@ -45,7 +45,8 @@
     "holdToTalk": "Hold to talk",
     "releaseToSend": "Release to send",
     "pttHint": "or hold ⌘/Ctrl+Space",
-    "dropToAttach": "Drop files to attach"
+    "dropToAttach": "Drop files to attach",
+    "recordingTooShort": "Hold the mic a moment longer."
   },
   "language": {
     "label": "Language",

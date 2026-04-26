@@ -45,7 +45,8 @@
     "holdToTalk": "Zum Sprechen gedrückt halten",
     "releaseToSend": "Loslassen zum Senden",
     "pttHint": "oder ⌘/Strg+Leertaste halten",
-    "dropToAttach": "Dateien zum Anhängen ablegen"
+    "dropToAttach": "Dateien zum Anhängen ablegen",
+    "recordingTooShort": "Halte das Mikrofon einen Moment länger."
   },
   "language": {
     "label": "Sprache",

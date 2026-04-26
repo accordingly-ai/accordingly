@@ -45,7 +45,8 @@
     "holdToTalk": "Mantén pulsado para hablar",
     "releaseToSend": "Suelta para enviar",
     "pttHint": "o mantén ⌘/Ctrl+Espacio",
-    "dropToAttach": "Suelta archivos para adjuntar"
+    "dropToAttach": "Suelta archivos para adjuntar",
+    "recordingTooShort": "Mantén pulsado el micrófono un momento más."
   },
   "language": {
     "label": "Idioma",
