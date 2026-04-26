@@ -112,19 +112,34 @@ function loadScript(src: string): Promise<void> {
   });
 }
 
+const PICKER_BLOCKED_MESSAGE =
+  "Couldn't open Google Picker — check that an ad-blocker (e.g. Brave Shields) isn't blocking apis.google.com.";
+
 let pickerLoaded = false;
 async function ensurePickerLoaded(): Promise<void> {
-  await loadScript('https://apis.google.com/js/api.js');
+  try {
+    await loadScript('https://apis.google.com/js/api.js');
+  } catch {
+    throw new Error(PICKER_BLOCKED_MESSAGE);
+  }
   if (pickerLoaded) return;
   await new Promise<void>((resolve, reject) => {
     if (!window.gapi) {
-      reject(new Error('gapi not available'));
+      reject(new Error(PICKER_BLOCKED_MESSAGE));
       return;
     }
-    window.gapi.load('picker', () => {
-      pickerLoaded = true;
-      resolve();
-    });
+    try {
+      window.gapi.load('picker', () => {
+        if (!window.google?.picker) {
+          reject(new Error(PICKER_BLOCKED_MESSAGE));
+          return;
+        }
+        pickerLoaded = true;
+        resolve();
+      });
+    } catch {
+      reject(new Error(PICKER_BLOCKED_MESSAGE));
+    }
   });
 }
 
@@ -298,7 +313,16 @@ export function useDrive(): UseDriveResult {
           ].join(','),
         );
 
-      await new Promise<void>((resolve) => {
+      await new Promise<void>((resolve, reject) => {
+        let settled = false;
+        let timeoutId: ReturnType<typeof setTimeout> | undefined;
+        const settle = (fn: () => void) => {
+          if (settled) return;
+          settled = true;
+          if (timeoutId !== undefined) clearTimeout(timeoutId);
+          fn();
+        };
+
         const picker = new g.picker.PickerBuilder()
           .addView(docsView)
           .setOAuthToken(accessToken)
@@ -320,13 +344,24 @@ export function useDrive(): UseDriveResult {
                 for (const f of picked) byId.set(f.id, f);
                 return [...byId.values()];
               });
-              resolve();
+              settle(resolve);
             } else if (data.action === g.picker.Action.CANCEL) {
-              resolve();
+              settle(resolve);
             }
           })
           .build();
-        picker.setVisible(true);
+        try {
+          picker.setVisible(true);
+        } catch {
+          settle(() => reject(new Error(PICKER_BLOCKED_MESSAGE)));
+          return;
+        }
+
+        timeoutId = setTimeout(() => {
+          if (!document.querySelector('.picker-dialog')) {
+            settle(() => reject(new Error(PICKER_BLOCKED_MESSAGE)));
+          }
+        }, 4000);
       });
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
