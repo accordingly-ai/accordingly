@@ -106,7 +106,12 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
       const content = (m.content ?? '').trim();
       if (!content) continue;
       void tts.play(content).catch((e) => {
-        setVoiceError(e instanceof Error ? e.message : String(e));
+        const name = e instanceof DOMException ? e.name : '';
+        const msg = e instanceof Error ? e.message : String(e);
+        if (name === 'AbortError' || (msg.includes('play()') && msg.includes('pause()'))) {
+          return;
+        }
+        setVoiceError(msg);
       });
     }
     lastSpokenIndexRef.current = advanced;
