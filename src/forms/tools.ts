@@ -1,3 +1,4 @@
+import { AGENCY_FIELD_MAP, AGENCY_PROFILE } from './agency-profile';
 import type { ApplicationAnswers, FormFieldDef, FormManifest } from './types';
 
 export interface ChatCompletionTool {
@@ -55,6 +56,15 @@ export const FORM_TOOLS: ChatCompletionTool[] = [
         },
         required: ['updates'],
       },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'prefill_agency_info',
+      description:
+        "Fill the broker's own agency info block (name, address, city, state, zip, phone, fax, email, code) from the stored agency profile. Use when the broker asks to add/fill agency or agent info. Skips fields that already have a non-empty value — those are returned as `skipped` so you can confirm before overwriting via set_fields.",
+      parameters: { type: 'object', properties: {}, required: [] },
     },
   },
 ];
@@ -207,6 +217,39 @@ export function executeTool(
         applied,
         ...(errors.length ? { errors } : {}),
       },
+      updates,
+    };
+  }
+
+  if (name === 'prefill_agency_info') {
+    const mapping = AGENCY_FIELD_MAP[manifest.id];
+    if (!mapping) {
+      return {
+        result: {
+          supported: false,
+          formId: manifest.id,
+          message: 'No agency profile mapping for this form. Use set_fields instead.',
+        },
+      };
+    }
+    const applied: { name: string; value: string }[] = [];
+    const skipped: { name: string; existing: FieldValue }[] = [];
+    const updates: Record<string, FieldValue> = {};
+    for (const [profileKey, fieldNames] of Object.entries(mapping)) {
+      const value = AGENCY_PROFILE[profileKey as keyof typeof AGENCY_PROFILE];
+      if (!value) continue;
+      for (const n of fieldNames ?? []) {
+        if (!fieldIndex.has(n)) continue;
+        if (isFilled(answers[n])) {
+          skipped.push({ name: n, existing: answers[n] ?? null });
+          continue;
+        }
+        updates[n] = value;
+        applied.push({ name: n, value });
+      }
+    }
+    return {
+      result: { applied, ...(skipped.length ? { skipped } : {}) },
       updates,
     };
   }
