@@ -315,6 +315,115 @@ describe('executeTool: set_fields', () => {
   });
 });
 
+describe('executeTool: prefill_agency_info', () => {
+  const acord125Manifest: FormManifest = {
+    id: 'acord-125',
+    title: 'ACORD 125',
+    fields: [
+      'agency-name',
+      'agency-name-2',
+      'agency-name-3',
+      'agency-street-address',
+      'agency-street-address-2',
+      'agency-street-address-3',
+      'agency-city',
+      'agency-city-2',
+      'agency-city-3',
+      'agency-state',
+      'agency-state-2',
+      'agency-state-3',
+      'agency-zip',
+      'agency-zip-2',
+      'agency-zip-3',
+      'agency-phone',
+      'agency-phone-2',
+      'agency-phone-3',
+      'agency-fax',
+      'agency-fax-2',
+      'agency-fax-3',
+      'agency-email',
+      'agency-code',
+    ].map((name) => ({
+      name,
+      pdfName: name,
+      type: 'text' as const,
+      label: name,
+      page: 0,
+      rect: [0, 0, 10, 10] as [number, number, number, number],
+    })),
+  };
+
+  it('fills all mapped agency fields when answers are empty', () => {
+    const r = executeTool('prefill_agency_info', {}, acord125Manifest, {});
+    const result = r.result as {
+      applied: { name: string; value: string }[];
+      skipped?: unknown[];
+    };
+    expect(result.skipped).toBeUndefined();
+    const appliedNames = result.applied.map((a) => a.name).sort();
+    expect(appliedNames).toEqual(
+      [
+        'agency-name',
+        'agency-name-2',
+        'agency-name-3',
+        'agency-street-address',
+        'agency-street-address-2',
+        'agency-street-address-3',
+        'agency-city',
+        'agency-city-2',
+        'agency-city-3',
+        'agency-state',
+        'agency-state-2',
+        'agency-state-3',
+        'agency-zip',
+        'agency-zip-2',
+        'agency-zip-3',
+        'agency-phone',
+        'agency-phone-2',
+        'agency-phone-3',
+        'agency-code',
+      ].sort(),
+    );
+    expect(r.updates?.['agency-name']).toBe('alex');
+    expect(r.updates?.['agency-state-3']).toBe('ca');
+    expect(r.updates?.['agency-code']).toBe('12345678');
+    // empty profile entries (fax, email) are not written
+    expect(r.updates?.['agency-fax']).toBeUndefined();
+    expect(r.updates?.['agency-email']).toBeUndefined();
+  });
+
+  it('skips fields that already have a non-empty value', () => {
+    const r = executeTool(
+      'prefill_agency_info',
+      {},
+      acord125Manifest,
+      { 'agency-name': 'differentvalue' },
+    );
+    const result = r.result as {
+      applied: { name: string }[];
+      skipped: { name: string; existing: unknown }[];
+    };
+    expect(result.skipped).toEqual([{ name: 'agency-name', existing: 'differentvalue' }]);
+    expect(result.applied.find((a) => a.name === 'agency-name')).toBeUndefined();
+    expect(result.applied.find((a) => a.name === 'agency-name-2')?.name).toBe('agency-name-2');
+    expect(r.updates?.['agency-name']).toBeUndefined();
+    expect(r.updates?.['agency-name-2']).toBe('alex');
+  });
+
+  it('returns supported:false for unmapped form ids', () => {
+    const acord126Manifest: FormManifest = {
+      id: 'acord-126',
+      title: 'ACORD 126',
+      fields: [],
+    };
+    const r = executeTool('prefill_agency_info', {}, acord126Manifest, {});
+    const result = r.result as { supported: boolean; formId: string };
+    expect(result.supported).toBe(false);
+    expect(result.formId).toBe('acord-126');
+    expect(r.updates).toBeUndefined();
+  });
+});
+
 describe('executeTool: unknown tool', () => {
   it('returns an error result without throwing', () => {
     const r = executeTool('does_not_exist', {}, manifest, {});

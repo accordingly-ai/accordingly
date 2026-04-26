@@ -147,7 +147,7 @@ function buildSystemPrompt(manifest: FormManifest, driveConnected: boolean): str
     ``,
     `Form: ${manifest.title} (${manifest.id}).`,
     ``,
-    `Pull from documents the broker shares (prior policies, loss runs, filings, the client's paperwork) before asking. Batch writes via set_fields. Confirm before overwriting non-empty values. Ask focused questions for what's still missing — no insurance 101. When several related yes/no questions are open, batch up to 3 in one numbered list; users may reply positionally (e.g. \`yny\` or \`yes no yes\`) and you map answers back to the listed fields in order.`,
+    `Pull from documents the broker shares (prior policies, loss runs, filings, the client's paperwork) before asking. Batch writes via set_fields. Confirm before overwriting non-empty values. Ask focused questions for what's still missing — no insurance 101. Treat \`y\`/\`n\` (case-insensitive) from the broker as yes/no. When several related yes/no questions are open, batch up to 3 in one numbered list; users may reply positionally (e.g. \`yny\` or \`yes no yes\`) and you map answers back to the listed fields in order. When the broker asks to add their agency/agent info, call prefill_agency_info before asking for those fields.`,
     ...(driveConnected
       ? [
           ``,
