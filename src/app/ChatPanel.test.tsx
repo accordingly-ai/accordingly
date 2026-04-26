@@ -55,7 +55,9 @@ describe('ChatPanel', () => {
     render(
       <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
     );
-    expect(screen.getByText(/Tell the agent about your business/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Hi! I'll help you fill out this insurance application/),
+    ).toBeInTheDocument();
   });
 
   it('sends a typed message and clears the input on submit', async () => {
@@ -91,7 +93,7 @@ describe('ChatPanel', () => {
     expect(screen.getByText('hi back!')).toBeInTheDocument();
   });
 
-  it('shows error banner and Clear button when present', async () => {
+  it('shows error banner and lets the user reset via the settings popover', async () => {
     const user = userEvent.setup();
     hookState.messages = [{ role: 'user', content: 'go' }];
     hookState.error = 'OpenAI exploded';
@@ -99,7 +101,8 @@ describe('ChatPanel', () => {
       <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
     );
     expect(screen.getByText('OpenAI exploded')).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: 'Clear' }));
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    await user.click(screen.getByRole('button', { name: 'Reset conversation' }));
     expect(hookState.reset).toHaveBeenCalledTimes(1);
   });
 });
