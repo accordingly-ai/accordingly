@@ -67,7 +67,7 @@ describe('buildSystemPrompt (via /api/chat)', () => {
     const body = cap.read();
     const sys = body.messages.find((m) => m.role === 'system');
     expect(sys).toBeDefined();
-    expect(sys!.content).toContain('friendly and competent insurance assistant');
+    expect(sys!.content).toContain('commercial insurance broker');
     expect(sys!.content).toContain('acord-125');
   });
 
