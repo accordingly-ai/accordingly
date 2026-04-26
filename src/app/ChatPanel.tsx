@@ -64,6 +64,7 @@ export function ChatPanel({
   const [cameraOpen, setCameraOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const {
     settings,
@@ -180,6 +181,7 @@ export function ChatPanel({
     } else {
       await sendMessage(text);
     }
+    textareaRef.current?.focus();
   };
 
   const handleFiles = (files: FileList | File[]) => {
@@ -492,6 +494,7 @@ export function ChatPanel({
               📎
             </button>
             <textarea
+              ref={textareaRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
