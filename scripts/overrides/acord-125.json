@@ -32,6 +32,22 @@
     }
   ],
 
+  "_groups": [
+    {
+      "name": "entity-type",
+      "label": "APPLICANT ENTITY TYPE",
+      "members": [
+        { "rawName": "Check Box165", "option": "individual" },
+        { "rawName": "Check Box167", "option": "corporation" },
+        { "rawName": "Check Box169", "option": "subchapter-s-corporation" },
+        { "rawName": "Check Box171", "option": "llc" },
+        { "rawName": "Check Box166", "option": "joint-venture" },
+        { "rawName": "Check Box168", "option": "partnership" },
+        { "rawName": "Check Box170", "option": "not-for-profit-org" }
+      ]
+    }
+  ],
+
   "Agentcode": { "name": "agency-code", "label": "AGENCY CODE" },
 
   "agentsname": {
