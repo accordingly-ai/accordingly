@@ -44,7 +44,10 @@
     "voiceOutput": "Sprachausgabe",
     "holdToTalk": "Zum Sprechen gedrückt halten",
     "releaseToSend": "Loslassen zum Senden",
-    "dropToAttach": "Dateien zum Anhängen ablegen"
+    "dropToAttach": "Dateien zum Anhängen ablegen",
+    "attach": "Dateien anhängen",
+    "attachDevice": "Vom Gerät hochladen",
+    "attachDrive": "Aus Drive hinzufügen"
   },
   "language": {
     "label": "Sprache",

@@ -44,7 +44,10 @@
     "voiceOutput": "Voice output",
     "holdToTalk": "Hold to talk",
     "releaseToSend": "Release to send",
-    "dropToAttach": "Drop files to attach"
+    "dropToAttach": "Drop files to attach",
+    "attach": "Attach files",
+    "attachDevice": "Upload from device",
+    "attachDrive": "Add from Drive"
   },
   "language": {
     "label": "Language",

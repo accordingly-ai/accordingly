@@ -44,7 +44,10 @@
     "voiceOutput": "Salida de voz",
     "holdToTalk": "Mantén pulsado para hablar",
     "releaseToSend": "Suelta para enviar",
-    "dropToAttach": "Suelta archivos para adjuntar"
+    "dropToAttach": "Suelta archivos para adjuntar",
+    "attach": "Adjuntar archivos",
+    "attachDevice": "Subir desde el dispositivo",
+    "attachDrive": "Añadir desde Drive"
   },
   "language": {
     "label": "Idioma",

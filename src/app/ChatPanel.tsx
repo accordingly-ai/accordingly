@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
 import type { FieldValue } from '../forms/tools';
 import { useChatAgent, type ChatAttachment, type ChatMessage } from './useChatAgent';
-import { extractDocument, extractDroppedFile } from './drive/extractors';
+import { extractDocument, extractDroppedFile, extractFile } from './drive/extractors';
+import type { DriveFile } from './drive/types';
+import type { UseDriveResult } from './drive/useDrive';
 import {
   transcribe,
   useMicRecorder,
@@ -65,6 +67,7 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   const [scanning, setScanning] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const {
     settings,
@@ -177,6 +180,54 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           );
         },
       );
+    });
+  };
+
+  const handleDriveFiles = (driveFiles: DriveFile[]) => {
+    if (driveFiles.length === 0) return;
+    const entries: PendingAttachment[] = driveFiles.map((file) => ({
+      id: nextAttachmentId(),
+      name: file.name,
+      mimeType: file.mimeType,
+      status: 'extracting' as const,
+    }));
+    setPending((prev) => [...prev, ...entries]);
+    driveFiles.forEach((file, i) => {
+      const id = entries[i].id;
+      void (async () => {
+        try {
+          const token = await drive.getToken();
+          const result = await extractFile(file, token);
+          setPending((prev) =>
+            prev.map((p) =>
+              p.id === id
+                ? {
+                    id,
+                    name: file.name,
+                    mimeType: file.mimeType,
+                    status: 'ready',
+                    text: result.text,
+                    ...(result.truncated ? { truncated: true } : {}),
+                  }
+                : p,
+            ),
+          );
+        } catch (err) {
+          setPending((prev) =>
+            prev.map((p) =>
+              p.id === id
+                ? {
+                    id,
+                    name: file.name,
+                    mimeType: file.mimeType,
+                    status: 'error',
+                    error: err instanceof Error ? err.message : String(err),
+                  }
+                : p,
+            ),
+          );
+        }
+      })();
     });
   };
 
@@ -450,6 +501,23 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
                 {recorder.recording ? '●' : '🎤'}
               </button>
             )}
+            <input
+              ref={fileInputRef}
+              type="file"
+              multiple
+              className="hidden"
+              onChange={(e) => {
+                const files = e.target.files;
+                if (files && files.length > 0) handleFiles(files);
+                e.target.value = '';
+              }}
+            />
+            <AttachMenu
+              drive={drive}
+              disabled={streaming || recorder.recording}
+              onPickDevice={() => fileInputRef.current?.click()}
+              onPickDrive={handleDriveFiles}
+            />
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -598,6 +666,100 @@ function PendingChip({
       >
         ×
       </button>
+    </div>
+  );
+}
+
+function AttachMenu({
+  drive,
+  disabled,
+  onPickDevice,
+  onPickDrive,
+}: {
+  drive: UseDriveResult;
+  disabled: boolean;
+  onPickDevice: () => void;
+  onPickDrive: (files: DriveFile[]) => void;
+}) {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onClick);
+    return () => document.removeEventListener('mousedown', onClick);
+  }, [open]);
+
+  const handleDevice = () => {
+    setOpen(false);
+    onPickDevice();
+  };
+
+  const handleDrive = async () => {
+    setOpen(false);
+    setBusy(true);
+    try {
+      if (!drive.connected) {
+        await drive.connect();
+      }
+      const picked = await drive.pickFiles();
+      onPickDrive(picked);
+    } catch {
+      // error surfaced via drive.error
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="relative shrink-0 self-end" ref={wrapRef}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        disabled={disabled || busy}
+        title={t('chat.attach')}
+        aria-label={t('chat.attach')}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        className={
+          'rounded text-white text-sm w-9 h-9 flex items-center justify-center ' +
+          'bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500'
+        }
+      >
+        📎
+      </button>
+      {open && (
+        <div
+          role="menu"
+          className="absolute left-0 bottom-full mb-1 z-20 w-48 rounded-md border border-neutral-700 bg-neutral-900 shadow-lg p-1 text-sm text-neutral-200"
+        >
+          <button
+            type="button"
+            role="menuitem"
+            onClick={handleDevice}
+            className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-800"
+          >
+            {t('chat.attachDevice')}
+          </button>
+          {drive.configured && (
+            <button
+              type="button"
+              role="menuitem"
+              onClick={() => void handleDrive()}
+              className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-800"
+            >
+              {t('chat.attachDrive')}
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
