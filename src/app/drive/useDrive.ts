@@ -193,6 +193,7 @@ export interface UseDriveResult {
   connect: () => Promise<void>;
   disconnect: () => void;
   addFiles: () => Promise<void>;
+  pickFiles: () => Promise<DriveFile[]>;
   removeFile: (id: string) => void;
   getToken: () => Promise<string>;
 }
@@ -283,11 +284,12 @@ export function useDrive(): UseDriveResult {
     }
   }, [requestToken]);
 
-  const addFiles = useCallback(async () => {
+  const pickFiles = useCallback(async (): Promise<DriveFile[]> => {
     setError(null);
     if (!configured) {
-      setError('Google Drive is not configured');
-      return;
+      const msg = 'Google Drive is not configured';
+      setError(msg);
+      throw new Error(msg);
     }
     try {
       const accessToken = await getToken();
@@ -313,7 +315,7 @@ export function useDrive(): UseDriveResult {
           ].join(','),
         );
 
-      await new Promise<void>((resolve, reject) => {
+      return await new Promise<DriveFile[]>((resolve, reject) => {
         let settled = false;
         let timeoutId: ReturnType<typeof setTimeout> | undefined;
         const settle = (fn: () => void) => {
@@ -338,15 +340,9 @@ export function useDrive(): UseDriveResult {
                 mimeType: d.mimeType,
                 modifiedTime: d.lastEditedUtc ? new Date(d.lastEditedUtc).toISOString() : undefined,
               }));
-              setFiles((prev) => {
-                const byId = new Map<string, DriveFile>();
-                for (const f of prev) byId.set(f.id, f);
-                for (const f of picked) byId.set(f.id, f);
-                return [...byId.values()];
-              });
-              settle(resolve);
+              settle(() => resolve(picked));
             } else if (data.action === g.picker.Action.CANCEL) {
-              settle(resolve);
+              settle(() => resolve([]));
             }
           })
           .build();
@@ -365,8 +361,24 @@ export function useDrive(): UseDriveResult {
       });
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
+      throw e;
     }
   }, [configured, getToken]);
+
+  const addFiles = useCallback(async () => {
+    try {
+      const picked = await pickFiles();
+      if (picked.length === 0) return;
+      setFiles((prev) => {
+        const byId = new Map<string, DriveFile>();
+        for (const f of prev) byId.set(f.id, f);
+        for (const f of picked) byId.set(f.id, f);
+        return [...byId.values()];
+      });
+    } catch {
+      // error already surfaced via setError in pickFiles
+    }
+  }, [pickFiles]);
 
   const removeFile = useCallback((id: string) => {
     setFiles((prev) => prev.filter((f) => f.id !== id));
@@ -394,6 +406,7 @@ export function useDrive(): UseDriveResult {
     connect,
     disconnect,
     addFiles,
+    pickFiles,
     removeFile,
     getToken,
   };

@@ -51,7 +51,10 @@
     "releaseToSend": "Release to send",
     "pttHint": "or hold ⌘/Ctrl+Space",
     "dropToAttach": "Drop files to attach",
-    "recordingTooShort": "Hold the mic a moment longer."
+    "recordingTooShort": "Hold the mic a moment longer.",
+    "attach": "Attach files",
+    "attachDevice": "Upload from device",
+    "attachDrive": "Add from Drive"
   },
   "language": {
     "label": "Language",

@@ -51,7 +51,10 @@
     "releaseToSend": "Suelta para enviar",
     "pttHint": "o mantén ⌘/Ctrl+Espacio",
     "dropToAttach": "Suelta archivos para adjuntar",
-    "recordingTooShort": "Mantén pulsado el micrófono un momento más."
+    "recordingTooShort": "Mantén pulsado el micrófono un momento más.",
+    "attach": "Adjuntar archivos",
+    "attachDevice": "Subir desde el dispositivo",
+    "attachDrive": "Añadir desde Drive"
   },
   "language": {
     "label": "Idioma",

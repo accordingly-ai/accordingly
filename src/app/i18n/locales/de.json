@@ -51,7 +51,10 @@
     "releaseToSend": "Loslassen zum Senden",
     "pttHint": "oder ⌘/Strg+Leertaste halten",
     "dropToAttach": "Dateien zum Anhängen ablegen",
-    "recordingTooShort": "Halte das Mikrofon einen Moment länger."
+    "recordingTooShort": "Halte das Mikrofon einen Moment länger.",
+    "attach": "Dateien anhängen",
+    "attachDevice": "Vom Gerät hochladen",
+    "attachDrive": "Aus Drive hinzufügen"
   },
   "language": {
     "label": "Sprache",
