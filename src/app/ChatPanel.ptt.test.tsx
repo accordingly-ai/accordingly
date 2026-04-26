@@ -11,6 +11,7 @@ interface MockHookState {
   sendMessage: ReturnType<typeof vi.fn>;
   reset: ReturnType<typeof vi.fn>;
   loaded: boolean;
+  isPristine: boolean;
 }
 
 const hookState: MockHookState = {
@@ -20,6 +21,7 @@ const hookState: MockHookState = {
   sendMessage: vi.fn(),
   reset: vi.fn(),
   loaded: true,
+  isPristine: true,
 };
 
 interface MockVoice {
@@ -83,6 +85,7 @@ beforeEach(() => {
   hookState.sendMessage = vi.fn();
   hookState.reset = vi.fn();
   hookState.loaded = true;
+  hookState.isPristine = true;
 
   voiceState.settings = { input: false, output: false, camera: false };
 
