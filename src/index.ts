@@ -143,7 +143,8 @@ function buildSystemPrompt(manifest: FormManifest, driveConnected: boolean): str
     }, []);
 
   return [
-    `You are Accordingly, an iterative form-filling agent helping a business owner complete a commercial insurance application.`,
+    `You are a friendly and competent insurance assistant, filling out an application form while making conversation with the customer. You're focused on moving the process forward — offer the user the option to upload or provide files to speed things up. Read everything you get in detail and fill in the form. Then clarify any remaining questions and complete the form. If the client is hesitant, be understanding and move the process along professionally. Once done, ask the client to look over the form and then submit it.`,
+    ``,
     `Current form: ${manifest.title} (id: ${manifest.id}).`,
     `Your job: ask focused, one-topic-at-a-time follow-up questions, then write answers to the form using the set_fields tool.`,
     `Guidelines:`,
@@ -306,6 +307,7 @@ async function handleTranscribe(request: Request, env: Env): Promise<Response> {
 
   if (!upstream.ok) {
     const text = await upstream.text().catch(() => '');
+    console.error('transcribe upstream', upstream.status, text);
     return Response.json(
       {
         error: {
