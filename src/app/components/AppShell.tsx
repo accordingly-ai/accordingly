@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
-import { useTranslation } from 'react-i18next';
 import { forms } from '../../forms';
-import { LanguageSwitcher } from './LanguageSwitcher';
 import { Logo } from './Logo';
 
 export function AppShell() {
-  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const formList = Object.values(forms);
 
@@ -27,12 +24,12 @@ export function AppShell() {
       >
         <div className="px-5 py-5 flex items-center gap-2 border-b border-neutral-800">
           <Logo className="h-6 w-6 text-neutral-200" />
-          <span className="text-lg font-semibold tracking-tight">{t('app.title')}</span>
+          <span className="text-lg font-semibold tracking-tight">Accordingly</span>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           <div className="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-            {t('nav.forms')}
+            Forms
           </div>
           <ul className="space-y-1">
             {formList.map((f) => (
@@ -54,10 +51,6 @@ export function AppShell() {
             ))}
           </ul>
         </nav>
-
-        <div className="border-t border-neutral-800 px-3 py-3">
-          <LanguageSwitcher />
-        </div>
       </aside>
 
       <div className="flex-1 min-w-0 flex flex-col relative">

@@ -1,5 +1,3 @@
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { forms } from './index';
 import type { FormFieldType, FormManifest } from './types';
@@ -144,23 +142,5 @@ describe.each(cases)('manifest %s', (id, manifest) => {
       }
     }
     expect(offenders, `checkbox row pairs with -N suffixes: ${offenders.join(' | ')}`).toEqual([]);
-  });
-});
-
-describe('locale files', () => {
-  const localeDir = join(import.meta.dirname, 'locales');
-  if (!existsSync(localeDir)) return;
-  const files = readdirSync(localeDir).filter((f) => f.endsWith('.json'));
-
-  it.each(files)('%s keys are a subset of manifest slugs', (file) => {
-    const m = file.match(/^(.+?)\.([a-z]{2})\.json$/);
-    if (!m) return;
-    const [, formId] = m;
-    const manifest = forms[formId];
-    if (!manifest) return;
-    const validSlugs = new Set(manifest.fields.map((f) => f.name));
-    const locale = JSON.parse(readFileSync(join(localeDir, file), 'utf8')) as Record<string, string>;
-    const stale = Object.keys(locale).filter((k) => !validSlugs.has(k));
-    expect(stale, `stale locale keys in ${file}: ${stale.join(', ')}`).toEqual([]);
   });
 });

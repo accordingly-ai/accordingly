@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
 import type { FieldValue } from '../forms/tools';
 import { useChatAgent, type ChatAttachment, type ChatMessage } from './useChatAgent';
@@ -48,13 +47,13 @@ export function ChatPanel({
   resetForm,
   hasAnswers,
 }: ChatPanelProps) {
-  const { t } = useTranslation();
   const { messages, sendMessage, streaming, error, reset, isPristine } = useChatAgent({
     formId,
     manifest,
     answers,
     applyUpdates,
-    welcomeText: t('chat.welcome'),
+    welcomeText:
+      "Hi! I'll help you fill out this application for your client. Tell me what you know about them, or drop in any documents you've got — prior policies, loss runs, business filings — and I'll start filling the form. You can type or use voice.",
   });
   const [input, setInput] = useState('');
   const [collapsed, setCollapsed] = useState(false);
@@ -263,7 +262,7 @@ export function ChatPanel({
     if (!result || result.blob.size === 0) return;
     const { blob, mimeType, durationMs } = result;
     if (durationMs < 250 || blob.size < 1500) {
-      setVoiceError(t('chat.recordingTooShort', 'Hold the mic for a moment longer.'));
+      setVoiceError('Hold the mic a moment longer.');
       return;
     }
     try {
@@ -297,7 +296,7 @@ export function ChatPanel({
       onDrop={onDrop}
     >
       <div className="flex items-center gap-2 px-4 py-2 border-b border-neutral-800 bg-neutral-900 relative">
-        <span className="text-sm font-medium text-neutral-200">{t('chat.title')}</span>
+        <span className="text-sm font-medium text-neutral-200">Assistant</span>
         <span className="text-[11px] text-neutral-500">{manifest.id}</span>
         <div className="ml-auto flex items-center gap-2">
           {tts.playing && (
@@ -305,17 +304,17 @@ export function ChatPanel({
               type="button"
               onClick={tts.stop}
               className="text-[11px] text-neutral-300 hover:text-white border border-neutral-700 rounded px-1.5 py-0.5"
-              title={t('chat.stopPlayback')}
+              title="Stop playback"
             >
-              ■ {t('chat.stop')}
+              ■ Stop
             </button>
           )}
           <button
             type="button"
             onClick={() => setVoiceInput(!settings.input)}
             aria-pressed={settings.input}
-            aria-label={t('chat.voiceInput')}
-            title={t('chat.voiceInput')}
+            aria-label="Voice input"
+            title="Voice input"
             className={
               'w-7 h-7 rounded flex items-center justify-center text-sm ' +
               (settings.input
@@ -329,8 +328,8 @@ export function ChatPanel({
             type="button"
             onClick={() => setVoiceOutput(!settings.output)}
             aria-pressed={settings.output}
-            aria-label={t('chat.voiceOutput')}
-            title={t('chat.voiceOutput')}
+            aria-label="Voice output"
+            title="Voice output"
             className={
               'w-7 h-7 rounded flex items-center justify-center text-sm ' +
               (settings.output
@@ -344,8 +343,8 @@ export function ChatPanel({
             type="button"
             onClick={() => setVoiceCamera(!settings.camera)}
             aria-pressed={settings.camera}
-            aria-label={t('chat.camera')}
-            title={t('chat.camera')}
+            aria-label="Camera"
+            title="Camera"
             className={
               'w-7 h-7 rounded flex items-center justify-center text-sm ' +
               (settings.camera
@@ -358,8 +357,8 @@ export function ChatPanel({
           <button
             type="button"
             onClick={() => setSettingsOpen((v) => !v)}
-            aria-label={t('chat.settings')}
-            title={t('chat.settings')}
+            aria-label="Settings"
+            title="Settings"
             className="w-7 h-7 rounded flex items-center justify-center text-sm text-neutral-400 hover:text-neutral-200"
           >
             ⚙
@@ -369,7 +368,7 @@ export function ChatPanel({
             onClick={() => setCollapsed((v) => !v)}
             className="lg:hidden text-[11px] text-neutral-400 hover:text-neutral-200"
           >
-            {collapsed ? t('chat.open') : t('chat.hide')}
+            {collapsed ? 'Open' : 'Hide'}
           </button>
         </div>
         {settingsOpen && (
@@ -380,7 +379,7 @@ export function ChatPanel({
               disabled={isPristine && !hasAnswers}
               className="w-full text-left px-2 py-1.5 rounded hover:bg-neutral-800 disabled:opacity-40 disabled:hover:bg-transparent"
             >
-              {t('chat.reset')}
+              Reset conversation
             </button>
           </div>
         )}
@@ -389,7 +388,7 @@ export function ChatPanel({
       {!collapsed && dragDepth > 0 && (
         <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center bg-blue-500/10 border-2 border-dashed border-blue-400 rounded">
           <div className="text-sm text-blue-200 font-medium">
-            {t('chat.dropToAttach')}
+            Drop files to attach
           </div>
         </div>
       )}
@@ -401,7 +400,7 @@ export function ChatPanel({
               <MessageBubble key={i} message={m} />
             ))}
             {streaming && (
-              <div className="text-[11px] text-neutral-500 italic">{t('chat.typing')}</div>
+              <div className="text-[11px] text-neutral-500 italic">assistant is typing…</div>
             )}
             {combinedError && (
               <div className="text-[12px] text-red-400 border border-red-900/60 bg-red-950/40 rounded p-2 whitespace-pre-wrap break-words">
@@ -428,8 +427,8 @@ export function ChatPanel({
                 onClick={() => setCameraOpen(true)}
                 disabled={streaming}
                 className="shrink-0 self-end rounded text-white text-sm w-9 h-9 flex items-center justify-center bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500"
-                title={t('chat.takePhoto')}
-                aria-label={t('chat.takePhoto')}
+                title="Take photo of document"
+                aria-label="Take photo of document"
               >
                 📷
               </button>
@@ -457,10 +456,10 @@ export function ChatPanel({
                 }
                 title={
                   recorder.recording
-                    ? t('chat.releaseToSend')
-                    : `${t('chat.holdToTalk')} ${t('chat.pttHint')}`
+                    ? 'Release to send'
+                    : 'Hold to talk or hold ⌘/Ctrl+Space'
                 }
-                aria-label={t('chat.holdToTalk')}
+                aria-label="Hold to talk"
               >
                 {recorder.recording ? '●' : '🎤'}
               </button>
@@ -480,8 +479,8 @@ export function ChatPanel({
               type="button"
               onClick={() => fileInputRef.current?.click()}
               disabled={streaming || recorder.recording}
-              title={t('chat.attach')}
-              aria-label={t('chat.attach')}
+              title="Attach files"
+              aria-label="Attach files"
               className={
                 'shrink-0 self-end rounded text-white text-sm w-9 h-9 flex items-center justify-center ' +
                 'bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500'
@@ -500,7 +499,7 @@ export function ChatPanel({
                 }
               }}
               rows={2}
-              placeholder={recorder.recording ? t('chat.listening') : t('chat.placeholder')}
+              placeholder={recorder.recording ? 'Listening…' : 'Tell me about your client…'}
               className="flex-1 resize-none rounded bg-neutral-800 text-neutral-100 placeholder:text-neutral-500 text-sm px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500"
               disabled={recorder.recording}
             />
@@ -514,7 +513,7 @@ export function ChatPanel({
               }
               className="shrink-0 self-end rounded bg-blue-600 hover:bg-blue-500 disabled:bg-neutral-700 disabled:text-neutral-500 text-white text-sm px-3 py-1.5"
             >
-              {t('chat.send')}
+              Send
             </button>
           </form>
         </>

@@ -9,25 +9,25 @@ describe('formatSavedAgo', () => {
     expect(formatSavedAgo(null, now)).toBeNull();
   });
 
-  it('returns the just-now key within 5 seconds', () => {
-    expect(formatSavedAgo(now - 1_000, now)).toEqual({ key: 'form.savedJustNow' });
-    expect(formatSavedAgo(now - 4_400, now)).toEqual({ key: 'form.savedJustNow' });
+  it('returns the just-now string within 5 seconds', () => {
+    expect(formatSavedAgo(now - 1_000, now)).toBe('saved just now');
+    expect(formatSavedAgo(now - 4_400, now)).toBe('saved just now');
   });
 
   it('reports seconds for sub-minute deltas', () => {
-    expect(formatSavedAgo(now - 30_000, now)).toEqual({ key: 'form.savedSeconds', count: 30 });
+    expect(formatSavedAgo(now - 30_000, now)).toBe('saved 30s ago');
   });
 
   it('reports minutes for sub-hour deltas', () => {
-    expect(formatSavedAgo(now - 5 * 60_000, now)).toEqual({ key: 'form.savedMinutes', count: 5 });
+    expect(formatSavedAgo(now - 5 * 60_000, now)).toBe('saved 5m ago');
   });
 
   it('reports hours for hour-plus deltas', () => {
-    expect(formatSavedAgo(now - 3 * 60 * 60_000, now)).toEqual({ key: 'form.savedHours', count: 3 });
+    expect(formatSavedAgo(now - 3 * 60 * 60_000, now)).toBe('saved 3h ago');
   });
 
-  it('clamps negative deltas (clock skew) to the just-now key', () => {
-    expect(formatSavedAgo(now + 1_000, now)).toEqual({ key: 'form.savedJustNow' });
+  it('clamps negative deltas (clock skew) to the just-now string', () => {
+    expect(formatSavedAgo(now + 1_000, now)).toBe('saved just now');
   });
 });
 
