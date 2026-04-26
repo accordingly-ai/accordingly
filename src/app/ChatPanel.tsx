@@ -107,6 +107,50 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
     lastSpokenIndexRef.current = advanced;
   }, [messages, streaming, settings.output, tts]);
 
+  const ptt = useRef({ active: false });
+
+  useEffect(() => {
+    if (!settings.input) return;
+
+    const isPttCombo = (e: KeyboardEvent) =>
+      e.code === 'Space' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!isPttCombo(e)) return;
+      if (e.repeat) return;
+      if (streaming) return;
+      e.preventDefault();
+      if (ptt.current.active) return;
+      ptt.current.active = true;
+      void startRecording();
+    };
+
+    const onKeyUp = (e: KeyboardEvent) => {
+      if (e.code !== 'Space' && e.key !== 'Meta' && e.key !== 'Control') return;
+      if (!ptt.current.active) return;
+      ptt.current.active = false;
+      e.preventDefault();
+      void stopRecordingAndSend();
+    };
+
+    const onBlurOrHide = () => {
+      if (!ptt.current.active) return;
+      ptt.current.active = false;
+      void stopRecordingAndSend();
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keyup', onKeyUp);
+    window.addEventListener('blur', onBlurOrHide);
+    document.addEventListener('visibilitychange', onBlurOrHide);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('keyup', onKeyUp);
+      window.removeEventListener('blur', onBlurOrHide);
+      document.removeEventListener('visibilitychange', onBlurOrHide);
+    };
+  }, [settings.input, streaming]);
+
   const hasExtracting = pending.some((p) => p.status === 'extracting');
   const readyAttachments = pending.filter(
     (p): p is Extract<PendingAttachment, { status: 'ready' }> => p.status === 'ready',
@@ -444,7 +488,11 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
                     ? 'bg-red-600 animate-pulse'
                     : 'bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500')
                 }
-                title={recorder.recording ? t('chat.releaseToSend') : t('chat.holdToTalk')}
+                title={
+                  recorder.recording
+                    ? t('chat.releaseToSend')
+                    : `${t('chat.holdToTalk')} ${t('chat.pttHint')}`
+                }
                 aria-label={t('chat.holdToTalk')}
               >
                 {recorder.recording ? '●' : '🎤'}
