@@ -31,7 +31,7 @@
     "cameraClose": "Schließen",
     "cameraError": "Kamera konnte nicht gestartet werden",
     "cameraFallback": "Stattdessen Datei auswählen",
-    "welcome": "Hallo! Ich helfe dir, diesen Versicherungsantrag auszufüllen. Erzähl mir von deinem Unternehmen, um zu beginnen — du kannst tippen, die Stimme verwenden oder Dokumente per Drag-and-Drop direkt in den Chat ziehen. Nutze die Schaltflächen oben, um Sprache, Kamera oder Google Drive zu aktivieren, damit ich deine vorhandenen Dateien lesen kann.",
+    "welcome": "Hallo! Ich helfe dir, diesen Versicherungsantrag auszufüllen. Erzähl mir von deinem Unternehmen, um zu beginnen — du kannst tippen, die Stimme verwenden oder Dokumente per Drag-and-Drop direkt in den Chat ziehen. Nutze die Schaltflächen oben, um Sprache oder Kamera zu aktivieren.",
     "emptyPrompt": "Erzähl dem Agenten von deinem Unternehmen und er beginnt, das Formular auszufüllen. Beispiel:",
     "emptyExample": "\"Mein Unternehmen ist Acme Coffee LLC, gegründet 2018, in Brooklyn NY.\"",
     "typing": "Assistent schreibt…",
