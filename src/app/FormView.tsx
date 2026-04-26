@@ -76,6 +76,7 @@ function FieldInput({
   const style = fieldStyle(field, meta);
   const localizedLabel = resolveFieldLabel(formId, field.name, field.label, i18n.resolvedLanguage);
   const title = `${localizedLabel} (${field.name})`;
+  const isFilled = value === true || (typeof value === 'string' && value.length > 0);
 
   if (field.type === 'checkbox') {
     return (
@@ -104,8 +105,8 @@ function FieldInput({
           ...style,
           fontSize: `${Math.max(10, meta.scale * 9)}px`,
           padding: '0 2px',
-          border: '1px solid #93c5fd',
-          background: 'rgba(219, 234, 254, 0.45)',
+          border: isFilled ? '1px solid rgba(147, 197, 253, 0.35)' : '1px solid #93c5fd',
+          background: isFilled ? 'rgba(219, 234, 254, 0.10)' : 'rgba(219, 234, 254, 0.45)',
           color: '#0f172a',
           boxSizing: 'border-box',
         }}
@@ -147,8 +148,8 @@ function FieldInput({
         ...style,
         fontSize: `${Math.max(10, meta.scale * 9)}px`,
         padding: '0 2px',
-        border: '1px solid #93c5fd',
-        background: 'rgba(219, 234, 254, 0.35)',
+        border: isFilled ? '1px solid rgba(147, 197, 253, 0.35)' : '1px solid #93c5fd',
+        background: isFilled ? 'rgba(219, 234, 254, 0.08)' : 'rgba(219, 234, 254, 0.35)',
         color: '#0f172a',
         boxSizing: 'border-box',
       }}
