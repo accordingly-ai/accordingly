@@ -104,7 +104,14 @@ afterEach(() => {
 
 function renderPanel() {
   return render(
-    <ChatPanel formId="acord-125" manifest={manifest} answers={{}} applyUpdates={() => {}} />,
+    <ChatPanel
+      formId="acord-125"
+      manifest={manifest}
+      answers={{}}
+      applyUpdates={() => {}}
+      resetForm={() => {}}
+      hasAnswers={false}
+    />,
   );
 }
 
