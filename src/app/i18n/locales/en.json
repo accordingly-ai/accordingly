@@ -3,13 +3,8 @@
     "title": "Accordingly",
     "tagline": "Iterative form-filling agent for commercial insurance."
   },
-  "home": {
-    "formsHeading": "Forms",
-    "fieldCount_one": "{{count}} field",
-    "fieldCount_other": "{{count}} fields"
-  },
   "nav": {
-    "back": "← Back"
+    "forms": "Forms"
   },
   "form": {
     "fieldsFilled": "{{filled}}/{{total}} fields filled · page {{current}}/{{pages}}",
