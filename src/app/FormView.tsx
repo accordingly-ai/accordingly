@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import type {
   ApplicationAnswers,
@@ -359,19 +359,16 @@ export function FormView() {
   );
 
   if (error) {
-    return <div className="min-h-screen bg-neutral-950 text-red-400 p-8">{error}</div>;
+    return <div className="h-full bg-neutral-950 text-red-400 p-8">{error}</div>;
   }
   if (!manifest) {
-    return <div className="min-h-screen bg-neutral-950 text-neutral-400 p-8">{t('form.loading')}</div>;
+    return <div className="h-full bg-neutral-950 text-neutral-400 p-8">{t('form.loading')}</div>;
   }
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-100 flex flex-col lg:flex-row">
+    <div className="h-full bg-neutral-900 text-neutral-100 flex flex-col lg:flex-row">
       <div className="flex-1 min-w-0 flex flex-col">
-        <div className="sticky top-0 z-10 bg-neutral-950/90 backdrop-blur border-b border-neutral-800 px-6 py-3 flex items-center gap-4">
-          <Link to="/" className="text-blue-400 hover:underline text-sm">
-            {t('nav.back')}
-          </Link>
+        <div className="sticky top-0 z-10 bg-neutral-950/90 backdrop-blur border-b border-neutral-800 px-6 py-3 pl-16 lg:pl-6 flex items-center gap-4">
           <h1 className="text-lg font-semibold">{manifest.title}</h1>
           <div className="text-xs text-neutral-400 ml-auto flex items-center gap-3">
             <span>

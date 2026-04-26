@@ -3,13 +3,8 @@
     "title": "Accordingly",
     "tagline": "Agente iterativo para completar formularios de seguros comerciales."
   },
-  "home": {
-    "formsHeading": "Formularios",
-    "fieldCount_one": "{{count}} campo",
-    "fieldCount_other": "{{count}} campos"
-  },
   "nav": {
-    "back": "← Atrás"
+    "forms": "Formularios"
   },
   "form": {
     "fieldsFilled": "{{filled}}/{{total}} campos completados · página {{current}}/{{pages}}",

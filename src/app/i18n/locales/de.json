@@ -3,13 +3,8 @@
     "title": "Accordingly",
     "tagline": "Iterativer Agent zum Ausfüllen gewerblicher Versicherungsformulare."
   },
-  "home": {
-    "formsHeading": "Formulare",
-    "fieldCount_one": "{{count}} Feld",
-    "fieldCount_other": "{{count}} Felder"
-  },
   "nav": {
-    "back": "← Zurück"
+    "forms": "Formulare"
   },
   "form": {
     "fieldsFilled": "{{filled}}/{{total}} Felder ausgefüllt · Seite {{current}}/{{pages}}",
