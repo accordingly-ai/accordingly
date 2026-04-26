@@ -306,6 +306,7 @@ async function handleTranscribe(request: Request, env: Env): Promise<Response> {
 
   if (!upstream.ok) {
     const text = await upstream.text().catch(() => '');
+    console.error('transcribe upstream', upstream.status, text);
     return Response.json(
       {
         error: {
