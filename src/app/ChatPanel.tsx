@@ -365,10 +365,7 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           <div ref={listRef} className="flex-1 overflow-y-auto px-3 py-3 space-y-3">
             {visible.length === 0 && (
               <div className="text-xs text-neutral-500 leading-relaxed">
-                {t('chat.emptyPrompt')}
-                <div className="mt-2 italic text-neutral-400">
-                  {t('chat.emptyExample')}
-                </div>
+                {t('chat.welcome')}
               </div>
             )}
             {visible.map((m, i) => (
