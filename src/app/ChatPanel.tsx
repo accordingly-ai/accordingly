@@ -177,12 +177,12 @@ export function ChatPanel({
     }));
     setInput('');
     setPending([]);
+    textareaRef.current?.focus();
     if (attachments.length > 0) {
       await sendMessage(text, attachments);
     } else {
       await sendMessage(text);
     }
-    textareaRef.current?.focus();
   };
 
   const handleFiles = (files: FileList | File[]) => {
@@ -502,7 +502,7 @@ export function ChatPanel({
               rows={2}
               placeholder={recorder.recording ? t('chat.listening') : t('chat.placeholder')}
               className="flex-1 resize-none rounded bg-neutral-800 text-neutral-100 placeholder:text-neutral-500 text-sm px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500"
-              disabled={streaming || recorder.recording}
+              disabled={recorder.recording}
             />
             <button
               type="submit"
