@@ -36,6 +36,7 @@
     "cameraClose": "Close",
     "cameraError": "Couldn't start the camera",
     "cameraFallback": "Choose a file instead",
+    "welcome": "Hi! I'll help you fill out this insurance application. Tell me about your business to get started — you can type, use voice, or drag and drop documents right into the chat. Use the buttons above to enable voice, the camera, or link Google Drive so I can read from your existing files.",
     "emptyPrompt": "Tell the agent about your business and it will start filling the form. Try:",
     "emptyExample": "\"My company is Acme Coffee LLC, founded 2018, in Brooklyn NY.\"",
     "typing": "assistant is typing…",
@@ -48,7 +49,9 @@
     "voiceOutput": "Voice output",
     "holdToTalk": "Hold to talk",
     "releaseToSend": "Release to send",
-    "dropToAttach": "Drop files to attach"
+    "pttHint": "or hold ⌘/Ctrl+Space",
+    "dropToAttach": "Drop files to attach",
+    "recordingTooShort": "Hold the mic a moment longer."
   },
   "language": {
     "label": "Language",

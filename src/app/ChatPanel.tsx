@@ -79,11 +79,13 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   const messagesLenRef = useRef(messages.length);
   messagesLenRef.current = messages.length;
 
+  const combinedError = error ?? recorder.error ?? voiceError;
+
   useEffect(() => {
     if (listRef.current) {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
-  }, [messages, streaming]);
+  }, [messages, streaming, combinedError]);
 
   // Pin baseline to latest message on form change or when output is (re)enabled
   // so we don't replay loaded history or backlog.
@@ -106,6 +108,50 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
     }
     lastSpokenIndexRef.current = advanced;
   }, [messages, streaming, settings.output, tts]);
+
+  const ptt = useRef({ active: false });
+
+  useEffect(() => {
+    if (!settings.input) return;
+
+    const isPttCombo = (e: KeyboardEvent) =>
+      e.code === 'Space' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!isPttCombo(e)) return;
+      if (e.repeat) return;
+      if (streaming) return;
+      e.preventDefault();
+      if (ptt.current.active) return;
+      ptt.current.active = true;
+      void startRecording();
+    };
+
+    const onKeyUp = (e: KeyboardEvent) => {
+      if (e.code !== 'Space' && e.key !== 'Meta' && e.key !== 'Control') return;
+      if (!ptt.current.active) return;
+      ptt.current.active = false;
+      e.preventDefault();
+      void stopRecordingAndSend();
+    };
+
+    const onBlurOrHide = () => {
+      if (!ptt.current.active) return;
+      ptt.current.active = false;
+      void stopRecordingAndSend();
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keyup', onKeyUp);
+    window.addEventListener('blur', onBlurOrHide);
+    document.addEventListener('visibilitychange', onBlurOrHide);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('keyup', onKeyUp);
+      window.removeEventListener('blur', onBlurOrHide);
+      document.removeEventListener('visibilitychange', onBlurOrHide);
+    };
+  }, [settings.input, streaming]);
 
   const hasExtracting = pending.some((p) => p.status === 'extracting');
   const readyAttachments = pending.filter(
@@ -206,10 +252,15 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   };
 
   const stopRecordingAndSend = async () => {
-    const blob = await recorder.stop();
-    if (!blob || blob.size === 0) return;
+    const result = await recorder.stop();
+    if (!result || result.blob.size === 0) return;
+    const { blob, mimeType, durationMs } = result;
+    if (durationMs < 250 || blob.size < 1500) {
+      setVoiceError(t('chat.recordingTooShort', 'Hold the mic for a moment longer.'));
+      return;
+    }
     try {
-      const text = await transcribe(blob);
+      const text = await transcribe(blob, mimeType);
       if (text.trim()) {
         await sendMessage(text);
       }
@@ -224,7 +275,6 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   };
 
   const visible = messages.filter((m) => m.role !== 'tool' || true);
-  const combinedError = error ?? recorder.error ?? voiceError;
 
   return (
     <aside
@@ -343,10 +393,7 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
           <div ref={listRef} className="flex-1 overflow-y-auto px-3 py-3 space-y-3">
             {visible.length === 0 && (
               <div className="text-xs text-neutral-500 leading-relaxed">
-                {t('chat.emptyPrompt')}
-                <div className="mt-2 italic text-neutral-400">
-                  {t('chat.emptyExample')}
-                </div>
+                {t('chat.welcome')}
               </div>
             )}
             {visible.map((m, i) => (
@@ -356,7 +403,7 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
               <div className="text-[11px] text-neutral-500 italic">{t('chat.typing')}</div>
             )}
             {combinedError && (
-              <div className="text-[12px] text-red-400 border border-red-900/60 bg-red-950/40 rounded p-2">
+              <div className="text-[12px] text-red-400 border border-red-900/60 bg-red-950/40 rounded p-2 whitespace-pre-wrap break-words">
                 {combinedError}
               </div>
             )}
@@ -407,7 +454,11 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
                     ? 'bg-red-600 animate-pulse'
                     : 'bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500')
                 }
-                title={recorder.recording ? t('chat.releaseToSend') : t('chat.holdToTalk')}
+                title={
+                  recorder.recording
+                    ? t('chat.releaseToSend')
+                    : `${t('chat.holdToTalk')} ${t('chat.pttHint')}`
+                }
                 aria-label={t('chat.holdToTalk')}
               >
                 {recorder.recording ? '●' : '🎤'}

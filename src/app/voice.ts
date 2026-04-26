@@ -72,12 +72,36 @@ interface MicRecorderState {
   error: string | null;
 }
 
+export interface RecordingResult {
+  blob: Blob;
+  mimeType: string;
+  durationMs: number;
+}
+
+const PREFERRED_MIME_TYPES = [
+  'audio/webm;codecs=opus',
+  'audio/mp4;codecs=mp4a.40.2',
+  'audio/ogg;codecs=opus',
+];
+
+function pickSupportedMimeType(): string | undefined {
+  if (typeof MediaRecorder === 'undefined' || typeof MediaRecorder.isTypeSupported !== 'function') {
+    return undefined;
+  }
+  for (const candidate of PREFERRED_MIME_TYPES) {
+    if (MediaRecorder.isTypeSupported(candidate)) return candidate;
+  }
+  return undefined;
+}
+
 export function useMicRecorder() {
   const [state, setState] = useState<MicRecorderState>({ recording: false, error: null });
   const recorderRef = useRef<MediaRecorder | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const chunksRef = useRef<Blob[]>([]);
-  const stopResolverRef = useRef<((blob: Blob) => void) | null>(null);
+  const mimeTypeRef = useRef<string>('audio/webm');
+  const startedAtRef = useRef<number>(0);
+  const stopResolverRef = useRef<((result: RecordingResult) => void) | null>(null);
 
   useEffect(() => {
     return () => {
@@ -91,14 +115,19 @@ export function useMicRecorder() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
-      const mr = new MediaRecorder(stream);
+      const chosen = pickSupportedMimeType();
+      const mr = chosen ? new MediaRecorder(stream, { mimeType: chosen }) : new MediaRecorder(stream);
+      mimeTypeRef.current = mr.mimeType || chosen || 'audio/webm';
       chunksRef.current = [];
       mr.ondataavailable = (e) => {
         if (e.data && e.data.size > 0) chunksRef.current.push(e.data);
       };
       mr.onstop = () => {
-        const type = mr.mimeType || 'audio/webm';
+        const type = mr.mimeType || mimeTypeRef.current || 'audio/webm';
         const blob = new Blob(chunksRef.current, { type });
+        const durationMs = startedAtRef.current
+          ? performance.now() - startedAtRef.current
+          : 0;
         chunksRef.current = [];
         streamRef.current?.getTracks().forEach((t) => t.stop());
         streamRef.current = null;
@@ -106,9 +135,10 @@ export function useMicRecorder() {
         const resolver = stopResolverRef.current;
         stopResolverRef.current = null;
         setState({ recording: false, error: null });
-        resolver?.(blob);
+        resolver?.({ blob, mimeType: type, durationMs });
       };
       recorderRef.current = mr;
+      startedAtRef.current = performance.now();
       mr.start();
       setState({ recording: true, error: null });
     } catch (e) {
@@ -121,16 +151,20 @@ export function useMicRecorder() {
     }
   }, []);
 
-  const stop = useCallback(async (): Promise<Blob | null> => {
+  const stop = useCallback(async (): Promise<RecordingResult | null> => {
     const mr = recorderRef.current;
     if (!mr) return null;
-    return new Promise<Blob>((resolve) => {
+    return new Promise<RecordingResult>((resolve) => {
       stopResolverRef.current = resolve;
       try {
         mr.stop();
       } catch {
         stopResolverRef.current = null;
-        resolve(new Blob([], { type: 'audio/webm' }));
+        resolve({
+          blob: new Blob([], { type: mimeTypeRef.current || 'audio/webm' }),
+          mimeType: mimeTypeRef.current || 'audio/webm',
+          durationMs: 0,
+        });
       }
     });
   }, []);
@@ -138,9 +172,18 @@ export function useMicRecorder() {
   return { start, stop, recording: state.recording, error: state.error };
 }
 
-export async function transcribe(blob: Blob): Promise<string> {
+function extensionForMime(mime: string): string {
+  const m = mime.toLowerCase();
+  if (m.startsWith('audio/webm')) return 'webm';
+  if (m.startsWith('audio/mp4') || m.startsWith('audio/x-m4a')) return 'm4a';
+  if (m.startsWith('audio/ogg')) return 'ogg';
+  if (m.startsWith('audio/wav') || m.startsWith('audio/x-wav')) return 'wav';
+  return 'webm';
+}
+
+export async function transcribe(blob: Blob, mimeType?: string): Promise<string> {
   const form = new FormData();
-  const ext = blob.type.includes('mp4') ? 'mp4' : blob.type.includes('ogg') ? 'ogg' : 'webm';
+  const ext = extensionForMime(mimeType ?? blob.type);
   form.append('file', blob, `audio.${ext}`);
   const res = await fetch('/api/transcribe', { method: 'POST', body: form });
   if (!res.ok) {

@@ -36,6 +36,7 @@
     "cameraClose": "Cerrar",
     "cameraError": "No se pudo iniciar la cámara",
     "cameraFallback": "Elegir un archivo en su lugar",
+    "welcome": "¡Hola! Te ayudaré a completar esta solicitud de seguro. Cuéntame sobre tu negocio para empezar — puedes escribir, usar la voz o arrastrar y soltar documentos directamente en el chat. Usa los botones de arriba para activar la voz, la cámara o conectar Google Drive para que pueda leer tus archivos existentes.",
     "emptyPrompt": "Cuéntale al agente sobre tu negocio y empezará a completar el formulario. Prueba:",
     "emptyExample": "\"Mi empresa es Acme Coffee LLC, fundada en 2018, en Brooklyn NY.\"",
     "typing": "el asistente está escribiendo…",
@@ -48,7 +49,9 @@
     "voiceOutput": "Salida de voz",
     "holdToTalk": "Mantén pulsado para hablar",
     "releaseToSend": "Suelta para enviar",
-    "dropToAttach": "Suelta archivos para adjuntar"
+    "pttHint": "o mantén ⌘/Ctrl+Espacio",
+    "dropToAttach": "Suelta archivos para adjuntar",
+    "recordingTooShort": "Mantén pulsado el micrófono un momento más."
   },
   "language": {
     "label": "Idioma",
