@@ -31,7 +31,7 @@
     "cameraClose": "Close",
     "cameraError": "Couldn't start the camera",
     "cameraFallback": "Choose a file instead",
-    "welcome": "Hi! I'll help you fill out this application for your client. Tell me what you know about them, or drop in any documents you've got — prior policies, loss runs, business filings — and I'll start filling the form. You can type, use voice, or link Google Drive.",
+    "welcome": "Hi! I'll help you fill out this application for your client. Tell me what you know about them, or drop in any documents you've got — prior policies, loss runs, business filings — and I'll start filling the form. You can type or use voice.",
     "emptyPrompt": "Tell me about your client and I'll start filling the form. Try:",
     "emptyExample": "\"Client is Acme Coffee LLC, founded 2018, in Brooklyn NY. Renewal — prior carrier was Hartford.\"",
     "typing": "assistant is typing…",
