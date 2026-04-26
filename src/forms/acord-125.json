@@ -183,6 +183,167 @@
       "option": "no"
     },
     {
+      "name": "entity-type",
+      "pdfName": "Check Box165",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        18.5457,
+        457.538,
+        16.6272,
+        9.592999999999961
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "individual"
+    },
+    {
+      "name": "entity-type",
+      "pdfName": "Check Box167",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        87.6124,
+        456.899,
+        12.150600000000011,
+        9.591999999999985
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "corporation"
+    },
+    {
+      "name": "entity-type",
+      "pdfName": "Check Box169",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        159.877,
+        456.259,
+        12.789999999999992,
+        11.510999999999967
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "subchapter-s-corporation"
+    },
+    {
+      "name": "entity-type",
+      "pdfName": "Check Box171",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        231.501,
+        456.899,
+        12.790999999999997,
+        10.870999999999981
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "llc"
+    },
+    {
+      "name": "entity-type",
+      "pdfName": "Check Box166",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        18.5457,
+        445.387,
+        16.6272,
+        9.593000000000018
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "joint-venture"
+    },
+    {
+      "name": "entity-type",
+      "pdfName": "Check Box168",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        87.6124,
+        444.748,
+        12.150600000000011,
+        9.591999999999985
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "partnership"
+    },
+    {
+      "name": "entity-type",
+      "pdfName": "Check Box170",
+      "type": "radio",
+      "label": "APPLICANT ENTITY TYPE",
+      "page": 0,
+      "rect": [
+        159.877,
+        444.748,
+        12.149999999999977,
+        10.232000000000028
+      ],
+      "options": [
+        "individual",
+        "corporation",
+        "subchapter-s-corporation",
+        "llc",
+        "joint-venture",
+        "partnership",
+        "not-for-profit-org"
+      ],
+      "option": "not-for-profit-org"
+    },
+    {
       "name": "bribery-arson-or-any-other-arson-related-crime-in-connection",
       "pdfName": "Check Box9",
       "type": "radio",
@@ -1873,97 +2034,6 @@
         "no"
       ],
       "option": "no"
-    },
-    {
-      "name": "address-es",
-      "pdfName": "Check Box165",
-      "type": "checkbox",
-      "label": "ADDRESS(ES):",
-      "page": 0,
-      "rect": [
-        18.5457,
-        457.538,
-        16.6272,
-        9.592999999999961
-      ]
-    },
-    {
-      "name": "individual-2",
-      "pdfName": "Check Box167",
-      "type": "checkbox",
-      "label": "INDIVIDUAL",
-      "page": 0,
-      "rect": [
-        87.6124,
-        456.899,
-        12.150600000000011,
-        9.591999999999985
-      ]
-    },
-    {
-      "name": "subchapter-s",
-      "pdfName": "Check Box169",
-      "type": "checkbox",
-      "label": "SUBCHAPTER \"S\"",
-      "page": 0,
-      "rect": [
-        159.877,
-        456.259,
-        12.789999999999992,
-        11.510999999999967
-      ]
-    },
-    {
-      "name": "subchapter-s-2",
-      "pdfName": "Check Box171",
-      "type": "checkbox",
-      "label": "SUBCHAPTER \"S\"",
-      "page": 0,
-      "rect": [
-        231.501,
-        456.899,
-        12.790999999999997,
-        10.870999999999981
-      ]
-    },
-    {
-      "name": "individual",
-      "pdfName": "Check Box166",
-      "type": "checkbox",
-      "label": "INDIVIDUAL",
-      "page": 0,
-      "rect": [
-        18.5457,
-        445.387,
-        16.6272,
-        9.593000000000018
-      ]
-    },
-    {
-      "name": "partnership",
-      "pdfName": "Check Box168",
-      "type": "checkbox",
-      "label": "PARTNERSHIP",
-      "page": 0,
-      "rect": [
-        87.6124,
-        444.748,
-        12.150600000000011,
-        9.591999999999985
-      ]
-    },
-    {
-      "name": "corporation",
-      "pdfName": "Check Box170",
-      "type": "checkbox",
-      "label": "CORPORATION",
-      "page": 0,
-      "rect": [
-        159.877,
-        444.748,
-        12.149999999999977,
-        10.232000000000028
-      ]
     },
     {
       "name": "no-of-members",

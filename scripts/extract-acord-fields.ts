@@ -296,10 +296,24 @@ interface PairOverride {
   label: string;
 }
 
+interface GroupMember {
+  rawName: string;
+  widgetIdx?: number;
+  option: string;
+}
+
+interface GroupOverride {
+  name: string;
+  label: string;
+  members: GroupMember[];
+}
+
 interface OverrideFile {
   _pairs?: PairOverride[];
+  _groups?: GroupOverride[];
   [rawName: string]:
     | PairOverride[]
+    | GroupOverride[]
     | OverrideEntry
     | { widgets: OverrideEntry[] }
     | { byPage: Record<string, OverrideEntry> }
@@ -341,7 +355,7 @@ export function normalizeOverrides(file: OverrideFile, rawFields: RawField[]): N
   const splitRawNames = new Set<string>();
 
   for (const [rawName, raw] of Object.entries(file)) {
-    if (rawName === '_pairs') continue;
+    if (rawName === '_pairs' || rawName === '_groups') continue;
     if (!raw || typeof raw !== 'object') continue;
     const rf = byRawName.get(rawName);
     const hasWidgets = 'widgets' in raw && Array.isArray((raw as { widgets?: unknown }).widgets);
@@ -498,6 +512,81 @@ export function applyPairOverrides(
   }
 
   return { groups, claimed };
+}
+
+/**
+ * Validate `_groups` declarations against the discovered rawFields and return
+ * one synthetic radio group per declaration plus the set of widget keys
+ * (`${rawName}#${idx}`) the declarations claim. Throws on any mismatch.
+ *
+ * Like `_pairs`, but for N-way mutually-exclusive checkbox groups (e.g. an
+ * applicant entity-type row of seven checkboxes).
+ */
+export function applyGroupOverrides(
+  groupsDecl: GroupOverride[] | undefined,
+  rawFields: RawField[],
+): { groups: LogicalGroup[]; claimed: Set<string> } {
+  const out: LogicalGroup[] = [];
+  const claimed = new Set<string>();
+  if (!groupsDecl || groupsDecl.length === 0) return { groups: out, claimed };
+
+  const byRawName = new Map<string, RawField>();
+  for (const rf of rawFields) byRawName.set(rf.rawName, rf);
+
+  for (const g of groupsDecl) {
+    if (!g || typeof g !== 'object') {
+      throw new Error(`_groups: entry is not an object`);
+    }
+    if (typeof g.name !== 'string' || typeof g.label !== 'string') {
+      throw new Error(`_groups: entry missing name/label`);
+    }
+    if (!Array.isArray(g.members) || g.members.length === 0) {
+      throw new Error(`_groups[${g.name}]: members must be a non-empty array`);
+    }
+
+    const widgets: WidgetRef[] = [];
+    const options: string[] = [];
+    for (const m of g.members) {
+      if (!m || typeof m.rawName !== 'string' || typeof m.option !== 'string') {
+        throw new Error(`_groups[${g.name}]: member missing rawName/option`);
+      }
+      const widgetIdx = m.widgetIdx ?? 0;
+      const rf = byRawName.get(m.rawName);
+      if (!rf) {
+        throw new Error(`_groups[${g.name}]: rawName "${m.rawName}" not found in form`);
+      }
+      if (!rf.widgets[widgetIdx]) {
+        throw new Error(
+          `_groups[${g.name}]: rawName "${m.rawName}" has no widget at index ${widgetIdx} (count=${rf.widgets.length})`,
+        );
+      }
+      if (rf.type !== 'checkbox') {
+        throw new Error(
+          `_groups[${g.name}]: rawName "${m.rawName}" is type "${rf.type}", expected checkbox`,
+        );
+      }
+      const w = rf.widgets[widgetIdx];
+      claimed.add(`${m.rawName}#${widgetIdx}`);
+      widgets.push({
+        rawName: m.rawName,
+        widgetIdx,
+        page: w.page,
+        rect: w.rect,
+        option: m.option,
+      });
+      options.push(m.option);
+    }
+
+    out.push({
+      slug: g.name,
+      label: g.label,
+      type: 'radio',
+      options,
+      widgets,
+    });
+  }
+
+  return { groups: out, claimed };
 }
 
 // --- Y/N pair detection --------------------------------------------------
@@ -704,7 +793,12 @@ async function extract(pdfPath: string): Promise<Manifest> {
     overrideFile._pairs,
     rawFields,
   );
-  groups.push(...pairGroups);
+  const { groups: groupGroups, claimed: claimedFromGroups } = applyGroupOverrides(
+    overrideFile._groups,
+    rawFields,
+  );
+  for (const k of claimedFromGroups) claimedWidgets.add(k);
+  groups.push(...pairGroups, ...groupGroups);
 
   if (anyTU) {
     // Path A: one group per rawField, slug from raw name, label from TU.
