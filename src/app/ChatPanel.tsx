@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import type { ApplicationAnswers, FormManifest } from '../forms/types';
 import type { FieldValue } from '../forms/tools';
 import { useChatAgent, type ChatAttachment, type ChatMessage } from './useChatAgent';
-import { extractDocument, extractDroppedFile } from './drive/extractors';
+import { extractDroppedFile } from './drive/extractors';
+import { CameraCaptureModal } from './CameraCaptureModal';
 import {
   transcribe,
   useMicRecorder,
@@ -62,9 +63,8 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
   const [voiceError, setVoiceError] = useState<string | null>(null);
   const [pending, setPending] = useState<PendingAttachment[]>([]);
   const [dragDepth, setDragDepth] = useState(0);
-  const [scanning, setScanning] = useState(false);
+  const [cameraOpen, setCameraOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
-  const cameraInputRef = useRef<HTMLInputElement>(null);
 
   const {
     settings,
@@ -223,28 +223,6 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
     await recorder.start();
   };
 
-  const onCameraFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    e.target.value = '';
-    if (!file) return;
-    if (!file.type.startsWith('image/')) {
-      setVoiceError(`Unsupported file type: ${file.type || 'unknown'}`);
-      return;
-    }
-    setVoiceError(null);
-    setScanning(true);
-    try {
-      const buf = await file.arrayBuffer();
-      const { text } = await extractDocument(buf, file.type, file.name);
-      const preamble = '[Scanned document]\n';
-      setInput((prev) => `${prev ? `${prev}\n\n` : ''}${preamble}${text}\n\n`);
-    } catch (err) {
-      setVoiceError(err instanceof Error ? err.message : String(err));
-    } finally {
-      setScanning(false);
-    }
-  };
-
   const visible = messages.filter((m) => m.role !== 'tool' || true);
   const combinedError = error ?? recorder.error ?? voiceError;
 
@@ -397,31 +375,16 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
             className="border-t border-neutral-800 p-2 flex gap-2 bg-neutral-900 items-end"
           >
             {settings.camera && (
-              <>
-                <input
-                  ref={cameraInputRef}
-                  type="file"
-                  accept="image/*"
-                  capture="environment"
-                  className="hidden"
-                  onChange={onCameraFile}
-                />
-                <button
-                  type="button"
-                  onClick={() => cameraInputRef.current?.click()}
-                  disabled={streaming || scanning}
-                  className={
-                    'shrink-0 self-end rounded text-white text-sm w-9 h-9 flex items-center justify-center ' +
-                    (scanning
-                      ? 'bg-neutral-600 animate-pulse'
-                      : 'bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500')
-                  }
-                  title={scanning ? t('chat.scanning') : t('chat.takePhoto')}
-                  aria-label={t('chat.takePhoto')}
-                >
-                  {scanning ? '…' : '📷'}
-                </button>
-              </>
+              <button
+                type="button"
+                onClick={() => setCameraOpen(true)}
+                disabled={streaming}
+                className="shrink-0 self-end rounded text-white text-sm w-9 h-9 flex items-center justify-center bg-neutral-700 hover:bg-neutral-600 disabled:bg-neutral-800 disabled:text-neutral-500"
+                title={t('chat.takePhoto')}
+                aria-label={t('chat.takePhoto')}
+              >
+                📷
+              </button>
             )}
             {settings.input && (
               <button
@@ -478,6 +441,15 @@ export function ChatPanel({ formId, manifest, answers, applyUpdates }: ChatPanel
             </button>
           </form>
         </>
+      )}
+      {cameraOpen && (
+        <CameraCaptureModal
+          onCapture={(file) => {
+            setCameraOpen(false);
+            handleFiles([file]);
+          }}
+          onClose={() => setCameraOpen(false)}
+        />
       )}
     </aside>
   );
